@@ -8,7 +8,7 @@ class BookStore {
 
 	constructor(rootStore) {
 		this.rootStore = rootStore;
-		this.api = new Api("books");
+		this.api = new Api("teams");
 		this.api.getAll().then(d => d.forEach(this._addBook));
 	}
 

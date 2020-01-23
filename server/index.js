@@ -22,11 +22,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-	res.json({ message: "up and running" });
+	res.json({ message: "up and first running" });
 });
 
-require("./app/routes/books.routes.js")(app);
-require("./app/routes/authors.routes.js")(app);
+require("./app/routes/teams.routes.js")(app);
+require("./app/routes/users.routes.js")(app);
 
 app.listen(process.env.PORT, () => {
 	console.log(`Server luistert op poort ${process.env.PORT}`);

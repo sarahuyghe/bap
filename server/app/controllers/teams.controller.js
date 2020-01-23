@@ -1,4 +1,4 @@
-const Book = require('../models/book.model.js');
+const Book = require('../models/team.model.js');
 
 exports.create = (req, res) => {
   if (!req.body.title) {
