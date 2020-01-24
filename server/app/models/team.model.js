@@ -6,7 +6,7 @@ const TeamSchema = mongoose.Schema(
 		teamnaam: String,
 		name: String,
 		firstname: String,
-		why: String,
+		reason: String,
 		mail: String
 	},
 	{

@@ -13,9 +13,8 @@ class MessageStore {
 
 	addMessage = data => {
 		console.log(data);
-		const newMessage = new Message(this.rootStore);
-		newMessage.updateFromServer(data);
-		// this.teams.push(newTeam);
+		const newMessage = new Message(data);
+		// newMessage.updateFromServer(data);
 		console.log(newMessage);
 		this.api
 			.create(newMessage)

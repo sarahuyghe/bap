@@ -8,7 +8,7 @@ exports.create = (req, res) => {
 		teamnaam: req.body.teamnaam,
 		name: req.body.name,
 		firstname: req.body.firstname,
-		why: req.body.why
+		reason: req.body.reason
 		// authorId: req.body.authorId //deze moet er nu pas staan
 	});
 

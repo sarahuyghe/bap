@@ -4,7 +4,8 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const MessageSchema = mongoose.Schema(
 	{
 		message: String,
-		name: String
+		name: String,
+		teamId: ObjectId
 	},
 	{
 		timestamps: true

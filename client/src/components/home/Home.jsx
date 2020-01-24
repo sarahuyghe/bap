@@ -16,7 +16,7 @@ const Home = ({ teamStore }) => {
 			teamnaam: teamNameInput.current.value,
 			name: naamInput.current.value,
 			firstname: voornaamInput.current.value,
-			why: whyInput.current.value,
+			reason: whyInput.current.value,
 			mail: mailInput.current.value,
 			event: eventInput.current.value
 		});

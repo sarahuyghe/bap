@@ -5,12 +5,18 @@ const Symptonen = ({ teamStore, messageStore }) => {
 	const { teams } = teamStore;
 	const messageInput = React.createRef();
 	const naamInput = React.createRef();
+	const teamInput = React.createRef();
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		console.log(teamInput.current.value);
+
+		console.log(parseInt(teamInput.current.value));
+
 		messageStore.addMessage({
 			message: messageInput.current.value,
-			name: naamInput.current.value
+			name: naamInput.current.value,
+			teamId: teamInput.current.value
 		});
 
 		messageInput.current.value = "";
@@ -18,8 +24,16 @@ const Symptonen = ({ teamStore, messageStore }) => {
 	};
 	return (
 		<form onSubmit={handleSubmit}>
+			<select ref={teamInput}>
+				{teams.map(team => (
+					<option key={team.id} value={team.id}>
+						{team.teamnaam}
+					</option>
+				))}
+			</select>
+			<br />
 			<label>
-				TeamNaam
+				Message
 				<input type="text" name="teamnaam" ref={messageInput} />
 			</label>
 			<br />

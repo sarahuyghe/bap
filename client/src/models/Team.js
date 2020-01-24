@@ -6,7 +6,7 @@ class Team {
 		this.teamnaam = data.teamnaam;
 		this.name = data.name;
 		this.firstname = data.firstname;
-		this.why = data.why;
+		this.reason = data.reason;
 		this.mail = data.mail;
 	}
 
@@ -14,7 +14,7 @@ class Team {
 	setTeamnaam = value => (this.teamnaam = value);
 	setName = value => (this.name = value);
 	setFirstName = value => (this.firstname = value);
-	setWhy = value => (this.why = value);
+	setReason = value => (this.reason = value);
 	setMail = value => (this.mail = value);
 
 	get values() {
@@ -22,7 +22,7 @@ class Team {
 			teamnaam: this.teamnaam,
 			name: this.name,
 			firstname: this.firstname,
-			why: this.why,
+			reason: this.reason,
 			mail: this.mail
 		};
 	}
@@ -36,7 +36,7 @@ class Team {
 		this.setTeamnaam(values.teamnaam);
 		this.setName(values.name);
 		this.setFirstName(values.firstname);
-		this.setWhy(values.why);
+		this.setReason(values.reason);
 		this.setMail(values.mail);
 	};
 }
@@ -46,14 +46,14 @@ decorate(Team, {
 	name: observable,
 	firstname: observable,
 	teamnaam: observable,
-	why: observable,
+	reason: observable,
 	mail: observable,
 
 	setId: action,
 	setTeamnaam: action,
 	setName: action,
 	setFirstName: action,
-	setWhy: action,
+	setReason: action,
 	setMail: action,
 
 	values: computed
