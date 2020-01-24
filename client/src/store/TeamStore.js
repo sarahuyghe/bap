@@ -1,9 +1,9 @@
 import { decorate, observable, configure, action, runInAction } from "mobx";
-import Book from "../models/Book";
+import Team from "../models/Team";
 import Api from "../api";
 
 configure({ enforceActions: "observed" });
-class BookStore {
+class TeamStore {
 	books = [];
 
 	constructor(rootStore) {
@@ -13,7 +13,7 @@ class BookStore {
 	}
 
 	addBook = data => {
-		const newBook = new Book(this.rootStore);
+		const newBook = new Team(this.rootStore);
 		newBook.updateFromServer(data);
 		this.books.push(newBook);
 		this.api
@@ -22,7 +22,7 @@ class BookStore {
 	};
 
 	_addBook = values => {
-		const book = new Book(this.rootStore);
+		const book = new Team(this.rootStore);
 		book.updateFromServer(values);
 		runInAction(() => this.books.push(book));
 	};
@@ -37,10 +37,10 @@ class BookStore {
 	};
 }
 
-decorate(BookStore, {
+decorate(TeamStore, {
 	books: observable,
 	addBook: action,
 	deleteBook: action
 });
 
-export default BookStore;
+export default TeamStore;

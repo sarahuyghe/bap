@@ -1,9 +1,9 @@
-import BookStore from "./BookStore";
+import TeamStore from "./TeamStore";
 // import AuthorStore from "./AuthorStore";
 
 class RootStore {
 	constructor() {
-		this.bookStore = new BookStore(this);
+		this.teamStore = new TeamStore(this);
 		// this.authorStore = new AuthorStore(this);
 	}
 }

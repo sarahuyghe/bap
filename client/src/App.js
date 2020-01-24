@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+import { Route, Switch } from "react-router-dom";
+import { ROUTES } from "./constants/";
+
+import Home from "./components/home/Home";
+import Why from "./components/home/Why";
+import Symptonen from "./components/home/Symptonen";
+import Login from "./components/auth/LoginForm";
+
+import Navigation from "./components/navigation/Navigation";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<>
+			<Navigation />
+			<Switch>
+				<Route path={ROUTES.home} exact strict component={Home} />
+				<Route path={ROUTES.why} component={Why} />
+				<Route path={ROUTES.symptonen} component={Symptonen} />
+				<Route path={ROUTES.login} component={Login} />
+			</Switch>
+			{/* <Home /> */}
+		</>
+	);
 }
 
 export default App;
