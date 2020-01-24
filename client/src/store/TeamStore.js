@@ -4,43 +4,45 @@ import Api from "../api";
 
 configure({ enforceActions: "observed" });
 class TeamStore {
-	books = [];
+	teams = [];
 
 	constructor(rootStore) {
 		this.rootStore = rootStore;
 		this.api = new Api("teams");
-		this.api.getAll().then(d => d.forEach(this._addBook));
+		this.api.getAll().then(d => d.forEach(this._addTeam));
 	}
 
-	addBook = data => {
-		const newBook = new Team(this.rootStore);
-		newBook.updateFromServer(data);
-		this.books.push(newBook);
+	addTeam = data => {
+		console.log(data);
+		const newTeam = new Team(this.rootStore);
+		newTeam.updateFromServer(data);
+		this.teams.push(newTeam);
+		console.log(this.teams);
 		this.api
-			.create(newBook)
-			.then(bookValues => newBook.updateFromServer(bookValues));
+			.create(newTeam)
+			.then(teamValues => newTeam.updateFromServer(teamValues));
 	};
 
-	_addBook = values => {
-		const book = new Team(this.rootStore);
-		book.updateFromServer(values);
-		runInAction(() => this.books.push(book));
+	_addTeam = values => {
+		const team = new Team(values);
+		team.updateFromServer(values);
+		runInAction(() => this.teams.push(team));
 	};
 
-	updateBook = book => {
-		this.api.update(book).then(bookValues => book.updateFromServer(bookValues));
+	updateTeam = team => {
+		this.api.update(team).then(teamValues => team.updateFromServer(teamValues));
 	};
 
-	deleteBook = book => {
-		this.books.remove(book);
-		this.api.delete(book);
+	deleteTeam = team => {
+		this.teams.remove(team);
+		this.api.delete(team);
 	};
 }
 
 decorate(TeamStore, {
-	books: observable,
-	addBook: action,
-	deleteBook: action
+	teams: observable,
+	addTeam: action,
+	deleteTeam: action
 });
 
 export default TeamStore;

@@ -1,27 +1,29 @@
 const Team = require("../models/team.model.js");
 
 exports.create = (req, res) => {
-	if (!req.body.name) {
+	if (!req.body.teamnaam) {
 		return res.status(500).send({ err: "title can not be empty" });
 	}
-
-	const book = new Team({
-		name: req.body.name
+	const team = new Team({
+		teamnaam: req.body.teamnaam,
+		name: req.body.name,
+		firstname: req.body.firstname,
+		why: req.body.why
 		// authorId: req.body.authorId //deze moet er nu pas staan
 	});
 
-	book
+	team
 		.save()
-		.then(book => res.send(book))
+		.then(team => res.send(team))
 		.catch(err => {
-			res.status(500).send({ error: err.book || "Error" });
+			res.status(500).send({ error: err.team || "Error" });
 		});
 };
 
 exports.findAll = async (req, res) => {
 	try {
-		const books = await Book.find();
-		res.send(books);
+		const teams = await Team.find();
+		res.send(teams);
 	} catch (err) {
 		res.status(500).send({ err: err.book || "Error" });
 	}
@@ -29,7 +31,7 @@ exports.findAll = async (req, res) => {
 
 exports.findOne = async (req, res) => {
 	try {
-		const book = await Book.findById(req.params.bookId);
+		const book = await Team.findById(req.params.bookId);
 		if (book) {
 			res.send(book);
 		} else {

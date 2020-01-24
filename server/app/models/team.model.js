@@ -3,8 +3,11 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const TeamSchema = mongoose.Schema(
 	{
+		teamnaam: String,
 		name: String,
-		why: String
+		firstname: String,
+		why: String,
+		mail: String
 	},
 	{
 		timestamps: true

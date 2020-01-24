@@ -1,39 +1,63 @@
 import uuid from "uuid";
 import { decorate, observable, action, computed } from "mobx";
 class Team {
-	constructor(store, id = uuid.v4()) {
+	constructor(data, id = uuid.v4()) {
 		this.id = id;
-		this.store = store;
+		this.teamnaam = data.teamnaam;
+		this.name = data.name;
+		this.firstname = data.firstname;
+		this.why = data.why;
+		this.mail = data.mail;
 	}
 
 	setId = id => (this.id = id);
-	setTitle = value => (this.title = value);
-	setAuthorId = value => (this.authorId = value);
+	setTeamnaam = value => (this.teamnaam = value);
+	setName = value => (this.name = value);
+	setFirstName = value => (this.firstname = value);
+	setWhy = value => (this.why = value);
+	setMail = value => (this.mail = value);
 
 	get values() {
-		return { title: this.title, authorId: this.authorId };
+		return {
+			teamnaam: this.teamnaam,
+			name: this.name,
+			firstname: this.firstname,
+			why: this.why,
+			mail: this.mail
+		};
 	}
 
-	get author() {
-		return this.store.authorStore.resolveAuthor(this.authorId);
-	}
+	// get author() {
+	// 	return this.store.authorStore.resolveAuthor(this.authorId);
+	// }
 
 	updateFromServer = values => {
 		this.setId(values._id);
-		this.setTitle(values.title);
-		this.setAuthorId(values.authorId);
+		this.setTeamnaam(values.teamnaam);
+		this.setName(values.name);
+		this.setFirstName(values.firstname);
+		this.setWhy(values.why);
+		this.setMail(values.mail);
 	};
 }
 
 decorate(Team, {
 	id: observable,
-	authorId: observable,
-	title: observable,
+	name: observable,
+	firstname: observable,
+	teamnaam: observable,
+	why: observable,
+	mail: observable,
+
 	setId: action,
-	setTitle: action,
-	setAuthorId: action,
-	values: computed,
-	author: computed
+	setTeamnaam: action,
+	setName: action,
+	setFirstName: action,
+	setWhy: action,
+	setMail: action,
+
+	values: computed
+	// author: computed
 });
 
 export default Team;

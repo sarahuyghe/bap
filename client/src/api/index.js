@@ -8,29 +8,29 @@ class Api {
 		return await r.json();
 	};
 
-	create = async book => {
+	create = async team => {
 		const r = await fetch(
 			`http://localhost:4000/${this.entity}`,
-			this.getOptions("post", book.values)
+			this.getOptions("post", team.values)
 		);
 		return await r.json();
 	};
 
-	update = async book => {
-		const r = await fetch(
-			`http://localhost:4000/${this.entity}/${book.id}`,
-			this.getOptions("put", book.values)
-		);
-		return await r.json();
-	};
+	// update = async book => {
+	// 	const r = await fetch(
+	// 		`http://localhost:4000/${this.entity}/${book.id}`,
+	// 		this.getOptions("put", book.values)
+	// 	);
+	// 	return await r.json();
+	// };
 
-	delete = async book => {
-		const r = await fetch(
-			`http://localhost:4000/${this.entity}/${book.id}`,
-			this.getOptions("delete")
-		);
-		return r.json();
-	};
+	// delete = async book => {
+	// 	const r = await fetch(
+	// 		`http://localhost:4000/${this.entity}/${book.id}`,
+	// 		this.getOptions("delete")
+	// 	);
+	// 	return r.json();
+	// };
 
 	getOptions = (method, body = null) => {
 		const options = {
