@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
 
 require("./app/routes/teams.routes.js")(app);
 require("./app/routes/users.routes.js")(app);
+require("./app/routes/messages.routes.js")(app);
 
 app.listen(process.env.PORT, () => {
 	console.log(`Server luistert op poort ${process.env.PORT}`);

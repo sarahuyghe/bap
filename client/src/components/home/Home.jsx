@@ -1,8 +1,6 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 
-// import store from "../../store";
-
 const Home = ({ teamStore }) => {
 	const { teams } = teamStore;
 	const teamNameInput = React.createRef();
@@ -67,7 +65,6 @@ const Home = ({ teamStore }) => {
 					</select>
 				</label>
 				<br />
-
 				<input type="submit" value="bevestigen" />
 			</form>
 		</>
