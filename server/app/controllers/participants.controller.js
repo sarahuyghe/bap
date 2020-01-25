@@ -1,38 +1,43 @@
-const Author = require("../models/user.model.js");
+const Participant = require("../models/participant.model.js");
 
 exports.create = (req, res) => {
 	if (!req.body.name) {
 		return res.status(500).send({ err: "name can not be empty" });
 	}
 
-	const author = new Author({
-		name: req.body.name
+	// console.log(req.body.teamId);
+	const participant = new Participant({
+		name: req.body.name,
+		firstname: req.body.firstname,
+		mail: req.body.mail,
+		teamId: req.body.teamId
 	});
 
-	author
+	console.log(participant);
+	participant
 		.save()
-		.then(author => res.send(author))
+		.then(participant => res.send(participant))
 		.catch(err => {
-			res.status(500).send({ error: err.author || "Error" });
+			res.status(500).send({ error: err.participant || "Error" });
 		});
 };
 
 exports.findAll = async (req, res) => {
 	try {
-		const authors = await Author.find();
-		res.send(authors);
+		const participants = await Participant.find();
+		res.send(participants);
 	} catch (err) {
-		res.status(500).send({ err: err.author || "Error" });
+		res.status(500).send({ err: err.participant || "Error" });
 	}
 };
 
 exports.findOne = async (req, res) => {
 	try {
-		const author = await Author.findById(req.params.authorId);
-		if (author) {
-			res.send(author);
+		const participants = await Participant.findById(req.params.authorId);
+		if (participants) {
+			res.send(participants);
 		} else {
-			res.status(404).send("No author found");
+			res.status(404).send("No participants found");
 		}
 	} catch (err) {
 		if (err.kind === "ObjectId") {
@@ -48,7 +53,7 @@ exports.update = async (req, res) => {
 	}
 
 	try {
-		const author = await Author.findByIdAndUpdate(
+		const participant = await Participant.findByIdAndUpdate(
 			req.params.authorId,
 			{
 				name: req.body.name
@@ -58,10 +63,10 @@ exports.update = async (req, res) => {
 			}
 		);
 
-		if (!author) {
+		if (!participant) {
 			return res.status(404).send("No author found");
 		}
-		res.send(author);
+		res.send(participant);
 	} catch (err) {
 		if (err.kind === "ObjectId") {
 			return res.status(417).send("Geen geldig ID");

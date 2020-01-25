@@ -20,21 +20,6 @@ class MessageStore {
 			.create(newMessage)
 			.then(messageValues => newMessage.updateFromServer(messageValues));
 	};
-
-	// _addTeam = values => {
-	// 	const team = new Team(values);
-	// 	team.updateFromServer(values);
-	// 	runInAction(() => this.teams.push(team));
-	// };
-
-	// updateTeam = team => {
-	// 	this.api.update(team).then(teamValues => team.updateFromServer(teamValues));
-	// };
-
-	// deleteTeam = team => {
-	// 	this.teams.remove(team);
-	// 	this.api.delete(team);
-	// };
 }
 
 decorate(MessageStore, {
