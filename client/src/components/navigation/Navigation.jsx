@@ -16,7 +16,7 @@ const Navigation = () => {
 					<NavLink to={ROUTES.symptonen}>Symptonen</NavLink>
 				</li>
 				<li>
-					<NavLink to={ROUTES.login}>Inloggen</NavLink>
+					<NavLink to={ROUTES.register}>Register</NavLink>
 				</li>
 			</ul>
 		</>

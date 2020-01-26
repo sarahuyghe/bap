@@ -7,7 +7,7 @@ import stylesForm from "./Form.module.css";
 class RegisterForm extends Component {
 	constructor() {
 		super();
-		this.state = { email: ``, pwd: ``, pwd2: ``, name: `` };
+		this.state = { mail: ``, pwd: ``, pwd2: ``, name: `` };
 	}
 
 	handleChange = e => {
@@ -20,17 +20,17 @@ class RegisterForm extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		const { uiStore, history } = this.props;
-		const { email, pwd, name } = this.state;
-		uiStore.register(name, email, pwd).then(() => {
+		const { mail, pwd, name } = this.state;
+		uiStore.register(name, mail, pwd).then(() => {
 			history.push(ROUTES.login);
 		});
 	};
 
 	render() {
-		const { email, pwd, pwd2, name } = this.state;
+		const { mail, pwd, pwd2, name } = this.state;
 		return (
 			<>
-				<form onSubmit={this.handleSubmit} className={stylesForm.form}>
+				<form onSubmit={this.handleSubmit}>
 					<label htmlFor="email">
 						Name
 						<input
@@ -38,18 +38,18 @@ class RegisterForm extends Component {
 							name="name"
 							id="name="
 							value={name}
-							className={stylesForm.form_input}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
-					<label htmlFor="email">
+					<label htmlFor="mail">
 						Email
 						<input
-							type="email"
-							name="email"
-							id="email="
-							value={email}
-							className={stylesForm.form_input}
+							type="mail"
+							name="mail"
+							id="mail="
+							value={mail}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -60,7 +60,7 @@ class RegisterForm extends Component {
 							name="pwd"
 							id="pwd"
 							value={pwd}
-							className={stylesForm.form_input}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -71,14 +71,14 @@ class RegisterForm extends Component {
 							name="pwd2"
 							id="pwd2"
 							ref={pwd2}
-							className={stylesForm.form_input}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<input
 						type="submit"
 						value="Register"
-						className={stylesForm.button}
+						// className={stylesForm.button}
 						disabled={pwd && pwd !== pwd2}
 					/>
 				</form>

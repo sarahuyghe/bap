@@ -18,33 +18,17 @@ const LoginForm = ({ uiStore, history }) => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className={stylesForm.form}>
+			<form onSubmit={handleSubmit}>
 				<label htmlFor="email">
 					Email
-					<input
-						type="email"
-						name="email"
-						id="email="
-						ref={emailInput}
-						className={stylesForm.form_input}
-					/>
+					<input type="email" name="email" id="email=" ref={emailInput} />
 				</label>
 				<label htmlFor="username">
 					Password
-					<input
-						type="password"
-						name="password"
-						id="password"
-						ref={pwdInput}
-						className={stylesForm.form_input}
-					/>
+					<input type="password" name="password" id="password" ref={pwdInput} />
 				</label>
-				<input type="submit" value="Login" className={stylesForm.button} />
+				<input type="submit" value="Login" />
 			</form>
-
-			<p className={stylesForm.metaAction}>
-				No account? <Link to={ROUTES.register}>Sign up!</Link>
-			</p>
 		</>
 	);
 };

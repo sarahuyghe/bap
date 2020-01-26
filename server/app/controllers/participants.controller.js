@@ -1,4 +1,71 @@
+const jwt = require("jsonwebtoken");
 const Participant = require("../models/participant.model.js");
+// const Teamcaptain = require("../models/teamcaptain.model.js");
+
+const tokenCookie = {
+	maxAge: 1800000,
+	sameSite: true
+};
+const signatureCookie = {
+	maxAge: 86400000,
+	httpOnly: true,
+	sameSite: true
+};
+
+exports.login = async (req, res) => {
+	const { mail, password } = req.body;
+	if (!mail || !password) {
+		return res.status(400).send({ error: "email and password are required" });
+	}
+	try {
+		const user = await Participant.findOne({ mail });
+		if (!user) {
+			res.status(401).send({ error: "incorrect email or password" });
+		} else {
+			const isPasswordCorrect = await user.validPassword(password);
+			if (isPasswordCorrect) {
+				const { _id, name, roles } = user;
+				const token = jwt.sign({ _id, name, roles }, process.env.SECRET, {
+					expiresIn: "24h"
+				});
+				const parts = token.split(".");
+				const signature = parts.splice(2);
+				res
+					.cookie("token", parts.join("."), tokenCookie)
+					.cookie("signature", signature, signatureCookie)
+					.sendStatus(200);
+			} else {
+				res.status(401).send({
+					success: false,
+					message: "Incorrect email or password"
+				});
+			}
+		}
+	} catch (error) {
+		res
+			.status(500)
+			.send({ message: "Internal error, please try again", error });
+	}
+};
+
+exports.logout = (req, res) => {
+	res
+		.clearCookie("token", tokenCookie)
+		.clearCookie("signature", signatureCookie)
+		.sendStatus(200);
+};
+
+exports.register = (req, res) => {
+	const { mail, password, name } = req.body;
+	const user = new Participant({ mail, password, name });
+	user.save(err => {
+		if (err) {
+			res.status(500).send("Error registering new user please try again.");
+		} else {
+			res.status(200).send("Welcome to the club!");
+		}
+	});
+};
 
 exports.create = (req, res) => {
 	if (!req.body.name) {
@@ -11,12 +78,14 @@ exports.create = (req, res) => {
 		firstname: req.body.firstname,
 		mail: req.body.mail,
 		teamId: req.body.teamId
+		// password: ""
 	});
 
 	console.log(participant);
 	participant
 		.save()
 		.then(participant => res.send(participant))
+
 		.catch(err => {
 			res.status(500).send({ error: err.participant || "Error" });
 		});

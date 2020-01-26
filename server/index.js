@@ -2,12 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+
 require("dotenv").config();
 
 mongoose
 	.connect(process.env.DB_URL, {
 		useNewUrlParser: true,
-		useFindAndModify: false
+		useFindAndModify: false,
+		useCreateIndex: true
 	})
 	.then(() => console.log("db connected"))
 	.catch(e => {
@@ -18,6 +21,7 @@ mongoose
 const app = express();
 
 app.use(cors());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
