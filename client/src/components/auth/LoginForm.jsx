@@ -19,9 +19,9 @@ const LoginForm = ({ uiStore, history }) => {
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="email">
+				<label htmlFor="mail">
 					Email
-					<input type="email" name="email" id="email=" ref={emailInput} />
+					<input type="mail" name="mail" id="mail=" ref={emailInput} />
 				</label>
 				<label htmlFor="username">
 					Password

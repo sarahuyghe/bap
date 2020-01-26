@@ -14,6 +14,7 @@ const signatureCookie = {
 
 exports.login = async (req, res) => {
 	const { mail, password } = req.body;
+	console.log(mail);
 	if (!mail || !password) {
 		return res.status(400).send({ error: "email and password are required" });
 	}

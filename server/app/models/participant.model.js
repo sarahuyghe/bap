@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const ParticipantSchema = mongoose.Schema(
 	{
 		mail: { type: String, required: true, unique: true },
-		password: { type: String, required: false },
+		password: { type: String, required: true },
 		name: { type: String, required: true },
 		// name: String,
 		firstname: String,

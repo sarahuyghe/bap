@@ -1,7 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 
-const Home = ({ teamStore }) => {
+const Home = ({ uiStore, teamStore }) => {
 	const { teams } = teamStore;
 	const teamNameInput = React.createRef();
 	const whyInput = React.createRef();
@@ -31,44 +31,48 @@ const Home = ({ teamStore }) => {
 	return (
 		<>
 			<p>First testing of form</p>
-			<form onSubmit={handleSubmit}>
-				<label>
-					TeamNaam
-					<input type="text" name="teamnaam" ref={teamNameInput} />
-				</label>
-				<br />
-				<label>
-					Reason
-					<input type="text" name="why" ref={whyInput} />
-				</label>
-				<br />
-				<label>
-					Naam
-					<input type="text" name="Naam" ref={naamInput} />
-				</label>
-				<br />
-				<label>
-					Voornaam
-					<input type="text" name="voornaam" ref={voornaamInput} />
-				</label>
-				<br />
-				<label>
-					Mail
-					<input type="text" name="mail" ref={mailInput} />
-				</label>
-				<br />
-				<label>
-					Event
-					<select ref={eventInput}>
-						<option value="lopen">Lopen</option>
-						<option value="wandelen">Wandelen</option>
-					</select>
-				</label>
-				<br />
-				<input type="submit" value="bevestigen" />
-			</form>
+			{uiStore.authUser ? (
+				<form onSubmit={handleSubmit}>
+					<label>
+						TeamNaam
+						<input type="text" name="teamnaam" ref={teamNameInput} />
+					</label>
+					<br />
+					<label>
+						Reason
+						<input type="text" name="why" ref={whyInput} />
+					</label>
+					<br />
+					<label>
+						Naam
+						<input type="text" name="Naam" ref={naamInput} />
+					</label>
+					<br />
+					<label>
+						Voornaam
+						<input type="text" name="voornaam" ref={voornaamInput} />
+					</label>
+					<br />
+					<label>
+						Mail
+						<input type="text" name="mail" ref={mailInput} />
+					</label>
+					<br />
+					<label>
+						Event
+						<select ref={eventInput}>
+							<option value="lopen">Lopen</option>
+							<option value="wandelen">Wandelen</option>
+						</select>
+					</label>
+					<br />
+					<input type="submit" value="bevestigen" />
+				</form>
+			) : (
+				<p>Je hebt nog geen teamcaptain aangemaakt</p>
+			)}
 		</>
 	);
 };
 
-export default inject("teamStore")(observer(Home));
+export default inject("teamStore", "uiStore")(observer(Home));

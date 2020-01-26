@@ -3,6 +3,7 @@ import { inject } from "mobx-react";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import stylesForm from "./Form.module.css";
+import LoginForm from "./LoginForm";
 
 class RegisterForm extends Component {
 	constructor() {
@@ -82,6 +83,7 @@ class RegisterForm extends Component {
 						disabled={pwd && pwd !== pwd2}
 					/>
 				</form>
+				<LoginForm />
 			</>
 		);
 	}

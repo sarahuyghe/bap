@@ -14,8 +14,11 @@ class UiStore {
 	setUser = value => (this.authUser = value);
 
 	login = (mail, password) => {
+		// console.log(mail);
 		return this.authService
 			.login(mail, password)
+			.then(() => console.log("hier geraak ik"))
+
 			.then(() => {
 				this.setUser(getUserFromCookie());
 				Promise.resolve();
