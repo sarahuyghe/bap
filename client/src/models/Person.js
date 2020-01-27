@@ -4,11 +4,6 @@ class Person {
 	constructor(store, id = uuid.v4()) {
 		this.id = id;
 		this.store = store;
-
-		// this.teamId = data.teamId;
-		// this.name = data.name;
-		// this.firstname = data.firstname;
-		// this.mail = data.mail;
 	}
 
 	setId = id => (this.id = id);

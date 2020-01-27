@@ -20,7 +20,7 @@ class Auth {
 	};
 
 	logout = () => {
-		return fetch("participants/logout", {
+		return fetch("/participants/logout", {
 			method: "POST",
 			headers: {
 				"content-type": `application/json`

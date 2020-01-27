@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 
 import { Route, Switch } from "react-router-dom";
+import { inject } from "mobx-react";
 import { ROUTES } from "./constants/";
 
 import Home from "./components/home/Home";
@@ -12,7 +13,7 @@ import RegisterForm from "./components/auth/RegisterForm";
 
 import Navigation from "./components/navigation/Navigation";
 
-function App() {
+function App({ uiStore }) {
 	return (
 		<>
 			<Navigation />
@@ -27,4 +28,4 @@ function App() {
 	);
 }
 
-export default App;
+export default inject("uiStore")(App);

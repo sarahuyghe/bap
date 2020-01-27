@@ -2,14 +2,12 @@ const Team = require("../models/team.model.js");
 
 exports.create = (req, res) => {
 	if (!req.body.teamnaam) {
-		return res.status(500).send({ err: "title can not be empty" });
+		return res.status(500).send({ err: "teamnaam can not be empty" });
 	}
 	const team = new Team({
 		teamnaam: req.body.teamnaam,
-		name: req.body.name,
-		firstname: req.body.firstname,
-		reason: req.body.reason
-		// authorId: req.body.authorId //deze moet er nu pas staan
+		reason: req.body.reason,
+		teamcaptainId: req.body.teamcaptainId
 	});
 
 	team

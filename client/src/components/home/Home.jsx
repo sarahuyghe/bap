@@ -2,30 +2,21 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 
 const Home = ({ uiStore, teamStore }) => {
-	const { teams } = teamStore;
 	const teamNameInput = React.createRef();
 	const whyInput = React.createRef();
-	const naamInput = React.createRef();
-	const voornaamInput = React.createRef();
-	const mailInput = React.createRef();
 	const eventInput = React.createRef();
 
 	const handleSubmit = e => {
 		e.preventDefault();
 		teamStore.addTeam({
 			teamnaam: teamNameInput.current.value,
-			name: naamInput.current.value,
-			firstname: voornaamInput.current.value,
 			reason: whyInput.current.value,
-			mail: mailInput.current.value,
-			event: eventInput.current.value
+			event: eventInput.current.value,
+			teamcaptainId: uiStore.authUser._id
 		});
 
 		teamNameInput.current.value = "";
 		whyInput.current.value = "";
-		naamInput.current.value = "";
-		voornaamInput.current.value = "";
-		mailInput.current.value = "";
 	};
 
 	return (
@@ -36,26 +27,6 @@ const Home = ({ uiStore, teamStore }) => {
 					<label>
 						TeamNaam
 						<input type="text" name="teamnaam" ref={teamNameInput} />
-					</label>
-					<br />
-					<label>
-						Reason
-						<input type="text" name="why" ref={whyInput} />
-					</label>
-					<br />
-					<label>
-						Naam
-						<input type="text" name="Naam" ref={naamInput} />
-					</label>
-					<br />
-					<label>
-						Voornaam
-						<input type="text" name="voornaam" ref={voornaamInput} />
-					</label>
-					<br />
-					<label>
-						Mail
-						<input type="text" name="mail" ref={mailInput} />
 					</label>
 					<br />
 					<label>
@@ -71,6 +42,7 @@ const Home = ({ uiStore, teamStore }) => {
 			) : (
 				<p>Je hebt nog geen teamcaptain aangemaakt</p>
 			)}
+			<button onClick={uiStore.logout}>logout</button>
 		</>
 	);
 };

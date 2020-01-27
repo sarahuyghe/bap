@@ -31,6 +31,7 @@ class RegisterForm extends Component {
 		const { mail, pwd, pwd2, name } = this.state;
 		return (
 			<>
+				<h2>Teamcaptain toevoegen</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label htmlFor="email">
 						Name
