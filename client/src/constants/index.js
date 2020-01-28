@@ -3,5 +3,6 @@ export const ROUTES = {
 	why: "/bottle",
 	symptonen: "/symptonen",
 	login: "/signin",
-	register: "/register"
+	register: "/register",
+	overzicht: "/overzicht"
 };

@@ -8,6 +8,7 @@ class MessageStore {
 	constructor(rootStore) {
 		this.rootStore = rootStore;
 		this.api = new Api("messages");
+
 		// this.api.getAll().then(d => d.forEach(this._addMessage));
 	}
 

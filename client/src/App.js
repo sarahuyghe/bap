@@ -8,12 +8,13 @@ import { ROUTES } from "./constants/";
 
 import Home from "./components/home/Home";
 import Why from "./components/home/Why";
+import Overzicht from "./components/home/Overzicht";
 import Symptonen from "./components/home/Symptonen";
 import RegisterForm from "./components/auth/RegisterForm";
 
 import Navigation from "./components/navigation/Navigation";
 
-function App({ uiStore }) {
+function App() {
 	return (
 		<>
 			<Navigation />
@@ -22,10 +23,10 @@ function App({ uiStore }) {
 				<Route path={ROUTES.why} component={Why} />
 				<Route path={ROUTES.symptonen} component={Symptonen} />
 				<Route path={ROUTES.register} component={RegisterForm} />
+				<Route path={ROUTES.overzicht} component={Overzicht} />
 			</Switch>
-			{/* <Home /> */}
 		</>
 	);
 }
 
-export default inject("uiStore")(App);
+export default App;

@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants";
+import { inject, observer } from "mobx-react";
 
-const Navigation = () => {
+const Navigation = ({ uiStore }) => {
 	return (
 		<>
 			<ul>
@@ -18,9 +19,14 @@ const Navigation = () => {
 				<li>
 					<NavLink to={ROUTES.register}>Register</NavLink>
 				</li>
+				{uiStore.authUser ? (
+					<li>
+						<NavLink to={ROUTES.overzicht}>Overzicht team</NavLink>
+					</li>
+				) : null}
 			</ul>
 		</>
 	);
 };
 
-export default Navigation;
+export default inject("uiStore")(observer(Navigation));
