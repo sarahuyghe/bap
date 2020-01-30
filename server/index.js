@@ -5,6 +5,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
+const path = require("path");
 
 mongoose
 	.connect(process.env.DB_URL, {
@@ -21,6 +22,8 @@ mongoose
 
 const app = express();
 
+app.use(express.static(path.resolve(__dirname, "../client/build")));
+
 app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,6 +31,10 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
 	res.json({ message: "up and first running" });
+});
+
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
 require("./app/routes/teams.routes.js")(app);
