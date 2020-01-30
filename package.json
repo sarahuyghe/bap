@@ -5,6 +5,7 @@
 	"repository": "https://github.com/sarahuyghe/bap.git",
 	"author": "Sara Huyghe",
 	"license": "MIT",
+
 	"scripts": {
 		"start": "cd server/ && yarn && yarn start",
 		"build": "cd client/ && yarn && yarn build"
