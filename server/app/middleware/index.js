@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/participant.model.js");
 
 const checkToken = (req, res, next) => {
 	const { token, signature } = req.cookies;
@@ -23,4 +24,16 @@ const checkToken = (req, res, next) => {
 	}
 };
 
-module.exports = { checkToken };
+const hasRole = role => async (req, res, next) => {
+	const user = await User.findById(req.authUserId);
+	if (user.roles.includes(role)) {
+		next();
+	} else {
+		res.status(403).send({
+			success: false,
+			message: "Unauthorized"
+		});
+	}
+};
+
+module.exports = { checkToken, hasRole };

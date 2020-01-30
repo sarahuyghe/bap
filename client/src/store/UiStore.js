@@ -13,21 +13,20 @@ class UiStore {
 
 	setUser = value => (this.authUser = value);
 
-	login = (mail, password) => {
+	login = (username, password) => {
 		return this.authService
-			.login(mail, password)
+			.login(username, password)
 			.then(() => {
 				this.setUser(getUserFromCookie());
 				Promise.resolve();
 			})
-			.then(() => console.log(this.authUser))
 			.catch(() => {
 				this.setUser(null);
 				Promise.reject();
 			});
 	};
 
-	register = (name, mail, pwd) => this.authService.register(name, mail, pwd);
+	register = (name, email, pwd) => this.authService.register(name, email, pwd);
 
 	logout = () => {
 		this.authService.logout().then(() => this.setUser(null));

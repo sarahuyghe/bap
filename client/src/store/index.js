@@ -6,11 +6,9 @@ import UiStore from "./UiStore";
 
 class RootStore {
 	constructor() {
+		this.uiStore = new UiStore(this);
 		this.teamStore = new TeamStore(this);
 		this.messageStore = new MessageStore(this);
-		this.uiStore = new UiStore(this);
-
-		// this.authorStore = new AuthorStore(this);
 	}
 }
 

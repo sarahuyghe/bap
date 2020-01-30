@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import { inject } from "mobx-react";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
-import stylesForm from "./Form.module.css";
-import LoginForm from "./LoginForm";
 
-class RegisterForm extends Component {
+class Register extends Component {
 	constructor() {
 		super();
-		this.state = { mail: ``, pwd: ``, pwd2: ``, name: `` };
+		this.state = { email: "", pwd: "", pwd2: "", name: "" };
 	}
 
 	handleChange = e => {
@@ -21,73 +19,67 @@ class RegisterForm extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		const { uiStore, history } = this.props;
-		const { mail, pwd, name } = this.state;
-		uiStore.register(name, mail, pwd).then(() => {
+		const { email, pwd, name } = this.state;
+		uiStore.register(name, email, pwd).then(() => {
 			history.push(ROUTES.login);
 		});
 	};
 
 	render() {
-		const { mail, pwd, pwd2, name } = this.state;
+		const { email, pwd, pwd2, name } = this.state;
 		return (
 			<>
-				<h2>Teamcaptain toevoegen</h2>
+				<h2>Register</h2>
 				<form onSubmit={this.handleSubmit}>
 					<label htmlFor="email">
-						Name
+						name
 						<input
 							type="test"
 							name="name"
 							id="name="
 							value={name}
-							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
-					<label htmlFor="mail">
-						Email
+					<label htmlFor="email">
+						email
 						<input
-							type="mail"
-							name="mail"
-							id="mail="
-							value={mail}
-							// className={stylesForm.form_input}
+							type="email"
+							name="email"
+							id="email="
+							value={email}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<label htmlFor="username">
-						Password
+						password
 						<input
 							type="password"
 							name="pwd"
 							id="pwd"
 							value={pwd}
-							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<label htmlFor="username">
-						Repeat password
+						repeat password
 						<input
 							type="password"
 							name="pwd2"
 							id="pwd2"
 							ref={pwd2}
-							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<input
 						type="submit"
-						value="Register"
-						// className={stylesForm.button}
+						value="register"
 						disabled={pwd && pwd !== pwd2}
 					/>
 				</form>
-				<LoginForm />
 			</>
 		);
 	}
 }
 
-export default inject(`uiStore`)(withRouter(RegisterForm));
+export default inject("uiStore")(withRouter(Register));

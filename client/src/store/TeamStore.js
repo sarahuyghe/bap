@@ -19,7 +19,9 @@ class TeamStore {
 		this.rootStore = rootStore;
 		this.api = new Api("teams");
 		this.apiPerson = new Api("participants");
-		console.log(this.rootStore.uiStore);
+		// if (this.rootStore.uiStore.authUser) {
+		this.api.getAll().then(d => d.forEach(this._addTeam));
+		// }
 
 		// this.api.getAll().then(d => d.forEach(this._addTeam));
 		// if (this.rootStore.uiStore.authUser) {

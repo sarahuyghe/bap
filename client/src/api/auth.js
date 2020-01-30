@@ -1,13 +1,12 @@
 class Auth {
-	login = (mail, password) => {
-		console.log(mail);
-		return fetch("/participants/login", {
+	login = (email, password) => {
+		return fetch(`/auth/login`, {
 			method: "POST",
 			headers: {
 				"content-type": `application/json`
 			},
 			body: JSON.stringify({
-				mail,
+				email,
 				password
 			})
 		}).then(res => {
@@ -20,7 +19,7 @@ class Auth {
 	};
 
 	logout = () => {
-		return fetch("/participants/logout", {
+		return fetch(`/auth/logout`, {
 			method: "POST",
 			headers: {
 				"content-type": `application/json`
@@ -28,15 +27,15 @@ class Auth {
 		});
 	};
 
-	register = (name, mail, password) => {
-		return fetch("/participants/register", {
+	register = (name, email, password) => {
+		return fetch(`/auth/register`, {
 			method: "POST",
 			headers: {
 				"content-type": `application/json`
 			},
 			body: JSON.stringify({
 				name,
-				mail,
+				email,
 				password
 			})
 		}).then(res => {

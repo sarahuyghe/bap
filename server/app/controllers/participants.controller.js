@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const Participant = require("../models/participant.model.js");
+const User = require("../models/user.model.js");
 // const Teamcaptain = require("../models/teamcaptain.model.js");
 
 const tokenCookie = {
@@ -11,15 +11,14 @@ const signatureCookie = {
 	httpOnly: true,
 	sameSite: true
 };
-
 exports.login = async (req, res) => {
-	const { mail, password } = req.body;
-	console.log(mail);
-	if (!mail || !password) {
+	const { email, password } = req.body;
+	if (!email || !password) {
 		return res.status(400).send({ error: "email and password are required" });
 	}
 	try {
-		const user = await Participant.findOne({ mail });
+		const user = await User.findOne({ email });
+		console.log(Participant.findOne({ email }));
 		if (!user) {
 			res.status(401).send({ error: "incorrect email or password" });
 		} else {
@@ -45,7 +44,7 @@ exports.login = async (req, res) => {
 	} catch (error) {
 		res
 			.status(500)
-			.send({ message: "Internal error, please try again", error });
+			.send({ message: "Internal hahaha error, please try again", error });
 	}
 };
 
@@ -57,8 +56,8 @@ exports.logout = (req, res) => {
 };
 
 exports.register = (req, res) => {
-	const { mail, password, name } = req.body;
-	const user = new Participant({ mail, password, name });
+	const { email, password, name } = req.body;
+	const user = new User({ email, password, name });
 	user.save(err => {
 		if (err) {
 			res.status(500).send("Error registering new user please try again.");

@@ -1,6 +1,5 @@
-import React, { useRef, useState } from "react";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
+import React, { useRef } from "react";
+import { useThree, useFrame } from "react-three-fiber";
 
 const Controls = () => {
 	const orbitRef = useRef();

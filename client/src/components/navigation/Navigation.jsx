@@ -19,10 +19,19 @@ const Navigation = ({ uiStore }) => {
 				<li>
 					<NavLink to={ROUTES.register}>Register</NavLink>
 				</li>
+				<li>
+					<NavLink to={ROUTES.login}>Login</NavLink>
+				</li>
 				{uiStore.authUser ? (
-					<li>
-						<NavLink to={ROUTES.overzicht}>Overzicht team</NavLink>
-					</li>
+					<>
+						<li>
+							<NavLink to={ROUTES.overzicht}>Overzicht team</NavLink>
+						</li>
+						<li>
+							{uiStore.authUser.name} -{" "}
+							<button onClick={uiStore.logout}>logout</button>
+						</li>
+					</>
 				) : null}
 			</ul>
 		</>
