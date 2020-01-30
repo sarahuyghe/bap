@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants";
+import { inject, observer } from "mobx-react";
 
 import styles from "./Menu.module.css";
 
@@ -23,12 +24,16 @@ const StyledMenu = styled.nav`
 	width: 100%;
 `;
 
-const Menu = ({ open }) => {
+const Menu = ({ open, uiStore }) => {
 	return (
 		<StyledMenu open={open}>
-			<NavLink to={ROUTES.login} className={styles.links}>
-				Aanmelden
-			</NavLink>
+			{uiStore.authUser ? (
+				<NavLink to={ROUTES.login} className={styles.links}>
+					Aanmelden
+				</NavLink>
+			) : (
+				<button onClick={uiStore.logout}>logout</button>
+			)}
 			<h1>Menu</h1>
 			<ul>
 				<li>
@@ -46,19 +51,9 @@ const Menu = ({ open }) => {
 						Symptonen
 					</NavLink>
 				</li>
-				{/* <li>
-					<NavLink to={ROUTES.register} className={styles.links}>
-						Register
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to={ROUTES.login} className={styles.links}>
-						Login
-					</NavLink>
-				</li> */}
 			</ul>
 		</StyledMenu>
 	);
 };
 
-export default Menu;
+export default inject("uiStore")(observer(Menu));

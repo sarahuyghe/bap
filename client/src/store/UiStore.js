@@ -26,7 +26,17 @@ class UiStore {
 			});
 	};
 
-	register = (name, email, pwd) => this.authService.register(name, email, pwd);
+	register = (name, email, pwd) =>
+		this.authService
+			.register(name, email, pwd)
+			.then(() => {
+				this.setUser(getUserFromCookie());
+				Promise.resolve();
+			})
+			.catch(() => {
+				this.setUser(null);
+				Promise.reject();
+			});
 
 	logout = () => {
 		this.authService.logout().then(() => this.setUser(null));

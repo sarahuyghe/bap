@@ -26,6 +26,8 @@ import Navigation from "./components/navigation/Navigation";
 import Burger from "./components/navigation/Burger";
 import Menu from "./components/navigation/Menu";
 
+import Footer from "./components/footer/Footer";
+
 import "./styles.css";
 
 const App = ({ uiStore }) => {
@@ -78,6 +80,7 @@ const App = ({ uiStore }) => {
 					)}
 				/> */}
 			</Switch>
+			<Footer />
 		</>
 	);
 };
