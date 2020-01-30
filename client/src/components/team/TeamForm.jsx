@@ -14,7 +14,9 @@ const TeamForm = ({ uiStore, teamStore }) => {
 		teamStore.addTeam({
 			teamnaam: teamNameInput.current.value,
 			reason: whyInput.current.value,
+			quote: quoteInput.current.value,
 			event: eventInput.current.value,
+			kind: kindInput.current.checked,
 			teamcaptainId: uiStore.authUser._id
 		});
 

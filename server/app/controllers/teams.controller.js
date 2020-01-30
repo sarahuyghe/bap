@@ -7,6 +7,8 @@ exports.create = (req, res) => {
 	const team = new Team({
 		teamnaam: req.body.teamnaam,
 		reason: req.body.reason,
+		quote: req.body.quote,
+		kind: req.body.kind,
 		teamcaptainId: req.body.teamcaptainId
 	});
 

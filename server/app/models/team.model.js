@@ -5,6 +5,8 @@ const TeamSchema = mongoose.Schema(
 	{
 		teamnaam: String,
 		reason: String,
+		quote: String,
+		kind: Boolean,
 		teamcaptainId: ObjectId
 	},
 	{
