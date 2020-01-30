@@ -25,7 +25,7 @@ const StyledBurger = styled.button`
 	div {
 		width: 2rem;
 		height: 0.25rem;
-		background: ${({ open }) => (open ? "#0D0C1D" : "#434855")};
+		background: ${({ open }) => (open ? "#FFFFFF" : "#434855")};
 		border-radius: 10px;
 		transition: all 0.3s linear;
 		position: relative;

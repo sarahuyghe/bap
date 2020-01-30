@@ -22,31 +22,34 @@ const Why = ({ teamStore }) => {
 		mailInput.current.value = "";
 	};
 	return (
-		<form onSubmit={handleSubmit}>
-			<select ref={teamIdInput}>
-				{teams.map(team => (
-					<option key={team.id} value={team.id}>
-						{team.teamnaam}
-					</option>
-				))}
-			</select>
-			<br />
-			<label>
-				Naam
-				<input type="text" name="Naam" ref={naamInput} />
-			</label>
-			<br />
-			<label>
-				Voornaam
-				<input type="text" name="voornaam" ref={voornaamInput} />
-			</label>
-			<br />
-			<label>
-				Mail
-				<input type="text" name="mail" ref={mailInput} />
-			</label>
-			<input type="submit" value="bevestigen" />
-		</form>
+		<>
+			<h1>Inschrijven bij een team</h1>
+			<form onSubmit={handleSubmit}>
+				<select ref={teamIdInput}>
+					{teams.map(team => (
+						<option key={team.id} value={team.id}>
+							{team.teamnaam}
+						</option>
+					))}
+				</select>
+				<br />
+				<label>
+					Naam
+					<input type="text" name="Naam" ref={naamInput} />
+				</label>
+				<br />
+				<label>
+					Voornaam
+					<input type="text" name="voornaam" ref={voornaamInput} />
+				</label>
+				<br />
+				<label>
+					Mail
+					<input type="text" name="mail" ref={mailInput} />
+				</label>
+				<input type="submit" value="bevestigen" />
+			</form>
+		</>
 	);
 };
 

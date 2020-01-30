@@ -1,7 +1,8 @@
 import React from "react";
+
 import { inject, observer } from "mobx-react";
 
-const Symptonen = ({ teamStore, messageStore }) => {
+const MessageForm = ({ teamStore, messageStore }) => {
 	const { teams } = teamStore;
 	const messageInput = React.createRef();
 	const naamInput = React.createRef();
@@ -50,4 +51,4 @@ const Symptonen = ({ teamStore, messageStore }) => {
 	);
 };
 
-export default inject("teamStore", "messageStore")(observer(Symptonen));
+export default inject("teamStore", "messageStore")(observer(MessageForm));
