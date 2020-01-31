@@ -27,6 +27,8 @@ import Navigation from "./components/navigation/Navigation";
 import Burger from "./components/navigation/Burger";
 import Menu from "./components/navigation/Menu";
 
+import Portal from "./components/teamcaptain/Home";
+
 import Footer from "./components/footer/Footer";
 
 import "./styles.css";
@@ -60,6 +62,8 @@ const App = ({ uiStore }) => {
 				<Route path={ROUTES.individueel} component={Individueel} />
 				<Route path={ROUTES.teamform} component={TeamForm} />
 				<Route path={ROUTES.confirm} component={Confirm} />
+
+				<Route path={ROUTES.portal} component={Portal} />
 
 				{/* <Route
 					path={ROUTES.home}

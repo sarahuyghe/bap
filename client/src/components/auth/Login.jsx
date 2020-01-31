@@ -10,7 +10,7 @@ const Login = ({ uiStore, history }) => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		uiStore.login(emailInput.current.value, pwdInput.current.value).then(() => {
-			history.push(ROUTES.books);
+			history.push(ROUTES.portal);
 		});
 	};
 

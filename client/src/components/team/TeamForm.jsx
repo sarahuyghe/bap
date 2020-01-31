@@ -1,7 +1,6 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import withAuthentication from "../auth/WithAuthentication";
-import { Redirect } from "react-router-dom";
 import { ROUTES } from "../../constants";
 
 const TeamForm = ({ uiStore, teamStore, history }) => {
@@ -87,7 +86,6 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 					<input type="radio" name="event" value="wandelen" ref={eventInput} />
 					<label>Wij gaan 6km wandelen</label>
 				</div>
-
 				<input type="submit" value="Inschrijven" />
 			</form>
 		</>

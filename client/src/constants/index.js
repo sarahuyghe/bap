@@ -13,5 +13,7 @@ export const ROUTES = {
 	connectTeam: "/connect_to_team",
 	individueel: "/individueel",
 	teamform: "/teamform",
-	confirm: "/confirmation"
+	confirm: "/confirmation",
+
+	portal: "/portal"
 };
