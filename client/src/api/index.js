@@ -5,6 +5,7 @@ class Api {
 
 	getAll = async () => {
 		const r = await fetch(`/${this.entity}`);
+		console.log(r);
 		return await r.json();
 	};
 
@@ -13,6 +14,7 @@ class Api {
 			`/${this.entity}`,
 			this.getOptions("post", team.values)
 		);
+		console.log(r);
 		return await r.json();
 	};
 

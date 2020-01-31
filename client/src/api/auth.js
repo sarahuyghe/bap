@@ -27,7 +27,7 @@ class Auth {
 		});
 	};
 
-	register = (name, email, password) => {
+	register = (name, firstname, email, password) => {
 		return fetch(`/auth/register`, {
 			method: "POST",
 			headers: {
@@ -35,6 +35,7 @@ class Auth {
 			},
 			body: JSON.stringify({
 				name,
+				firstname,
 				email,
 				password
 			})

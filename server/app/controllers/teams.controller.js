@@ -22,11 +22,13 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
+	console.log("hello");
 	try {
 		const teams = await Team.find();
+		console.log(teams);
 		res.send(teams);
 	} catch (err) {
-		res.status(500).send({ err: err.book || "Error" });
+		res.status(500).send({ err: err.team || "Error" });
 	}
 };
 
