@@ -12,5 +12,6 @@ export const ROUTES = {
 	team: "/team",
 	connectTeam: "/connect_to_team",
 	individueel: "/individueel",
-	teamform: "/teamform"
+	teamform: "/teamform",
+	confirm: "/confirmation"
 };

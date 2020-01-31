@@ -1,8 +1,10 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import withAuthentication from "../auth/WithAuthentication";
+import { Redirect } from "react-router-dom";
+import { ROUTES } from "../../constants";
 
-const TeamForm = ({ uiStore, teamStore }) => {
+const TeamForm = ({ uiStore, teamStore, history }) => {
 	const teamNameInput = React.createRef();
 	const whyInput = React.createRef();
 	const eventInput = React.createRef();
@@ -25,6 +27,7 @@ const TeamForm = ({ uiStore, teamStore }) => {
 		quoteInput.current.value = "";
 		kindInput.current.checked = false;
 		console.log(eventInput);
+		history.push(ROUTES.confirm);
 	};
 
 	return (

@@ -21,6 +21,7 @@ import HomeTeam from "./components/team/Home";
 import ConnectTeam from "./components/team/ConnectTeam";
 import Individueel from "./components/team/Individueel";
 import TeamForm from "./components/team/TeamForm";
+import Confirm from "./components/team/Confirm";
 
 import Navigation from "./components/navigation/Navigation";
 import Burger from "./components/navigation/Burger";
@@ -58,6 +59,7 @@ const App = ({ uiStore }) => {
 				<Route path={ROUTES.connectTeam} component={ConnectTeam} />
 				<Route path={ROUTES.individueel} component={Individueel} />
 				<Route path={ROUTES.teamform} component={TeamForm} />
+				<Route path={ROUTES.confirm} component={Confirm} />
 
 				{/* <Route
 					path={ROUTES.home}
