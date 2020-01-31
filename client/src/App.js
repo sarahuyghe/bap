@@ -32,6 +32,8 @@ import "./styles.css";
 
 const App = ({ uiStore }) => {
 	const [open, setOpen] = React.useState(false);
+	const [checkedItem, setCheckedItem] = React.useState(false);
+
 	const node = React.useRef();
 	return (
 		<>

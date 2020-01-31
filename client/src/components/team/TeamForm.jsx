@@ -68,7 +68,7 @@ const TeamForm = ({ uiStore, teamStore }) => {
 					<input
 						type="checkbox"
 						name="reason"
-						value="Ik wil een gesloten team"
+						value="closedTeam"
 						ref={kindInput}
 					/>
 					Ik wil een gesloten team
