@@ -26,10 +26,10 @@ const Home = () => {
 				<ambientLight />
 				<pointLight position={[10, 10, 10]} />
 				<Model />
-				<Controls /> */}
-			{/* <Box position={[-1.2, 0, 0]} />
-					<Box position={[1.2, 0, 0]} /> */}
-			{/* </Canvas> */}
+				<Controls />
+				<Box position={[-1.2, 0, 0]} />
+				<Box position={[1.2, 0, 0]} />
+			</Canvas> */}
 			<section>
 				<header>
 					<h1>BOOBottle</h1>
