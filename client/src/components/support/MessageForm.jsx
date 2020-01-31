@@ -1,5 +1,4 @@
 import React from "react";
-
 import { inject, observer } from "mobx-react";
 
 const MessageForm = ({ teamStore, messageStore }) => {

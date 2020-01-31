@@ -33,12 +33,9 @@ class TeamStore {
 	};
 
 	_addTeam = values => {
-		console.log(values);
-
 		const team = new Team(values);
 		team.updateFromServer(values);
 		runInAction(() => this.teams.push(team));
-		console.log(this.teams);
 	};
 
 	updateTeam = team => {
