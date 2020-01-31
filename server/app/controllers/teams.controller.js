@@ -9,6 +9,7 @@ exports.create = (req, res) => {
 		reason: req.body.reason,
 		quote: req.body.quote,
 		kind: req.body.kind,
+		location: req.body.location,
 		teamcaptainId: req.body.teamcaptainId
 	});
 

@@ -7,6 +7,7 @@ const TeamSchema = mongoose.Schema(
 		reason: String,
 		quote: String,
 		kind: Boolean,
+		location: String,
 		teamcaptainId: ObjectId
 	},
 	{

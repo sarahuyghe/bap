@@ -19,7 +19,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 			quote: quoteInput.current.value,
 			event: eventInput.current.value,
 			kind: kindInput.current.checked,
-			locatie: locatieInput.current.value,
+			location: locatieInput.current.value,
 			teamcaptainId: uiStore.authUser._id
 		});
 
@@ -27,7 +27,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 		whyInput.current.value = "";
 		quoteInput.current.value = "";
 		kindInput.current.checked = false;
-		console.log(eventInput);
+		console.log(locatieInput.current.value);
 		history.push(ROUTES.confirm);
 	};
 
@@ -81,12 +81,21 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 				<h3>Lopen of wandelen?</h3>
 				<p>Zo weten we hoeveel mensen we per route verwachten</p>
 				<div>
-					<input type="radio" name="event" value="lopen" ref={eventInput} />
-					<label>Wij gaan 3km lopen</label>
+					<label>
+						<input type="radio" name="event" value="lopen" ref={eventInput} />
+						Wij gaan 3km lopen
+					</label>
 				</div>
 				<div>
-					<input type="radio" name="event" value="wandelen" ref={eventInput} />
-					<label>Wij gaan 6km wandelen</label>
+					<label>
+						<input
+							type="radio"
+							name="event"
+							value="wandelen"
+							ref={eventInput}
+						/>
+						Wij gaan 6km wandelen
+					</label>
 				</div>
 				<h3>Aan welke race neemt uw team deel?</h3>
 				<p>Zo weten we waar en waneer we jullie mogen verwachten</p>

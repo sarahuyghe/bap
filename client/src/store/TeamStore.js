@@ -20,7 +20,9 @@ class TeamStore {
 		this.api = new Api("teams");
 		this.apiPerson = new Api("participants");
 		// if (this.rootStore.uiStore.authUser) {
-		this.api.getAll().then(d => d.forEach(this._addTeam));
+		// this.api.getAll().then(d => d.forEach(this._addTeam));
+		this.api.getAll().then(d => console.log(d));
+
 		// }
 
 		// this.api.getAll().then(d => d.forEach(this._addTeam));
@@ -61,6 +63,7 @@ class TeamStore {
 		const team = new Team(values);
 		team.updateFromServer(values);
 		runInAction(() => this.teams.push(team));
+		console.log(this.teams);
 	};
 
 	updateTeam = team => {
