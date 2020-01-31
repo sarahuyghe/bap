@@ -7,6 +7,7 @@ const ConnectTeam = ({ teamStore }) => {
 	const naamInput = React.createRef();
 	const voornaamInput = React.createRef();
 	const mailInput = React.createRef();
+	// console.log(teams);
 
 	const handleSubmit = e => {
 		e.preventDefault();

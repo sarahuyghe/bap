@@ -1,11 +1,4 @@
-import {
-	decorate,
-	observable,
-	configure,
-	action,
-	runInAction,
-	observe
-} from "mobx";
+import { decorate, observable, configure, action, runInAction } from "mobx";
 import Team from "../models/Team";
 import Person from "../models/Person";
 
@@ -19,26 +12,8 @@ class TeamStore {
 		this.rootStore = rootStore;
 		this.api = new Api("teams");
 		this.apiPerson = new Api("participants");
-		// if (this.rootStore.uiStore.authUser) {
 		this.api.getAll().then(d => d.forEach(this._addTeam));
-		// }
-
-		// this.api.getAll().then(d => d.forEach(this._addTeam));
-		// if (this.rootStore.uiStore.authUser) {
-		// 	this.getAll();
-		// }
-		// observe(this.rootStore.uiStore, "authUser", change => {
-		// 	if (change.newValue) {
-		// 		this.getAll();
-		// 	} else {
-		// 		runInAction(() => (this.teams = []));
-		// 	}
-		// });
 	}
-
-	getAll = () => {
-		this.api.getAll().then(d => console.log(d));
-	};
 
 	addTeam = data => {
 		const newTeam = new Team(this.rootStore);

@@ -19,25 +19,35 @@ class Register extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		const { uiStore, history } = this.props;
-		const { email, pwd, name } = this.state;
-		uiStore.register(name, email, pwd).then(() => {
+		const { email, pwd, name, firstname } = this.state;
+		uiStore.register(name, firstname, email, pwd).then(() => {
 			history.push(ROUTES.teamform);
 		});
 	};
 
 	render() {
-		const { email, pwd, pwd2, name } = this.state;
+		const { email, pwd, pwd2, name, firstname } = this.state;
 		return (
 			<>
 				<h2>Register</h2>
 				<form onSubmit={this.handleSubmit}>
-					<label htmlFor="email">
+					<label htmlFor="name">
 						name
 						<input
 							type="test"
 							name="name"
 							id="name="
 							value={name}
+							onChange={this.handleChange}
+						/>
+					</label>
+					<label htmlFor="name">
+						name
+						<input
+							type="test"
+							name="firstname"
+							id="firstname="
+							value={firstname}
 							onChange={this.handleChange}
 						/>
 					</label>

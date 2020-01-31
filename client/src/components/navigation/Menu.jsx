@@ -28,11 +28,9 @@ const Menu = ({ open, uiStore }) => {
 	return (
 		<StyledMenu open={open}>
 			{uiStore.authUser ? (
-				<NavLink to={ROUTES.login} className={styles.links}>
-					Aanmelden
-				</NavLink>
-			) : (
 				<button onClick={uiStore.logout}>logout</button>
+			) : (
+				<NavLink to={ROUTES.login}>Aanmelden</NavLink>
 			)}
 			<h1>Menu</h1>
 			<ul>
@@ -63,8 +61,8 @@ const Menu = ({ open, uiStore }) => {
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path
-								fill-rule="evenodd"
-								clip-rule="evenodd"
+								fillRule="evenodd"
+								clipRule="evenodd"
 								d="M40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20ZM21.8666 21.0668V31.8668H17.6V21.0668H14V16.8002H17.6V13.7335C17.6 10.1335 19.8666 8.13349 23.0666 8.13349C24.0301 8.13349 24.9361 8.19103 25.5577 8.23052C25.8823 8.25113 26.1294 8.26683 26.2666 8.26683V12.1335H24C22.2666 12.1335 21.8666 12.9335 21.8666 14.1335V16.8002H26L25.4666 21.0668H21.8666Z"
 								fill="white"
 							/>
@@ -96,7 +94,7 @@ const Menu = ({ open, uiStore }) => {
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 						>
-							<g clip-path="url(#clip0)">
+							<g clipPath="url(#clip0)">
 								<path
 									d="M23.8281 20.3335C23.8281 22.4478 22.1143 24.1616 20 24.1616C17.8857 24.1616 16.1719 22.4478 16.1719 20.3335C16.1719 18.2192 17.8857 16.5054 20 16.5054C22.1143 16.5054 23.8281 18.2192 23.8281 20.3335Z"
 									fill="white"

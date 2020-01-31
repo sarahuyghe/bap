@@ -33,9 +33,8 @@ import Footer from "./components/footer/Footer";
 
 import "./styles.css";
 
-const App = ({ uiStore }) => {
+function App() {
 	const [open, setOpen] = React.useState(false);
-	const [checkedItem, setCheckedItem] = React.useState(false);
 
 	const node = React.useRef();
 	return (
@@ -91,6 +90,6 @@ const App = ({ uiStore }) => {
 			<Footer />
 		</>
 	);
-};
+}
 
-export default inject("uiStore")(App);
+export default App;

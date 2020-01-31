@@ -9,6 +9,7 @@ exports.create = (req, res) => {
 		reason: req.body.reason,
 		quote: req.body.quote,
 		kind: req.body.kind,
+		location: req.body.location,
 		teamcaptainId: req.body.teamcaptainId
 	});
 
@@ -21,11 +22,13 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
+	console.log("hello");
 	try {
 		const teams = await Team.find();
+		console.log(teams);
 		res.send(teams);
 	} catch (err) {
-		res.status(500).send({ err: err.book || "Error" });
+		res.status(500).send({ err: err.team || "Error" });
 	}
 };
 
