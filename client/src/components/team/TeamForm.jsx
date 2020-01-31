@@ -9,6 +9,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 	const eventInput = React.createRef();
 	const quoteInput = React.createRef();
 	const kindInput = React.createRef();
+	const locatieInput = React.createRef();
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -18,6 +19,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 			quote: quoteInput.current.value,
 			event: eventInput.current.value,
 			kind: kindInput.current.checked,
+			locatie: locatieInput.current.value,
 			teamcaptainId: uiStore.authUser._id
 		});
 
@@ -86,6 +88,15 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 					<input type="radio" name="event" value="wandelen" ref={eventInput} />
 					<label>Wij gaan 6km wandelen</label>
 				</div>
+				<h3>Aan welke race neemt uw team deel?</h3>
+				<p>Zo weten we waar en waneer we jullie mogen verwachten</p>
+				<select ref={locatieInput}>
+					<option value="Antwerpen">Antwerpen</option>
+					<option value="Brussel">Brussel</option>
+					<option value="Charleroi">Charleroi</option>
+					<option value="Namen">Namen</option>
+				</select>
+				<br />
 				<input type="submit" value="Inschrijven" />
 			</form>
 		</>

@@ -5,6 +5,7 @@ const Individueel = () => {
 	const lastnameInput = React.createRef();
 	const mailInput = React.createRef();
 	const eventInput = React.createRef();
+	const locatieInput = React.createRef();
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -57,6 +58,15 @@ const Individueel = () => {
 					<input type="radio" name="event" value="wandelen" ref={eventInput} />
 					<label>Ik ga 6km wandelen</label>
 				</div>
+				<h3>Aan welke race neemt uw team deel?</h3>
+				<p>Zo weten we waar en waneer we jullie mogen verwachten</p>
+				<select ref={locatieInput}>
+					<option value="Antwerpen">Antwerpen</option>
+					<option value="Brussel">Brussel</option>
+					<option value="Charleroi">Charleroi</option>
+					<option value="Namen">Namen</option>
+				</select>
+				<br />
 				<input type="submit" value="Inschrijven" />
 			</form>
 		</>
