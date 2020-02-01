@@ -1,22 +1,24 @@
 import React from "react";
+import { inject, observer } from "mobx-react";
 
-const Individueel = () => {
+const Individueel = ({ teamStore }) => {
 	const firstnameInput = React.createRef();
 	const lastnameInput = React.createRef();
 	const mailInput = React.createRef();
 	const eventInput = React.createRef();
 	const locatieInput = React.createRef();
+	const kindInput = React.createRef();
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		// teamStore.addTeam({
-		// 	teamnaam: teamNameInput.current.value,
-		// 	reason: whyInput.current.value,
-		// 	quote: quoteInput.current.value,
-		// 	event: eventInput.current.value,
-		// 	kind: kindInput.current.checked,
-		// 	teamcaptainId: uiStore.authUser._id
-		// });
+		teamStore.addPerson({
+			firstname: firstnameInput.current.value,
+			name: lastnameInput.current.value,
+			mail: mailInput.current.value,
+			event: eventInput.current.value,
+			location: locatieInput.current.value
+			// kind: kindInput.current.checked
+		});
 
 		firstnameInput.current.value = "";
 		lastnameInput.current.value = "";
@@ -73,4 +75,4 @@ const Individueel = () => {
 	);
 };
 
-export default Individueel;
+export default inject("teamStore")(observer(Individueel));

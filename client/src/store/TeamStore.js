@@ -1,4 +1,11 @@
-import { decorate, observable, configure, action, runInAction } from "mobx";
+import {
+	decorate,
+	observable,
+	configure,
+	action,
+	runInAction,
+	observe
+} from "mobx";
 import Team from "../models/Team";
 import Person from "../models/Person";
 
@@ -13,7 +20,26 @@ class TeamStore {
 		this.api = new Api("teams");
 		this.apiPerson = new Api("participants");
 		this.api.getAll().then(d => d.forEach(this._addTeam));
+		if (this.rootStore.uiStore.authUser) {
+			console.log("er is een user ingelogd");
+			console.log(this.rootStore.uiStore.authUser);
+			this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
+		}
+		observe(this.rootStore.uiStore, "authUser", change => {
+			if (change.newValue) {
+				console.log("er is een user ingelogd");
+				console.log(this.rootStore.uiStore.authUser._id);
+
+				this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
+			} else {
+				console.log("er is geen user ingelogd");
+			}
+		});
 	}
+
+	getAllInfoTeam = id => {
+		this.api.getAllInfoTeam(id).then(d => console.log(d));
+	};
 
 	addTeam = data => {
 		const newTeam = new Team(this.rootStore);
@@ -25,8 +51,10 @@ class TeamStore {
 	};
 
 	addPerson = data => {
+		// console.log(data);
 		const newPerson = new Person(this.rootStore);
 		newPerson.updateFromServer(data);
+		console.log(newPerson);
 		this.apiPerson
 			.create(newPerson)
 			.then(personValues => newPerson.updateFromServer(personValues));

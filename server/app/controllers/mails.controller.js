@@ -1,46 +1,42 @@
-const Team = require("../models/team.model.js");
+const Mail = require("../models/mail.model.js");
 
 exports.create = (req, res) => {
-	if (!req.body.teamnaam) {
-		return res.status(500).send({ err: "teamnaam can not be empty" });
+	if (!req.body.mail) {
+		return res.status(500).send({ err: "title can not be empty" });
 	}
-	const team = new Team({
-		teamnaam: req.body.teamnaam,
-		reason: req.body.reason,
-		quote: req.body.quote,
-		kind: req.body.kind,
-		location: req.body.location,
-		teamcaptainId: req.body.teamcaptainId
+
+	console.log(req.body.teamId);
+	const mail = new Mail({
+		mail: req.body.mail
+
+		// authorId: req.body.authorId //deze moet er nu pas staan
 	});
 
-	team
+	console.log(mail);
+	mail
 		.save()
-		.then(team => res.send(team))
+		.then(mail => res.send(mail))
 		.catch(err => {
-			res.status(500).send({ error: err.team || "Error" });
+			res.status(500).send({ error: err.mail || "Error" });
 		});
 };
 
 exports.findAll = async (req, res) => {
 	try {
-		const teams = await Team.find();
-		res.send(teams);
+		const mails = await Mail.find();
+		res.send(mails);
 	} catch (err) {
-		res.status(500).send({ err: err.team || "Error" });
+		res.status(500).send({ err: err.mail || "Error" });
 	}
 };
 
 exports.findOne = async (req, res) => {
-	console.log(req.params.teamId);
-	// console.log(req.teamId);
 	try {
-		console.log("team");
-		const team = await Team.find({ teamcaptainId: req.params.teamId });
-		console.log(team);
-		if (team) {
-			res.send(team);
+		const mail = await Mail.findById(req.params.bookId);
+		if (mail) {
+			res.send(mail);
 		} else {
-			res.status(404).send("No team found");
+			res.status(404).send("No book found");
 		}
 	} catch (err) {
 		if (err.kind === "ObjectId") {
@@ -56,7 +52,7 @@ exports.update = async (req, res) => {
 	}
 
 	try {
-		const book = await Book.findByIdAndUpdate(
+		const mail = await Mail.findByIdAndUpdate(
 			req.params.bookId,
 			{
 				title: req.body.title,
