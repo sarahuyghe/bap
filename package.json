@@ -2,6 +2,9 @@
 	"name": "bap-boobottle",
 	"version": "1.0.0",
 	"main": "index.js",
+	"engines": {
+		"node": "13.7.0"
+	},
 	"repository": "https://github.com/sarahuyghe/bap.git",
 	"author": "Sara Huyghe",
 	"license": "MIT",
