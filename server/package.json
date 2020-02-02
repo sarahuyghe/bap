@@ -12,6 +12,7 @@
 		"eslint": "^5.15.3",
 		"eslint-config-devine": "^2.0.1",
 		"express": "^4.16.4",
+		"fs": "0.0.1-security",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.4.19"
 	},
