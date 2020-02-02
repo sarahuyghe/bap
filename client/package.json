@@ -17,8 +17,8 @@
 		"react-scripts": "3.3.0",
 <<<<<<< Updated upstream
 =======
-		"react-share": "^4.0.1",
-		"react-spinners": "^0.8.0",
+// 		"react-share": "^4.0.1",
+// 		"react-spinners": "^0.8.0",
 >>>>>>> Stashed changes
 		"react-three-fiber": "^4.0.12",
 		"styled-components": "^5.0.0",
@@ -50,7 +50,7 @@
 =======
 	},
 	"engines": {
-		"node": "13.x"
+		"node": "12.x"
 >>>>>>> Stashed changes
 	}
 
