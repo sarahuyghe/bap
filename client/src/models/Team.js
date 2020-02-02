@@ -9,7 +9,6 @@ class Team {
 		this.quote = store.quote;
 		this.location = store.location;
 		this.teamcaptainId = store.teamcaptainId;
-		console.log(store.location);
 	}
 
 	setId = id => (this.id = id);

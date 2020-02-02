@@ -29,6 +29,8 @@ import Menu from "./components/navigation/Menu";
 
 import Portal from "./components/teamcaptain/Home";
 
+import Loader from "./components/Loader";
+
 import Footer from "./components/footer/Footer";
 
 import "./styles.css";

@@ -1,10 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants";
+import { inject, observer } from "mobx-react";
 
-const Footer = () => {
+const Footer = ({ mailStore }) => {
+	const mailInput = React.createRef();
+
 	const handleSubmit = e => {
 		e.preventDefault();
+		mailStore.addMail({
+			mail: mailInput.current.value
+		});
 	};
 
 	return (
@@ -57,13 +63,14 @@ const Footer = () => {
 							type="text"
 							name="email"
 							placeholder="mijnemail@domain.com"
-							// ref={messageInput}
+							ref={mailInput}
 						/>
 					</label>
+					<input type="submit" value="bevestigen" />
 				</form>
 			</section>
 		</>
 	);
 };
 
-export default Footer;
+export default inject("mailStore")(observer(Footer));

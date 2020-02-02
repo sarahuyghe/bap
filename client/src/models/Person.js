@@ -11,13 +11,17 @@ class Person {
 	setName = value => (this.name = value);
 	setFirstName = value => (this.firstname = value);
 	setMail = value => (this.mail = value);
+	setEvent = value => (this.event = value);
+	setLocation = value => (this.location = value);
 
 	get values() {
 		return {
 			teamId: this.teamId,
 			name: this.name,
 			firstname: this.firstname,
-			mail: this.mail
+			mail: this.mail,
+			event: this.event,
+			location: this.location
 		};
 	}
 
@@ -27,6 +31,8 @@ class Person {
 		this.setName(values.name);
 		this.setFirstName(values.firstname);
 		this.setMail(values.mail);
+		this.setEvent(values.event);
+		this.setLocation(values.location);
 	};
 }
 
@@ -36,12 +42,16 @@ decorate(Person, {
 	name: observable,
 	firstname: observable,
 	mail: observable,
+	event: observable,
+	location: observable,
 
 	setId: action,
 	setName: action,
 	setFirstName: action,
 	setMail: action,
 	setTeamId: action,
+	setEvent: action,
+	setLocation: action,
 
 	values: computed
 });

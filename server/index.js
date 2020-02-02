@@ -41,6 +41,7 @@ require("./app/routes/teams.routes.js")(app);
 require("./app/routes/participants.routes.js")(app);
 require("./app/routes/messages.routes.js")(app);
 require("./app/routes/auth.routes.js")(app);
+require("./app/routes/mails.routes.js")(app);
 
 app.listen(process.env.PORT, () => {
 	console.log(`Server luistert op poort ${process.env.PORT}`);
