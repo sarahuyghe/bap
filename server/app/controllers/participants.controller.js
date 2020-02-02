@@ -1,10 +1,10 @@
 const Participant = require("../models/participant.model.js");
 const nodemailer = require("nodemailer");
 
-smtpTransport = nodemailer.createTransport({
+transporter = nodemailer.createTransport({
 	service: "Gmail",
 	auth: {
-		user: "saradatbenik@email.com",
+		user: "saradatbenik@gmail.com",
 		pass: "hawk8000"
 	}
 });
@@ -24,7 +24,7 @@ exports.create = (req, res) => {
 	});
 
 	const mailOptions = {
-		from: "saradatbenik@email.com",
+		from: "saradatbenik@gmail.com",
 		to: participant.email,
 		subject: "Sending Email using Node.js",
 		text: "That was easy!"
