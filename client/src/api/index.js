@@ -9,7 +9,6 @@ class Api {
 	};
 
 	create = async team => {
-		console.log(team);
 		const r = await fetch(
 			`/api/${this.entity}`,
 			this.getOptions("post", team.values)
@@ -18,10 +17,7 @@ class Api {
 	};
 
 	getAllInfoTeam = async user => {
-		const r = await fetch(
-			`/${this.entity}/${user}`,
-			this.getOptions("put", user)
-		);
+		const r = await fetch(`/api/${this.entity}/${user}`);
 		return await r.json();
 	};
 

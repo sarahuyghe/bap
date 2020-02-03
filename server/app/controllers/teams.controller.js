@@ -33,9 +33,14 @@ exports.findAll = async (req, res) => {
 exports.findOne = async (req, res) => {
 	console.log(req.params.teamId);
 	// console.log(req.teamId);
+
 	try {
-		console.log("team");
-		const team = await Team.find({ teamcaptainId: req.params.teamId });
+		// const team = await Team.findOne({
+		// 	teamcaptainId: req.params.teamId
+		// });
+		const team = await Team.findOne({
+			teamcaptainId: req.params.teamId
+		}).populate("teamcaptainId");
 		console.log(team);
 		if (team) {
 			res.send(team);

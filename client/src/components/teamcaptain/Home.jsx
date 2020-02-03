@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import withAuthentication from "../auth/WithAuthentication";
+import { inject, observer } from "mobx-react";
 
-const Home = () => {
-	return <p>Start of the portal</p>;
+const Home = ({ teamStore }) => {
+	const { currentTeam } = teamStore;
+	return (
+		<>
+			<p>Start of the portal</p>
+			{currentTeam.map(team => (
+				<div key={team._id}>
+					<h1>{team.teamnaam}</h1>
+					<p>{team.quote}</p>
+					<p>{team.reason}</p>
+					{/* {team.teamcaptainId.map(person => console.log(person))} */}
+					{/* {team.teamcaptainId.map(person => console.log(person))} */}
+				</div>
+			))}
+		</>
+	);
 };
 
-export default withAuthentication(Home);
+export default inject("teamStore")(withAuthentication(observer(Home)));

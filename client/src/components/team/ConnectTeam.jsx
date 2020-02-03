@@ -2,12 +2,11 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 
 const ConnectTeam = ({ teamStore }) => {
-	const { teams } = teamStore;
+	const { teams, search, searching } = teamStore;
 	const teamIdInput = React.createRef();
 	const naamInput = React.createRef();
 	const voornaamInput = React.createRef();
 	const mailInput = React.createRef();
-	// console.log(teams);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -23,16 +22,33 @@ const ConnectTeam = ({ teamStore }) => {
 		mailInput.current.value = "";
 	};
 
+	const handleChange = e => {
+		// e.preventDefault();
+		// console.log(searchInput.current.value);
+		search(e.target.value);
+	};
+
 	return (
 		<>
 			<h1>Inschrijven bij een team</h1>
+			<input type="text" onChange={handleChange} />
+			{/* <button onClick={onClick}>testing</button> */}
 			<form onSubmit={handleSubmit}>
-				<select ref={teamIdInput}>
+				{/* <select ref={teamIdInput}>
 					{teams.map(team => (
 						<option key={team.id} value={team.id}>
 							{team.teamnaam}
 						</option>
 					))}
+				</select> */}
+				<select ref={teamIdInput}>
+					{searching.map(team =>
+						team.map(test => (
+							<option key={test.teamId} value={test.teamId}>
+								{test.teamnaam}
+							</option>
+						))
+					)}
 				</select>
 				<br />
 				<label>

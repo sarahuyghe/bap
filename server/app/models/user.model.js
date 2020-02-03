@@ -5,8 +5,7 @@ const UserSchema = new mongoose.Schema({
 	email: { type: String, required: true, unique: true },
 	password: { type: String, required: true },
 	name: { type: String, required: true },
-	firstname: { type: String, required: true },
-	roles: [String]
+	firstname: { type: String, required: true }
 });
 
 UserSchema.methods.validPassword = function(password) {

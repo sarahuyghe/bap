@@ -11,6 +11,7 @@ const Individueel = ({ teamStore }) => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		console.log(eventInput.current.checked);
 		teamStore.addPerson({
 			firstname: firstnameInput.current.value,
 			name: lastnameInput.current.value,
@@ -52,13 +53,22 @@ const Individueel = ({ teamStore }) => {
 				<br />
 				<h3>Lopen of wandelen?</h3>
 				<p>Zo weten we hoeveel mensen we per route verwachten</p>
-				<div>
-					<input type="radio" name="event" value="lopen" ref={eventInput} />
-					<label>Ik ga 3km lopen</label>
-				</div>
-				<div>
-					<input type="radio" name="event" value="wandelen" ref={eventInput} />
-					<label>Ik ga 6km wandelen</label>
+				<div ref={eventInput}>
+					<label>
+						<input type="radio" name="event" value="lopen" ref={eventInput} />
+						Ik ga 3km lopen
+					</label>
+					{/* </div>
+				<div> */}
+					<label>
+						<input
+							type="radio"
+							name="event"
+							value="wandelen"
+							ref={eventInput}
+						/>
+						Ik ga 6km wandelen
+					</label>
 				</div>
 				<h3>Aan welke race neemt uw team deel?</h3>
 				<p>Zo weten we waar en waneer we jullie mogen verwachten</p>

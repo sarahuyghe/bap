@@ -8,7 +8,7 @@ const TeamSchema = mongoose.Schema(
 		quote: String,
 		kind: Boolean,
 		location: String,
-		teamcaptainId: ObjectId
+		teamcaptainId: { type: ObjectId, ref: "User" }
 	},
 	{
 		timestamps: true

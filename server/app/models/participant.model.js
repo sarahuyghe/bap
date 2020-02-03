@@ -8,7 +8,7 @@ const ParticipantSchema = mongoose.Schema(
 		email: String,
 		event: String,
 		location: String,
-		teamId: ObjectId
+		teamId: { type: ObjectId, ref: "Team" }
 	},
 	{
 		timestamps: true
