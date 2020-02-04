@@ -28,7 +28,12 @@ const Menu = ({ open, setOpen, uiStore }) => {
 	return (
 		<StyledMenu open={open}>
 			{uiStore.authUser ? (
-				<button onClick={uiStore.logout} onClick={() => setOpen(!open)}>
+				<button
+					onClick={() => {
+						setOpen(!open);
+						uiStore.logout();
+					}}
+				>
 					logout
 				</button>
 			) : (

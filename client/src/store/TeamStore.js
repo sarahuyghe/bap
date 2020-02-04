@@ -45,8 +45,6 @@ class TeamStore {
 		this.api.getAllInfoTeam(id).then(d => {
 			runInAction(() => this.currentTeam.push(d));
 		});
-		console.log(this.currentTeam);
-		console.log(this.currentTeam.teamnaam);
 	};
 
 	addTeam = data => {
@@ -58,29 +56,24 @@ class TeamStore {
 			.then(teamValues => newTeam.updateFromServer(teamValues));
 	};
 
-	addPerson = data => {
-		const newPerson = new Person(this.rootStore);
-		newPerson.updateFromServer(data);
-		console.log(newPerson);
-		this.apiPerson
-			.create(newPerson)
-			.then(personValues => newPerson.updateFromServer(personValues));
-	};
-
 	search = data => {
-		let matchesFilter = new RegExp(data, "i");
-		let matchesFilterPerson = new RegExp(data, "i");
-		this.searching = [];
+		this.searching.clear();
 		const searchTeam = this.teams.filter(check =>
-			matchesFilter.test(check.teamnaam)
+			check.teamnaam.toLowerCase().includes(data)
 		);
 		const searchParticipant = this.participants.filter(part =>
-			// matchesFilter.test(check.name);
-			matchesFilterPerson.test(part.name)
+			part.name.toLowerCase().includes(data)
 		);
 		this.searching.push(searchParticipant);
 		this.searching.push(searchTeam);
-		console.log(this.searching);
+	};
+
+	addPerson = data => {
+		const newPerson = new Person(this.rootStore);
+		newPerson.updateFromServer(data);
+		this.apiPerson
+			.create(newPerson)
+			.then(personValues => newPerson.updateFromServer(personValues));
 	};
 
 	_addTeam = values => {

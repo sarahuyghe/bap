@@ -1,7 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 
-const Individueel = ({ teamStore }) => {
+const Individueel = ({ participantStore, teamStore }) => {
 	const firstnameInput = React.createRef();
 	const lastnameInput = React.createRef();
 	const mailInput = React.createRef();
@@ -12,7 +12,7 @@ const Individueel = ({ teamStore }) => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		console.log(eventInput.current.checked);
-		teamStore.addPerson({
+		participantStore.addPerson({
 			firstname: firstnameInput.current.value,
 			name: lastnameInput.current.value,
 			mail: mailInput.current.value,
@@ -85,4 +85,4 @@ const Individueel = ({ teamStore }) => {
 	);
 };
 
-export default inject("teamStore")(observer(Individueel));
+export default inject("teamStore", "participantStore")(observer(Individueel));

@@ -115,7 +115,4 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 export default inject(
 	"teamStore",
 	"uiStore"
-)(
-	// (withAuthentication
-	observer(TeamForm)
-);
+)(withAuthentication(observer(TeamForm)));

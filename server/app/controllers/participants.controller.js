@@ -14,13 +14,16 @@ exports.create = (req, res) => {
 		return res.status(500).send({ err: "name can not be empty" });
 	}
 
+	console.log(req.body.firstname);
+	console.log(req.body.teamId);
+
 	const participant = new Participant({
 		name: req.body.name,
-		firstname: req.body.firstname,
+		// firstname: req.body.firstname,
 		email: req.body.mail,
-		teamId: req.body.teamId,
-		event: req.body.event,
-		location: req.body.location
+		teamId: req.body.teamId
+		// event: req.body.event,
+		// location: req.body.location
 	});
 
 	const mailOptions = {
@@ -30,13 +33,17 @@ exports.create = (req, res) => {
 		text: "That was easy!"
 	};
 
-	transporter.sendMail(mailOptions, function(error, info) {
-		if (error) {
-			console.log(error);
-		} else {
-			console.log("Email sent: " + info.response);
-		}
-	});
+	if (participant) {
+		transporter.sendMail(mailOptions, function(error, info) {
+			if (error) {
+				console.log(error);
+			} else {
+				console.log("Email sent: " + info.response);
+			}
+		});
+	} else {
+		console.log("error sendin mail");
+	}
 
 	participant
 		.save()
@@ -52,6 +59,31 @@ exports.findAll = async (req, res) => {
 		res.send(participants);
 	} catch (err) {
 		res.status(500).send({ err: err.participant || "Error" });
+	}
+};
+
+exports.findAllTeamId = async (req, res) => {
+	console.log(req.params.id);
+	// console.log(req.teamId);
+
+	try {
+		// const team = await Team.findOne({
+		// 	teamcaptainId: req.params.teamId
+		// });
+		const participant = await Participant.find({
+			teamId: req.params.teamId
+		}).populate("teamId");
+		console.log(participant);
+		if (participant) {
+			res.send(participant);
+		} else {
+			res.status(404).send("No team found");
+		}
+	} catch (err) {
+		if (err.kind === "ObjectId") {
+			return res.status(500).send("Geen geldig ID");
+		}
+		return res.status(500).send(err);
 	}
 };
 
