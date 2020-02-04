@@ -24,28 +24,44 @@ const StyledMenu = styled.nav`
 	width: 100%;
 `;
 
-const Menu = ({ open, uiStore }) => {
+const Menu = ({ open, setOpen, uiStore }) => {
 	return (
 		<StyledMenu open={open}>
 			{uiStore.authUser ? (
-				<button onClick={uiStore.logout}>logout</button>
+				<button onClick={uiStore.logout} onClick={() => setOpen(!open)}>
+					logout
+				</button>
 			) : (
-				<NavLink to={ROUTES.login}>Aanmelden</NavLink>
+				<NavLink to={ROUTES.login} onClick={() => setOpen(!open)}>
+					Aanmelden
+				</NavLink>
 			)}
 			<h1>Menu</h1>
 			<ul>
 				<li>
-					<NavLink to={ROUTES.home} className={styles.links}>
+					<NavLink
+						to={ROUTES.home}
+						className={styles.links}
+						onClick={() => setOpen(!open)}
+					>
 						Race for the cure
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to={ROUTES.why} className={styles.links}>
+					<NavLink
+						to={ROUTES.why}
+						className={styles.links}
+						onClick={() => setOpen(!open)}
+					>
 						Waarom de waterfles
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to={ROUTES.symptonen} className={styles.links}>
+					<NavLink
+						to={ROUTES.symptonen}
+						className={styles.links}
+						onClick={() => setOpen(!open)}
+					>
 						Symptonen
 					</NavLink>
 				</li>

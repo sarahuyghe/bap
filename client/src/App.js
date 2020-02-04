@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 
@@ -38,11 +38,10 @@ import "./styles.css";
 function App() {
 	const [open, setOpen] = React.useState(false);
 
-	const node = React.useRef();
 	return (
 		<>
 			{/* <Navigation /> */}
-			<div ref={node}>
+			<div>
 				<Burger open={open} setOpen={setOpen} />
 				<Menu open={open} setOpen={setOpen} />
 			</div>
