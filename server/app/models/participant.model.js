@@ -4,10 +4,10 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const ParticipantSchema = mongoose.Schema(
 	{
 		name: String,
-		// firstname: String,
-		email: String,
-		// event: String,
-		// location: String,
+		firstname: String,
+		mail: String,
+		event: String,
+		location: String,
 		teamId: { type: ObjectId, ref: "Team" }
 	},
 	{

@@ -68,14 +68,6 @@ class TeamStore {
 		this.searching.push(searchTeam);
 	};
 
-	addPerson = data => {
-		const newPerson = new Person(this.rootStore);
-		newPerson.updateFromServer(data);
-		this.apiPerson
-			.create(newPerson)
-			.then(personValues => newPerson.updateFromServer(personValues));
-	};
-
 	_addTeam = values => {
 		const team = new Team(values);
 		team.updateFromServer(values);
@@ -108,8 +100,8 @@ decorate(TeamStore, {
 	addTeam: action,
 	search: action,
 	addPerson: action,
-	getAllInfoTeam: action,
-	deleteTeam: action
+	getAllInfoTeam: action
+	// deleteTeam: action
 });
 
 export default TeamStore;

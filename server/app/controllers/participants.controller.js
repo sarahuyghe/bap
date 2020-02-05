@@ -14,43 +14,43 @@ exports.create = (req, res) => {
 		return res.status(500).send({ err: "name can not be empty" });
 	}
 
-	console.log(req.body.firstname);
+	console.log(req.body.name);
 	console.log(req.body.teamId);
 
 	const participant = new Participant({
 		name: req.body.name,
-		// firstname: req.body.firstname,
-		email: req.body.mail,
-		teamId: req.body.teamId
-		// event: req.body.event,
-		// location: req.body.location
+		firstname: req.body.firstname,
+		mail: req.body.mail,
+		teamId: req.body.teamId,
+		event: req.body.event,
+		location: req.body.location
 	});
-
-	const mailOptions = {
-		from: "saradatbenik@gmail.com",
-		to: participant.email,
-		subject: "Sending Email using Node.js",
-		text: "That was easy!"
-	};
-
-	if (participant) {
-		transporter.sendMail(mailOptions, function(error, info) {
-			if (error) {
-				console.log(error);
-			} else {
-				console.log("Email sent: " + info.response);
-			}
-		});
-	} else {
-		console.log("error sendin mail");
-	}
-
+	console.log(participant);
 	participant
 		.save()
 		.then(participant => res.send(participant))
 		.catch(err => {
 			res.status(500).send({ error: err.participant || "Error" });
 		});
+
+	// const mailOptions = {
+	// 	from: "saradatbenik@gmail.com",
+	// 	to: participant.email,
+	// 	subject: "Sending Email using Node.js",
+	// 	text: "That was easy!"
+	// };
+
+	// if (participant) {
+	// 	transporter.sendMail(mailOptions, function(error, info) {
+	// 		if (error) {
+	// 			console.log(error);
+	// 		} else {
+	// 			console.log("Email sent: " + info.response);
+	// 		}
+	// 	});
+	// } else {
+	// 	console.log("error sendin mail");
+	// }
 };
 
 exports.findAll = async (req, res) => {

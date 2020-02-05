@@ -14,6 +14,7 @@ class Api {
 			`/api/${this.entity}`,
 			this.getOptions("post", team.values)
 		);
+		console.log(r);
 		return await r.json();
 	};
 
