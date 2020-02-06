@@ -13,12 +13,12 @@ import Api from "../api";
 configure({ enforceActions: "observed" });
 class ParticipantStore {
 	participants = [];
-	currentTeam = [];
+	currentParticipants = [];
 
 	constructor(rootStore) {
 		this.rootStore = rootStore;
 		this.api = new Api("participants");
-		this.api.getAll().then(d => d.forEach(this._addPerson));
+		// this.api.getAll().then(d => d.forEach(this._addPerson));
 
 		if (this.rootStore.uiStore.authUser) {
 			console.log("er is een user ingelogd");
@@ -29,23 +29,21 @@ class ParticipantStore {
 				console.log("er is een user ingelogd");
 				this.collectTeamParticipants(this.rootStore.uiStore.authUser.teamId);
 			} else {
-				this.currenParticipants = [];
+				this.currentParticipants = [];
 				console.log("er is geen user ingelogd");
 			}
 		});
 	}
 
 	collectTeamParticipants = id => {
-		// const data = "5e3412b8f7b07161005a3fd7";
-		this.api.findAllTeamId(id).then(d => console.log(d));
-		console.log(this.currenParticipants);
+		this.api.findAllTeamId(id).then(d => d.forEach(this._addPerson));
+		console.log(this.currentParticipants);
 	};
 
 	_addPerson = values => {
 		const person = new Person(values);
 		person.updateFromServer(values);
-		runInAction(() => this.participants.push(person));
-		// console.log(this.participants);
+		runInAction(() => this.currentParticipants.push(person));
 	};
 
 	addPerson = data => {
@@ -64,17 +62,23 @@ class ParticipantStore {
 			.create(newPerson)
 			.then(personValues => newPerson.updateFromServer(personValues));
 	};
+
+	deleteParticipant = person => {
+		console.log(person);
+		this.currentParticipants.remove(person);
+		this.api.delete(person);
+	};
 }
 
 decorate(ParticipantStore, {
 	participants: observable,
-	currentTeam: observable,
+	currentParticipants: observable,
 
 	addTeam: action,
 	search: action,
 	addPerson: action,
 	getAllInfoTeam: action,
-	deleteTeam: action,
+	deleteParticipant: action,
 	collectTeamParticipants: action
 });
 

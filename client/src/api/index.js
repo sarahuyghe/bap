@@ -37,13 +37,14 @@ class Api {
 	// 	return await r.json();
 	// };
 
-	// delete = async book => {
-	// 	const r = await fetch(
-	// 		`http://localhost:4000/${this.entity}/${book.id}`,
-	// 		this.getOptions("delete")
-	// 	);
-	// 	return r.json();
-	// };
+	delete = async person => {
+		console.log(person);
+		const r = await fetch(
+			`/api/${this.entity}/${person.id}`,
+			this.getOptions("delete")
+		);
+		return r.json();
+	};
 
 	getOptions = (method, body = null) => {
 		const options = {

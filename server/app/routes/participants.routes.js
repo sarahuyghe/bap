@@ -5,4 +5,5 @@ module.exports = app => {
 	app.get("/api/participants/:teamId", controller.findAllTeamId);
 	app.get("/api/participants/:userId", controller.findOne);
 	app.put("/api/participants/:userId", controller.update);
+	app.delete("/api/participants/:userId", controller.delete);
 };

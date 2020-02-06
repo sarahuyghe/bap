@@ -14,9 +14,6 @@ exports.create = (req, res) => {
 		return res.status(500).send({ err: "name can not be empty" });
 	}
 
-	console.log(req.body.name);
-	console.log(req.body.teamId);
-
 	const participant = new Participant({
 		name: req.body.name,
 		firstname: req.body.firstname,
@@ -25,7 +22,6 @@ exports.create = (req, res) => {
 		event: req.body.event,
 		location: req.body.location
 	});
-	console.log(participant);
 	participant
 		.save()
 		.then(participant => res.send(participant))
@@ -114,6 +110,23 @@ exports.update = async (req, res) => {
 
 		if (!participant) {
 			return res.status(404).send("No author found");
+		}
+		res.send(participant);
+	} catch (err) {
+		if (err.kind === "ObjectId") {
+			return res.status(417).send("Geen geldig ID");
+		}
+		return res.status(500).send(err);
+	}
+};
+
+exports.delete = async (req, res) => {
+	console.log(req.params);
+	try {
+		const participant = await Participant.findByIdAndRemove(req.params.userId);
+		console.log(participant);
+		if (!participant) {
+			return res.status(404).send("No book found");
 		}
 		res.send(participant);
 	} catch (err) {
