@@ -17,6 +17,7 @@ class TeamStore {
 	teams = [];
 	participants = [];
 	searching = [];
+	team = null;
 	currentTeam = [];
 
 	constructor(rootStore) {
@@ -28,12 +29,12 @@ class TeamStore {
 
 		if (this.rootStore.uiStore.authUser) {
 			console.log("er is een user ingelogd");
-			// this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
+			this.getAllInfoTeam(this.rootStore.uiStore.authUser.teamId);
 		}
 		observe(this.rootStore.uiStore, "authUser", change => {
 			if (change.newValue) {
 				console.log("er is een user ingelogd");
-				// this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
+				this.getAllInfoTeam(this.rootStore.uiStore.authUser.teamId);
 			} else {
 				this.currentTeam = [];
 				console.log("er is geen user ingelogd");
@@ -41,32 +42,22 @@ class TeamStore {
 		});
 	}
 
-	// getAllInfoTeam = id => {
-	// 	//id is userId
-	// 	this.currentTeam = [];
-	// 	this.api.getAllInfoTeam(id).then(d => {
-	// 		runInAction(() => this.currentTeam.push(d));
-	// 	});
-	// 	// this.apiPerson.findAllTeamId(id).then(
-	// 	// 	d => console.log(d)
-	// 	// 	//   {
-	// 	// 	//   runInAction(() => this.currentTeam.push(d)
-	// 	// 	//   );
-	// 	// 	// }
-	// 	// );
-	// 	console.log(this.currentTeam);
-	// };
+	getAllInfoTeam = id => {
+		this.currentTeam = [];
+		this.api.getAllInfoTeam(id).then(d => {
+			runInAction(() => this.currentTeam.push(d));
+		});
+	};
 
 	addTeam = data => {
-		this.currentTeam = [];
+		this.team = null;
 		const newTeam = new Team(this.rootStore);
 		newTeam.updateFromServer(data);
 		this.api
 			.create(newTeam)
 			.then(teamValues => newTeam.updateFromServer(teamValues));
 		this.teams.push(newTeam);
-		this.currentTeam.push(newTeam);
-		console.log(this.currentTeam);
+		this.team.push(newTeam);
 	};
 
 	search = data => {
@@ -109,6 +100,7 @@ decorate(TeamStore, {
 	participants: observable,
 	searching: observable,
 	currentTeam: observable,
+	team: observable,
 
 	addTeam: action,
 	search: action,

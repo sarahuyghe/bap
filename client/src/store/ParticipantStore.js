@@ -19,13 +19,26 @@ class ParticipantStore {
 		this.rootStore = rootStore;
 		this.api = new Api("participants");
 		this.api.getAll().then(d => d.forEach(this._addPerson));
-		// this.collectTeamParticipants();
+
+		if (this.rootStore.uiStore.authUser) {
+			console.log("er is een user ingelogd");
+			this.collectTeamParticipants(this.rootStore.uiStore.authUser.teamId);
+		}
+		observe(this.rootStore.uiStore, "authUser", change => {
+			if (change.newValue) {
+				console.log("er is een user ingelogd");
+				this.collectTeamParticipants(this.rootStore.uiStore.authUser.teamId);
+			} else {
+				this.currenParticipants = [];
+				console.log("er is geen user ingelogd");
+			}
+		});
 	}
 
-	collectTeamParticipants = () => {
-		const data = "5e3412b8f7b07161005a3fd7";
-		this.api.findAllTeamId(data).then(d => this.currentTeam.push(d));
-		console.log(this.participants);
+	collectTeamParticipants = id => {
+		// const data = "5e3412b8f7b07161005a3fd7";
+		this.api.findAllTeamId(id).then(d => console.log(d));
+		console.log(this.currenParticipants);
 	};
 
 	_addPerson = values => {

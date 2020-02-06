@@ -38,9 +38,7 @@ exports.findOne = async (req, res) => {
 		// const team = await Team.findOne({
 		// 	teamcaptainId: req.params.teamId
 		// });
-		const team = await Team.findOne({
-			teamcaptainId: req.params.teamId
-		}).populate("teamcaptainId");
+		const team = await Team.findById(req.params.teamId);
 		console.log(team);
 		if (team) {
 			res.send(team);

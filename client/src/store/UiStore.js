@@ -11,7 +11,9 @@ class UiStore {
 		this.setUser(getUserFromCookie());
 	}
 
-	setUser = value => (this.authUser = value);
+	setUser = value => {
+		this.authUser = value;
+	};
 
 	login = (username, password) => {
 		return this.authService

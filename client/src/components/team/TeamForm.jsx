@@ -20,7 +20,6 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 			event: eventInput.current.value,
 			kind: kindInput.current.checked,
 			location: locatieInput.current.value
-			// teamcaptainId: uiStore.authUser._id
 		});
 
 		teamNameInput.current.value = "";
