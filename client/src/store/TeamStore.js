@@ -4,7 +4,8 @@ import {
 	configure,
 	action,
 	runInAction,
-	observe
+	observe,
+	toJS
 } from "mobx";
 import Team from "../models/Team";
 import Person from "../models/Person";
@@ -27,12 +28,12 @@ class TeamStore {
 
 		if (this.rootStore.uiStore.authUser) {
 			console.log("er is een user ingelogd");
-			this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
+			// this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
 		}
 		observe(this.rootStore.uiStore, "authUser", change => {
 			if (change.newValue) {
 				console.log("er is een user ingelogd");
-				this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
+				// this.getAllInfoTeam(this.rootStore.uiStore.authUser._id);
 			} else {
 				this.currentTeam = [];
 				console.log("er is geen user ingelogd");
@@ -40,20 +41,32 @@ class TeamStore {
 		});
 	}
 
-	getAllInfoTeam = id => {
-		this.currentTeam = [];
-		this.api.getAllInfoTeam(id).then(d => {
-			runInAction(() => this.currentTeam.push(d));
-		});
-	};
+	// getAllInfoTeam = id => {
+	// 	//id is userId
+	// 	this.currentTeam = [];
+	// 	this.api.getAllInfoTeam(id).then(d => {
+	// 		runInAction(() => this.currentTeam.push(d));
+	// 	});
+	// 	// this.apiPerson.findAllTeamId(id).then(
+	// 	// 	d => console.log(d)
+	// 	// 	//   {
+	// 	// 	//   runInAction(() => this.currentTeam.push(d)
+	// 	// 	//   );
+	// 	// 	// }
+	// 	// );
+	// 	console.log(this.currentTeam);
+	// };
 
 	addTeam = data => {
+		this.currentTeam = [];
 		const newTeam = new Team(this.rootStore);
 		newTeam.updateFromServer(data);
-		this.teams.push(newTeam);
 		this.api
 			.create(newTeam)
 			.then(teamValues => newTeam.updateFromServer(teamValues));
+		this.teams.push(newTeam);
+		this.currentTeam.push(newTeam);
+		console.log(this.currentTeam);
 	};
 
 	search = data => {
@@ -78,7 +91,7 @@ class TeamStore {
 		const person = new Person(values);
 		person.updateFromServer(values);
 		runInAction(() => this.participants.push(person));
-		console.log(this.participants);
+		// console.log(this.participants);
 	};
 
 	updateTeam = team => {

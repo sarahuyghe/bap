@@ -55,8 +55,8 @@ exports.logout = (req, res) => {
 };
 
 exports.register = (req, res) => {
-	const { email, password, name, firstname } = req.body;
-	const user = new User({ email, password, name, firstname });
+	const { email, password, name, firstname, teamId } = req.body;
+	const user = new User({ email, password, name, firstname, teamId });
 	user.save(err => {
 		if (err) {
 			res.status(500).send("Error registering new user please try again.");

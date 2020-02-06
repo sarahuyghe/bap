@@ -27,7 +27,7 @@ class Auth {
 		});
 	};
 
-	register = (name, firstname, email, password) => {
+	register = (name, firstname, email, password, teamId) => {
 		return fetch(`/auth/register`, {
 			method: "POST",
 			headers: {
@@ -37,7 +37,8 @@ class Auth {
 				name,
 				firstname,
 				email,
-				password
+				password,
+				teamId
 			})
 		}).then(res => {
 			if (res.status === 200) {

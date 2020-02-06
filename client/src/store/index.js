@@ -4,8 +4,6 @@ import UiStore from "./UiStore";
 import MailStore from "./MailStore";
 import ParticipantStore from "./ParticipantStore";
 
-// import AuthorStore from "./AuthorStore";
-
 class RootStore {
 	constructor() {
 		this.uiStore = new UiStore(this);

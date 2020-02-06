@@ -63,19 +63,12 @@ exports.findAll = async (req, res) => {
 };
 
 exports.findAllTeamId = async (req, res) => {
-	console.log(req.params.id);
-	// console.log(req.teamId);
-
 	try {
-		// const team = await Team.findOne({
-		// 	teamcaptainId: req.params.teamId
-		// });
-		const participant = await Participant.find({
+		const participants = await Participant.find({
 			teamId: req.params.teamId
-		}).populate("teamId");
-		console.log(participant);
-		if (participant) {
-			res.send(participant);
+		});
+		if (participants) {
+			res.send(participants);
 		} else {
 			res.status(404).send("No team found");
 		}

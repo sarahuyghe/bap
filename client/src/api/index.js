@@ -24,6 +24,7 @@ class Api {
 	};
 
 	findAllTeamId = async team => {
+		console.log(team);
 		const r = await fetch(`/api/${this.entity}/${team}`);
 		return await r.json();
 	};

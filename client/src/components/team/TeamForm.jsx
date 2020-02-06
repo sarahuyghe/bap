@@ -19,8 +19,8 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 			quote: quoteInput.current.value,
 			event: eventInput.current.value,
 			kind: kindInput.current.checked,
-			location: locatieInput.current.value,
-			teamcaptainId: uiStore.authUser._id
+			location: locatieInput.current.value
+			// teamcaptainId: uiStore.authUser._id
 		});
 
 		teamNameInput.current.value = "";
@@ -28,7 +28,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 		quoteInput.current.value = "";
 		kindInput.current.checked = false;
 		console.log(locatieInput.current.value);
-		history.push(ROUTES.confirm);
+		history.push(ROUTES.register);
 	};
 
 	return (
@@ -115,4 +115,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 export default inject(
 	"teamStore",
 	"uiStore"
-)(withAuthentication(observer(TeamForm)));
+)(
+	// (withAuthentication
+	observer(TeamForm)
+);

@@ -18,7 +18,7 @@ const Home = () => {
 					ingeschreven krijgt u ook een party-tent om samen te verzamelen. Tot
 					slot kan het grootste team ook nog een prijs winnen
 				</p>
-				<NavLink to={ROUTES.register}>Een team maken</NavLink>
+				<NavLink to={ROUTES.teamform}>Een team maken</NavLink>
 				<NavLink to={ROUTES.connectTeam}>Aansluiten bij een team</NavLink>
 			</section>
 			<section>

@@ -3,6 +3,8 @@ import { inject } from "mobx-react";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
 
+import TeamForm from "./../team/TeamForm";
+
 class Register extends Component {
 	constructor() {
 		super();
@@ -18,11 +20,13 @@ class Register extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const { uiStore, history } = this.props;
+		const { uiStore, history, teamStore } = this.props;
 		const { email, pwd, name, firstname } = this.state;
-		uiStore.register(name, firstname, email, pwd).then(() => {
-			history.push(ROUTES.teamform);
-		});
+		uiStore
+			.register(name, firstname, email, pwd, teamStore.currentTeam[0].id)
+			.then(() => {
+				history.push(ROUTES.confirm);
+			});
 	};
 
 	render() {
@@ -92,4 +96,4 @@ class Register extends Component {
 	}
 }
 
-export default inject("uiStore")(withRouter(Register));
+export default inject("uiStore", "teamStore")(withRouter(Register));
