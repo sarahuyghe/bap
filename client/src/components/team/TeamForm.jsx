@@ -2,6 +2,8 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 import withAuthentication from "../auth/WithAuthentication";
 import { ROUTES } from "../../constants";
+import styles from "./TeamForm.module.css";
+import Custom from "./Custom";
 
 const TeamForm = ({ uiStore, teamStore, history }) => {
 	const teamNameInput = React.createRef();
@@ -10,6 +12,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 	const quoteInput = React.createRef();
 	const kindInput = React.createRef();
 	const locatieInput = React.createRef();
+	// var bottle = bottlePink;
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -30,82 +33,132 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 		history.push(ROUTES.register);
 	};
 
+	// const handleChange = e => {
+	// 	console.log(e.currentTarget.value);
+	// 	bottle = e.currentTarget.value;
+	// 	console.log(bottle);
+	// };
+
 	return (
 		<>
-			<h3>Uw team instellen</h3>
 			<form onSubmit={handleSubmit}>
-				<h3>Kies een teamnaam</h3>
-				<p>
-					1 naam dat uw hele team definieerd, dat kan niet gemakkelijk zijn.
-					Veel succes
-				</p>
-				<label>
-					De naam van mijn team is
-					<input type="text" name="teamnaam" ref={teamNameInput} />
-				</label>
-				<br />
-				<h3>Kies een teamgezegde</h3>
-				<p>
-					heeft u een iconische zin of een zin dat perfect de sfeer in uw team
-					beschrijft? Plaats hem dan hier.
-				</p>
-				<label>
-					Ons team-gezegde is:
-					<input type="text" name="quote" ref={quoteInput} />
-				</label>
-				<br />
-				<h3>Waarvoor staat uw team?</h3>
-				<p>
-					dit laat mensen weten waarom ze uw team zouden sponseren of aansluiten
-				</p>
-				<label>
-					<input type="text" name="reason" ref={whyInput} />
-				</label>
-				<br />
-				<h3>Gesloten team?</h3>
-				<p>
-					Bij een gesloten team moet u als teamcaptain een elke inschrijving
-					goedkeuren
-				</p>
-				<label>
-					<input
-						type="checkbox"
-						name="reason"
-						value="closedTeam"
-						ref={kindInput}
-					/>
-					Ik wil een gesloten team
-				</label>
-				<br />
-				<h3>Lopen of wandelen?</h3>
-				<p>Zo weten we hoeveel mensen we per route verwachten</p>
-				<div>
-					<label>
-						<input type="radio" name="event" value="lopen" ref={eventInput} />
-						Wij gaan 3km lopen
-					</label>
-				</div>
-				<div>
-					<label>
-						<input
-							type="radio"
-							name="event"
-							value="wandelen"
-							ref={eventInput}
-						/>
-						Wij gaan 6km wandelen
-					</label>
-				</div>
-				<h3>Aan welke race neemt uw team deel?</h3>
-				<p>Zo weten we waar en waneer we jullie mogen verwachten</p>
-				<select ref={locatieInput}>
-					<option value="Antwerpen">Antwerpen</option>
-					<option value="Brussel">Brussel</option>
-					<option value="Charleroi">Charleroi</option>
-					<option value="Namen">Namen</option>
-				</select>
-				<br />
-				<input type="submit" value="Inschrijven" />
+				<section className={styles.panel}>
+					<Custom />
+				</section>
+				<section id="sec2" className={styles.panel}>
+					<h3>2. Team instellen</h3>
+					<div className={styles.deeltitles}>Een team aanmaken</div>
+					<section className={styles.formSection}>
+						<div>
+							<h3>Kies een teamnaam</h3>
+							<p>
+								1 naam dat uw hele team definieerd, dat kan niet makkelijk zijn.
+								Veel succes
+							</p>
+							<label>
+								De naam van mijn team is
+								<input
+									type="text"
+									name="teamnaam"
+									ref={teamNameInput}
+									required
+								/>
+							</label>
+						</div>
+						<div>
+							<h3>Lopen of wandelen?</h3>
+							<p>Zo weten we hoeveel mensen we per route verwachten</p>
+							<div>
+								<label>
+									<input
+										type="radio"
+										name="event"
+										value="lopen"
+										ref={eventInput}
+									/>
+									Wij gaan 3km lopen
+								</label>
+							</div>
+							<div>
+								<label>
+									<input
+										type="radio"
+										name="event"
+										value="wandelen"
+										ref={eventInput}
+									/>
+									Wij gaan 6km wandelen
+								</label>
+							</div>
+						</div>
+						<div>
+							<h3>Gesloten team?</h3>
+							<p>
+								Bij een gesloten team moet u als teamcaptain een elke
+								inschrijving goedkeuren
+							</p>
+							<label>
+								<input
+									type="checkbox"
+									name="reason"
+									value="closedTeam"
+									ref={kindInput}
+								/>
+								Ik wil een gesloten team
+							</label>
+						</div>
+
+						<div>
+							<h3>Aan welke race neemt uw team deel?</h3>
+							<p>Zo weten we waar en waneer we jullie mogen verwachten</p>
+							<select ref={locatieInput}>
+								<option value="Antwerpen">Antwerpen</option>
+								<option value="Brussel">Brussel</option>
+								<option value="Charleroi">Charleroi</option>
+								<option value="Namen">Namen</option>
+							</select>
+							<br />
+						</div>
+					</section>
+					<a href="#sec3" className={styles.submit}>
+						Volgende
+					</a>
+				</section>
+				<section id="sec3" className={styles.panel}>
+					<h3>3. Team personaliseren</h3>
+					<div className={styles.deeltitles}>Een team aanmaken</div>
+					<section className={styles.formSection}>
+						<div>
+							<h3>Kies een teamgezegde</h3>
+							<p>
+								heeft u een iconische zin of een zin dat perfect de sfeer in uw
+								team beschrijft? Plaats hem dan hier.
+							</p>
+							<label>
+								Ons team-gezegde is:
+								<input type="text" name="quote" ref={quoteInput} />
+							</label>
+						</div>
+						<div>
+							<h3>Wat is uw team’s motivatie?</h3>
+							<p>
+								dit laat mensen weten waarom ze uw team zouden sponseren of
+								aansluiten
+							</p>
+							<label>
+								<input
+									type="text"
+									name="reason"
+									ref={whyInput}
+									placeholder="hey ..."
+								/>
+							</label>
+						</div>
+					</section>
+					<input type="submit" value="Volgende" className={styles.submit} />
+				</section>
+
+				{/* <input type="submit" value="Inschrijven" /> */}
 			</form>
 		</>
 	);

@@ -1,34 +1,61 @@
-import React from "react";
+import React, { Component } from "react";
+import group from "./../../images/group.png";
+import connectTeam from "./../../images/group2.png";
+import solo from "./../../images/solo.png";
 
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "./../../constants/";
+import "./../../styles/index.css";
 
-const Home = () => {
-	return (
-		<>
-			<h2>In team?</h2>
-			<h3>Want alleen is maar alleen</h3>
-			<section>
-				<p>
-					Als u in team inschrijft heeft u een aantal voordelen. Ten eerste
-					verminderd uw inschrijvings geld van €15 naar €12, vervolgens krijgt
-					uw nog een officeele think pink t-shirt. Elk team krijgt ook één zelf
-					gepersonaliseerde drinkfles (als je een fles voor jezelf wilt kunt u
-					deze bij bestellen). Vanaf je als team met 50 of meer bent
-					ingeschreven krijgt u ook een party-tent om samen te verzamelen. Tot
-					slot kan het grootste team ook nog een prijs winnen
-				</p>
-				<NavLink to={ROUTES.teamform}>Een team maken</NavLink>
-				<NavLink to={ROUTES.connectTeam}>Aansluiten bij een team</NavLink>
-			</section>
-			<section>
-				<h2>Alleen lopen/wandelen?</h2>
-				<h3>Ongestoord en vrij</h3>
-				<p>Liever zin om alleen deel te nemen? Geen probleem. </p>
-				<NavLink to={ROUTES.individueel}>Individueel inschrijven</NavLink>
-			</section>
-		</>
-	);
-};
+import styles from "./Home.module.css";
+import Social from "./../social/Social";
+import TeamForm from "./TeamForm";
+
+class Home extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { active: false };
+	}
+	render() {
+		const { active } = this.state;
+		return (
+			<>
+				<section className={styles.header}>
+					<div>
+						<h2>Inschrijven</h2>
+						<p>Selecteer een inschrijvings-methode</p>
+					</div>
+					<div>
+						<div
+							className={styles.animation}
+							onClick={() => {
+								console.log(active);
+								this.setState({ active: !active });
+							}}
+						>
+							<h3>Een team maken</h3>
+							<img src={group} alt="" />
+						</div>
+					</div>
+					<div>
+						<div className={styles.animation}>
+							<h3>Aansluiten aan een team</h3>
+							<img src={connectTeam} alt="" />
+						</div>
+					</div>
+					<div>
+						<div className={styles.animation}>
+							<h3>Individueel inschrijven</h3>
+							<img src={solo} alt="" />
+						</div>
+					</div>
+					<Social />
+					<p>Scroll om meer te weten te komen</p>
+				</section>
+				{active ? <TeamForm /> : null}
+			</>
+		);
+	}
+}
 
 export default Home;
