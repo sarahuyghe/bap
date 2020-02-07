@@ -3,12 +3,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "./../../constants/";
 
+import styles from "./Home.module.css";
+
 const Home = () => {
 	return (
-		<>
-			<h2>In team?</h2>
-			<h3>Want alleen is maar alleen</h3>
-			<section>
+		<section className={styles.bg}>
+			<h2>Inschrijven</h2>
+			<h3>Selecteer een inschrijvings-methode</h3>
+			<div>
 				<p>
 					Als u in team inschrijft heeft u een aantal voordelen. Ten eerste
 					verminderd uw inschrijvings geld van €15 naar €12, vervolgens krijgt
@@ -20,14 +22,14 @@ const Home = () => {
 				</p>
 				<NavLink to={ROUTES.teamform}>Een team maken</NavLink>
 				<NavLink to={ROUTES.connectTeam}>Aansluiten bij een team</NavLink>
-			</section>
-			<section>
+			</div>
+			<div>
 				<h2>Alleen lopen/wandelen?</h2>
 				<h3>Ongestoord en vrij</h3>
 				<p>Liever zin om alleen deel te nemen? Geen probleem. </p>
 				<NavLink to={ROUTES.individueel}>Individueel inschrijven</NavLink>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };
 

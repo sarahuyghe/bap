@@ -1,0 +1,17 @@
+.boob {
+	background-color: #fff;
+	display: grid;
+	grid-template-rows: 1fr 150px 260px 1fr;
+	grid-template-columns: 20% 30% 5% 50% 5%;
+}
+
+.infoBoob {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.boobSteps {
+	width: 445px;
+	grid-column: 2;
+	grid-row: 3;
+}

@@ -9,25 +9,36 @@ const Home = ({ teamStore, participantStore }) => {
 	return (
 		<>
 			<p>Start of the portal</p>
-			{currentTeam.map(team => (
-				<div key={team.id}>
-					<h1>{team.teamnaam}</h1>
-					<p>{team.quote}</p>
-					<p>{team.reason}</p>
-				</div>
-			))}
+			{/* {edit ? ( */}
+			<section>
+				{currentTeam.map(team => (
+					<div key={team.id}>
+						{/* <p>testing it</p> */}
+						<input>{team.teamnaam}</input>
+						<input>{team.quote}</input>
+						<input>{team.reason}</input>
+					</div>
+				))}
+				{/* <button onClick={() => setEdit(!edit)}>save</button> */}
+			</section>
+			{/* ) : ( */}
+			{/* <section>
+				{currentTeam.map(team => (
+					<div key={team.id}>
+						<p>{team.teamnaam}</p>
+						<p>{team.quote}</p>
+						<p>{team.reason}</p>
+					</div>
+				))}
+				<button onClick={() => setEdit(!edit)}>Edit</button>
+			</section> */}
+			{/* )} */}
 			<section>
 				{currentParticipants.map(person => (
 					<div key={person.id}>
 						<h1>{person.name}</h1>
 						<p>{person.mail}</p>
-						{/* <p>{person.reason}</p> */}
-						{/* {team.teamcaptainId.map(person => console.log(person))}
-					{team.teamcaptainId.map(person => console.log(person))} */}
-						<button
-							onClick={() => deleteParticipant(person)}
-							// className={styles.buttonDelete}
-						>
+						<button onClick={() => deleteParticipant(person)}>
 							Verwijderen persoon
 						</button>
 					</div>

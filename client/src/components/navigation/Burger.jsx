@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledBurger = styled.button`
-	position: absolute;
+	position: fixed;
 	top: 5%;
 	right: 2rem;
 	display: flex;
@@ -25,7 +25,7 @@ const StyledBurger = styled.button`
 	div {
 		width: 2rem;
 		height: 0.25rem;
-		background: ${({ open }) => (open ? "#FFFFFF" : "#434855")};
+		background-color: #fff;
 		border-radius: 10px;
 		transition: all 0.3s linear;
 		position: relative;

@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import { inject, observer } from "mobx-react";
 
+import styles from "./Footer.module.css";
+import stylesFooter from "../../styles/typo.module.css";
+
 const Footer = ({ mailStore }) => {
 	const mailInput = React.createRef();
 
@@ -14,28 +17,15 @@ const Footer = ({ mailStore }) => {
 	};
 
 	return (
-		<>
-			<section>
-				<div>
-					<h5>Menu</h5>
-					<ul>
-						<li>
-							<NavLink to={ROUTES.home}>Race for the cure</NavLink>
-						</li>
-						<li>
-							<NavLink to={ROUTES.why}>Waarom de waterfles</NavLink>
-						</li>
-						<li>
-							<NavLink to={ROUTES.symptonen}>Symptonen</NavLink>
-						</li>
-					</ul>
-				</div>
+		<footer>
+			<section className={styles.footerInfo}>
 				<div>
 					<h5>Think Pink Europe</h5>
 					<address>
 						Researchdreef 12,
 						<br />
 						1070 Brussel
+						<br />
 						<br />
 						info@think-pink.be
 						<br />
@@ -47,11 +37,25 @@ const Footer = ({ mailStore }) => {
 						<br />
 					</address>
 				</div>
+				<div className={styles.menu}>
+					<h5>Menu</h5>
+					<ul>
+						<li className={styles.menuItems}>
+							<NavLink to={ROUTES.home}>Inschrijven</NavLink>
+						</li>
+						<li>
+							<NavLink to={ROUTES.why}>Supporteren</NavLink>
+						</li>
+						<li>
+							<NavLink to={ROUTES.symptonen}>Preventie</NavLink>
+						</li>
+					</ul>
+				</div>
 				<div>
 					<h5>Onze sponsers</h5>
 				</div>
 			</section>
-			<section>
+			<section className={styles.newsLetter}>
 				<h5>Nieuwsbrief</h5>
 				<p>
 					Schrijf je in voor de nieuwsbrief om steeds op de hoogte te blijven
@@ -69,7 +73,10 @@ const Footer = ({ mailStore }) => {
 					<input type="submit" value="bevestigen" />
 				</form>
 			</section>
-		</>
+			<section className={styles.credits}>
+				<p>Think Pink Belgium 2020</p>
+			</section>
+		</footer>
 	);
 };
 
