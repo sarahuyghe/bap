@@ -31,7 +31,7 @@ import Loader from "./components/Loader";
 
 import Footer from "./components/footer/Footer";
 
-import "./styles.css";
+// import "./styles.css";
 
 function App() {
 	const [open, setOpen] = React.useState(false);

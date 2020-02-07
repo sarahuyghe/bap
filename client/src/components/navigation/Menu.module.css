@@ -14,22 +14,48 @@
 	width: 100%;
 } */
 
-h1 {
-	/* color: #fff; */
-	text-transform: uppercase;
-	/* font-size: 4.8rem; */
+/* 
+section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: space-between;
+	text-align: center;
+} */
+
+.menuItems {
+	/* width: 24rem; */
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: space-between;
 }
+
+.menuItems h1 {
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 7.2rem;
+	margin: 2rem;
+}
+
+.menu {
+	text-align: center;
+	width: 100%;
+	padding: 0;
+}
+
 .links {
-	font-size: 2.6rem;
+	font-size: 3.6rem;
 	text-transform: uppercase;
 	padding: 3rem 0;
-	font-weight: 900s;
+	font-weight: bold;
 	letter-spacing: 0.5rem;
-	color: rgba(255, 255, 255, 0.53);
+	color: #fff;
 	text-decoration: none;
 	transition: color 0.3s linear;
 }
 
 .links:hover {
-	color: #434855;
+	color: #ffb4b9;
 }

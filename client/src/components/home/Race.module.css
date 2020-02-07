@@ -1,0 +1,33 @@
+.race {
+	display: grid;
+	grid-template-columns: 15% 40% 40% 5%;
+	grid-template-rows: 15% 350px 260px 15%;
+}
+.infoRace {
+	grid-column: 3;
+	grid-row: 2;
+}
+
+.raceSteps {
+	grid-column: 2;
+	grid-row: 3;
+}
+
+.raceStepsUitleg {
+	grid-column: 3;
+	grid-row: 3;
+}
+
+.raceStepsUitleg p {
+	background-color: white;
+}
+
+.hide {
+	position: absolute !important;
+	top: -9999px !important;
+	left: -9999px !important;
+}
+
+.notSelected {
+	color: #c4c4c4;
+}
