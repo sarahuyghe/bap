@@ -37,8 +37,25 @@ const Home = () => {
 			<Boobottle />
 			<section className={styles.panel}>
 				<Race />
-				<NavLink to={ROUTES.team}>Inschrijven</NavLink>
-				<NavLink to={ROUTES.support}>Supporteren</NavLink>
+			</section>
+			<section className={styles.inschrijven}>
+				<div className={styles.bg_inschrijven} />
+				<div className={styles.callToAction}>
+					<h4>Deelnemen</h4>
+					<p>
+						Wil jij graag deelnemen aan de Race for the Cure in team of liever
+						individueel, schrijf je dan nu in!
+					</p>
+					<NavLink to={ROUTES.team}>Inschrijven</NavLink>
+				</div>
+				<div className={styles.callToAction}>
+					<h4>Steunen</h4>
+					<p>
+						Kan je er niet bij zijn, maar je wil toch graag supporteren. Laat
+						dan een message achter of sponsor de Race for the Cure.{" "}
+					</p>
+					<NavLink to={ROUTES.support}>Supporteren</NavLink>
+				</div>
 			</section>
 			{/* </Scene> */}
 			{/* <Scene pin>

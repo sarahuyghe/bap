@@ -38,42 +38,46 @@ header p {
 	grid-column: 1 / span 5;
 }
 
-/* .boob {
-	background-color: #fff;
+.inschrijven {
 	display: grid;
-	grid-template-rows: 1fr 650px 260px 1fr;
-	grid-template-columns: 20% 30% 5% 50% 5%;
+	grid-template-columns: 15% 30% 10% 30% 15%;
+	grid-template-rows: 10% 250px 10%;
 }
 
-.infoBoob {
+.bg_inschrijven {
+	background: radial-gradient(
+		50% 103.45% at 50% 50%,
+		#ffb4b9 67.19%,
+		#ff969b 100%
+	);
+	grid-row: 2 / 4;
+	grid-column: 1 / span 6;
+}
+
+.callToAction {
+	/* position: absolute; */
+
+	background-color: white;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+	text-align: center;
 	grid-column: 2;
-	grid-row: 2;
+	grid-row: 1 / span 2;
+	padding: 2rem;
+}
+.callToAction h4 {
+	font-size: 3.6rem;
+	font-weight: bold;
+	padding: 1rem 0;
+	margin: 0 6rem;
+	border-bottom: solid 0.2rem rgba(0, 0, 0, 0.2);
 }
 
-.boobSteps {
-	width: 445px;
-	grid-column: 2;
-	grid-row: 3;
-} */
-
-/* .race {
-	background-color: #fff;
-	display: grid;
-	grid-template-rows: 1fr 140px 200px 2fr;
-	grid-template-columns: 20% 40% 10% 30%;
+.callToAction p {
+	font-size: 2.4rem;
+	margin: 2rem;
 }
 
-.infoRace {
-	grid-row: 2;
+.callToAction:nth-last-child(1) {
 	grid-column: 4;
+	grid-row: 1 / span 2;
 }
-
-.test {
-	background-color: black;
-} */
-/* div {
-	grid-column: 3;
-	grid-row: 2;
-
-
-} */
