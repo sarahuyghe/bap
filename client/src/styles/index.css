@@ -2,6 +2,7 @@
 @import "./colors.module.css";
 @import "./typo.module.css";
 @import "./buttons.module.css";
+@import "./forms.module.css";
 
 html {
 	font-size: 62.5%;

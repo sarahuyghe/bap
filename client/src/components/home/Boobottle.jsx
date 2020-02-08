@@ -13,7 +13,7 @@ class Boobottle extends Component {
 			<section className={`panel ${styles.boob}`} id="#test">
 				<div className={styles.infoBoob}>
 					<h2>Wat is BOOBottle</h2>
-					<p>
+					<p className="titleMini">
 						De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
 						borstkanker.
 					</p>
@@ -67,6 +67,7 @@ class Boobottle extends Component {
 						</p>
 					</div>
 				</div>
+				<div className={styles.bg} />
 			</section>
 		);
 	}

@@ -1,0 +1,58 @@
+.preventie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.infoPrev {
+	width: 750px;
+}
+
+.callToAction {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.symptomen {
+	display: grid;
+	grid-template-rows: 1fr 40px 1fr;
+	grid-template-columns: 15% 30% 50% 5%;
+}
+
+.introSymptonen {
+	grid-column: 2;
+	align-self: center;
+}
+.bottles {
+	grid-column: 3;
+	align-self: flex-end;
+}
+
+.detailImg {
+	grid-row: 3;
+	grid-column: 2;
+}
+
+.infoSpecifiekbg {
+	background-color: #ffb4b9;
+	grid-row: 2 / 4;
+	grid-column: 1 / span 5;
+	/* display: flex;
+	align-items: center;
+	justify-content: center; */
+}
+
+.infoLine {
+	border-bottom: solid 0.2rem white;
+	grid-row: 2;
+	grid-column: 3;
+	width: 645px;
+}
+
+.infoSpecifiek {
+	width: 645px;
+	align-self: center;
+	grid-row: 3;
+	grid-column: 3; /* padding-top: 10rem; */
+}

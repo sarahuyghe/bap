@@ -40,13 +40,26 @@ const Menu = ({ open, setOpen, uiStore }) => {
 						logout
 					</button>
 				) : (
-					<NavLink to={ROUTES.login} onClick={() => setOpen(!open)}>
+					<NavLink
+						to={ROUTES.login}
+						className={styles.login}
+						onClick={() => setOpen(!open)}
+					>
 						Aanmelden
 					</NavLink>
 				)}
 				<section className={styles.menuItems}>
 					<h1>Menu</h1>
 					<ul className={styles.menu}>
+						<li>
+							<NavLink
+								to={ROUTES.home}
+								className={styles.links}
+								onClick={() => setOpen(!open)}
+							>
+								Home
+							</NavLink>
+						</li>
 						<li>
 							<NavLink
 								to={ROUTES.team}

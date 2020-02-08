@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { ROUTES } from "./../../constants/";
 import { inject, observer } from "mobx-react";
 import styles from "./Home.module.css";
+import arrow from "./../../images/arrow.svg";
 
 import Boobottle from "./Boobottle";
 import Race from "./Race";
@@ -22,7 +23,10 @@ const Home = () => {
 					<p>Herbruikbare fles voor onvervangbare weldoeners</p>
 				</div>
 				<Social />
-				<p className={styles.scroll}>Scroll om meer te weten te komen</p>
+				<div className={styles.scroll}>
+					<p>Scroll om meer te weten te komen</p>
+					<img src={arrow} alt="arrow down" />
+				</div>
 			</header>
 			<Boobottle />
 			<section className={styles.panel}>
@@ -36,7 +40,9 @@ const Home = () => {
 						Wil jij graag deelnemen aan de Race for the Cure in team of liever
 						individueel, schrijf je dan nu in!
 					</p>
-					<NavLink to={ROUTES.team}>Inschrijven</NavLink>
+					<NavLink to={ROUTES.team} className="mainButton">
+						Inschrijven
+					</NavLink>
 				</div>
 				<div className={styles.callToAction}>
 					<h4>Steunen</h4>
@@ -44,7 +50,9 @@ const Home = () => {
 						Kan je er niet bij zijn, maar je wil toch graag supporteren. Laat
 						dan een message achter of sponsor de Race for the Cure.{" "}
 					</p>
-					<NavLink to={ROUTES.support}>Supporteren</NavLink>
+					<NavLink to={ROUTES.support} className="mainButton">
+						Supporteren
+					</NavLink>
 				</div>
 			</section>
 			<Preventie />

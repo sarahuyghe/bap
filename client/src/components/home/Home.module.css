@@ -31,17 +31,20 @@ header p {
 }
 
 .scroll {
-	font-size: 1.4rem;
-	color: #fff;
 	text-align: center;
 	grid-row: 4;
 	grid-column: 1 / span 5;
+}
+.scroll p {
+	font-size: 1.4rem;
+	color: #fff;
 }
 
 .inschrijven {
 	display: grid;
 	grid-template-columns: 15% 30% 10% 30% 15%;
 	grid-template-rows: 10% 250px 10%;
+	margin-bottom: 8rem;
 }
 
 .bg_inschrijven {

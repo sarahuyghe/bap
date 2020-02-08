@@ -18,10 +18,11 @@ class Race extends Component {
 			<section className={`panel ${styles.race}`} id="#test">
 				<div className={styles.infoRace}>
 					<h2>Race for the Cure</h2>
-					<p>
+					<p className="titleMini">
 						Wereldwijd het grootste evenement in de strijd tegen borstkanker.
 					</p>
 				</div>
+				<div className={styles.border} />
 				<div className={styles.raceSteps}>
 					<h3
 						className={showWat ? null : styles.notSelected}

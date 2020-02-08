@@ -70,7 +70,11 @@ const Footer = ({ mailStore }) => {
 							ref={mailInput}
 						/>
 					</label>
-					<input type="submit" value="bevestigen" />
+					<input
+						type="submit"
+						value="Inschrijven"
+						className={`mainButton ${styles.submit}`}
+					/>
 				</form>
 			</section>
 			<section className={styles.credits}>

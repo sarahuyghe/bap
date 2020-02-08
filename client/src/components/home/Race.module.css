@@ -11,6 +11,7 @@
 .raceSteps {
 	grid-column: 2;
 	grid-row: 3;
+	padding-left: 2rem;
 }
 
 .raceStepsUitleg {
@@ -30,4 +31,10 @@
 
 .notSelected {
 	color: #c4c4c4;
+}
+
+.border {
+	grid-row: 1 / span 4;
+	grid-column: 2;
+	border-left: solid 0.2rem #ffaeb4;
 }

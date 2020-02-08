@@ -4,6 +4,7 @@ footer {
 		#feb1b7 44.79%,
 		#ff969b 100%
 	);
+	border-top: solid white 0.2rem;
 	/* position: relative; */
 }
 
@@ -13,7 +14,7 @@ footer {
 } */
 
 .footerInfo {
-	margin: 2rem;
+	/* margin: 2rem; */
 	padding: 2rem;
 	text-align: center;
 	display: flex;
@@ -48,4 +49,7 @@ address {
 .credits {
 	background-color: #ffffff;
 	text-align: center;
+}
+.submit {
+	border-color: white;
 }
