@@ -66,11 +66,14 @@ class Custom extends Component {
 	}
 
 	handleChange = e => {
+		this.props.bottleInput = e.currentTarget.value;
+		console.log(this.props.bottleInput);
 		this.setState({ currentImg: e.currentTarget.value });
 	};
 
 	render() {
 		const { currentImg, images, imagesCap, currentImgCap } = this.state;
+		const { BottleInput } = this.props;
 		return (
 			<>
 				<h3>1. Boobottle personaliseren</h3>
@@ -91,9 +94,9 @@ class Custom extends Component {
 						))}
 					</select>
 					<select
-						onChange={e =>
-							this.setState({ currentImgCap: e.currentTarget.value })
-						}
+						onChange={e => {
+							this.setState({ currentImgCap: e.currentTarget.value });
+						}}
 					>
 						{imagesCap.map((img, index) => (
 							<option key={img.id} value={index}>
@@ -107,7 +110,7 @@ class Custom extends Component {
 						<img src={images[currentImg].img} alt="" width="160" id="bottle" />
 					</div>
 				</div>
-				<a href="#sec2" className={styles.submit}>
+				<a href="#sec2" className="secondaireButton">
 					Volgende
 				</a>
 			</>

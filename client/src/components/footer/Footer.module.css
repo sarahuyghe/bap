@@ -14,12 +14,23 @@ footer {
 
 .footerInfo {
 	margin: 2rem;
+	padding: 2rem;
+	text-align: center;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
+	font-size: 1.8rem;
 	/* align-content: space-between; */
 }
 
+.footerInfo div {
+	width: 480px;
+}
+
+address {
+	line-height: 22px;
+	text-align: left;
+}
 .menu {
 	border-left: #ffffff solid 0.2rem;
 	border-right: #ffffff solid 0.2rem;
@@ -27,6 +38,7 @@ footer {
 
 .menuItems {
 	text-decoration: none;
+	align-items: center;
 }
 
 .newsLetter {

@@ -3,6 +3,8 @@ import { inject } from "mobx-react";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
 
+import styles from "./Login.module.css";
+
 const Login = ({ uiStore, history }) => {
 	const emailInput = React.createRef();
 	const pwdInput = React.createRef();
@@ -15,20 +17,34 @@ const Login = ({ uiStore, history }) => {
 	};
 
 	return (
-		<>
-			<h2>Sign in</h2>
+		<div className={styles.login}>
+			<h2>Aanmelden</h2>
+			<p>Zodat u aan de team instellingen kan zien</p>
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="email">
-					email
-					<input type="email" name="email" id="email=" ref={emailInput} />
+					Mijn Email adres is: <br />
+					<input
+						type="email"
+						name="email"
+						id="email="
+						placeholder="mijnemail@domain.be"
+						ref={emailInput}
+					/>
 				</label>
 				<label htmlFor="username">
-					password
-					<input type="password" name="password" id="password" ref={pwdInput} />
+					Mijn paswoord is: <br />
+					<input
+						type="password"
+						name="password"
+						id="password"
+						placeholder="paswoord"
+						ref={pwdInput}
+					/>
 				</label>
-				<input type="submit" value="Login" />
+				<a href="">Ik ben mijn paswoord vergeten</a>
+				<input type="submit" value="Aanmelden" className="mainButton" />
 			</form>
-		</>
+		</div>
 	);
 };
 

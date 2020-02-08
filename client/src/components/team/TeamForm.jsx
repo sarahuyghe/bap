@@ -12,6 +12,8 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 	const quoteInput = React.createRef();
 	const kindInput = React.createRef();
 	const locatieInput = React.createRef();
+	const BottleInput = React.createRef();
+
 	// var bottle = bottlePink;
 
 	const handleSubmit = e => {
@@ -43,11 +45,11 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 		<>
 			<form onSubmit={handleSubmit}>
 				<section className={styles.panel}>
-					<Custom />
+					<Custom BottleInput={BottleInput} />
 				</section>
 				<section id="sec2" className={styles.panel}>
 					<h3>2. Team instellen</h3>
-					<div className={styles.deeltitles}>Een team aanmaken</div>
+					<div className="deeltitel">Een team aanmaken</div>
 					<section className={styles.formSection}>
 						<div>
 							<h3>Kies een teamnaam</h3>
@@ -120,13 +122,13 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 							<br />
 						</div>
 					</section>
-					<a href="#sec3" className={styles.submit}>
+					<a href="#sec3" className="secondaireButton">
 						Volgende
 					</a>
 				</section>
 				<section id="sec3" className={styles.panel}>
 					<h3>3. Team personaliseren</h3>
-					<div className={styles.deeltitles}>Een team aanmaken</div>
+					<div className="deeltitel">Een team aanmaken</div>
 					<section className={styles.formSection}>
 						<div>
 							<h3>Kies een teamgezegde</h3>
@@ -155,7 +157,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 							</label>
 						</div>
 					</section>
-					<input type="submit" value="Volgende" className={styles.submit} />
+					<input type="submit" value="Volgende" className="secondaireButton" />
 				</section>
 
 				{/* <input type="submit" value="Inschrijven" /> */}

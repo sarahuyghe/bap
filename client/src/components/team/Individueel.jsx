@@ -28,29 +28,36 @@ const Individueel = ({ participantStore, teamStore }) => {
 	};
 	return (
 		<>
-			<h3>Uw team instellen</h3>
 			<form onSubmit={handleSubmit}>
-				<h3>Wat is uw naam?</h3>
-				<p>Zo kunnen we je bij naam aanspreken</p>
-				<label>
-					Mijn voornaam is
-					<input type="text" name="firstname" ref={firstnameInput} />
-				</label>
-				<label>
-					en
-					<input type="text" name="lastname" ref={lastnameInput} />
-					is mijn achternaams
-				</label>
-				<br />
-				<h3>Wat is uw Email adres?</h3>
-				<p>
-					We hebben uw Email adres nodig om u een bevestigingsbericht te sturen
-				</p>
-				<label>
-					Mijn Email adres is
-					<input type="text" name="mail" ref={mailInput} />
-				</label>
-				<br />
+				<section id="sec1">
+					<h3>1. Info opgeven</h3>
+					<div className="deeltitel">Individueel inschrijven</div>
+					<h3>Wat is uw naam?</h3>
+					<p>Zo weten we wie we aan de startstreep mogen verwachten</p>
+					<label>
+						Mijn voornaam is
+						<input type="text" name="firstname" ref={firstnameInput} />
+					</label>
+					<label>
+						en
+						<input type="text" name="lastname" ref={lastnameInput} />
+						is mijn achternaams
+					</label>
+					<br />
+					<h3>Wat is uw Email adres?</h3>
+					<p>Dit is zodat we u een bevestegings emal kunnen sturen</p>
+					<label>
+						Mijn Email adres is
+						<input type="text" name="mail" ref={mailInput} />
+					</label>
+					<a href="#sec2" className="secondaireButton">
+						Volgende
+					</a>
+				</section>
+				<section id="sec2">
+					<h3>2. Inschrijving specificaties</h3>
+					<div className="deeltitel">Individueel inschrijven</div>
+				</section>
 				<h3>Lopen of wandelen?</h3>
 				<p>Zo weten we hoeveel mensen we per route verwachten</p>
 				<div ref={eventInput}>
@@ -70,8 +77,8 @@ const Individueel = ({ participantStore, teamStore }) => {
 						Ik ga 6km wandelen
 					</label>
 				</div>
-				<h3>Aan welke race neemt uw team deel?</h3>
-				<p>Zo weten we waar en waneer we jullie mogen verwachten</p>
+				<h3>Waar wilt u deelnemen?</h3>
+				<p>Zo kunnen we het aantal deelnemers per stad bijhouden</p>
 				<select ref={locatieInput}>
 					<option value="Antwerpen">Antwerpen</option>
 					<option value="Brussel">Brussel</option>
@@ -79,7 +86,7 @@ const Individueel = ({ participantStore, teamStore }) => {
 					<option value="Namen">Namen</option>
 				</select>
 				<br />
-				<input type="submit" value="Inschrijven" />
+				<input type="submit" value="Inschrijven" className="secondaireButton" />
 			</form>
 		</>
 	);

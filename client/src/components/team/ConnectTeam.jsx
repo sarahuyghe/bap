@@ -30,27 +30,29 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 
 	return (
 		<>
-			<h1>Inschrijven bij een team</h1>
-			<input type="text" onChange={handleChange} />
 			<form onSubmit={handleSubmit}>
-				<select ref={teamIdInput}>
-					{searching.map(team =>
-						team.map(test => (
-							<>
-								{test.teamnaam ? (
-									<option key={test.id} value={test.id}>
-										{test.teamnaam}
-									</option>
-								) : (
-									<option key={test.id} value={test.teamId}>
-										{test.name}
-									</option>
-								)}
-							</>
-						))
-					)}
-					{/* {teams.map(team => */}
-					{/* {teams.map(test => (
+				<section id="sec1">
+					<h3>1. Info opgeven</h3>
+					<div className="deeltitel">Aansluiten bij een team</div>
+					<input type="text" onChange={handleChange} />
+					<select ref={teamIdInput}>
+						{searching.map(team =>
+							team.map(test => (
+								<>
+									{test.teamnaam ? (
+										<option key={test.id} value={test.id}>
+											{test.teamnaam}
+										</option>
+									) : (
+										<option key={test.id} value={test.teamId}>
+											{test.name}
+										</option>
+									)}
+								</>
+							))
+						)}
+						{/* {teams.map(team => */}
+						{/* {teams.map(test => (
 						<>
 							{test.teamnaam ? (
 								<option key={test.id} value={test.id}>
@@ -63,32 +65,46 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 							)}
 						</>
 					))} */}
-				</select>
-				<div>
-					{searching.map(team =>
-						team.map(test => (
-							<p key={test.id} value={test.teamId}>
-								{test.teamnaam ? test.teamnaam : test.name}
-							</p>
-						))
-					)}
-				</div>
-				<br />
-				<label>
-					Naam
-					<input type="text" name="Naam" ref={naamInput} />
-				</label>
-				<br />
-				<label>
-					Voornaam
-					<input type="text" name="voornaam" ref={voornaamInput} />
-				</label>
-				<br />
-				<label>
-					Mail
-					<input type="text" name="mail" ref={mailInput} />
-				</label>
-				<input type="submit" value="bevestigen" />
+					</select>
+					<div>
+						{searching.map(team =>
+							team.map(test => (
+								<p key={test.id} value={test.teamId}>
+									{test.teamnaam ? test.teamnaam : test.name}
+								</p>
+							))
+						)}
+					</div>
+					<a href="#sec2" className="secondaireButton">
+						Volgende
+					</a>
+				</section>
+				<section id="sec2">
+					<h3>2. Selecteer een team</h3>
+					<div className="deeltitel">Aansluiten bij een team</div>
+					<label>
+						Naam
+						<input type="text" name="Naam" ref={naamInput} />
+					</label>
+					<br />
+					<label>
+						Voornaam
+						<input type="text" name="voornaam" ref={voornaamInput} />
+					</label>
+					<br />
+					<label>
+						Mail
+						<input type="text" name="mail" ref={mailInput} />
+					</label>
+					<input
+						type="submit"
+						value="bevestigen"
+						className="secondaireButton"
+					/>
+					<a href="#sec3" className="secondaireButton">
+						Volgende
+					</a>
+				</section>
 			</form>
 		</>
 	);

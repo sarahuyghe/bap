@@ -39,8 +39,8 @@ const Footer = ({ mailStore }) => {
 				</div>
 				<div className={styles.menu}>
 					<h5>Menu</h5>
-					<ul>
-						<li className={styles.menuItems}>
+					<ul className={styles.menuItems}>
+						<li>
 							<NavLink to={ROUTES.home}>Inschrijven</NavLink>
 						</li>
 						<li>

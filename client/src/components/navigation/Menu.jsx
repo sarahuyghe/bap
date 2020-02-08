@@ -49,7 +49,7 @@ const Menu = ({ open, setOpen, uiStore }) => {
 					<ul className={styles.menu}>
 						<li>
 							<NavLink
-								to={ROUTES.home}
+								to={ROUTES.team}
 								className={styles.links}
 								onClick={() => setOpen(!open)}
 							>
@@ -58,7 +58,7 @@ const Menu = ({ open, setOpen, uiStore }) => {
 						</li>
 						<li>
 							<NavLink
-								to={ROUTES.why}
+								to={ROUTES.support}
 								className={styles.links}
 								onClick={() => setOpen(!open)}
 							>
