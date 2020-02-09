@@ -26,16 +26,6 @@ class Home extends Component {
 		};
 	}
 
-	handleHoverEnter = e => {
-		console.log(e.currentTarget);
-		e.target.classList.add("hide");
-	};
-
-	handleHoverLeave = e => {
-		console.log(e.currentTarget);
-		e.target.classList.remove("hide");
-	};
-
 	render() {
 		const { active, activeTeam, activeConnect, activePerson } = this.state;
 		return (
