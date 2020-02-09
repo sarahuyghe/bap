@@ -53,7 +53,6 @@ const MessageForm = ({ teamStore, messageStore }) => {
 				<section id="sec2">
 					<h3>2. Inhoud van het steunbericht</h3>
 					<div className="deeltitel">Message in a BOOBottle</div>
-
 					<section className={styles.formSection}>
 						<div>
 							<h4>Wat is uw naam?</h4>
