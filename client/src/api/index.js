@@ -14,14 +14,18 @@ class Api {
 			`/${this.entity}`,
 			this.getOptions("post", team.values)
 		);
+		console.log(r);
 		return await r.json();
 	};
 
 	getAllInfoTeam = async user => {
-		const r = await fetch(
-			`/${this.entity}/${user}`,
-			this.getOptions("put", user)
-		);
+		const r = await fetch(`/api/${this.entity}/${user}`);
+		return await r.json();
+	};
+
+	findAllTeamId = async team => {
+		console.log(team);
+		const r = await fetch(`/api/${this.entity}/${team}`);
 		return await r.json();
 	};
 
@@ -33,13 +37,14 @@ class Api {
 	// 	return await r.json();
 	// };
 
-	// delete = async book => {
-	// 	const r = await fetch(
-	// 		`http://localhost:4000/${this.entity}/${book.id}`,
-	// 		this.getOptions("delete")
-	// 	);
-	// 	return r.json();
-	// };
+	delete = async person => {
+		console.log(person);
+		const r = await fetch(
+			`/api/${this.entity}/${person.id}`,
+			this.getOptions("delete")
+		);
+		return r.json();
+	};
 
 	getOptions = (method, body = null) => {
 		const options = {

@@ -1,0 +1,31 @@
+.layout {
+	max-width: 45rem;
+	margin: 2rem auto 0 auto;
+	border: 1.8rem solid var(--light-color);
+	border-radius: 1rem;
+	background: var(--ultralight-color);
+	position: relative;
+}
+.content {
+	/* background: var(--ultralight-color); */
+	border-radius: 0 0 0.7rem 0.7rem;
+	padding: 2.5rem 2rem;
+	min-height: 33rem;
+	font-size: 1.6rem;
+	padding-bottom: 11rem; /* make sure tabbar is always on bottom */
+}
+.contentGray {
+	border-radius: 0.7rem 0.7rem 0 0;
+	background: var(--gray-light-color);
+	border-bottom: 1px solid #f7f7f7;
+	padding: 2.5rem 2rem;
+	min-height: 0;
+}
+.contentNoSpace {
+	padding: 0;
+	padding-bottom: 9rem;
+}
+
+.contentPadded {
+	padding: 2.5rem 2rem 0 2rem;
+}

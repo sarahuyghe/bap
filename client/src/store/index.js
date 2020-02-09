@@ -2,8 +2,7 @@ import TeamStore from "./TeamStore";
 import MessageStore from "./MessageStore";
 import UiStore from "./UiStore";
 import MailStore from "./MailStore";
-
-// import AuthorStore from "./AuthorStore";
+import ParticipantStore from "./ParticipantStore";
 
 class RootStore {
 	constructor() {
@@ -11,6 +10,7 @@ class RootStore {
 		this.teamStore = new TeamStore(this);
 		this.messageStore = new MessageStore(this);
 		this.mailStore = new MailStore(this);
+		this.participantStore = new ParticipantStore(this);
 	}
 }
 

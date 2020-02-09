@@ -8,10 +8,17 @@ const Confirm = () => {
 	const onClick = () => {
 		FB.ui(
 			{
-				method: "share",
-				href: "https://developers.facebook.com/docs/"
+				method: "send",
+				link:
+					"http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html"
 			},
-			function(response) {}
+			function(response) {
+				if (response && response.post_id) {
+					alert("success");
+				} else {
+					alert("error");
+				}
+			}
 		);
 		console.log("this is a first test");
 	};

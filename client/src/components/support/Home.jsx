@@ -1,47 +1,99 @@
-import React from "react";
+import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "./../../constants/";
+import Social from "./../social/Social";
+import arrow from "./../../images/arrow.svg";
+import arrowWhite from "./../../images/arrowWhite.svg";
 
-const Home = () => {
-	return (
-		<>
-			<h2>Waarom supporteren</h2>
-			<h3>een hart onder de riem</h3>
-			<section>
-				<p>
-					Borstkanker kan je leven volledig omgooien. Het is een tijd van
-					onzekerheid, angst, stress en zo veel meer. Daarom is het belangerijk
-					als buitenstaander of familie om te tonen aan de persoon die je lief
-					hebt dat ze er niet alleen voor staan.
-				</p>
+import styles from "./Home.module.css";
 
-				<h4>Message in a bottle</h4>
-				<p>
-					Message in a bottle Via message in a bottle kun je een team steunen
-					naar keuze. Dit doe je door een steunbericht te schrijven die het team
-					dan kan lezen op de dag zelf. Tijdens het inschrijven van een team
-					maakt de teamcaptain zijn/haar gepersonaiseerde drinkfles. In deze
-					drinkfles kunnen ze op het evenement jou steun bericht terug vinden om
-					hun succes te wens op de race.
-				</p>
-				<NavLink to={ROUTES.messageForm}>Message in a bottle</NavLink>
-			</section>
-			<section>
-				<h4>Sponseren</h4>
-				<p>
-					België is wereldkampioen borstkanker. Toch is het voor onderzoekers
-					van bij ons die innovatieve wetenschappelijke projecten opzetten rond
-					borstkanker, vaak moeilijk om aan de nodige financiële middelen te
-					geraken. Op kleine en middelgrote schaal wordt gezocht naar nieuwe
-					methodes op het vlak van screening, behandeling en nazorg. Met andere
-					woorden uw bijdrage, groot of klein, is steeds zeer welkom. Op deze
-					manier toon je ook aan het team dat je wilt steunen dat je er ook iet
-					voor over hebt.
-				</p>
-				<NavLink to={ROUTES.sponsor}>Sponseren</NavLink>
-			</section>
-		</>
-	);
-};
+class Home extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { activeMessage: false, activeDoneer: false };
+	}
+	render() {
+		const { activeDoneer, activeMessage } = this.state;
+		return (
+			<>
+				<section className={styles.header}>
+					<div>
+						<h2>Supporteren</h2>
+						<p className="subTitle">Selecteer een supporters-methode</p>
+					</div>
+					<div>
+						<div
+							className={styles.animation}
+							onMouseEnter={() =>
+								this.setState({ activeMessage: !activeMessage })
+							}
+							onMouseLeave={() =>
+								this.setState({ activeMessage: !activeMessage })
+							}
+							// onClick={() => {
+							// 	console.log(active);
+							// 	this.setState({ active: !active });
+							// }}
+						>
+							<h3>Message in a BOOBottle</h3>
+							<img src="" alt="" />
+						</div>
+						<div
+							className={`${styles.opportunities} ${
+								activeMessage ? null : styles.hide
+							}`}
+						>
+							<img src={arrowWhite} alt="arrow up" />
+							<p>
+								Via message in a bottle kun je een team steunen naar keuze. Dit
+								doe je door een steunbericht te schrijven die het team dan kan
+								lezen op de dag zelf. Tijdens het inschrijven van een team maakt
+								de teamcaptain zijn/haar gepersonaiseerde drinkfles. In deze
+								drinkfles kunnen ze op het evenement jou steun bericht terug
+								vinden om hun succes te wens op de race.
+							</p>
+						</div>
+					</div>
+					<div>
+						<div
+							className={styles.animation}
+							onMouseEnter={() =>
+								this.setState({ activeDoneer: !activeDoneer })
+							}
+							onMouseLeave={() =>
+								this.setState({ activeDoneer: !activeDoneer })
+							}
+						>
+							<h3>Een team sponseren</h3>
+							<img src="" alt="" />
+						</div>
+						<div
+							className={`${styles.opportunities} ${
+								activeDoneer ? null : styles.hide
+							}`}
+						>
+							<img src={arrowWhite} alt="arrow up" />
+							<p>
+								Via message in a bottle kun je een team steunen naar keuze. Dit
+								doe je door een steunbericht te schrijven die het team dan kan
+								lezen op de dag zelf. Tijdens het inschrijven van een team maakt
+								de teamcaptain zijn/haar gepersonaiseerde drinkfles. In deze
+								drinkfles kunnen ze op het evenement jou steun bericht terug
+								vinden om hun succes te wens op de race.
+							</p>
+						</div>
+					</div>
+
+					<Social />
+					<div className={styles.scrollAction}>
+						<p>Scroll om een steunbericht aan te maken</p>
+						<img src={arrow} alt="arrow down" />
+					</div>
+				</section>
+				{/* {active ? <TeamForm /> : null} */}
+			</>
+		);
+	}
+}
 
 export default Home;

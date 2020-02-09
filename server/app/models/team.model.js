@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const ObjectId = mongoose.Schema.Types.ObjectId;
+// const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const TeamSchema = mongoose.Schema(
 	{
@@ -7,8 +7,7 @@ const TeamSchema = mongoose.Schema(
 		reason: String,
 		quote: String,
 		kind: Boolean,
-		location: String,
-		teamcaptainId: ObjectId
+		location: String
 	},
 	{
 		timestamps: true

@@ -1,8 +1,8 @@
 module.exports = app => {
 	const controller = require("../controllers/teams.controller.js");
-	app.post("/teams", controller.create);
-	app.get("/teams", controller.findAll);
-	app.get("/teams/:teamId", controller.findOne);
-	app.put("/teams/:teamId", controller.update);
-	app.delete("/teams/:teamId", controller.delete);
+	app.post("/api/teams", controller.create);
+	app.get("/api/teams", controller.findAll);
+	app.get("/api/teams/:teamId", controller.findOne);
+	app.put("/api/teams/:teamId", controller.update);
+	app.delete("/api/teams/:teamId", controller.delete);
 };

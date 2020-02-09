@@ -8,7 +8,7 @@ class Team {
 		this.kind = store.kind;
 		this.quote = store.quote;
 		this.location = store.location;
-		this.teamcaptainId = store.teamcaptainId;
+		// this.teamcaptainId = store.teamcaptainId;
 	}
 
 	setId = id => (this.id = id);
@@ -18,7 +18,7 @@ class Team {
 	setQuote = value => (this.quote = value);
 	setLocation = value => (this.location = value);
 
-	setTeamcaptainId = value => (this.teamcaptainId = value);
+	// setTeamcaptainId = value => (this.teamcaptainId = value);
 
 	get values() {
 		return {
@@ -26,8 +26,8 @@ class Team {
 			reason: this.reason,
 			kind: this.kind,
 			quote: this.quote,
-			location: this.location,
-			teamcaptainId: this.teamcaptainId
+			location: this.location
+			// teamcaptainId: this.teamcaptainId
 		};
 	}
 
@@ -42,7 +42,7 @@ class Team {
 		this.setKind(values.kind);
 		this.setQuote(values.quote);
 		this.setLocation(values.location);
-		this.setTeamcaptainId(values.teamcaptainId);
+		// this.setTeamcaptainId(values.teamcaptainId);
 	};
 }
 
@@ -52,7 +52,7 @@ decorate(Team, {
 	reason: observable,
 	kind: observable,
 	quote: observable,
-	teamcaptainId: observable,
+	// teamcaptainId: observable,
 	location: observable,
 
 	setId: action,
@@ -61,7 +61,7 @@ decorate(Team, {
 	setKind: action,
 	setQuote: action,
 	setLocation: action,
-	setTeamcaptainId: action,
+	// setTeamcaptainId: action,
 
 	values: computed
 });

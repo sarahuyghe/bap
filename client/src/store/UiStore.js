@@ -11,7 +11,9 @@ class UiStore {
 		this.setUser(getUserFromCookie());
 	}
 
-	setUser = value => (this.authUser = value);
+	setUser = value => {
+		this.authUser = value;
+	};
 
 	login = (username, password) => {
 		return this.authService
@@ -26,11 +28,12 @@ class UiStore {
 			});
 	};
 
-	register = (name, firstname, email, pwd) =>
+	register = (name, firstname, email, pwd, teamId) =>
+		// console.log(teamId.value);
 		this.authService
-			.register(name, firstname, email, pwd)
+			.register(name, firstname, email, pwd, teamId)
 			.then(() => {
-				// this.setUser(getUserFromCookie());
+				this.setUser(getUserFromCookie());
 				Promise.resolve();
 			})
 			.then(() => this.login(email, pwd))
@@ -38,7 +41,6 @@ class UiStore {
 				this.setUser(null);
 				Promise.reject();
 			});
-
 	logout = () => {
 		this.authService.logout().then(() => this.setUser(null));
 	};

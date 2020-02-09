@@ -1,10 +1,10 @@
 const Participant = require("../models/participant.model.js");
 const nodemailer = require("nodemailer");
 
-smtpTransport = nodemailer.createTransport({
+transporter = nodemailer.createTransport({
 	service: "Gmail",
 	auth: {
-		user: "saradatbenik@email.com",
+		user: "saradatbenik@gmail.com",
 		pass: "hawk8000"
 	}
 });
@@ -17,33 +17,36 @@ exports.create = (req, res) => {
 	const participant = new Participant({
 		name: req.body.name,
 		firstname: req.body.firstname,
-		email: req.body.mail,
+		mail: req.body.mail,
 		teamId: req.body.teamId,
 		event: req.body.event,
 		location: req.body.location
 	});
-
-	const mailOptions = {
-		from: "saradatbenik@email.com",
-		to: participant.email,
-		subject: "Sending Email using Node.js",
-		text: "That was easy!"
-	};
-
-	transporter.sendMail(mailOptions, function(error, info) {
-		if (error) {
-			console.log(error);
-		} else {
-			console.log("Email sent: " + info.response);
-		}
-	});
-
 	participant
 		.save()
 		.then(participant => res.send(participant))
 		.catch(err => {
 			res.status(500).send({ error: err.participant || "Error" });
 		});
+
+	// const mailOptions = {
+	// 	from: "saradatbenik@gmail.com",
+	// 	to: participant.email,
+	// 	subject: "Sending Email using Node.js",
+	// 	text: "That was easy!"
+	// };
+
+	// if (participant) {
+	// 	transporter.sendMail(mailOptions, function(error, info) {
+	// 		if (error) {
+	// 			console.log(error);
+	// 		} else {
+	// 			console.log("Email sent: " + info.response);
+	// 		}
+	// 	});
+	// } else {
+	// 	console.log("error sendin mail");
+	// }
 };
 
 exports.findAll = async (req, res) => {
@@ -52,6 +55,24 @@ exports.findAll = async (req, res) => {
 		res.send(participants);
 	} catch (err) {
 		res.status(500).send({ err: err.participant || "Error" });
+	}
+};
+
+exports.findAllTeamId = async (req, res) => {
+	try {
+		const participants = await Participant.find({
+			teamId: req.params.teamId
+		});
+		if (participants) {
+			res.send(participants);
+		} else {
+			res.status(404).send("No team found");
+		}
+	} catch (err) {
+		if (err.kind === "ObjectId") {
+			return res.status(500).send("Geen geldig ID");
+		}
+		return res.status(500).send(err);
 	}
 };
 
@@ -89,6 +110,23 @@ exports.update = async (req, res) => {
 
 		if (!participant) {
 			return res.status(404).send("No author found");
+		}
+		res.send(participant);
+	} catch (err) {
+		if (err.kind === "ObjectId") {
+			return res.status(417).send("Geen geldig ID");
+		}
+		return res.status(500).send(err);
+	}
+};
+
+exports.delete = async (req, res) => {
+	console.log(req.params);
+	try {
+		const participant = await Participant.findByIdAndRemove(req.params.userId);
+		console.log(participant);
+		if (!participant) {
+			return res.status(404).send("No book found");
 		}
 		res.send(participant);
 	} catch (err) {

@@ -5,10 +5,10 @@ const ParticipantSchema = mongoose.Schema(
 	{
 		name: String,
 		firstname: String,
-		email: String,
+		mail: String,
 		event: String,
 		location: String,
-		teamId: ObjectId
+		teamId: { type: ObjectId, ref: "Team" }
 	},
 	{
 		timestamps: true

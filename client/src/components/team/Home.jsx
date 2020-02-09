@@ -1,34 +1,132 @@
-import React from "react";
+import React, { Component } from "react";
+import group from "./../../images/group.png";
+import connectTeam from "./../../images/group2.png";
+import solo from "./../../images/solo.png";
+import arrow from "./../../images/arrow.svg";
+import arrowWhite from "./../../images/arrowWhite.svg";
 
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "./../../constants/";
+import "./../../styles/index.css";
 
-const Home = () => {
-	return (
-		<>
-			<h2>In team?</h2>
-			<h3>Want alleen is maar alleen</h3>
-			<section>
-				<p>
-					Als u in team inschrijft heeft u een aantal voordelen. Ten eerste
-					verminderd uw inschrijvings geld van €15 naar €12, vervolgens krijgt
-					uw nog een officeele think pink t-shirt. Elk team krijgt ook één zelf
-					gepersonaliseerde drinkfles (als je een fles voor jezelf wilt kunt u
-					deze bij bestellen). Vanaf je als team met 50 of meer bent
-					ingeschreven krijgt u ook een party-tent om samen te verzamelen. Tot
-					slot kan het grootste team ook nog een prijs winnen
-				</p>
-				<NavLink to={ROUTES.register}>Een team maken</NavLink>
-				<NavLink to={ROUTES.connectTeam}>Aansluiten bij een team</NavLink>
-			</section>
-			<section>
-				<h2>Alleen lopen/wandelen?</h2>
-				<h3>Ongestoord en vrij</h3>
-				<p>Liever zin om alleen deel te nemen? Geen probleem. </p>
-				<NavLink to={ROUTES.individueel}>Individueel inschrijven</NavLink>
-			</section>
-		</>
-	);
-};
+import styles from "./Home.module.css";
+import Social from "./../social/Social";
+import TeamForm from "./TeamForm";
+import Individueel from "./Individueel";
+import ConnectTeam from "./ConnectTeam";
+
+class Home extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			active: false,
+			activeTeam: false,
+			activeConnect: false,
+			activePerson: false
+		};
+	}
+
+	render() {
+		const { active, activeTeam, activeConnect, activePerson } = this.state;
+		return (
+			<>
+				<section className={styles.header}>
+					<div>
+						<h2>Inschrijven</h2>
+						<p className="subTitle">Selecteer een inschrijvings-methode</p>
+					</div>
+					<div>
+						<div
+							className={styles.animation}
+							onClick={() => {
+								console.log(active);
+								this.setState({ active: !active });
+							}}
+							onMouseEnter={() => this.setState({ activeTeam: !activeTeam })}
+							onMouseLeave={() => this.setState({ activeTeam: !activeTeam })}
+						>
+							<h3>Een team maken</h3>
+							<img src={group} alt="" />
+						</div>
+						<div
+							className={`${styles.opportunities} ${
+								activeTeam ? null : styles.hide
+							}`}
+						>
+							<img src={arrowWhite} alt="arrow up" />
+							<ul>
+								<li>
+									Uw inschrijvings geld verminderd van €15 naar €12 per persoon
+								</li>
+								<li>
+									U mag zal een BOOBottle personaliseren voor uw hele team.
+								</li>
+								<li>
+									Vanaf je als team met 50 of meer bent ingeschreven bent krijgt
+									u ook een party-tent om samen te verzamelen
+								</li>
+								<li>Het grootste team ook nog een prijs winnen</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div
+							className={styles.animation}
+							onMouseEnter={() =>
+								this.setState({ activeConnect: !activeConnect })
+							}
+							onMouseLeave={() =>
+								this.setState({ activeConnect: !activeConnect })
+							}
+						>
+							<h3>Aansluiten aan een team</h3>
+							<img src={connectTeam} alt="" />
+						</div>
+						<div
+							className={`${styles.opportunities} ${
+								activeConnect ? null : styles.hide
+							}`}
+						>
+							<img src={arrowWhite} alt="arrow up" />
+							<ul>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div
+							className={styles.animation}
+							onMouseEnter={() =>
+								this.setState({ activePerson: !activePerson })
+							}
+							onMouseLeave={() =>
+								this.setState({ activePerson: !activePerson })
+							}
+						>
+							<h3>Individueel inschrijven</h3>
+							<img src={solo} alt="" />
+						</div>
+						<div
+							className={`${styles.opportunities} ${
+								activePerson ? null : styles.hide
+							}`}
+						>
+							<img src={arrowWhite} alt="arrow up" />
+							<ul>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+					<Social />
+					<div className={styles.scrollAction}>
+						<p>Scroll om meer te weten te komen</p>
+						<img src={arrow} alt="arrow down" />
+					</div>
+				</section>
+				{active ? <TeamForm /> : null}
+			</>
+		);
+	}
+}
 
 export default Home;

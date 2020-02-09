@@ -2,8 +2,7 @@ import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 
-import { Route, Switch, Link } from "react-router-dom";
-import { inject } from "mobx-react";
+import { Route, Switch } from "react-router-dom";
 import { ROUTES } from "./constants/";
 
 import Home from "./components/home/Home";
@@ -23,7 +22,6 @@ import Individueel from "./components/team/Individueel";
 import TeamForm from "./components/team/TeamForm";
 import Confirm from "./components/team/Confirm";
 
-import Navigation from "./components/navigation/Navigation";
 import Burger from "./components/navigation/Burger";
 import Menu from "./components/navigation/Menu";
 
@@ -33,16 +31,14 @@ import Loader from "./components/Loader";
 
 import Footer from "./components/footer/Footer";
 
-import "./styles.css";
+// import "./styles.css";
 
 function App() {
 	const [open, setOpen] = React.useState(false);
 
-	const node = React.useRef();
 	return (
 		<>
-			{/* <Navigation /> */}
-			<div ref={node}>
+			<div>
 				<Burger open={open} setOpen={setOpen} />
 				<Menu open={open} setOpen={setOpen} />
 			</div>
@@ -65,29 +61,6 @@ function App() {
 				<Route path={ROUTES.confirm} component={Confirm} />
 
 				<Route path={ROUTES.portal} component={Portal} />
-
-				{/* <Route
-					path={ROUTES.home}
-					exact
-					strict
-					render={() => (
-						<>
-							<p>Welcome to the bookstore</p>
-							{uiStore.authUser ? (
-								<Link to={ROUTES.why}>Reason</Link>
-							) : (
-								<ul>
-									<li>
-										<Link to={ROUTES.home}>Sign in</Link>
-									</li>
-									<li>
-										<Link to={ROUTES.register}>Register</Link>
-									</li>
-								</ul>
-							)}
-						</>
-					)}
-				/> */}
 			</Switch>
 			<Footer />
 		</>

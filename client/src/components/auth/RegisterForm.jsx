@@ -37,6 +37,7 @@ class Register extends Component {
 							type="test"
 							name="name"
 							id="name="
+							className="form_input"
 							value={name}
 							onChange={this.handleChange}
 						/>
@@ -47,6 +48,7 @@ class Register extends Component {
 							type="email"
 							name="email"
 							id="email="
+							className="form_input"
 							value={email}
 							onChange={this.handleChange}
 						/>
@@ -57,6 +59,7 @@ class Register extends Component {
 							type="password"
 							name="pwd"
 							id="pwd"
+							className="form_input"
 							value={pwd}
 							onChange={this.handleChange}
 						/>
@@ -67,6 +70,7 @@ class Register extends Component {
 							type="password"
 							name="pwd2"
 							id="pwd2"
+							className="form_input"
 							ref={pwd2}
 							onChange={this.handleChange}
 						/>

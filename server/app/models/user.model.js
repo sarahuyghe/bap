@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ObjectId = mongoose.Schema.Types.ObjectId;
 const bcrypt = require("bcrypt");
 
 const UserSchema = new mongoose.Schema({
@@ -6,7 +7,7 @@ const UserSchema = new mongoose.Schema({
 	password: { type: String, required: true },
 	name: { type: String, required: true },
 	firstname: { type: String, required: true },
-	roles: [String]
+	teamId: { type: ObjectId, ref: "Team" }
 });
 
 UserSchema.methods.validPassword = function(password) {
