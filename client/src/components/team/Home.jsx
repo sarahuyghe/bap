@@ -13,6 +13,7 @@ import styles from "./Home.module.css";
 import Social from "./../social/Social";
 import TeamForm from "./TeamForm";
 import Individueel from "./Individueel";
+import ConnectTeam from "./ConnectTeam";
 
 class Home extends Component {
 	constructor(props) {

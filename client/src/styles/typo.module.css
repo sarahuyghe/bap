@@ -18,6 +18,11 @@ h3 {
 	padding: 1.2rem 0;
 }
 
+h4 {
+	font-size: 3.6rem;
+	font-weight: bold;
+}
+
 p {
 	font-size: 1.6rem;
 	line-height: 2.8rem;
@@ -49,6 +54,11 @@ p {
 	border-bottom: solid 0.2rem #000;
 	text-align: right;
 	font-weight: bold;
+}
+
+.uitlegTitle {
+	font-size: 1.8rem;
+	padding: 1rem 0;
 }
 .paragraphs {
 	font-size: var(--font-base);

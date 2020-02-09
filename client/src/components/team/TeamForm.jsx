@@ -52,8 +52,8 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 					<div className="deeltitel">Een team aanmaken</div>
 					<section className={styles.formSection}>
 						<div>
-							<h3>Kies een teamnaam</h3>
-							<p>
+							<h4>Kies een teamnaam</h4>
+							<p className="uitlegTitle">
 								1 naam dat uw hele team definieerd, dat kan niet makkelijk zijn.
 								Veel succes
 							</p>
@@ -62,16 +62,19 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 								<input
 									type="text"
 									name="teamnaam"
+									className="form_input"
 									ref={teamNameInput}
 									required
 								/>
 							</label>
 						</div>
 						<div>
-							<h3>Lopen of wandelen?</h3>
-							<p>Zo weten we hoeveel mensen we per route verwachten</p>
+							<h4>Lopen of wandelen?</h4>
+							<p className="uitlegTitle">
+								Zo weten we hoeveel mensen we per route verwachten
+							</p>
 							<div>
-								<label>
+								<label className="customRadio">
 									<input
 										type="radio"
 										name="event"
@@ -82,7 +85,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 								</label>
 							</div>
 							<div>
-								<label>
+								<label className="customRadio">
 									<input
 										type="radio"
 										name="event"
@@ -94,8 +97,8 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 							</div>
 						</div>
 						<div>
-							<h3>Gesloten team?</h3>
-							<p>
+							<h4>Gesloten team?</h4>
+							<p className="uitlegTitle">
 								Bij een gesloten team moet u als teamcaptain een elke
 								inschrijving goedkeuren
 							</p>
@@ -111,8 +114,10 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 						</div>
 
 						<div>
-							<h3>Aan welke race neemt uw team deel?</h3>
-							<p>Zo weten we waar en waneer we jullie mogen verwachten</p>
+							<h4>Aan welke race neemt uw team deel?</h4>
+							<p className="uitlegTitle">
+								Zo weten we waar en waneer we jullie mogen verwachten
+							</p>
 							<select ref={locatieInput}>
 								<option value="Antwerpen">Antwerpen</option>
 								<option value="Brussel">Brussel</option>
@@ -131,19 +136,24 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 					<div className="deeltitel">Een team aanmaken</div>
 					<section className={styles.formSection}>
 						<div>
-							<h3>Kies een teamgezegde</h3>
-							<p>
+							<h4>Kies een teamgezegde</h4>
+							<p className="uitlegTitle">
 								heeft u een iconische zin of een zin dat perfect de sfeer in uw
 								team beschrijft? Plaats hem dan hier.
 							</p>
 							<label>
 								Ons team-gezegde is:
-								<input type="text" name="quote" ref={quoteInput} />
+								<input
+									type="text"
+									name="quote"
+									ref={quoteInput}
+									className="form_input"
+								/>
 							</label>
 						</div>
 						<div>
-							<h3>Wat is uw team’s motivatie?</h3>
-							<p>
+							<h4>Wat is uw team’s motivatie?</h4>
+							<p className="uitlegTitle">
 								dit laat mensen weten waarom ze uw team zouden sponseren of
 								aansluiten
 							</p>

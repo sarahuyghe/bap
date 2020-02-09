@@ -6,11 +6,15 @@
 	grid-template-rows: 20% 1fr 20%;
 }
 
-.panel h3 {
+.extraInfo {
 	grid-column: 2;
 	margin: 0;
 	border: none;
 	align-self: center;
+}
+.extraInfo p {
+	padding-left: 4rem;
+	font-size: 1.6rem;
 }
 
 .formSection {
@@ -25,33 +29,4 @@
 .formSection h3 {
 	border: none;
 	margin: 0em;
-}
-
-.bottleCustom {
-	display: flex;
-	flex-direction: column;
-}
-
-.bottleCustom img:nth-child(1) {
-	margin-bottom: -1rem;
-}
-
-.bottleCustom img:nth-last-child(1) {
-	margin-left: 81px;
-}
-
-/* .customRadio {
-} */
-/* .submit {
-	font-size: 1.8rem;
-	font-weight: bold;
-	grid-column: 3;
-	grid-row: 3;
-	width: 100px;
-	height: 30px;
-	background: none;
-	border: none;
-} */
-
-.formCustom {
 }

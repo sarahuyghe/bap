@@ -1,6 +1,8 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 
+import styles from "./ConnectTeam.module.css";
+
 const ConnectTeam = ({ participantStore, teamStore }) => {
 	const { teams, search, searching } = teamStore;
 
@@ -31,10 +33,71 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-				<section id="sec1">
-					<h3>1. Info opgeven</h3>
+				<section id="sec1" className={styles.panel}>
+					<div className={styles.extraInfo}>
+						<h3>1. Info opgeven</h3>
+						<p>
+							Uw data word niet doorgegeven aan externe bedrijven het is enkel
+							voor technische doeleinden
+						</p>
+					</div>
 					<div className="deeltitel">Aansluiten bij een team</div>
-					<input type="text" onChange={handleChange} />
+					<section className={styles.formSection}>
+						<div>
+							<h4>Wat is uw naam?</h4>
+							<p className="uitlegTitle">
+								Zo weten we wie we aan de startstreep mogen verwachten
+							</p>
+							<label>
+								Mijn voornaam is
+								<input
+									type="text"
+									name="voornaam"
+									placeholder="voornaam"
+									className="form_input"
+									ref={voornaamInput}
+								/>
+							</label>
+							<br />
+							<label>
+								en
+								<input
+									type="text"
+									name="Naam"
+									placeholder="Achternaam"
+									className="form_input"
+									ref={naamInput}
+								/>
+								is mijn achternaam
+							</label>
+						</div>
+						<div>
+							<h4>Wat is uw Email adres?</h4>
+							<p className="uitlegTitle">
+								Dit is zodat we u een bevestegings email kunnen sturen
+							</p>
+							<label>
+								Mijn Email adres is
+								<input
+									type="text"
+									name="mail"
+									placeholder="mijnemail@domain.be"
+									className="form_input"
+									ref={mailInput}
+								/>
+							</label>
+						</div>
+						<input
+							type="submit"
+							value="bevestigen"
+							className="secondaireButton"
+						/>
+					</section>
+				</section>
+				<section id="sec2" className={styles.panel}>
+					<h3>2. Selecteer een team</h3>
+					<div className="deeltitel">Aansluiten bij een team</div>
+					<input type="text" className="form_input" onChange={handleChange} />
 					<select ref={teamIdInput}>
 						{searching.map(team =>
 							team.map(test => (
@@ -78,29 +141,7 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 					<a href="#sec2" className="secondaireButton">
 						Volgende
 					</a>
-				</section>
-				<section id="sec2">
-					<h3>2. Selecteer een team</h3>
-					<div className="deeltitel">Aansluiten bij een team</div>
-					<label>
-						Naam
-						<input type="text" name="Naam" ref={naamInput} />
-					</label>
-					<br />
-					<label>
-						Voornaam
-						<input type="text" name="voornaam" ref={voornaamInput} />
-					</label>
-					<br />
-					<label>
-						Mail
-						<input type="text" name="mail" ref={mailInput} />
-					</label>
-					<input
-						type="submit"
-						value="bevestigen"
-						className="secondaireButton"
-					/>
+
 					<a href="#sec3" className="secondaireButton">
 						Volgende
 					</a>
