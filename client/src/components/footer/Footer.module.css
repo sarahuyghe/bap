@@ -50,6 +50,11 @@ address {
 	background-color: #ffffff;
 	text-align: center;
 }
+
+.mailinput {
+	width: 580px;
+	justify-self: center;
+}
 .submit {
 	border-color: white;
 }

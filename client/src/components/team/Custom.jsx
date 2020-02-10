@@ -66,8 +66,8 @@ class Custom extends Component {
 	}
 
 	handleChange = e => {
-		this.props.bottleInput = e.currentTarget.value;
-		console.log(this.props.bottleInput);
+		// this.props.bottleInput = e.currentTarget.value;
+		// console.log(this.props.bottleInput);
 		this.setState({ currentImg: e.currentTarget.value });
 	};
 
@@ -77,13 +77,13 @@ class Custom extends Component {
 		return (
 			<>
 				<h3>1. Boobottle personaliseren</h3>
-				<div className={styles.deeltitles}>Een team aanmaken</div>
+				<div className="deeltitel">Een team aanmaken</div>
 				<div>
-					<p>
+					<h4>
 						Personaliseer uw <br />
 						BOOBottle
-					</p>
-					<p>Omdat elk team uniek is</p>
+					</h4>
+					<p className="uitlegTitle">Omdat elk team uniek is</p>
 				</div>
 				<div>
 					<select onChange={this.handleChange}>

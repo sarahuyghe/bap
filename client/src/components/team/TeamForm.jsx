@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import withAuthentication from "../auth/WithAuthentication";
-import { ROUTES } from "../../constants";
+import { ROUTES } from "./../../constants";
 import styles from "./TeamForm.module.css";
 import Custom from "./Custom";
 
+// class TeamForm extends Component {
+//   constructor(props){}
 const TeamForm = ({ uiStore, teamStore, history }) => {
 	const teamNameInput = React.createRef();
 	const whyInput = React.createRef();
@@ -13,8 +15,6 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 	const kindInput = React.createRef();
 	const locatieInput = React.createRef();
 	const BottleInput = React.createRef();
-
-	// var bottle = bottlePink;
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -44,13 +44,13 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-				<section className={styles.panel}>
+				<section className={`panel ${styles.custom}`}>
 					<Custom BottleInput={BottleInput} />
 				</section>
-				<section id="sec2" className={styles.panel}>
+				<section id="sec2" className="panel">
 					<h3>2. Team instellen</h3>
 					<div className="deeltitel">Een team aanmaken</div>
-					<section className={styles.formSection}>
+					<section className="formSection">
 						<div>
 							<h4>Kies een teamnaam</h4>
 							<p className="uitlegTitle">
@@ -63,6 +63,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 									type="text"
 									name="teamnaam"
 									className="form_input"
+									placeholder="teamnaam"
 									ref={teamNameInput}
 									required
 								/>
@@ -79,9 +80,10 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 										type="radio"
 										name="event"
 										value="lopen"
+										id="one"
 										ref={eventInput}
 									/>
-									Wij gaan 3km lopen
+									<span className="label">Wij gaan 3km lopen</span>
 								</label>
 							</div>
 							<div>
@@ -90,9 +92,10 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 										type="radio"
 										name="event"
 										value="wandelen"
+										id="two"
 										ref={eventInput}
 									/>
-									Wij gaan 6km wandelen
+									<span className="label">Wij gaan 6km wandelen</span>
 								</label>
 							</div>
 						</div>
@@ -131,10 +134,10 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 						Volgende
 					</a>
 				</section>
-				<section id="sec3" className={styles.panel}>
+				<section id="sec3" className="panel">
 					<h3>3. Team personaliseren</h3>
 					<div className="deeltitel">Een team aanmaken</div>
-					<section className={styles.formSection}>
+					<section className="formSection">
 						<div>
 							<h4>Kies een teamgezegde</h4>
 							<p className="uitlegTitle">
@@ -148,6 +151,7 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 									name="quote"
 									ref={quoteInput}
 									className="form_input"
+									placeholder="team-gezegde"
 								/>
 							</label>
 						</div>
@@ -158,11 +162,12 @@ const TeamForm = ({ uiStore, teamStore, history }) => {
 								aansluiten
 							</p>
 							<label>
-								<input
-									type="text"
+								<textarea
 									name="reason"
 									ref={whyInput}
 									placeholder="hey ..."
+									cols="80"
+									rows="5"
 								/>
 							</label>
 						</div>

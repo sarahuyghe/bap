@@ -5,15 +5,23 @@ import Social from "./../social/Social";
 import arrow from "./../../images/arrow.svg";
 import arrowWhite from "./../../images/arrowWhite.svg";
 
+import MessageForm from "./MessageForm";
+import Sponsor from "./Sponsor";
+
 import styles from "./Home.module.css";
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { activeMessage: false, activeDoneer: false };
+		this.state = {
+			activeM: false,
+			activeD: false,
+			activeMessage: false,
+			activeDoneer: false
+		};
 	}
 	render() {
-		const { activeDoneer, activeMessage } = this.state;
+		const { activeM, activeD, activeDoneer, activeMessage } = this.state;
 		return (
 			<>
 				<section className={styles.header}>
@@ -24,16 +32,18 @@ class Home extends Component {
 					<div>
 						<div
 							className={styles.animation}
+							onClick={() => {
+								this.setState({
+									activeM: !activeM,
+									activeD: false
+								});
+							}}
 							onMouseEnter={() =>
 								this.setState({ activeMessage: !activeMessage })
 							}
 							onMouseLeave={() =>
 								this.setState({ activeMessage: !activeMessage })
 							}
-							// onClick={() => {
-							// 	console.log(active);
-							// 	this.setState({ active: !active });
-							// }}
 						>
 							<h3>Message in a BOOBottle</h3>
 							<img src="" alt="" />
@@ -57,6 +67,12 @@ class Home extends Component {
 					<div>
 						<div
 							className={styles.animation}
+							onClick={() => {
+								this.setState({
+									activeM: false,
+									activeD: !activeD
+								});
+							}}
 							onMouseEnter={() =>
 								this.setState({ activeDoneer: !activeDoneer })
 							}
@@ -90,7 +106,8 @@ class Home extends Component {
 						<img src={arrow} alt="arrow down" />
 					</div>
 				</section>
-				{/* {active ? <TeamForm /> : null} */}
+				{activeM ? <MessageForm /> : null}
+				{activeD ? <Sponsor /> : null}
 			</>
 		);
 	}

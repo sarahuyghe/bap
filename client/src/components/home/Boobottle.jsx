@@ -10,7 +10,7 @@ class Boobottle extends Component {
 	render() {
 		const { showHyd, showEv, showEve } = this.state;
 		return (
-			<section className={`panel ${styles.boob}`} id="#test">
+			<section className={`panelHome ${styles.boob}`} id="#test">
 				<div className={styles.infoBoob}>
 					<h2>Wat is BOOBottle</h2>
 					<p className="titleMini">

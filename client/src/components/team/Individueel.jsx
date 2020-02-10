@@ -32,7 +32,7 @@ const Individueel = ({ participantStore, teamStore }) => {
 		<>
 			<form onSubmit={handleSubmit}>
 				<section id="sec1" className={styles.panel}>
-					<div className={styles.extraInfo}>
+					<div className="extraInfo">
 						<h3>1. Info opgeven</h3>
 						<p>
 							Uw data word niet doorgegeven aan externe bedrijven het is enkel

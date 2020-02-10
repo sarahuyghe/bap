@@ -50,7 +50,7 @@ const MessageForm = ({ teamStore, messageStore }) => {
 						Volgende
 					</a>
 				</section>
-				<section id="sec2">
+				<section id="sec2" className={styles.panel}>
 					<h3>2. Inhoud van het steunbericht</h3>
 					<div className="deeltitel">Message in a BOOBottle</div>
 					<section className={styles.formSection}>
@@ -66,25 +66,32 @@ const MessageForm = ({ teamStore, messageStore }) => {
 									type="text"
 									name="Naam"
 									className="form_input"
+									placeholder="naam"
 									ref={naamInput}
 								/>
 							</label>
 						</div>
-						<h3>Wat wilt u hen zeggen?</h3>
-						<p className="uitlegTitle">
-							Dit is het steunbericht dat uw geselecteerd team zal ontvangen
-						</p>
-						<label>
-							<input
-								type="text"
-								name="teamnaam"
-								placeholder="hey ..."
-								ref={messageInput}
-							/>
-						</label>
+						<div>
+							<h3>Wat wilt u hen zeggen?</h3>
+							<p className="uitlegTitle">
+								Dit is het steunbericht dat uw geselecteerd team zal ontvangen
+							</p>
+							<label>
+								<textarea
+									name="message"
+									ref={messageInput}
+									placeholder="hey ..."
+									cols="80"
+									rows="5"
+								/>
+							</label>
+						</div>
 					</section>
+					<a href="#sec3" className="secondaireButton">
+						Volgende ? bevestigen
+					</a>
 				</section>
-				<section id="sec3">
+				<section id="sec3" className={styles.panel}>
 					<h3>3. Wilt u alsnog sponseren?</h3>
 					<p>
 						Met uw donatie kunnen we meer onderzoek naar borstkanker financieren
@@ -100,7 +107,6 @@ const MessageForm = ({ teamStore, messageStore }) => {
 						Ik wil dit team financieel sponseren
 					</label>
 					<br />
-					{/* {checkedItem ? ( */}
 					<>
 						<div>
 							<input type="radio" name="sponsor" value="5" ref={sponsorInput} />

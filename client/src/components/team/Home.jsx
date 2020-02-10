@@ -19,7 +19,9 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			active: false,
+			activeT: false,
+			activeCTT: false,
+			activeI: false,
 			activeTeam: false,
 			activeConnect: false,
 			activePerson: false
@@ -27,7 +29,14 @@ class Home extends Component {
 	}
 
 	render() {
-		const { active, activeTeam, activeConnect, activePerson } = this.state;
+		const {
+			activeT,
+			activeCTT,
+			activeI,
+			activeTeam,
+			activeConnect,
+			activePerson
+		} = this.state;
 		return (
 			<>
 				<section className={styles.header}>
@@ -39,8 +48,11 @@ class Home extends Component {
 						<div
 							className={styles.animation}
 							onClick={() => {
-								console.log(active);
-								this.setState({ active: !active });
+								this.setState({
+									activeT: !activeT,
+									activeCTT: false,
+									activeI: false
+								});
 							}}
 							onMouseEnter={() => this.setState({ activeTeam: !activeTeam })}
 							onMouseLeave={() => this.setState({ activeTeam: !activeTeam })}
@@ -72,6 +84,13 @@ class Home extends Component {
 					<div>
 						<div
 							className={styles.animation}
+							onClick={() => {
+								this.setState({
+									activeT: false,
+									activeCTT: !activeCTT,
+									activeI: false
+								});
+							}}
 							onMouseEnter={() =>
 								this.setState({ activeConnect: !activeConnect })
 							}
@@ -96,6 +115,13 @@ class Home extends Component {
 					<div>
 						<div
 							className={styles.animation}
+							onClick={() => {
+								this.setState({
+									activeT: false,
+									activeCTT: false,
+									activeI: !activeI
+								});
+							}}
 							onMouseEnter={() =>
 								this.setState({ activePerson: !activePerson })
 							}
@@ -123,7 +149,9 @@ class Home extends Component {
 						<img src={arrow} alt="arrow down" />
 					</div>
 				</section>
-				{active ? <TeamForm /> : null}
+				{activeT ? <TeamForm /> : null}
+				{activeCTT ? <ConnectTeam /> : null}
+				{activeI ? <Individueel /> : null}
 			</>
 		);
 	}

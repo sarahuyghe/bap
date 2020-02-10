@@ -67,6 +67,7 @@ const Footer = ({ mailStore }) => {
 							type="text"
 							name="email"
 							placeholder="mijnemail@domain.com"
+							className={`form_input ${styles.mailinput}`}
 							ref={mailInput}
 						/>
 					</label>

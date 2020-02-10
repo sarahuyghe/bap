@@ -15,7 +15,7 @@ class Race extends Component {
 		const { showWat, showWar, showVoor, showWaar } = this.state;
 
 		return (
-			<section className={`panel ${styles.race}`} id="#test">
+			<section className={`panelHome ${styles.race}`} id="#test">
 				<div className={styles.infoRace}>
 					<h2>Race for the Cure</h2>
 					<p className="titleMini">

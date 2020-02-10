@@ -50,7 +50,9 @@
 .opportunities p {
 	border-top: solid white 0.2rem;
 	margin-top: 1rem;
+	padding-top: 1.5rem;
 	width: auto;
+	text-align: left;
 }
 
 .scrollAction {

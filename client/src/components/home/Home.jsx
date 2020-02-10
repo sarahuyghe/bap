@@ -17,7 +17,7 @@ import "./../../styles/index.css";
 const Home = () => {
 	return (
 		<>
-			<header className={`panel ${styles.header}`}>
+			<header className={`panelHome ${styles.header}`}>
 				<div>
 					<h1>BOOBottle</h1>
 					<p>Herbruikbare fles voor onvervangbare weldoeners</p>
@@ -28,10 +28,12 @@ const Home = () => {
 					<img src={arrow} alt="arrow down" />
 				</div>
 			</header>
+			{/* <section className="panelHome"> */}
 			<Boobottle />
-			<section className={styles.panel}>
-				<Race />
-			</section>
+			{/* </section> */}
+			{/* <section className="panelHome"> */}
+			<Race />
+			{/* </section> */}
 			<section className={styles.inschrijven}>
 				<div className={styles.bg_inschrijven} />
 				<div className={styles.callToAction}>

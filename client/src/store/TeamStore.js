@@ -17,7 +17,7 @@ class TeamStore {
 	teams = [];
 	participants = [];
 	searching = [];
-	team = null;
+	team = [];
 	currentTeam = [];
 
 	constructor(rootStore) {
@@ -50,14 +50,16 @@ class TeamStore {
 	};
 
 	addTeam = data => {
-		this.team = null;
+		this.team = [];
 		const newTeam = new Team(this.rootStore);
 		newTeam.updateFromServer(data);
 		this.api
 			.create(newTeam)
 			.then(teamValues => newTeam.updateFromServer(teamValues));
 		this.teams.push(newTeam);
+		console.log(newTeam);
 		this.team.push(newTeam);
+		console.log(this.team);
 	};
 
 	search = data => {
