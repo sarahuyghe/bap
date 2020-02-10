@@ -8,6 +8,10 @@ class Team {
 		this.kind = store.kind;
 		this.quote = store.quote;
 		this.location = store.location;
+		this.cap = store.cap;
+		this.bottle = store.bottle;
+		this.typeOfEvent = store.event;
+
 		// this.teamcaptainId = store.teamcaptainId;
 	}
 
@@ -17,6 +21,9 @@ class Team {
 	setKind = value => (this.kind = value);
 	setQuote = value => (this.quote = value);
 	setLocation = value => (this.location = value);
+	setCap = value => (this.cap = value);
+	setBottle = value => (this.bottle = value);
+	setTypeOfEvent = value => (this.typeOfEvent = value);
 
 	// setTeamcaptainId = value => (this.teamcaptainId = value);
 
@@ -26,7 +33,11 @@ class Team {
 			reason: this.reason,
 			kind: this.kind,
 			quote: this.quote,
-			location: this.location
+			location: this.location,
+			bottle: this.bottle,
+			cap: this.cap,
+			typeOfEvent: this.typeOfEvent
+
 			// teamcaptainId: this.teamcaptainId
 		};
 	}
@@ -36,12 +47,17 @@ class Team {
 	// }
 
 	updateFromServer = values => {
+		console.log(values);
 		this.setId(values._id);
 		this.setTeamnaam(values.teamnaam);
 		this.setReason(values.reason);
 		this.setKind(values.kind);
 		this.setQuote(values.quote);
 		this.setLocation(values.location);
+		this.setCap(values.cap);
+		this.setBottle(values.bottle);
+		this.setTypeOfEvent(values.typeOfEvent);
+
 		// this.setTeamcaptainId(values.teamcaptainId);
 	};
 }
@@ -54,6 +70,9 @@ decorate(Team, {
 	quote: observable,
 	// teamcaptainId: observable,
 	location: observable,
+	cap: observable,
+	bottle: observable,
+	typeOfEvent: observable,
 
 	setId: action,
 	setTeamnaam: action,
@@ -61,6 +80,10 @@ decorate(Team, {
 	setKind: action,
 	setQuote: action,
 	setLocation: action,
+	setCap: action,
+	setBottle: action,
+	setTypeOfEvent: action,
+
 	// setTeamcaptainId: action,
 
 	values: computed

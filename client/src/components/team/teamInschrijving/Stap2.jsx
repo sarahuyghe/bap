@@ -5,12 +5,14 @@ import { ROUTES } from "./../../../constants/";
 class Stap2 extends Component {
 	constructor(props) {
 		super(props);
-		this.teamNameInput = React.createRef();
-		this.whyInput = React.createRef();
-		this.eventInput = React.createRef();
 	}
 
 	render() {
+		const { teamnaam, typeOfEvent, kindOfTeam, handleChange } = this.props;
+		if (this.props.currentStep !== 2) {
+			// Prop: The current step
+			return null;
+		}
 		return (
 			<section id="sec2" className="panel">
 				<h3>2. Team instellen</h3>
@@ -29,7 +31,8 @@ class Stap2 extends Component {
 								name="teamnaam"
 								className="form_input"
 								placeholder="teamnaam"
-								ref={this.teamNameInput}
+								value={teamnaam}
+								onChange={handleChange}
 								required
 							/>
 						</label>
@@ -45,8 +48,8 @@ class Stap2 extends Component {
 									type="radio"
 									name="event"
 									value="lopen"
-									id="one"
-									ref={this.eventInput}
+									checked={typeOfEvent === "lopen"}
+									onChange={handleChange}
 								/>
 								Wij gaan 3km lopen
 							</label>
@@ -57,8 +60,8 @@ class Stap2 extends Component {
 									type="radio"
 									name="event"
 									value="wandelen"
-									id="two"
-									ref={this.eventInput}
+									checked={typeOfEvent === "wandelen"}
+									onChange={handleChange}
 								/>
 								Wij gaan 6km wandelen
 							</label>
@@ -73,10 +76,10 @@ class Stap2 extends Component {
 						<label>
 							<input
 								type="checkbox"
-								name="reason"
-								value="closedTeam"
+								name="kindOfTeam"
 								className="checkbox"
-								ref={this.kindInput}
+								value={kindOfTeam}
+								onChange={handleChange}
 							/>
 							Ik wil een gesloten team
 						</label>
@@ -87,7 +90,7 @@ class Stap2 extends Component {
 						<p className="uitlegTitle">
 							Zo weten we waar en waneer we jullie mogen verwachten
 						</p>
-						<select ref={this.locatieInput}>
+						<select name="locatie" onChange={handleChange}>
 							<option value="Antwerpen">Antwerpen</option>
 							<option value="Brussel">Brussel</option>
 							<option value="Charleroi">Charleroi</option>
@@ -96,9 +99,6 @@ class Stap2 extends Component {
 						<br />
 					</div>
 				</section>
-				<NavLink to={ROUTES.stap3Team} className="mainButton">
-					Volgende
-				</NavLink>
 			</section>
 		);
 	}

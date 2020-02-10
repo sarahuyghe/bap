@@ -110,9 +110,6 @@ class Custom extends Component {
 						<img src={images[currentImg].img} alt="" width="160" id="bottle" />
 					</div>
 				</div>
-				<a href="#sec2" className="secondaireButton">
-					Volgende
-				</a>
 			</>
 		);
 	}

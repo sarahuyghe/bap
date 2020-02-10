@@ -3,7 +3,7 @@ import { inject } from "mobx-react";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
 
-import TeamForm from "./../team/TeamForm";
+// import TeamForm from "./../team/TeamForm";
 
 class Register extends Component {
 	constructor() {

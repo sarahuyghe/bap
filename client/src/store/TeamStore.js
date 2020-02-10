@@ -50,6 +50,7 @@ class TeamStore {
 	};
 
 	addTeam = data => {
+		console.log(data);
 		this.team = [];
 		const newTeam = new Team(this.rootStore);
 		newTeam.updateFromServer(data);

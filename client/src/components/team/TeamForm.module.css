@@ -52,5 +52,13 @@
 	border: none;
 } */
 
-.formCustom {
+.customSection {
+	grid-column: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.custom {
+	justify-content: center;
+	transform: rotate(30deg);
 }

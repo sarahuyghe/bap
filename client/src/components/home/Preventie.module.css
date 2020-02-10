@@ -60,6 +60,7 @@
 
 .imagePrev {
 	padding: 0 1rem;
+	transition: all 0.3s linear;
 	/* width: auto;
 	height: 228px; */
 }

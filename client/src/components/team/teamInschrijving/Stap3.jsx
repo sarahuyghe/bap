@@ -3,10 +3,14 @@ import React, { Component } from "react";
 class Stap3 extends Component {
 	constructor(props) {
 		super(props);
-		this.quoteInput = React.createRef();
-		this.whyInput = React.createRef();
 	}
 	render() {
+		const { quote, motivation, handleChange, handleSubmit } = this.props;
+
+		if (this.props.currentStep !== 3) {
+			// Prop: The current step
+			return null;
+		}
 		return (
 			<section id="sec3" className="panel">
 				<h3>3. Team personaliseren</h3>
@@ -23,9 +27,10 @@ class Stap3 extends Component {
 							<input
 								type="text"
 								name="quote"
-								ref={this.quoteInput}
 								className="form_input"
 								placeholder="team-gezegde"
+								value={quote}
+								onChange={handleChange}
 							/>
 						</label>
 					</div>
@@ -37,16 +42,23 @@ class Stap3 extends Component {
 						</p>
 						<label>
 							<textarea
-								name="reason"
+								name="motivation"
 								ref={this.whyInput}
 								placeholder="hey ..."
 								cols="80"
 								rows="5"
+								value={motivation}
+								onChange={handleChange}
 							/>
 						</label>
 					</div>
 				</section>
-				{/* <input type="submit" value="Volgende" className="secondaireButton" /> */}
+				<input
+					type="submit"
+					value="Volgende"
+					className="secondaireButton"
+					onClick={handleSubmit}
+				/>
 			</section>
 		);
 	}

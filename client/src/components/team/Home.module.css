@@ -71,3 +71,10 @@
 	text-align: left;
 	font-size: 1.4rem;
 }
+
+.nextButton {
+	grid-column: 5;
+	grid-row: 3;
+	align-self: center;
+	justify-self: flex-end;
+}

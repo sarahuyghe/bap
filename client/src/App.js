@@ -19,10 +19,11 @@ import SupportHome from "./components/support/Home";
 import HomeTeam from "./components/team/Home";
 import ConnectTeam from "./components/team/ConnectTeam";
 import Individueel from "./components/team/Individueel";
-import TeamForm from "./components/team/TeamForm";
 import Confirm from "./components/team/Confirm";
 
 //team Inschrijven
+import MasterForm from "./components/team/teamInschrijving/MasterForm";
+
 import Stap1Team from "./components/team/teamInschrijving/Stap1";
 import Stap2Team from "./components/team/teamInschrijving/Stap2";
 import Stap3Team from "./components/team/teamInschrijving/Stap3";
@@ -61,7 +62,7 @@ function App() {
 
 				<Route path={ROUTES.team} component={HomeTeam} />
 
-				<Route path={ROUTES.stap1Team} component={Stap1Team} />
+				<Route path={ROUTES.stap1Team} component={MasterForm} />
 				<Route path={ROUTES.stap2Team} component={Stap2Team} />
 				<Route path={ROUTES.stap3Team} component={Stap3Team} />
 

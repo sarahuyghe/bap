@@ -11,7 +11,6 @@ import "./../../styles/index.css";
 
 import styles from "./Home.module.css";
 import Social from "./../social/Social";
-import TeamForm from "./TeamForm";
 import Individueel from "./Individueel";
 import ConnectTeam from "./ConnectTeam";
 
@@ -148,23 +147,31 @@ class Home extends Component {
 						<p>Scroll om meer te weten te komen</p>
 						<img src={arrow} alt="arrow down" />
 					</div>
+					{activeT ? (
+						<NavLink
+							to={ROUTES.stap1Team}
+							className={`mainButton ${styles.nextButton}`}
+						>
+							Volgende
+						</NavLink>
+					) : null}
+					{activeCTT ? (
+						<NavLink
+							to={ROUTES.stap1Connect}
+							className={`mainButton ${styles.nextButton}`}
+						>
+							Volgende
+						</NavLink>
+					) : null}
+					{activeI ? (
+						<NavLink
+							to={ROUTES.stap1Indi}
+							className={`mainButton ${styles.nextButton}`}
+						>
+							Volgende
+						</NavLink>
+					) : null}
 				</section>
-
-				{activeT ? (
-					<NavLink to={ROUTES.stap1Team} className="mainButton">
-						Volgende
-					</NavLink>
-				) : null}
-				{activeCTT ? (
-					<NavLink to={ROUTES.stap1Connect} className="mainButton">
-						Volgende
-					</NavLink>
-				) : null}
-				{activeI ? (
-					<NavLink to={ROUTES.stap1Indi} className="mainButton">
-						Volgende
-					</NavLink>
-				) : null}
 			</>
 		);
 	}

@@ -4,13 +4,17 @@ exports.create = (req, res) => {
 	if (!req.body.teamnaam) {
 		return res.status(500).send({ err: "teamnaam can not be empty" });
 	}
+
 	const team = new Team({
 		teamnaam: req.body.teamnaam,
 		reason: req.body.reason,
 		quote: req.body.quote,
 		kind: req.body.kind,
 		location: req.body.location,
-		teamcaptainId: req.body.teamcaptainId
+		// teamcaptainId: req.body.teamcaptainId,
+		cap: req.body.cap,
+		bottle: req.body.bottle,
+		typeOfEvent: req.body.typeOfEvent
 	});
 
 	team
