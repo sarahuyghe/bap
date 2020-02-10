@@ -2,6 +2,7 @@ import React from "react";
 import { inject, observer } from "mobx-react";
 
 import styles from "./ConnectTeam.module.css";
+import TeamPallet from "../TeamPallet";
 
 const ConnectTeam = ({ participantStore, teamStore }) => {
 	const { teams, search, searching } = teamStore;
@@ -34,7 +35,7 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 		<>
 			<form onSubmit={handleSubmit}>
 				<section id="sec1" className={styles.panel}>
-					<div className={styles.extraInfo}>
+					<div className="extraInfo">
 						<h3>1. Info opgeven</h3>
 						<p>
 							Uw data word niet doorgegeven aan externe bedrijven het is enkel
@@ -95,9 +96,18 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 					</section>
 				</section>
 				<section id="sec2" className={styles.panel}>
-					<h3>2. Selecteer een team</h3>
+					<div className="extraInfo">
+						<h3>2. Selecteer een team</h3>
+						<p>Bij welk team wilt u zich aansluiten</p>
+					</div>
 					<div className="deeltitel">Aansluiten bij een team</div>
-					<input type="text" className="form_input" onChange={handleChange} />
+					<input
+						type="search"
+						className="form_input"
+						onChange={handleChange}
+						className="form_input"
+					/>
+					<p>23 resultaten voor “{}"</p>
 					<select ref={teamIdInput}>
 						{searching.map(team =>
 							team.map(test => (
@@ -129,12 +139,14 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 						</>
 					))} */}
 					</select>
-					<div>
+					<div className={styles.resultaten}>
+						<TeamPallet />
 						{searching.map(team =>
 							team.map(test => (
-								<p key={test.id} value={test.teamId}>
-									{test.teamnaam ? test.teamnaam : test.name}
-								</p>
+								<TeamPallet />
+								// <p key={test.id} value={test.teamId}>
+								// 	{test.teamnaam ? test.teamnaam : test.name}
+								// </p>
 							))
 						)}
 					</div>
