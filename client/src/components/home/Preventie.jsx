@@ -81,7 +81,7 @@ class Preventie extends Component {
 				<section className={styles.symptomen}>
 					{/* <div className={styles.introSymptonen}> */}
 					<div className={styles.introSymptonen}>
-						><h2>Symptomen</h2>
+						<h2>Symptomen</h2>
 						<p className="titleMini">
 							Dit zijn de symtopen dat je bij jezelf kan checken
 						</p>
@@ -93,6 +93,7 @@ class Preventie extends Component {
 								key={index}
 								alt={symptoon.title}
 								width="111"
+								className={styles.imagePrev}
 								onClick={() => this.setState({ currentSym: index })}
 							/>
 						))}

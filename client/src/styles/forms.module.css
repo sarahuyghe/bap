@@ -2,17 +2,14 @@
 	border: solid 0.1rem rgba(0, 0, 0, 0.5);
 	margin: 0.5rem 1rem;
 	height: 32px;
+	width: 24.8rem;
 }
 
 /* .customRadio; */
-
-.customRadio {
-	position: relative;
-	cursor: pointer;
-	line-height: 20px;
-	font-size: 14px;
-	margin: 15px;
+.checkbox {
+	text-align: left;
 }
+
 .bigField {
 	width: 490px;
 	height: 180px;

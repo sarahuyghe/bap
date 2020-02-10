@@ -149,9 +149,22 @@ class Home extends Component {
 						<img src={arrow} alt="arrow down" />
 					</div>
 				</section>
-				{activeT ? <TeamForm /> : null}
-				{activeCTT ? <ConnectTeam /> : null}
-				{activeI ? <Individueel /> : null}
+
+				{activeT ? (
+					<NavLink to={ROUTES.stap1Team} className="mainButton">
+						Volgende
+					</NavLink>
+				) : null}
+				{activeCTT ? (
+					<NavLink to={ROUTES.stap1Connect} className="mainButton">
+						Volgende
+					</NavLink>
+				) : null}
+				{activeI ? (
+					<NavLink to={ROUTES.stap1Indi} className="mainButton">
+						Volgende
+					</NavLink>
+				) : null}
 			</>
 		);
 	}

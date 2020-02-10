@@ -22,6 +22,11 @@ import Individueel from "./components/team/Individueel";
 import TeamForm from "./components/team/TeamForm";
 import Confirm from "./components/team/Confirm";
 
+//team Inschrijven
+import Stap1Team from "./components/team/teamInschrijving/Stap1";
+import Stap2Team from "./components/team/teamInschrijving/Stap2";
+import Stap3Team from "./components/team/teamInschrijving/Stap3";
+
 import Burger from "./components/navigation/Burger";
 import Menu from "./components/navigation/Menu";
 
@@ -55,9 +60,14 @@ function App() {
 				<Route path={ROUTES.sponsor} component={Sponsor} />
 
 				<Route path={ROUTES.team} component={HomeTeam} />
+
+				<Route path={ROUTES.stap1Team} component={Stap1Team} />
+				<Route path={ROUTES.stap2Team} component={Stap2Team} />
+				<Route path={ROUTES.stap3Team} component={Stap3Team} />
+
 				<Route path={ROUTES.connectTeam} component={ConnectTeam} />
 				<Route path={ROUTES.individueel} component={Individueel} />
-				<Route path={ROUTES.teamform} component={TeamForm} />
+				{/* <Route path={ROUTES.teamform} component={TeamForm} /> */}
 				<Route path={ROUTES.confirm} component={Confirm} />
 
 				<Route path={ROUTES.portal} component={Portal} />

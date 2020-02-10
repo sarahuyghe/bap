@@ -22,13 +22,13 @@ class TeamPallet extends Component {
 			<div className={styles.pallet}>
 				<p>Jos Van den eiken {teamnaam}</p>
 				<p>120 Deelnemers</p>
+				<div className={styles.imageBottle}>
+					<img src={cap} alt="" />
+					<img src={bottle} alt="" />
+				</div>
 				<div>
-					<div>
-						<img src={cap} alt="" />
-						<img src={bottle} alt="" />
-					</div>
-					<h4>JoskegaatervoorJoskegaatervoor {teamnaam}</h4>
-					<p>We win but we don’t lose {teamquote}</p>
+					<h4>Joskegaatervoor Joskegaatervoor {teamnaam}</h4>
+					<p className={styles.quote}>We win but we don’t lose {teamquote}</p>
 					<p>
 						Mijn zaak bestaat dit jaar 100 jaar. Om dit te bereiken hebben we
 						veel moed en karakter nodig gehad. Het loopt niet altijd van een

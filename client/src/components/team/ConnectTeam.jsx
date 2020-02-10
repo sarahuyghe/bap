@@ -107,7 +107,7 @@ const ConnectTeam = ({ participantStore, teamStore }) => {
 						onChange={handleChange}
 						className="form_input"
 					/>
-					<p>23 resultaten voor “{}"</p>
+					<p>23 resultaten voor {}</p>
 					<select ref={teamIdInput}>
 						{searching.map(team =>
 							team.map(test => (

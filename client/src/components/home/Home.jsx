@@ -28,12 +28,8 @@ const Home = () => {
 					<img src={arrow} alt="arrow down" />
 				</div>
 			</header>
-			{/* <section className="panelHome"> */}
 			<Boobottle />
-			{/* </section> */}
-			{/* <section className="panelHome"> */}
 			<Race />
-			{/* </section> */}
 			<section className={styles.inschrijven}>
 				<div className={styles.bg_inschrijven} />
 				<div className={styles.callToAction}>

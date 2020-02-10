@@ -10,6 +10,13 @@ export const ROUTES = {
 	support: "/Support",
 
 	team: "/team",
+	stap1Team: "/stap1_Team",
+	stap2Team: "/stap2_Team",
+	stap3Team: "/stap3_Team",
+
+	stap1Connect: "/stap1_Connect",
+	stap1Indi: "/stap1_Individueel",
+
 	connectTeam: "/connect_to_team",
 	individueel: "/individueel",
 	teamform: "/teamform",
