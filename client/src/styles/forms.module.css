@@ -52,6 +52,7 @@
 	margin: 0;
 	border: none;
 	align-self: center;
+	width: 500px;
 }
 .extraInfo p {
 	padding-left: 4rem;

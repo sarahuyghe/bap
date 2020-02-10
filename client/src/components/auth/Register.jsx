@@ -49,10 +49,10 @@ class Register extends Component {
 							<div>
 								<h4>Wat is uw naam?</h4>
 								<p className="uitlegTitle">
-									Zo kunnen we bijhouden wie de teamcamptain is{" "}
+									Zo kunnen we bijhouden wie de teamcamptain is
 								</p>
 								<label htmlFor="name">
-									Zo kunnen we bijhouden wie de teamcamptain is
+									Mijn voornaam is
 									<input
 										type="text"
 										name="firstname"
@@ -63,7 +63,7 @@ class Register extends Component {
 										onChange={this.handleChange}
 									/>
 								</label>
-
+								<br />
 								<label htmlFor="name">
 									en
 									<input
@@ -125,13 +125,13 @@ class Register extends Component {
 									/>
 								</label>
 							</div>
-							<input
-								type="submit"
-								value="Bevestigen"
-								className="secondaireButton"
-								disabled={pwd && pwd !== pwd2}
-							/>
 						</section>
+						<input
+							type="submit"
+							value="Bevestigen"
+							className="secondaireButton"
+							disabled={pwd && pwd !== pwd2}
+						/>
 					</section>
 				</form>
 			</>
