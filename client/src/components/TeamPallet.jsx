@@ -14,28 +14,71 @@ import styles from "./TeamPallet.module.css";
 class TeamPallet extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			images: [
+				{
+					id: 1,
+					name: "bottleGrey",
+					color: "grey",
+					img: bottleGrey
+				},
+				{
+					id: 2,
+					name: "bottleRed",
+					color: "red",
+					img: bottleRed
+				},
+				{
+					id: 3,
+					name: "bottleblue",
+					color: "blue",
+					img: bottleblue
+				},
+				{
+					id: 4,
+					name: "bottlePink",
+					color: "pink",
+					img: bottlePink
+				}
+			],
+			imagesCap: [
+				{
+					id: 1,
+					name: "capPink",
+					color: "grey",
+					img: capPink
+				},
+				{
+					id: 2,
+					name: "capBrown",
+					color: "red",
+					img: capBrown
+				},
+				{
+					id: 3,
+					name: "cap",
+					color: "blue",
+					img: cap
+				}
+			]
+		};
 	}
 
 	render() {
 		const { teamnaam, teamquote, motivation, bottle, cap } = this.props;
+		const { images, imagesCap } = this.state;
 		return (
 			<div className={styles.pallet}>
-				<p>Jos Van den eiken {teamnaam}</p>
+				<p>{teamnaam}</p>
 				<p>120 Deelnemers</p>
 				<div className={styles.imageBottle}>
-					<img src={cap} alt="" />
-					<img src={bottle} alt="" />
+					<img src={imagesCap[cap]} alt="" />
+					<img src={images[bottle]} alt="" />
 				</div>
 				<div>
-					<h4>Joskegaatervoor Joskegaatervoor {teamnaam}</h4>
-					<p className={styles.quote}>We win but we don’t lose {teamquote}</p>
-					<p>
-						Mijn zaak bestaat dit jaar 100 jaar. Om dit te bereiken hebben we
-						veel moed en karakter nodig gehad. Het loopt niet altijd van een
-						leien dakje en met vallen en opstaan hebben we dit kunnen
-						bereiken...
-						{motivation}
-					</p>
+					<h4>{teamnaam}</h4>
+					<p className={styles.quote}>{teamquote}</p>
+					<p>{motivation}</p>
 				</div>
 			</div>
 		);

@@ -20,6 +20,7 @@ class Stap1 extends Component {
 			return null;
 		}
 		console.log(searching);
+		console.log(teamId);
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
@@ -33,8 +34,10 @@ class Stap1 extends Component {
 					onChange={handleChangeOnSearch}
 					className="form_input"
 				/>
-				<p>23 resultaten voor {}</p>
-				<select onLoad={handleLoad}>
+				<p>
+					{searching.length} resultaten voor {}
+				</p>
+				<select name="teamId" onChange={handleChange} onLoad={handleLoad}>
 					{searching.map(
 						team => (
 							<option key={team.id} value={team.id}>
@@ -75,20 +78,19 @@ class Stap1 extends Component {
 					{/* <TeamPallet /> */}
 					{searching.map(
 						team => (
-							<TeamPallet />
+							<TeamPallet
+								teamnaam={team.teamnaam}
+								teamquote={team.teamquote}
+								motivation={team.motivation}
+								bottle={team.bottle}
+								cap={team.cap}
+							/>
 						)
 						// <p key={test.id} value={test.teamId}>
 						// 	{test.teamnaam ? test.teamnaam : test.name}
 						// </p>
 					)}
 				</div>
-				<a href="#sec2" className="secondaireButton">
-					Volgende
-				</a>
-
-				<a href="#sec3" className="secondaireButton">
-					Volgende
-				</a>
 			</section>
 		);
 	}

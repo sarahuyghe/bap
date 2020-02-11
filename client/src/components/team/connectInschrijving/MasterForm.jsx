@@ -10,7 +10,7 @@ class MasterForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			teamId: "5e41e7ded42ba130cd3d6cbc",
+			teamId: "",
 			name: "",
 			firstname: "",
 			email: "",
@@ -73,6 +73,8 @@ class MasterForm extends Component {
 		const name = e.target.name;
 		const value =
 			e.target.type === "checkbox" ? e.target.checked : e.target.value;
+		console.log(name);
+		console.log(value);
 		this.setState({ [name]: value });
 	};
 
@@ -97,7 +99,7 @@ class MasterForm extends Component {
 			teamId: teamId,
 			name: name,
 			firstname: firstname,
-			mail: email,
+			email: email,
 			buyBottle: buyBottle
 		});
 		// history.push(ROUTES.confirm);
@@ -121,7 +123,7 @@ class MasterForm extends Component {
 					<Stap1
 						currentStep={currentStep}
 						handleChange={this.handleChange}
-						teamId="5e41e7ded42ba130cd3d6cbc"
+						teamId={teamId}
 						searching={searching}
 						handleChange={this.handleChange}
 						handleChangeOnSearch={this.handleSearch}
