@@ -8,6 +8,8 @@ const ParticipantSchema = mongoose.Schema(
 		mail: String,
 		event: String,
 		location: String,
+		buyBottle: Boolean,
+		typeOfEvent: String,
 		teamId: { type: ObjectId, ref: "Team" }
 	},
 	{

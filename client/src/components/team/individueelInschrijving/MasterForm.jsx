@@ -3,23 +3,21 @@ import { inject, observer } from "mobx-react";
 
 import { ROUTES } from "./../../../constants/";
 
+import styles from "./../Individueel.module.css";
+
 import Stap1 from "./Stap1";
 import Stap2 from "./Stap2";
-import Stap3 from "./Stap3";
 
 class MasterForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			currentStep: 1,
-			cap: 0,
-			bottle: 0,
-			teamnaam: "",
-			kindOfTeam: false,
+			name: "",
+			firstname: "",
+			email: "",
 			locatie: "",
-			typeOfEvent: "",
-			quote: "",
-			motivation: ""
+			event: ""
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this._next = this._next.bind(this);
@@ -73,6 +71,7 @@ class MasterForm extends Component {
 	}
 
 	handleChange = e => {
+		console.log(e.target.value);
 		const name = e.target.name;
 		const value =
 			e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -81,65 +80,36 @@ class MasterForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const {
-			locatie,
-			kindOfTeam,
-			typeOfEvent,
-			teamnaam,
-			motivation,
-			quote,
-			cap,
-			bottle
-		} = this.state;
-		const { teamStore, history } = this.props;
-		teamStore.addTeam({
-			teamnaam: teamnaam,
-			reason: motivation,
-			quote: quote,
-			event: typeOfEvent,
-			kind: kindOfTeam,
-			location: locatie,
-			cap: cap,
-			bottle: bottle
+		const { locatie, event, name, firstname, email } = this.state;
+		const { participantStore, history } = this.props;
+		participantStore.addPerson({
+			name: name,
+			firstname: firstname,
+			email: email,
+			typeOfEvent: event,
+			location: locatie
 		});
-		history.push(ROUTES.register);
+		// history.push(ROUTES.register);
 	};
 
 	render() {
-		const {
-			currentStep,
-			bottle,
-			cap,
-			teamnaam,
-			kindOfTeam,
-			typeOfEvent,
-			locatie,
-			motivation,
-			quote
-		} = this.state;
+		const { currentStep, email, name, firstname, event, locatie } = this.state;
 		return (
 			<>
 				<form>
 					<Stap1
 						currentStep={currentStep}
 						handleChange={this.handleChange}
-						bottle={bottle}
-						cap={cap}
+						name={name}
+						firstname={firstname}
+						email={email}
 					/>
 					<Stap2
 						currentStep={currentStep}
 						handleChange={this.handleChange}
-						teamnaam={teamnaam}
-						typeOfEvent={typeOfEvent}
+						typeOfEvent={event}
 						locatie={locatie}
-						kindOfTeam={kindOfTeam}
-					/>
-					<Stap3
-						currentStep={currentStep}
-						handleChange={this.handleChange}
 						handleSubmit={this.handleSubmit}
-						quote={quote}
-						motivation={motivation}
 					/>
 					{this.nextButton}
 				</form>
@@ -148,10 +118,4 @@ class MasterForm extends Component {
 	}
 }
 
-export default inject(
-	"teamStore",
-	"uiStore"
-)(
-	// (withAuthentication
-	observer(MasterForm)
-);
+export default inject("teamStore", "participantStore")(observer(MasterForm));

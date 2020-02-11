@@ -11,8 +11,6 @@ class Team {
 		this.cap = store.cap;
 		this.bottle = store.bottle;
 		this.typeOfEvent = store.event;
-
-		// this.teamcaptainId = store.teamcaptainId;
 	}
 
 	setId = id => (this.id = id);
@@ -25,8 +23,6 @@ class Team {
 	setBottle = value => (this.bottle = value);
 	setTypeOfEvent = value => (this.typeOfEvent = value);
 
-	// setTeamcaptainId = value => (this.teamcaptainId = value);
-
 	get values() {
 		return {
 			teamnaam: this.teamnaam,
@@ -37,14 +33,8 @@ class Team {
 			bottle: this.bottle,
 			cap: this.cap,
 			typeOfEvent: this.typeOfEvent
-
-			// teamcaptainId: this.teamcaptainId
 		};
 	}
-
-	// get author() {
-	// 	return this.store.authorStore.resolveAuthor(this.authorId);
-	// }
 
 	updateFromServer = values => {
 		console.log(values);
@@ -57,8 +47,6 @@ class Team {
 		this.setCap(values.cap);
 		this.setBottle(values.bottle);
 		this.setTypeOfEvent(values.typeOfEvent);
-
-		// this.setTeamcaptainId(values.teamcaptainId);
 	};
 }
 
@@ -68,7 +56,6 @@ decorate(Team, {
 	reason: observable,
 	kind: observable,
 	quote: observable,
-	// teamcaptainId: observable,
 	location: observable,
 	cap: observable,
 	bottle: observable,
@@ -83,8 +70,6 @@ decorate(Team, {
 	setCap: action,
 	setBottle: action,
 	setTypeOfEvent: action,
-
-	// setTeamcaptainId: action,
 
 	values: computed
 });

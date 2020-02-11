@@ -5,21 +5,17 @@ import { ROUTES } from "./../../../constants/";
 
 import Stap1 from "./Stap1";
 import Stap2 from "./Stap2";
-import Stap3 from "./Stap3";
 
 class MasterForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentStep: 1,
-			cap: 0,
-			bottle: 0,
-			teamnaam: "",
-			kindOfTeam: false,
-			locatie: "",
-			typeOfEvent: "",
-			quote: "",
-			motivation: ""
+			teamId: "5e41e7ded42ba130cd3d6cbc",
+			name: "",
+			firstname: "",
+			email: "",
+			buyBottle: 0,
+			currentStep: 1
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this._next = this._next.bind(this);
@@ -81,41 +77,26 @@ class MasterForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const {
-			locatie,
-			kindOfTeam,
-			typeOfEvent,
-			teamnaam,
-			motivation,
-			quote,
-			cap,
-			bottle
-		} = this.state;
-		const { teamStore, history } = this.props;
-		teamStore.addTeam({
-			teamnaam: teamnaam,
-			reason: motivation,
-			quote: quote,
-			event: typeOfEvent,
-			kind: kindOfTeam,
-			location: locatie,
-			cap: cap,
-			bottle: bottle
+		const { teamId, name, firstname, email, buyBottle } = this.state;
+		const { participantStore, history } = this.props;
+		participantStore.addPerson({
+			teamId: teamId,
+			name: name,
+			firstname: firstname,
+			mail: email,
+			buyBottle: buyBottle
 		});
-		history.push(ROUTES.register);
+		// history.push(ROUTES.confirm);
 	};
 
 	render() {
 		const {
-			currentStep,
-			bottle,
-			cap,
-			teamnaam,
-			kindOfTeam,
-			typeOfEvent,
-			locatie,
-			motivation,
-			quote
+			teamId,
+			name,
+			firstname,
+			email,
+			buyBottle,
+			currentStep
 		} = this.state;
 		return (
 			<>
@@ -123,23 +104,17 @@ class MasterForm extends Component {
 					<Stap1
 						currentStep={currentStep}
 						handleChange={this.handleChange}
-						bottle={bottle}
-						cap={cap}
+						teamId="5e41e7ded42ba130cd3d6cbc"
+						handleChange={this.handleChange}
 					/>
 					<Stap2
 						currentStep={currentStep}
-						handleChange={this.handleChange}
-						teamnaam={teamnaam}
-						typeOfEvent={typeOfEvent}
-						locatie={locatie}
-						kindOfTeam={kindOfTeam}
-					/>
-					<Stap3
-						currentStep={currentStep}
+						name={name}
+						firstname={firstname}
+						email={email}
+						buyBottle={buyBottle}
 						handleChange={this.handleChange}
 						handleSubmit={this.handleSubmit}
-						quote={quote}
-						motivation={motivation}
 					/>
 					{this.nextButton}
 				</form>
@@ -148,10 +123,4 @@ class MasterForm extends Component {
 	}
 }
 
-export default inject(
-	"teamStore",
-	"uiStore"
-)(
-	// (withAuthentication
-	observer(MasterForm)
-);
+export default inject("participantStore", "teamStore")(observer(MasterForm));

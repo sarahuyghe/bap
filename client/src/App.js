@@ -23,10 +23,8 @@ import Confirm from "./components/team/Confirm";
 
 //team Inschrijven
 import MasterForm from "./components/team/teamInschrijving/MasterForm";
-
-import Stap1Team from "./components/team/teamInschrijving/Stap1";
-import Stap2Team from "./components/team/teamInschrijving/Stap2";
-import Stap3Team from "./components/team/teamInschrijving/Stap3";
+import MasterFormConnect from "./components/team/connectInschrijving/MasterForm";
+import MasterFormIndiv from "./components/team/individueelInschrijving/MasterForm";
 
 import Burger from "./components/navigation/Burger";
 import Menu from "./components/navigation/Menu";
@@ -63,8 +61,8 @@ function App() {
 				<Route path={ROUTES.team} component={HomeTeam} />
 
 				<Route path={ROUTES.stap1Team} component={MasterForm} />
-				<Route path={ROUTES.stap2Team} component={Stap2Team} />
-				<Route path={ROUTES.stap3Team} component={Stap3Team} />
+				<Route path={ROUTES.stap1Connect} component={MasterFormConnect} />
+				<Route path={ROUTES.stap1Indi} component={MasterFormIndiv} />
 
 				<Route path={ROUTES.connectTeam} component={ConnectTeam} />
 				<Route path={ROUTES.individueel} component={Individueel} />

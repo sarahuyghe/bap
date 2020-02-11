@@ -10,18 +10,20 @@ class Person {
 	setTeamId = value => (this.teamId = value);
 	setName = value => (this.name = value);
 	setFirstName = value => (this.firstname = value);
-	setMail = value => (this.mail = value);
-	setEvent = value => (this.event = value);
+	setMail = value => (this.email = value);
 	setLocation = value => (this.location = value);
+	setBuyBottle = value => (this.buyBottle = value);
+	setTypeOfEvent = value => (this.typeOfEvent = value);
 
 	get values() {
 		return {
 			teamId: this.teamId,
 			name: this.name,
 			firstname: this.firstname,
-			mail: this.mail,
-			event: this.event,
-			location: this.location
+			email: this.email,
+			location: this.location,
+			buyBottle: this.buyBottle,
+			typeOfEvent: this.typeOfEvent
 		};
 	}
 
@@ -30,9 +32,10 @@ class Person {
 		this.setTeamId(values.teamId);
 		this.setName(values.name);
 		this.setFirstName(values.firstname);
-		this.setMail(values.mail);
-		this.setEvent(values.event);
+		this.setMail(values.email);
 		this.setLocation(values.location);
+		this.setBuyBottle(values.buyBottle);
+		this.setTypeOfEvent(values.typeOfEvent);
 	};
 }
 
@@ -41,17 +44,19 @@ decorate(Person, {
 	teamId: observable,
 	name: observable,
 	firstname: observable,
-	mail: observable,
-	event: observable,
+	email: observable,
 	location: observable,
+	buyBottle: observable,
+	typeOfEvent: observable,
 
 	setId: action,
 	setName: action,
 	setFirstName: action,
 	setMail: action,
 	setTeamId: action,
-	setEvent: action,
 	setLocation: action,
+	setBuyBottle: action,
+	setTypeOfEvent: action,
 
 	values: computed
 });

@@ -46,15 +46,18 @@ class ParticipantStore {
 		runInAction(() => this.currentParticipants.push(person));
 	};
 
-	addPerson = data => {
-		const newPerson = new Person(this.rootStore);
-		newPerson.updateFromServer(data);
-		this.api
-			.create(newPerson)
-			.then(personValues => newPerson.updateFromServer(personValues));
-	};
+	// addPerson = data => {
+	// 	console.log(data);
+	// 	const newPerson = new Person(this.rootStore);
+	// 	newPerson.updateFromServer(data);
+	// 	this.api
+	// 		.create(newPerson)
+	// 		.then(personValues => newPerson.updateFromServer(personValues));
+	// 	this.participants.push(newPerson);
+	// };
 
 	addPerson = data => {
+		console.log(data);
 		const newPerson = new Person(this.rootStore);
 		newPerson.updateFromServer(data);
 		this.participants.push(newPerson);

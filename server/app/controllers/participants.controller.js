@@ -13,14 +13,16 @@ exports.create = (req, res) => {
 	if (!req.body.name) {
 		return res.status(500).send({ err: "name can not be empty" });
 	}
-
+	console.log(req.body);
 	const participant = new Participant({
 		name: req.body.name,
 		firstname: req.body.firstname,
-		mail: req.body.mail,
+		mail: req.body.email,
 		teamId: req.body.teamId,
 		event: req.body.event,
-		location: req.body.location
+		location: req.body.location,
+		buyBottle: req.body.buyBottle,
+		typeOfEvent: req.body.typeOfEvent
 	});
 	participant
 		.save()

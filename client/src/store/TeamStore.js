@@ -50,7 +50,6 @@ class TeamStore {
 	};
 
 	addTeam = data => {
-		console.log(data);
 		this.team = [];
 		const newTeam = new Team(this.rootStore);
 		newTeam.updateFromServer(data);
@@ -58,9 +57,7 @@ class TeamStore {
 			.create(newTeam)
 			.then(teamValues => newTeam.updateFromServer(teamValues));
 		this.teams.push(newTeam);
-		console.log(newTeam);
 		this.team.push(newTeam);
-		console.log(this.team);
 	};
 
 	search = data => {
