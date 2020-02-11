@@ -51,6 +51,11 @@ class TeamStore {
 		});
 	};
 
+	getTeamById = id => {
+		this.team = [];
+		this.api.getAllInfoTeam(id).then(d => runInAction(() => this.team.push(d)));
+	};
+
 	addTeam = data => {
 		this.team = [];
 		const newTeam = new Team(this.rootStore);
@@ -61,6 +66,7 @@ class TeamStore {
 		this.teams.push(newTeam);
 		this.team.push(newTeam);
 		this.searching.push(newTeam);
+		console.log(this.team);
 	};
 
 	search = data => {
@@ -123,6 +129,7 @@ decorate(TeamStore, {
 	search: action,
 	addPerson: action,
 	getAllInfoTeam: action,
+	getTeamById: action,
 
 	searchField: computed
 	// deleteTeam: action

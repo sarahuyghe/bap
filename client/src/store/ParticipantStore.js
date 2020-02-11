@@ -64,6 +64,7 @@ class ParticipantStore {
 		this.api
 			.create(newPerson)
 			.then(personValues => newPerson.updateFromServer(personValues));
+		this.rootStore.teamStore.getTeamById(data.teamId);
 	};
 
 	deleteParticipant = person => {

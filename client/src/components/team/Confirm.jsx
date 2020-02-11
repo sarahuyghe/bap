@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { inject, observer, PropTypes } from "mobx-react";
+
 import { ROUTES } from "./../../constants/";
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import fbIcon from "./../../images/fbIcon.svg";
@@ -10,7 +12,8 @@ import Bottle from "./../bottle/Bottle";
 
 import styles from "./Confirm.module.css";
 
-const Confirm = () => {
+const Confirm = ({ teamStore }) => {
+	const { team } = teamStore;
 	const FB = window.FB;
 	const onClick = () => {
 		FB.ui(
@@ -29,6 +32,10 @@ const Confirm = () => {
 		);
 		console.log("this is a first test");
 	};
+
+	team.map(t => {
+		console.log(t.teamnaam);
+	});
 	return (
 		<>
 			<section className="panel">
@@ -45,121 +52,137 @@ const Confirm = () => {
 						<p className="uitlegTitle">
 							Want anders is een team hebben redelijk nutteloos
 						</p>
-						<div className={styles.sharen}>
-							<Bottle
-								teamnaam="testing"
-								teamqoute="lol"
-								cap="cap"
-								bottle="bottleRed"
-							/>
-							<div>
-								<h5>Teamnaam</h5>
-								<p>Teamgezegde</p>
-							</div>
-							<p>
-								Kom jij ook mee lopen met ons in Antwerpen voor Race for the
-								Cure?
-							</p>
-							<div>
-								<p> meer info: </p>
-								<a href=""></a>
-							</div>
-							<div className={styles.shareButtons}>
-								<FacebookShareButton
-									url="https://nygardk.github.io/react-share/"
-									quote="this is a test"
-								>
-									<a>
-										<img
-											src={fbIcon}
-											alt="facebookIcon"
-											style={{ fill: "black" }}
-										/>
-									</a>
-								</FacebookShareButton>
-								<TwitterShareButton
-									url="https://nygardk.github.io/react-share/"
-									title="this is a test"
-								>
-									<a>
-										<img
-											src={twitterIcon}
-											alt="twitterIcon"
-											style={{ fill: "black" }}
-										/>
-									</a>
-								</TwitterShareButton>
-								<FacebookShareButton
-									url="https://nygardk.github.io/react-share/"
-									quote="this is a test"
-								>
-									<a>
+						{team.map(t => (
+							<div className={styles.sharen}>
+								<Bottle
+									teamnaam={t.teamnaam}
+									teamqoute={t.quote}
+									cap={t.cap}
+									bottle={t.bottle}
+								/>
+								<div>
+									<h5>{t.teamnaam}</h5>
+									<p>{t.quote}</p>
+								</div>
+								<p>
+									Kom jij ook mee lopen met ons in Antwerpen voor Race for the
+									Cure?
+								</p>
+								<div>
+									<p> meer info: </p>
+									<a href=""></a>
+								</div>
+								<div className={styles.shareButtons}>
+									<FacebookShareButton
+										url="https://nygardk.github.io/react-share/"
+										quote="this is a test"
+									>
 										<a>
 											<img
-												src={instaIcon}
-												alt="instaIcon"
+												src={fbIcon}
+												alt="facebookIcon"
 												style={{ fill: "black" }}
 											/>
 										</a>
-									</a>
-								</FacebookShareButton>
+									</FacebookShareButton>
+									<TwitterShareButton
+										url="https://nygardk.github.io/react-share/"
+										title="this is a test"
+									>
+										<a>
+											<img
+												src={twitterIcon}
+												alt="twitterIcon"
+												style={{ fill: "black" }}
+											/>
+										</a>
+									</TwitterShareButton>
+									<FacebookShareButton
+										url="https://nygardk.github.io/react-share/"
+										quote="this is a test"
+									>
+										<a>
+											<a>
+												<img
+													src={instaIcon}
+													alt="instaIcon"
+													style={{ fill: "black" }}
+												/>
+											</a>
+										</a>
+									</FacebookShareButton>
+								</div>
 							</div>
-						</div>
+						))}
 					</div>
 					<div>
 						<h4>Delen</h4>
 						<p className="uitlegTitle">
 							Laat je vrienden en familie weten dat je deelneemt{" "}
 						</p>
-						<div className={styles.sharen}>
-							<Bottle
-								teamnaam="testing"
-								teamqoute="lol"
-								cap="cap"
-								bottle="bottleRed"
-							/>
-							<div className={styles.shareButtons}>
-								<button onClick={onClick}>testing</button>
-								<FacebookShareButton
-									url="https://nygardk.github.io/react-share/"
-									quote="this is a test"
-								>
-									<a>
-										<img
-											src={fbIcon}
-											alt="facebookIcon"
-											style={{ fill: "black" }}
-										/>
-									</a>
-								</FacebookShareButton>
-								<TwitterShareButton
-									url="https://nygardk.github.io/react-share/"
-									title="this is a test"
-								>
-									<a>
-										<img
-											src={twitterIcon}
-											alt="twitterIcon"
-											style={{ fill: "black" }}
-										/>
-									</a>
-								</TwitterShareButton>
-								<FacebookShareButton
-									url="https://nygardk.github.io/react-share/"
-									quote="this is a test"
-								>
-									<a>
+						{team.map(t => (
+							<div className={styles.sharen}>
+								<Bottle
+									teamnaam={t.teamnaam}
+									teamqoute={t.quote}
+									cap={t.cap}
+									bottle={t.bottle}
+								/>
+								<div>
+									<h5>{t.teamnaam}</h5>
+									<p>{t.quote}</p>
+								</div>
+								<p>
+									Kom jij ook mee lopen met ons in Antwerpen voor Race for the
+									Cure?
+								</p>
+								<div>
+									<p> meer info: </p>
+									<a href=""></a>
+								</div>
+								<div className={styles.shareButtons}>
+									<button onClick={onClick}>testing</button>
+									<FacebookShareButton
+										url="https://nygardk.github.io/react-share/"
+										quote="this is a test"
+									>
 										<a>
 											<img
-												src={instaIcon}
-												alt="instaIcon"
+												src={fbIcon}
+												alt="facebookIcon"
 												style={{ fill: "black" }}
 											/>
 										</a>
-									</a>
-								</FacebookShareButton>
+									</FacebookShareButton>
+									<TwitterShareButton
+										url="https://nygardk.github.io/react-share/"
+										title="this is a test"
+									>
+										<a>
+											<img
+												src={twitterIcon}
+												alt="twitterIcon"
+												style={{ fill: "black" }}
+											/>
+										</a>
+									</TwitterShareButton>
+									<FacebookShareButton
+										url="https://nygardk.github.io/react-share/"
+										quote="this is a test"
+									>
+										<a>
+											<a>
+												<img
+													src={instaIcon}
+													alt="instaIcon"
+													style={{ fill: "black" }}
+												/>
+											</a>
+										</a>
+									</FacebookShareButton>
+								</div>
 							</div>
-						</div>
+						))}
 					</div>
 				</section>
 				<NavLink to={ROUTES.home} className="secondaireButton">
@@ -170,4 +193,4 @@ const Confirm = () => {
 	);
 };
 
-export default Confirm;
+export default inject("teamStore")(observer(Confirm));

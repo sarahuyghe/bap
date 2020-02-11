@@ -65,15 +65,43 @@ class TeamPallet extends Component {
 	}
 
 	render() {
-		const { teamnaam, teamquote, motivation, bottle, cap } = this.props;
+		const {
+			teamnaam,
+			teamquote,
+			motivation,
+			bottle,
+			cap,
+			teamId,
+			handleClickPallet
+		} = this.props;
 		const { images, imagesCap } = this.state;
+		console.log(teamnaam);
+		console.log(teamId);
+		console.log(bottle);
+		console.log(images[bottle].name);
 		return (
-			<div className={styles.pallet}>
+			<div
+				// name="teamId"
+				className={styles.pallet}
+				// value={teamId}
+				// key={teamId}
+				onClick={e => {
+					e.preventDefault();
+					const test = { teamId: teamId };
+					console.log(test);
+					handleClickPallet(test);
+				}}
+			>
 				<p>{teamnaam}</p>
 				<p>120 Deelnemers</p>
 				<div className={styles.imageBottle}>
-					<img src={imagesCap[cap]} alt="" />
-					<img src={images[bottle]} alt="" />
+					<img src={imagesCap[cap].img} alt="" width="116" />
+					<img
+						src={images[bottle].img}
+						alt=""
+						width="78"
+						className={styles.bottle}
+					/>
 				</div>
 				<div>
 					<h4>{teamnaam}</h4>

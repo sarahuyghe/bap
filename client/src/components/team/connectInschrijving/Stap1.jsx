@@ -6,6 +6,7 @@ import TeamPallet from "./../../TeamPallet";
 class Stap1 extends Component {
 	constructor(props) {
 		super(props);
+		this.state = { searchvalue: "" };
 	}
 	render() {
 		const {
@@ -31,14 +32,16 @@ class Stap1 extends Component {
 				<input
 					type="search"
 					className="form_input"
-					onChange={handleChangeOnSearch}
+					onChange={e => {
+						this.setState({ searchValue: e.currentTarget.value });
+						handleChangeOnSearch(e);
+					}}
 					className="form_input"
 				/>
 				<p>
-					{searching.length} resultaten voor {}
+					{searching.length} resultaten voor {this.state.searchValue}
 				</p>
-				<select name="teamId" onChange={handleChange} onLoad={handleLoad}>
-					{searching.map(
+				{/* {searching.map(
 						team => (
 							<option key={team.id} value={team.id}>
 								{team.teamnaam}
@@ -57,10 +60,10 @@ class Stap1 extends Component {
 						// 		)}
 						// 	</>
 						// ))
-					)}
+					)} */}
 
-					{/* {teams.map(team => */}
-					{/* {teams.map(test => (
+				{/* {teams.map(team => */}
+				{/* {teams.map(test => (
       <>
         {test.teamnaam ? (
           <option key={test.id} value={test.id}>
@@ -73,17 +76,20 @@ class Stap1 extends Component {
         )}
       </>
     ))} */}
-				</select>
+				{/* </select> */}
 				<div className={styles.resultaten}>
-					{/* <TeamPallet /> */}
 					{searching.map(
-						team => (
+						(team, index) => (
 							<TeamPallet
+								key={index}
+								name="teamId"
 								teamnaam={team.teamnaam}
 								teamquote={team.teamquote}
 								motivation={team.motivation}
 								bottle={team.bottle}
 								cap={team.cap}
+								teamId={team.id}
+								handleClickPallet={handleChange}
 							/>
 						)
 						// <p key={test.id} value={test.teamId}>

@@ -70,12 +70,17 @@ class MasterForm extends Component {
 	}
 
 	handleChange = e => {
-		const name = e.target.name;
-		const value =
-			e.target.type === "checkbox" ? e.target.checked : e.target.value;
-		console.log(name);
-		console.log(value);
-		this.setState({ [name]: value });
+		if (e.teamId) {
+			const name = "teamId";
+			const value = e.teamId;
+
+			this.setState({ [name]: value });
+		} else {
+			const name = e.target.name;
+			const value =
+				e.target.type === "checkbox" ? e.target.checked : e.target.value;
+			this.setState({ [name]: value });
+		}
 	};
 
 	handleSearch = e => {
@@ -102,7 +107,7 @@ class MasterForm extends Component {
 			email: email,
 			buyBottle: buyBottle
 		});
-		// history.push(ROUTES.confirm);
+		history.push(ROUTES.confirm);
 	};
 
 	render() {
@@ -116,7 +121,6 @@ class MasterForm extends Component {
 			searching
 		} = this.state;
 		console.log(searching);
-		// const { searching } = this.props.teamStore;
 		return (
 			<>
 				<form>
