@@ -37,7 +37,6 @@ class Team {
 	}
 
 	updateFromServer = values => {
-		console.log(values);
 		this.setId(values._id);
 		this.setTeamnaam(values.teamnaam);
 		this.setReason(values.reason);

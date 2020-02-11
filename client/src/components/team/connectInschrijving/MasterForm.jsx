@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
+import { inject, observer, PropTypes } from "mobx-react";
 
 import { ROUTES } from "./../../../constants/";
 
@@ -15,7 +15,8 @@ class MasterForm extends Component {
 			firstname: "",
 			email: "",
 			buyBottle: 0,
-			currentStep: 1
+			currentStep: 1,
+			searching: this.props.teamStore.teams
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this._next = this._next.bind(this);
@@ -75,6 +76,19 @@ class MasterForm extends Component {
 		this.setState({ [name]: value });
 	};
 
+	handleSearch = e => {
+		// console.log(e.target.value);
+		this.props.teamStore.search(e.currentTarget.value);
+		const test = this.props.teamStore.searchField;
+		this.setState({ searching: test });
+	};
+
+	handleLoad = e => {
+		this.props.teamStore.search(e.currentTarget.value);
+		const test = this.props.teamStore.searchField;
+		this.setState({ searching: test });
+	};
+
 	handleSubmit = e => {
 		e.preventDefault();
 		const { teamId, name, firstname, email, buyBottle } = this.state;
@@ -96,8 +110,11 @@ class MasterForm extends Component {
 			firstname,
 			email,
 			buyBottle,
-			currentStep
+			currentStep,
+			searching
 		} = this.state;
+		console.log(searching);
+		// const { searching } = this.props.teamStore;
 		return (
 			<>
 				<form>
@@ -105,7 +122,10 @@ class MasterForm extends Component {
 						currentStep={currentStep}
 						handleChange={this.handleChange}
 						teamId="5e41e7ded42ba130cd3d6cbc"
+						searching={searching}
 						handleChange={this.handleChange}
+						handleChangeOnSearch={this.handleSearch}
+						handleLoad={this.handleLoad}
 					/>
 					<Stap2
 						currentStep={currentStep}
@@ -122,5 +142,9 @@ class MasterForm extends Component {
 		);
 	}
 }
+
+MasterForm.propTypes = {
+	teamStore: PropTypes.observableObject.isRequired
+};
 
 export default inject("participantStore", "teamStore")(observer(MasterForm));

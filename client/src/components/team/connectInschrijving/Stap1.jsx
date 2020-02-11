@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 import styles from "./../ConnectTeam.module.css";
 
+import TeamPallet from "./../../TeamPallet";
+
 class Stap1 extends Component {
 	constructor(props) {
 		super(props);
 	}
 	render() {
-		const { teamId, handleChange } = this.props;
+		const {
+			teamId,
+			searching,
+			handleChange,
+			handleChangeOnSearch,
+			handleLoad
+		} = this.props;
 		if (this.props.currentStep !== 1) {
 			// Prop: The current step
 			return null;
 		}
+		console.log(searching);
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
@@ -21,28 +30,34 @@ class Stap1 extends Component {
 				<input
 					type="search"
 					className="form_input"
-					onChange={handleChange}
+					onChange={handleChangeOnSearch}
 					className="form_input"
 				/>
 				<p>23 resultaten voor {}</p>
-				{/* <select>
-					{searching.map(team =>
-						team.map(test => (
-							<>
-								{test.teamnaam ? (
-									<option key={test.id} value={test.id}>
-										{test.teamnaam}
-									</option>
-								) : (
-									<option key={test.id} value={test.teamId}>
-										{test.name}
-									</option>
-								)}
-							</>
-						))
-					)} */}
-				{/* {teams.map(team => */}
-				{/* {teams.map(test => (
+				<select onLoad={handleLoad}>
+					{searching.map(
+						team => (
+							<option key={team.id} value={team.id}>
+								{team.teamnaam}
+							</option>
+						)
+						// team.map(test => (
+						// 	<>
+						// 		{test.teamnaam ? (
+						// 			<option key={test.id} value={test.id}>
+						// 				{test.teamnaam}
+						// 			</option>
+						// 		) : (
+						// 			<option key={test.id} value={test.teamId}>
+						// 				{test.name}
+						// 			</option>
+						// 		)}
+						// 	</>
+						// ))
+					)}
+
+					{/* {teams.map(team => */}
+					{/* {teams.map(test => (
       <>
         {test.teamnaam ? (
           <option key={test.id} value={test.id}>
@@ -55,16 +70,16 @@ class Stap1 extends Component {
         )}
       </>
     ))} */}
-				{/* </select>
+				</select>
 				<div className={styles.resultaten}>
-					<TeamPallet />
-					{searching.map(team =>
-						team.map(test => (
+					{/* <TeamPallet /> */}
+					{searching.map(
+						team => (
 							<TeamPallet />
-							// <p key={test.id} value={test.teamId}>
-							// 	{test.teamnaam ? test.teamnaam : test.name}
-							// </p>
-						))
+						)
+						// <p key={test.id} value={test.teamId}>
+						// 	{test.teamnaam ? test.teamnaam : test.name}
+						// </p>
 					)}
 				</div>
 				<a href="#sec2" className="secondaireButton">
@@ -73,7 +88,7 @@ class Stap1 extends Component {
 
 				<a href="#sec3" className="secondaireButton">
 					Volgende
-				</a> */}
+				</a>
 			</section>
 		);
 	}

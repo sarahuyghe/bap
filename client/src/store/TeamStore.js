@@ -5,7 +5,7 @@ import {
 	action,
 	runInAction,
 	observe,
-	toJS
+	computed
 } from "mobx";
 import Team from "../models/Team";
 import Person from "../models/Person";
@@ -15,10 +15,12 @@ import Api from "../api";
 configure({ enforceActions: "observed" });
 class TeamStore {
 	teams = [];
+	_teams = [];
 	participants = [];
 	searching = [];
 	team = [];
 	currentTeam = [];
+	_search = null;
 
 	constructor(rootStore) {
 		this.rootStore = rootStore;
@@ -58,24 +60,29 @@ class TeamStore {
 			.then(teamValues => newTeam.updateFromServer(teamValues));
 		this.teams.push(newTeam);
 		this.team.push(newTeam);
+		this.searching.push(newTeam);
 	};
 
 	search = data => {
-		this.searching.clear();
-		const searchTeam = this.teams.filter(check =>
-			check.teamnaam.toLowerCase().includes(data)
-		);
-		const searchParticipant = this.participants.filter(part =>
-			part.name.toLowerCase().includes(data)
-		);
-		this.searching.push(searchParticipant);
-		this.searching.push(searchTeam);
+		this._search = data;
+		// const searchTeam = this.teams.filter(check =>
+		// 	check.teamnaam.toLowerCase().includes(data)
+		// );
+		// const searchParticipant = this.participants.filter(part =>
+		// 	part.name.toLowerCase().includes(data)
+		// );
+
+		// this.searching.push(searchParticipant);
+		// this.searching.push(searchTeam);
 	};
 
 	_addTeam = values => {
 		const team = new Team(values);
 		team.updateFromServer(values);
-		runInAction(() => this.teams.push(team));
+		runInAction(() => {
+			this.teams.push(team);
+			this.searching.push(team);
+		});
 	};
 
 	_addPerson = values => {
@@ -93,6 +100,14 @@ class TeamStore {
 		this.teams.remove(team);
 		this.api.delete(team);
 	};
+
+	get searchField() {
+		return this._search
+			? this.searching.filter(check =>
+					check.teamnaam.toLowerCase().includes(this._search)
+			  )
+			: this.teams;
+	}
 }
 
 decorate(TeamStore, {
@@ -101,11 +116,15 @@ decorate(TeamStore, {
 	searching: observable,
 	currentTeam: observable,
 	team: observable,
+	test: observable,
+	_teams: observable,
 
 	addTeam: action,
 	search: action,
 	addPerson: action,
-	getAllInfoTeam: action
+	getAllInfoTeam: action,
+
+	searchField: computed
 	// deleteTeam: action
 });
 
