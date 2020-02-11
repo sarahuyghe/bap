@@ -57,26 +57,33 @@ exports.findOne = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-	if (!req.body.title) {
+	console.log(req.params);
+	if (!req.body.teamnaam) {
 		return res.status(400).send("title mag niet leeg zijn");
 	}
 
 	try {
-		const book = await Book.findByIdAndUpdate(
-			req.params.bookId,
+		const team = await Team.findByIdAndUpdate(
+			req.params.teamId,
 			{
-				title: req.body.title,
-				authorId: req.body.authorId //deze moet er nu pas staan
+				teamnaam: req.body.teamnaam,
+				reason: req.body.reason,
+				quote: req.body.quote,
+				kind: req.body.kind,
+				location: req.body.location,
+				cap: req.body.cap,
+				bottle: req.body.bottle,
+				typeOfEvent: req.body.typeOfEvent
 			},
 			{
 				new: true
 			}
 		);
 
-		if (!book) {
+		if (!team) {
 			return res.status(404).send("No book found");
 		}
-		res.send(book);
+		res.send(team);
 	} catch (err) {
 		if (err.kind === "ObjectId") {
 			return res.status(417).send("Geen geldig ID");

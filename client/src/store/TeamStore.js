@@ -5,7 +5,8 @@ import {
 	action,
 	runInAction,
 	observe,
-	computed
+	computed,
+	toJS
 } from "mobx";
 import Team from "../models/Team";
 import Person from "../models/Person";
@@ -31,12 +32,15 @@ class TeamStore {
 
 		if (this.rootStore.uiStore.authUser) {
 			console.log("er is een user ingelogd");
-			this.getAllInfoTeam(this.rootStore.uiStore.authUser.teamId);
+			console.log(this.rootStore.uiStore.authUser.teamId);
+			this.getTeamById(this.rootStore.uiStore.authUser.teamId);
 		}
 		observe(this.rootStore.uiStore, "authUser", change => {
 			if (change.newValue) {
 				console.log("er is een user ingelogd");
-				this.getAllInfoTeam(this.rootStore.uiStore.authUser.teamId);
+				console.log(this.rootStore.uiStore.authUser.teamId);
+
+				this.getTeamById(this.rootStore.uiStore.authUser.teamId);
 			} else {
 				this.currentTeam = [];
 				console.log("er is geen user ingelogd");
@@ -44,19 +48,37 @@ class TeamStore {
 		});
 	}
 
-	getAllInfoTeam = id => {
-		this.currentTeam = [];
-		this.api.getAllInfoTeam(id).then(d => {
-			runInAction(() => this.currentTeam.push(d));
-		});
-	};
+	// getTeamById = id => {
+	// 	this.currentTeam = [];
+	// 	this.api.getAllInfoTeam(id).then(d => {
+	// 		runInAction(() => this.currentTeam.push(d));
+	// 	});
+	// };
 
 	getTeamById = id => {
+		console.log(id);
 		this.team = [];
-		this.api.getAllInfoTeam(id).then(d => runInAction(() => this.team.push(d)));
+		const currentTeam = this.teams.filter(check => check.id === id);
+		// this.teams.forEach(element => {
+		// 	console.log(element);
+		// });
+		console.log(currentTeam);
+		this.team = currentTeam;
+		console.log(this.team);
+		// console.log(toJS(this.teams));
+		// this.teams = toJS(this.teams);
+
+		// const currentTeam = this.teams.filter(check => console.log(check.id));
+		// console.log(currentTeam);
+		// this.api.getAllInfoTeam(id).then(
+		// 	d => runInAction(() => this.team.push(d))
+		// 	// runInAction(() => this.team.push(d))
+		// );
+		// console.log(this.teams);
 	};
 
 	addTeam = data => {
+		console.log(data);
 		this.team = [];
 		const newTeam = new Team(this.rootStore);
 		newTeam.updateFromServer(data);
@@ -83,12 +105,14 @@ class TeamStore {
 	};
 
 	_addTeam = values => {
-		const team = new Team(values);
+		// console.log(values);
+		const team = new Team(this.rootStore);
 		team.updateFromServer(values);
 		runInAction(() => {
 			this.teams.push(team);
-			this.searching.push(team);
+			// this.searching.push(team);
 		});
+		console.log(this.teams);
 	};
 
 	_addPerson = values => {
@@ -99,6 +123,7 @@ class TeamStore {
 	};
 
 	updateTeam = team => {
+		console.log(team);
 		this.api.update(team).then(teamValues => team.updateFromServer(teamValues));
 	};
 
@@ -126,10 +151,12 @@ decorate(TeamStore, {
 	_teams: observable,
 
 	addTeam: action,
+	_addTeam: action,
 	search: action,
 	addPerson: action,
 	getAllInfoTeam: action,
 	getTeamById: action,
+	updateTeam: action,
 
 	searchField: computed
 	// deleteTeam: action

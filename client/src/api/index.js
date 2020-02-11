@@ -29,13 +29,14 @@ class Api {
 		return await r.json();
 	};
 
-	// update = async book => {
-	// 	const r = await fetch(
-	// 		`http://localhost:4000/${this.entity}/${book.id}`,
-	// 		this.getOptions("put", book.values)
-	// 	);
-	// 	return await r.json();
-	// };
+	update = async team => {
+		console.log(team.id);
+		const r = await fetch(
+			`/api/${this.entity}/${team.id}`,
+			this.getOptions("put", team.values)
+		);
+		return await r.json();
+	};
 
 	delete = async person => {
 		console.log(person);

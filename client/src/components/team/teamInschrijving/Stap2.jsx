@@ -46,7 +46,7 @@ class Stap2 extends Component {
 							<label className="customRadio">
 								<input
 									type="radio"
-									name="event"
+									name="typeOfEvent"
 									value="lopen"
 									checked={typeOfEvent === "lopen"}
 									onChange={handleChange}
@@ -58,7 +58,7 @@ class Stap2 extends Component {
 							<label className="customRadio">
 								<input
 									type="radio"
-									name="event"
+									name="typeOfEvent"
 									value="wandelen"
 									checked={typeOfEvent === "wandelen"}
 									onChange={handleChange}

@@ -73,6 +73,7 @@ class MasterForm extends Component {
 	}
 
 	handleChange = e => {
+		console.log(e.target);
 		const name = e.target.name;
 		const value =
 			e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -96,7 +97,7 @@ class MasterForm extends Component {
 			teamnaam: teamnaam,
 			reason: motivation,
 			quote: quote,
-			event: typeOfEvent,
+			typeOfEvent: typeOfEvent,
 			kind: kindOfTeam,
 			location: locatie,
 			cap: cap,

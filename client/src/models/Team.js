@@ -3,14 +3,7 @@ import { decorate, observable, action, computed } from "mobx";
 class Team {
 	constructor(store, id = uuid.v4()) {
 		this.id = id;
-		this.teamnaam = store.teamnaam;
-		this.reason = store.reason;
-		this.kind = store.kind;
-		this.quote = store.quote;
-		this.location = store.location;
-		this.cap = store.cap;
-		this.bottle = store.bottle;
-		this.typeOfEvent = store.event;
+		this.store = store;
 	}
 
 	setId = id => (this.id = id);
