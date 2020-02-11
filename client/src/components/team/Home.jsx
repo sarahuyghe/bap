@@ -11,8 +11,8 @@ import "./../../styles/index.css";
 
 import styles from "./Home.module.css";
 import Social from "./../social/Social";
-import Individueel from "./Individueel";
-import ConnectTeam from "./ConnectTeam";
+// import Individueel from "./Individueel";
+// import ConnectTeam from "./ConnectTeam";
 
 class Home extends Component {
 	constructor(props) {

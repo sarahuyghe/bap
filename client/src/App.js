@@ -17,14 +17,16 @@ import Sponsor from "./components/support/Sponsor";
 import SupportHome from "./components/support/Home";
 
 import HomeTeam from "./components/team/Home";
-import ConnectTeam from "./components/team/ConnectTeam";
-import Individueel from "./components/team/Individueel";
+// import ConnectTeam from "./components/team/ConnectTeam";
+// import Individueel from "./components/team/Individueel";
 import Confirm from "./components/team/Confirm";
 
 //team Inschrijven
 import MasterForm from "./components/team/teamInschrijving/MasterForm";
 import MasterFormConnect from "./components/team/connectInschrijving/MasterForm";
 import MasterFormIndiv from "./components/team/individueelInschrijving/MasterForm";
+
+import MasterFormMessage from "./components/support/supportForm/MasterForm";
 
 import Burger from "./components/navigation/Burger";
 import Menu from "./components/navigation/Menu";
@@ -55,7 +57,7 @@ function App() {
 				<Route path={ROUTES.login} component={Login} />
 
 				<Route path={ROUTES.support} component={SupportHome} />
-				<Route path={ROUTES.messageForm} component={MessageForm} />
+				<Route path={ROUTES.messageForm} component={MasterFormMessage} />
 				<Route path={ROUTES.sponsor} component={Sponsor} />
 
 				<Route path={ROUTES.team} component={HomeTeam} />
@@ -64,8 +66,8 @@ function App() {
 				<Route path={ROUTES.stap1Connect} component={MasterFormConnect} />
 				<Route path={ROUTES.stap1Indi} component={MasterFormIndiv} />
 
-				<Route path={ROUTES.connectTeam} component={ConnectTeam} />
-				<Route path={ROUTES.individueel} component={Individueel} />
+				{/* <Route path={ROUTES.connectTeam} component={ConnectTeam} />
+				<Route path={ROUTES.individueel} component={Individueel} /> */}
 				{/* <Route path={ROUTES.teamform} component={TeamForm} /> */}
 				<Route path={ROUTES.confirm} component={Confirm} />
 

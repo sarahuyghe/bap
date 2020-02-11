@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import preventie from "./../../images/Preventie.png";
-import symptoon from "./../../images/symptoom.png";
-import bottleSym from "./../../images/bottleSym.png";
+
+import knobbel from "./../../images/knobbel.png";
+import kuiltje from "./../../images/kuiltje.png";
+import roodheid from "./../../images/roodheid.png";
+import vocht from "./../../images/vocht.png";
+import ader from "./../../images/ader.png";
+
+import bottleKnobbel from "./../../images/bottleKnobbel.png";
+import bottleKuiltje from "./../../images/bottleKuiltje.png";
+import bottleRood from "./../../images/bottleRood.png";
+import bottleVocht from "./../../images/bottleVocht.png";
+import bottleAder from "./../../images/bottleAder.png";
+
 import arrow from "./../../images/arrow.svg";
 
 import styles from "./Preventie.module.css";
@@ -13,41 +24,41 @@ class Preventie extends Component {
 			symptomen: [
 				{
 					id: 1,
-					img: bottleSym,
-					detailImg: symptoon,
+					img: bottleKnobbel,
+					detailImg: knobbel,
 					title: "Knobbels op de borst huid",
 					uitleg:
 						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <b>kan aanvoelen als een knikker</b>, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje</b>, dat anders voelt dan de rest van de borst."
 				},
 				{
 					id: 2,
-					img: bottleSym,
-					detailImg: symptoon,
-					title: "Symptoon 2",
+					img: bottleKuiltje,
+					detailImg: kuiltje,
+					title: "Kuiltje in de borst",
 					uitleg:
 						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <b>kan aanvoelen als een knikker</b>, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje</b>, dat anders voelt dan de rest van de borst."
 				},
 				{
 					id: 3,
-					img: bottleSym,
-					detailImg: symptoon,
-					title: "Symptoon 3",
+					img: bottleRood,
+					detailImg: vocht,
+					title: "Vocht afscheiding via de tepel",
 					uitleg:
 						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <b>kan aanvoelen als een knikker</b>, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje</b>, dat anders voelt dan de rest van de borst."
 				},
 				{
 					id: 4,
-					img: bottleSym,
-					detailImg: symptoon,
-					title: "Symptoon 4",
+					img: bottleVocht,
+					detailImg: roodheid,
+					title: "Roodheid op de borsthuid",
 					uitleg:
 						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <b>kan aanvoelen als een knikker</b>, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje</b>, dat anders voelt dan de rest van de borst."
 				},
 				{
 					id: 5,
-					img: bottleSym,
-					detailImg: symptoon,
-					title: "Symptoon 5",
+					img: bottleAder,
+					detailImg: ader,
+					title: "Ingetrokken tepel",
 					uitleg:
 						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <b>kan aanvoelen als een knikker</b>, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje</b>, dat anders voelt dan de rest van de borst."
 				}

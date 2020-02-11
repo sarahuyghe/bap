@@ -101,13 +101,23 @@ class Home extends Component {
 					</div>
 
 					<Social />
-					<div className={styles.scrollAction}>
-						<p>Scroll om een steunbericht aan te maken</p>
-						<img src={arrow} alt="arrow down" />
-					</div>
+					{activeM ? (
+						<NavLink
+							to={ROUTES.messageForm}
+							className={`mainButton ${styles.nextButton}`}
+						>
+							Volgende
+						</NavLink>
+					) : null}
+					{activeD ? (
+						<NavLink
+							to={ROUTES.stap1Connect}
+							className={`mainButton ${styles.nextButton}`}
+						>
+							Volgende
+						</NavLink>
+					) : null}
 				</section>
-				{activeM ? <MessageForm /> : null}
-				{activeD ? <Sponsor /> : null}
 			</>
 		);
 	}
