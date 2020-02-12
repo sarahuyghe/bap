@@ -14,6 +14,7 @@ class MasterForm extends Component {
 			name: "",
 			firstname: "",
 			email: "",
+			kind: false,
 			buyBottle: 0,
 			currentStep: 1,
 			searching: this.props.teamStore.teams
@@ -70,11 +71,11 @@ class MasterForm extends Component {
 	}
 
 	handleChange = e => {
+		console.log(e.kind);
 		if (e.teamId) {
 			const name = "teamId";
 			const value = e.teamId;
-
-			this.setState({ [name]: value });
+			this.setState({ [name]: value, kind: e.kind });
 		} else {
 			const name = e.target.name;
 			const value =
@@ -98,15 +99,27 @@ class MasterForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		const { teamId, name, firstname, email, buyBottle } = this.state;
+		const { teamId, name, firstname, email, buyBottle, kind } = this.state;
 		const { participantStore, history } = this.props;
-		participantStore.addPerson({
-			teamId: teamId,
-			name: name,
-			firstname: firstname,
-			email: email,
-			buyBottle: buyBottle
-		});
+		if (kind === true) {
+			participantStore.addPerson({
+				teamId: teamId,
+				name: name,
+				firstname: firstname,
+				email: email,
+				buyBottle: buyBottle,
+				accepted: false
+			});
+		} else {
+			participantStore.addPerson({
+				teamId: teamId,
+				name: name,
+				firstname: firstname,
+				email: email,
+				buyBottle: buyBottle,
+				accepted: true
+			});
+		}
 		history.push(ROUTES.confirm);
 	};
 

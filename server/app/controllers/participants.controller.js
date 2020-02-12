@@ -22,7 +22,8 @@ exports.create = (req, res) => {
 		event: req.body.event,
 		location: req.body.location,
 		buyBottle: req.body.buyBottle,
-		typeOfEvent: req.body.typeOfEvent
+		typeOfEvent: req.body.typeOfEvent,
+		accepted: req.body.accepted
 	});
 	participant
 		.save()
@@ -95,15 +96,17 @@ exports.findOne = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
+	console.log(req.params);
 	if (!req.body.name) {
 		return res.status(400).send("name mag niet leeg zijn");
 	}
 
 	try {
 		const participant = await Participant.findByIdAndUpdate(
-			req.params.authorId,
+			req.params.userId,
 			{
-				name: req.body.name
+				name: req.body.name,
+				accepted: true
 			},
 			{
 				new: true

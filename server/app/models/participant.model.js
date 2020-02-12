@@ -9,6 +9,7 @@ const ParticipantSchema = mongoose.Schema(
 		event: String,
 		location: String,
 		buyBottle: Boolean,
+		accepted: Boolean,
 		typeOfEvent: String,
 		teamId: { type: ObjectId, ref: "Team" }
 	},

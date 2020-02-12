@@ -80,17 +80,20 @@ class Stap1 extends Component {
 				<div className={styles.resultaten}>
 					{searching.map(
 						(team, index) => (
-							<TeamPallet
-								key={index}
-								name="teamId"
-								teamnaam={team.teamnaam}
-								teamquote={team.teamquote}
-								motivation={team.motivation}
-								bottle={team.bottle}
-								cap={team.cap}
-								teamId={team.id}
-								handleClickPallet={handleChange}
-							/>
+							<>
+								<TeamPallet
+									key={index}
+									name="teamId"
+									teamnaam={team.teamnaam}
+									teamquote={team.teamquote}
+									motivation={team.motivation}
+									bottle={team.bottle}
+									cap={team.cap}
+									teamId={team.id}
+									kind={team.kind}
+									handleClickPallet={handleChange}
+								/>
+							</>
 						)
 						// <p key={test.id} value={test.teamId}>
 						// 	{test.teamnaam ? test.teamnaam : test.name}

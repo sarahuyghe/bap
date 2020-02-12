@@ -14,6 +14,7 @@ class Person {
 	setLocation = value => (this.location = value);
 	setBuyBottle = value => (this.buyBottle = value);
 	setTypeOfEvent = value => (this.typeOfEvent = value);
+	setAccepted = value => (this.accepted = value);
 
 	get values() {
 		return {
@@ -23,7 +24,8 @@ class Person {
 			email: this.email,
 			location: this.location,
 			buyBottle: this.buyBottle,
-			typeOfEvent: this.typeOfEvent
+			typeOfEvent: this.typeOfEvent,
+			accepted: this.accepted
 		};
 	}
 
@@ -36,6 +38,7 @@ class Person {
 		this.setLocation(values.location);
 		this.setBuyBottle(values.buyBottle);
 		this.setTypeOfEvent(values.typeOfEvent);
+		this.setAccepted(values.accepted);
 	};
 }
 
@@ -48,6 +51,7 @@ decorate(Person, {
 	location: observable,
 	buyBottle: observable,
 	typeOfEvent: observable,
+	accepted: observable,
 
 	setId: action,
 	setName: action,
@@ -57,6 +61,7 @@ decorate(Person, {
 	setLocation: action,
 	setBuyBottle: action,
 	setTypeOfEvent: action,
+	setAccepted: action,
 
 	values: computed
 });

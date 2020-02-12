@@ -72,6 +72,7 @@ class TeamPallet extends Component {
 			bottle,
 			cap,
 			teamId,
+			kind,
 			handleClickPallet
 		} = this.props;
 		const { images, imagesCap } = this.state;
@@ -87,7 +88,7 @@ class TeamPallet extends Component {
 				// key={teamId}
 				onClick={e => {
 					e.preventDefault();
-					const test = { teamId: teamId };
+					const test = { teamId: teamId, kind: kind };
 					console.log(test);
 					handleClickPallet(test);
 				}}

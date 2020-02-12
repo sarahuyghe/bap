@@ -14,6 +14,7 @@ configure({ enforceActions: "observed" });
 class ParticipantStore {
 	participants = [];
 	currentParticipants = [];
+	acceptingParticipants = [];
 
 	constructor(rootStore) {
 		this.rootStore = rootStore;
@@ -43,7 +44,12 @@ class ParticipantStore {
 	_addPerson = values => {
 		const person = new Person(values);
 		person.updateFromServer(values);
-		runInAction(() => this.currentParticipants.push(person));
+		console.log(person.accepted);
+		if (person.accepted === false) {
+			runInAction(() => this.acceptingParticipants.push(person));
+		} else {
+			runInAction(() => this.currentParticipants.push(person));
+		}
 	};
 
 	// addPerson = data => {
@@ -55,6 +61,16 @@ class ParticipantStore {
 	// 		.then(personValues => newPerson.updateFromServer(personValues));
 	// 	this.participants.push(newPerson);
 	// };
+
+	updateParticipant = person => {
+		console.log(person);
+		this.api
+			.update(person)
+			.then(personValues => person.updateFromServer(personValues));
+		this.currentParticipants.push(person);
+
+		this.acceptingParticipants.remove(person);
+	};
 
 	addPerson = data => {
 		console.log(data);
@@ -77,13 +93,15 @@ class ParticipantStore {
 decorate(ParticipantStore, {
 	participants: observable,
 	currentParticipants: observable,
+	acceptingParticipants: observable,
 
 	addTeam: action,
 	search: action,
 	addPerson: action,
 	getAllInfoTeam: action,
 	deleteParticipant: action,
-	collectTeamParticipants: action
+	collectTeamParticipants: action,
+	updateParticipant: action
 });
 
 export default ParticipantStore;
