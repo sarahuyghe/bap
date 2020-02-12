@@ -6,10 +6,6 @@ import twitterIcon from "./../../images/twitterIcon.svg";
 import styles from "./Social.module.css";
 
 class Social extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return (
 			<ul className={styles.social}>

@@ -33,3 +33,10 @@
 	top: -9999px !important;
 	left: -9999px !important;
 }
+
+.arrowShow {
+	transform: rotate(-90deg);
+	background-color: white;
+	margin-left: -2.8rem;
+	margin-bottom: -3.5rem;
+}

@@ -99,14 +99,17 @@ class Preventie extends Component {
 					</div>
 					<div className={styles.bottles}>
 						{symptomen.map((symptoon, index) => (
-							<img
-								src={symptoon.img}
-								key={index}
-								alt={symptoon.title}
-								width="111"
-								className={styles.imagePrev}
-								onClick={() => this.setState({ currentSym: index })}
-							/>
+							<>
+								<img
+									src={symptoon.img}
+									key={index}
+									alt={symptoon.title}
+									width="111"
+									className={styles.imagePrev}
+									onClick={() => this.setState({ currentSym: index })}
+								/>
+								<img src={arrow} alt="" className={styles.arrowSymp} />
+							</>
 						))}
 					</div>
 					{/* </div> */}

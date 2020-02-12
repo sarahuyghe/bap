@@ -38,13 +38,12 @@ class ParticipantStore {
 
 	collectTeamParticipants = id => {
 		this.api.findAllTeamId(id).then(d => d.forEach(this._addPerson));
-		console.log(this.currentParticipants);
+		// console.log(this.currentParticipants);
 	};
 
 	_addPerson = values => {
 		const person = new Person(values);
 		person.updateFromServer(values);
-		console.log(person.accepted);
 		if (person.accepted === false) {
 			runInAction(() => this.acceptingParticipants.push(person));
 		} else {
@@ -52,18 +51,7 @@ class ParticipantStore {
 		}
 	};
 
-	// addPerson = data => {
-	// 	console.log(data);
-	// 	const newPerson = new Person(this.rootStore);
-	// 	newPerson.updateFromServer(data);
-	// 	this.api
-	// 		.create(newPerson)
-	// 		.then(personValues => newPerson.updateFromServer(personValues));
-	// 	this.participants.push(newPerson);
-	// };
-
 	updateParticipant = person => {
-		console.log(person);
 		this.api
 			.update(person)
 			.then(personValues => person.updateFromServer(personValues));
@@ -73,7 +61,7 @@ class ParticipantStore {
 	};
 
 	addPerson = data => {
-		console.log(data);
+		// console.log(data);
 		const newPerson = new Person(this.rootStore);
 		newPerson.updateFromServer(data);
 		this.participants.push(newPerson);
@@ -84,7 +72,7 @@ class ParticipantStore {
 	};
 
 	deleteParticipant = person => {
-		console.log(person);
+		// console.log(person);
 		this.currentParticipants.remove(person);
 		this.api.delete(person);
 	};

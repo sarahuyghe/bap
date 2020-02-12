@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "./../../constants/";
@@ -25,7 +25,7 @@ const Home = () => {
 				<Social />
 				<div className={styles.scroll}>
 					<p>Scroll om meer te weten te komen</p>
-					<img src={arrow} alt="arrow down" />
+					<img src={arrow} alt="arrow down" className={styles.bounce} />
 				</div>
 			</header>
 			<Boobottle />

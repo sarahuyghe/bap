@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./Boob.module.css";
+import arrow from "./../../images/arrow.svg";
 
 class Boobottle extends Component {
 	constructor(props) {
@@ -29,6 +30,13 @@ class Boobottle extends Component {
 							})
 						}
 					>
+						<img
+							src={arrow}
+							alt="pijltje voor te tonen"
+							className={
+								showHyd ? styles.arrowShow : `${styles.arrowShow} hide`
+							}
+						/>
 						<h3>Hydratatie</h3>
 						<p>
 							De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
@@ -42,6 +50,11 @@ class Boobottle extends Component {
 							this.setState({ showHyd: false, showEv: !showEv, showEve: false })
 						}
 					>
+						<img
+							src={arrow}
+							alt="pijltje voor te tonen"
+							className={showEv ? styles.arrowShow : `${styles.arrowShow} hide`}
+						/>
 						<h3>Evenement</h3>
 						<p>
 							De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
@@ -59,6 +72,13 @@ class Boobottle extends Component {
 							})
 						}
 					>
+						<img
+							src={arrow}
+							alt="pijltje voor te tonen"
+							className={
+								showEve ? styles.arrowShow : `${styles.arrowShow} hide`
+							}
+						/>
 						<h3>Evenement</h3>
 						<p>
 							De BOOBottle is niet gewoon een fles, het is fles die vecht tegen

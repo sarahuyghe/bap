@@ -11,8 +11,6 @@ import "./../../styles/index.css";
 
 import styles from "./Home.module.css";
 import Social from "./../social/Social";
-// import Individueel from "./Individueel";
-// import ConnectTeam from "./ConnectTeam";
 
 class Home extends Component {
 	constructor(props) {
@@ -143,10 +141,6 @@ class Home extends Component {
 						</div>
 					</div>
 					<Social />
-					<div className={styles.scrollAction}>
-						<p>Scroll om meer te weten te komen</p>
-						<img src={arrow} alt="arrow down" />
-					</div>
 					{activeT ? (
 						<NavLink
 							to={ROUTES.stap1Team}

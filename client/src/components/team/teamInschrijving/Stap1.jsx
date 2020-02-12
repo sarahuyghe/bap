@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import Custom from "./../Custom";
 import styles from "./../TeamForm.module.css";
-import { NavLink } from "react-router-dom";
-import { ROUTES } from "./../../../constants/";
 
 import bottleGrey from "./../../../images/bottle.png";
 import bottleRed from "./../../../images/bottle2.png";
@@ -13,6 +10,15 @@ import capPink from "./../../../images/cap1.png";
 import capBrown from "./../../../images/cap2.png";
 import cap from "./../../../images/cap3.png";
 
+import colorCapPink from "./../../../images/firstColorCap.png";
+import colorCap from "./../../../images/secColorCap.png";
+import colorCapBrown from "./../../../images/thirdColorCap.png";
+
+import colorBottleGrey from "./../../../images/greyColor.png";
+import colorBottleRed from "./../../../images/redColor.png";
+import colorBottleblue from "./../../../images/blueColor.png";
+import colorBottlePink from "./../../../images/pinkColor.png";
+
 class Stap1 extends Component {
 	constructor(props) {
 		super(props);
@@ -21,25 +27,25 @@ class Stap1 extends Component {
 				{
 					id: 1,
 					name: "bottleGrey",
-					color: "grey",
+					color: colorBottleGrey,
 					img: bottleGrey
 				},
 				{
 					id: 2,
 					name: "bottleRed",
-					color: "red",
+					color: colorBottleRed,
 					img: bottleRed
 				},
 				{
 					id: 3,
 					name: "bottleblue",
-					color: "blue",
+					color: colorBottleblue,
 					img: bottleblue
 				},
 				{
 					id: 4,
 					name: "bottlePink",
-					color: "pink",
+					color: colorBottlePink,
 					img: bottlePink
 				}
 			],
@@ -47,19 +53,19 @@ class Stap1 extends Component {
 				{
 					id: 1,
 					name: "capPink",
-					color: "grey",
+					color: colorCapPink,
 					img: capPink
 				},
 				{
 					id: 2,
 					name: "capBrown",
-					color: "red",
+					color: colorCapBrown,
 					img: capBrown
 				},
 				{
 					id: 3,
 					name: "cap",
-					color: "blue",
+					color: colorCap,
 					img: cap
 				}
 			],
@@ -94,34 +100,23 @@ class Stap1 extends Component {
 						<p className="uitlegTitle">Omdat elk team uniek is</p>
 					</div>
 					<div className={styles.custom}>
-						<select
-							name="bottle"
-							value={bottle}
-							onChange={e => {
-								this.setState({ currentImg: e.currentTarget.value });
-								this.props.handleChange(e);
-							}}
-						>
-							{images.map((img, index) => (
-								<option key={img.id} value={index}>
-									{img.color}
-								</option>
-							))}
-						</select>
-						<select
-							name="cap"
-							value={cap}
-							onChange={e => {
-								this.setState({ currentImgCap: e.currentTarget.value });
-								this.props.handleChange(e);
-							}}
-						>
+						<div>
 							{imagesCap.map((img, index) => (
-								<option key={img.id} value={index}>
-									{img.color}
-								</option>
+								<img
+									key={index}
+									name="cap"
+									src={img.color}
+									alt="choose color cap"
+									id={index}
+									onClick={e => {
+										this.setState({ currentImgCap: e.currentTarget.id });
+										this.props.handleChange(e);
+										console.log(e.currentTarget.id);
+									}}
+								/>
 							))}
-						</select>
+						</div>
+
 						<div className={styles.bottleCustom}>
 							<img
 								src={imagesCap[currentImgCap].img}
@@ -138,6 +133,23 @@ class Stap1 extends Component {
 								value={bottle}
 								onChange={handleChange}
 							/>
+						</div>
+
+						<div>
+							{images.map((img, index) => (
+								<img
+									key={index}
+									name="bottle"
+									src={img.color}
+									alt="choose color cap"
+									id={index}
+									onClick={e => {
+										this.setState({ currentImg: e.currentTarget.id });
+										this.props.handleChange(e);
+										console.log(e.currentTarget.id);
+									}}
+								/>
+							))}
 						</div>
 					</div>
 				</section>

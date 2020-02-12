@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import withAuthentication from "../auth/WithAuthentication";
 import { inject, observer } from "mobx-react";
 
-import Bottle from "./../bottle/Bottle";
+// import Bottle from "./../bottle/Bottle";
 import Info from "./Info";
-import Participants from "./Participants";
 
 const Home = ({ teamStore, participantStore }) => {
-	const { currentTeam, team, updateTeam } = teamStore;
+	const { currentTeam, updateTeam } = teamStore;
 	const {
 		currentParticipants,
 		deleteParticipant,
@@ -18,8 +17,8 @@ const Home = ({ teamStore, participantStore }) => {
 	return (
 		<>
 			<p>Start of the portal</p>
-			{team.map((currentTeam, index) => (
-				<Info team={currentTeam} onUpdate={updateTeam} key={index} />
+			{currentTeam.map((team, index) => (
+				<Info team={team} onUpdate={updateTeam} key={index} />
 			))}
 
 			{currentParticipants.map((person, index) => (

@@ -5,8 +5,7 @@ import {
 	action,
 	runInAction,
 	observe,
-	computed,
-	toJS
+	computed
 } from "mobx";
 import Team from "../models/Team";
 import Person from "../models/Person";
@@ -19,7 +18,6 @@ class TeamStore {
 	_teams = [];
 	participants = [];
 	searching = [];
-	team = [];
 	currentTeam = [];
 	_search = null;
 
@@ -32,14 +30,12 @@ class TeamStore {
 
 		if (this.rootStore.uiStore.authUser) {
 			console.log("er is een user ingelogd");
-			console.log(this.rootStore.uiStore.authUser.teamId);
+			// console.log(this.rootStore.uiStore.authUser.teamId);
 			this.getTeamById(this.rootStore.uiStore.authUser.teamId);
 		}
 		observe(this.rootStore.uiStore, "authUser", change => {
 			if (change.newValue) {
 				console.log("er is een user ingelogd");
-				console.log(this.rootStore.uiStore.authUser.teamId);
-
 				this.getTeamById(this.rootStore.uiStore.authUser.teamId);
 			} else {
 				this.currentTeam = [];
@@ -57,14 +53,15 @@ class TeamStore {
 
 	getTeamById = id => {
 		console.log(id);
-		this.team = [];
+		// this.team = [];
 		const currentTeam = this.teams.filter(check => check.id === id);
 		// this.teams.forEach(element => {
 		// 	console.log(element);
 		// });
-		console.log(currentTeam);
-		this.team = currentTeam;
-		console.log(this.team);
+		// console.log(currentTeam);
+		this.currentTeam = currentTeam;
+		console.log(this.currentTeam);
+		// console.log(this.team);
 		// console.log(toJS(this.teams));
 		// this.teams = toJS(this.teams);
 
@@ -78,7 +75,7 @@ class TeamStore {
 	};
 
 	addTeam = data => {
-		console.log(data);
+		// console.log(data);
 		this.team = [];
 		const newTeam = new Team(this.rootStore);
 		newTeam.updateFromServer(data);
@@ -88,7 +85,7 @@ class TeamStore {
 		this.teams.push(newTeam);
 		this.team.push(newTeam);
 		this.searching.push(newTeam);
-		console.log(this.team);
+		// console.log(this.team);
 	};
 
 	search = data => {
@@ -112,7 +109,7 @@ class TeamStore {
 			this.teams.push(team);
 			// this.searching.push(team);
 		});
-		console.log(this.teams);
+		// console.log(this.teams);
 	};
 
 	_addPerson = values => {
@@ -123,7 +120,7 @@ class TeamStore {
 	};
 
 	updateTeam = team => {
-		console.log(team);
+		// console.log(team);
 		this.api.update(team).then(teamValues => team.updateFromServer(teamValues));
 	};
 

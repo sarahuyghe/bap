@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import { ROUTES } from "./../../../constants/";
 
 class Stap2 extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const { teamnaam, typeOfEvent, kindOfTeam, handleChange } = this.props;
 		if (this.props.currentStep !== 2) {

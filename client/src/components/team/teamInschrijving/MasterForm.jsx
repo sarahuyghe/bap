@@ -74,9 +74,19 @@ class MasterForm extends Component {
 
 	handleChange = e => {
 		console.log(e.target);
+		let value;
 		const name = e.target.name;
-		const value =
-			e.target.type === "checkbox" ? e.target.checked : e.target.value;
+		if (e.target.type === "checkbox") {
+			value = e.target.checked;
+		} else if (e.target.id) {
+			value = e.target.id;
+		} else {
+			value = e.target.value;
+		}
+		// const value =
+		// 	e.target.type === "checkbox"
+		// 		? e.target.checked
+		// 		: e.target.value || e.target.id;
 		this.setState({ [name]: value });
 	};
 

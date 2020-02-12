@@ -13,8 +13,8 @@ class Stap1 extends Component {
 			teamId,
 			searching,
 			handleChange,
-			handleChangeOnSearch,
-			handleLoad
+			handleChangeOnSearch
+			// handleLoad
 		} = this.props;
 		if (this.props.currentStep !== 1) {
 			// Prop: The current step
@@ -36,7 +36,6 @@ class Stap1 extends Component {
 						this.setState({ searchValue: e.currentTarget.value });
 						handleChangeOnSearch(e);
 					}}
-					className="form_input"
 				/>
 				<p>
 					{searching.length} resultaten voor {this.state.searchValue}

@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import styles from "./../Individueel.module.css";
 
 class Stap1 extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const { email, name, firstname, handleChange } = this.props;
 		if (this.props.currentStep !== 1) {

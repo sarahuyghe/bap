@@ -3,10 +3,6 @@ import React, { Component } from "react";
 import styles from "./../MessageForm.module.css";
 
 class Stap1 extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const { teams, teamId, handleChange } = this.props;
 		if (this.props.currentStep !== 1) {

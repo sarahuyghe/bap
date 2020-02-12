@@ -31,14 +31,23 @@ const Menu = ({ open, setOpen, uiStore }) => {
 		<StyledMenu open={open}>
 			<div className={`test ${open ? null : styles.hide}`}>
 				{uiStore.authUser ? (
-					<button
-						onClick={() => {
-							setOpen(!open);
-							uiStore.logout();
-						}}
-					>
-						logout
-					</button>
+					<>
+						<button
+							onClick={() => {
+								setOpen(!open);
+								uiStore.logout();
+							}}
+						>
+							logout
+						</button>
+						<NavLink
+							to={ROUTES.overzicht}
+							className={styles.login}
+							onClick={() => setOpen(!open)}
+						>
+							Overzicht
+						</NavLink>
+					</>
 				) : (
 					<NavLink
 						to={ROUTES.login}
