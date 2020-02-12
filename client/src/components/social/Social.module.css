@@ -6,6 +6,7 @@
 	align-self: center;
 	grid-row: 3;
 	grid-column: 2;
+	z-index: 2;
 }
 .socialItem {
 	padding: 0.8rem;

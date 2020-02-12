@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./Race.module.css";
+import arrow from "./../../images/arrow.svg";
 
 class Race extends Component {
 	constructor(props) {
@@ -24,58 +25,98 @@ class Race extends Component {
 				</div>
 				<div className={styles.border} />
 				<div className={styles.raceSteps}>
-					<h3
-						className={showWat ? null : styles.notSelected}
-						onClick={() =>
-							this.setState({
-								showWat: !showWat,
-								showWar: false,
-								showVoor: false,
-								showWaar: false
-							})
-						}
-					>
-						Wat is het?
-					</h3>
-					<h3
-						className={showWar ? null : styles.notSelected}
-						onClick={() =>
-							this.setState({
-								showWat: false,
-								showWar: !showWar,
-								showVoor: false,
-								showWaar: false
-							})
-						}
-					>
-						Waarom doen we het?
-					</h3>
-					<h3
-						className={showVoor ? null : styles.notSelected}
-						onClick={() =>
-							this.setState({
-								showWat: false,
-								showWar: false,
-								showVoor: !showVoor,
-								showWaar: false
-							})
-						}
-					>
-						Voor wie doen we het?
-					</h3>
-					<h3
-						className={showWaar ? null : styles.notSelected}
-						onClick={() =>
-							this.setState({
-								showWat: false,
-								showWar: false,
-								showVoor: false,
-								showWaar: !showWaar
-							})
-						}
-					>
-						Waar is het?
-					</h3>
+					<div>
+						<img
+							src={arrow}
+							alt="pijltje voor te tonen"
+							className={
+								showWat ? styles.arrowShow : `${styles.arrowShow} hide`
+							}
+							width="30"
+						/>
+						<h3
+							className={showWat ? null : styles.notSelected}
+							onClick={() =>
+								this.setState({
+									showWat: !showWat,
+									showWar: false,
+									showVoor: false,
+									showWaar: false
+								})
+							}
+						>
+							Wat is het?
+						</h3>
+					</div>
+					<div>
+						<img
+							src={arrow}
+							alt="pijltje voor te tonen"
+							className={
+								showWar ? styles.arrowShow : `${styles.arrowShow} hide`
+							}
+							width="30"
+						/>
+						<h3
+							className={showWar ? null : styles.notSelected}
+							onClick={() =>
+								this.setState({
+									showWat: false,
+									showWar: !showWar,
+									showVoor: false,
+									showWaar: false
+								})
+							}
+						>
+							Waarom doen we het?
+						</h3>
+					</div>
+					<div>
+						<img
+							src={arrow}
+							alt="pijltje voor te tonen"
+							className={
+								showVoor ? styles.arrowShow : `${styles.arrowShow} hide`
+							}
+							width="30"
+						/>
+						<h3
+							className={showVoor ? null : styles.notSelected}
+							onClick={() =>
+								this.setState({
+									showWat: false,
+									showWar: false,
+									showVoor: !showVoor,
+									showWaar: false
+								})
+							}
+						>
+							Voor wie doen we het?
+						</h3>
+					</div>
+					<div>
+						<img
+							src={arrow}
+							alt="pijltje voor te tonen"
+							className={
+								showWaar ? styles.arrowShow : `${styles.arrowShow} hide`
+							}
+							width="30"
+						/>
+						<h3
+							className={showWaar ? null : styles.notSelected}
+							onClick={() =>
+								this.setState({
+									showWat: false,
+									showWar: false,
+									showVoor: false,
+									showWaar: !showWaar
+								})
+							}
+						>
+							Waar is het?
+						</h3>
+					</div>
 				</div>
 				<div className={styles.raceStepsUitleg}>
 					<p className={showWat ? null : styles.hide}>

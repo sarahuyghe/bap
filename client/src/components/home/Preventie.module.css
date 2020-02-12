@@ -60,7 +60,17 @@
 
 .imagePrev {
 	padding: 0 1rem;
-	transition: all 0.3s linear;
+	margin-bottom: 0;
+	transition: all 0.2s ease-in-out;
+
+	/* width: auto;
+	height: 228px; */
+}
+
+.imagePrevCurrent {
+	padding: 0 1rem;
+	transform: rotate(-15deg);
+	display: inline;
 	/* width: auto;
 	height: 228px; */
 }

@@ -36,6 +36,7 @@ class Boobottle extends Component {
 							className={
 								showHyd ? styles.arrowShow : `${styles.arrowShow} hide`
 							}
+							width="30"
 						/>
 						<h3>Hydratatie</h3>
 						<p>
@@ -54,6 +55,7 @@ class Boobottle extends Component {
 							src={arrow}
 							alt="pijltje voor te tonen"
 							className={showEv ? styles.arrowShow : `${styles.arrowShow} hide`}
+							width="30"
 						/>
 						<h3>Evenement</h3>
 						<p>
@@ -78,6 +80,7 @@ class Boobottle extends Component {
 							className={
 								showEve ? styles.arrowShow : `${styles.arrowShow} hide`
 							}
+							width="30"
 						/>
 						<h3>Evenement</h3>
 						<p>

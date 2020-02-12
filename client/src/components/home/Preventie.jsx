@@ -105,10 +105,14 @@ class Preventie extends Component {
 									key={index}
 									alt={symptoon.title}
 									width="111"
-									className={styles.imagePrev}
+									className={
+										currentSym === index
+											? styles.imagePrevCurrent
+											: styles.imagePrev
+									}
 									onClick={() => this.setState({ currentSym: index })}
 								/>
-								<img src={arrow} alt="" className={styles.arrowSymp} />
+								{/* <img src={arrow} alt="" className={styles.arrowSymp} /> */}
 							</>
 						))}
 					</div>
