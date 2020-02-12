@@ -62,7 +62,7 @@ class MasterForm extends Component {
 		if (currentStep < 3) {
 			return (
 				<button className="secondaireButton" type="button" onClick={this._next}>
-					Next
+					Volgende
 				</button>
 			);
 		}
@@ -145,6 +145,7 @@ class MasterForm extends Component {
 						handleChange={this.handleChange}
 						handleChangeOnSearch={this.handleSearch}
 						handleLoad={this.handleLoad}
+						button={this.nextButton}
 					/>
 					<Stap2
 						currentStep={currentStep}
@@ -154,8 +155,8 @@ class MasterForm extends Component {
 						buyBottle={buyBottle}
 						handleChange={this.handleChange}
 						handleSubmit={this.handleSubmit}
+						backButton={this.previousButton}
 					/>
-					{this.nextButton}
 				</form>
 			</>
 		);

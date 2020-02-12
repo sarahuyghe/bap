@@ -46,7 +46,7 @@ class Home extends Component {
 							className={styles.animation}
 							onClick={() => {
 								this.setState({
-									activeT: !activeT,
+									activeT: true,
 									activeCTT: false,
 									activeI: false
 								});
@@ -84,7 +84,7 @@ class Home extends Component {
 							onClick={() => {
 								this.setState({
 									activeT: false,
-									activeCTT: !activeCTT,
+									activeCTT: true,
 									activeI: false
 								});
 							}}
@@ -116,7 +116,8 @@ class Home extends Component {
 								this.setState({
 									activeT: false,
 									activeCTT: false,
-									activeI: !activeI
+									activeI: true,
+									activePerson: true
 								});
 							}}
 							onMouseEnter={() =>

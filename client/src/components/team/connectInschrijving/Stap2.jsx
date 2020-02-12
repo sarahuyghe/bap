@@ -12,7 +12,8 @@ class Stap2 extends Component {
 			email,
 			buyBottle,
 			handleSubmit,
-			handleChange
+			handleChange,
+			backButton
 		} = this.props;
 		if (this.props.currentStep !== 2) {
 			// Prop: The current step
@@ -99,6 +100,7 @@ class Stap2 extends Component {
 						onClick={handleSubmit}
 					/>
 				</section>
+				{backButton}
 			</section>
 		);
 	}

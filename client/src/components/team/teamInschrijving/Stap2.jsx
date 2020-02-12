@@ -2,7 +2,14 @@ import React, { Component } from "react";
 
 class Stap2 extends Component {
 	render() {
-		const { teamnaam, typeOfEvent, kindOfTeam, handleChange } = this.props;
+		const {
+			teamnaam,
+			typeOfEvent,
+			kindOfTeam,
+			handleChange,
+			button,
+			backButton
+		} = this.props;
 		if (this.props.currentStep !== 2) {
 			// Prop: The current step
 			return null;
@@ -93,6 +100,8 @@ class Stap2 extends Component {
 						<br />
 					</div>
 				</section>
+				{button}
+				{backButton}
 			</section>
 		);
 	}

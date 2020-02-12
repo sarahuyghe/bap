@@ -7,7 +7,13 @@ class Stap2 extends Component {
 	}
 
 	render() {
-		const { typeOfEvent, locatie, handleChange, handleSubmit } = this.props;
+		const {
+			typeOfEvent,
+			locatie,
+			handleChange,
+			handleSubmit,
+			backButton
+		} = this.props;
 
 		if (this.props.currentStep !== 2) {
 			// Prop: The current step
@@ -70,6 +76,7 @@ class Stap2 extends Component {
 					className="secondaireButton"
 					onClick={handleSubmit}
 				/>
+				{backButton}
 			</section>
 		);
 	}

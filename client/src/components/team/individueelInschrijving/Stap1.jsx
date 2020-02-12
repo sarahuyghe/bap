@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import styles from "./../Individueel.module.css";
 
+import { ROUTES } from "./../../../constants/";
+import { NavLink } from "react-router-dom";
+
 class Stap1 extends Component {
 	render() {
-		const { email, name, firstname, handleChange } = this.props;
+		const { email, name, firstname, handleChange, button } = this.props;
 		if (this.props.currentStep !== 1) {
 			// Prop: The current step
 			return null;
@@ -67,6 +70,10 @@ class Stap1 extends Component {
 						</label>
 					</div>
 				</section>
+				{button}
+				<NavLink to={ROUTES.team} className="mainButton">
+					Terug
+				</NavLink>
 			</section>
 		);
 	}

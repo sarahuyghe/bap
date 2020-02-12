@@ -65,3 +65,10 @@
 	color: white;
 	font-size: 1.4rem;
 }
+
+.nextButton {
+	grid-column: 4;
+	grid-row: 3;
+	align-self: center;
+	justify-self: flex-end;
+}

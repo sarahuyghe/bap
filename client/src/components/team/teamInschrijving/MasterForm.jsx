@@ -50,7 +50,7 @@ class MasterForm extends Component {
 		if (currentStep !== 1) {
 			return (
 				<button className="secondaireButton" type="button" onClick={this._prev}>
-					Previous
+					Terug
 				</button>
 			);
 		}
@@ -64,7 +64,7 @@ class MasterForm extends Component {
 		if (currentStep < 3) {
 			return (
 				<button className="secondaireButton" type="button" onClick={this._next}>
-					Next
+					Volgende
 				</button>
 			);
 		}
@@ -73,7 +73,6 @@ class MasterForm extends Component {
 	}
 
 	handleChange = e => {
-		console.log(e.target);
 		let value;
 		const name = e.target.name;
 		if (e.target.type === "checkbox") {
@@ -83,10 +82,6 @@ class MasterForm extends Component {
 		} else {
 			value = e.target.value;
 		}
-		// const value =
-		// 	e.target.type === "checkbox"
-		// 		? e.target.checked
-		// 		: e.target.value || e.target.id;
 		this.setState({ [name]: value });
 	};
 
@@ -136,6 +131,7 @@ class MasterForm extends Component {
 						handleChange={this.handleChange}
 						bottle={bottle}
 						cap={cap}
+						button={this.nextButton}
 					/>
 					<Stap2
 						currentStep={currentStep}
@@ -144,6 +140,8 @@ class MasterForm extends Component {
 						typeOfEvent={typeOfEvent}
 						locatie={locatie}
 						kindOfTeam={kindOfTeam}
+						button={this.nextButton}
+						backButton={this.previousButton}
 					/>
 					<Stap3
 						currentStep={currentStep}
@@ -151,8 +149,8 @@ class MasterForm extends Component {
 						handleSubmit={this.handleSubmit}
 						quote={quote}
 						motivation={motivation}
+						backButton={this.previousButton}
 					/>
-					{this.nextButton}
 				</form>
 			</>
 		);

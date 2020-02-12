@@ -101,6 +101,7 @@ class MasterForm extends Component {
 					handleChange={this.handleChange}
 					teams={teams}
 					teamId={teamId}
+					button={this.nextButton}
 				/>
 				<Stap2
 					currentStep={currentStep}
@@ -109,7 +110,7 @@ class MasterForm extends Component {
 					message={message}
 					name={name}
 				/>
-				{this.nextButton}
+				{/* {this.nextButton} */}
 			</form>
 		);
 	}

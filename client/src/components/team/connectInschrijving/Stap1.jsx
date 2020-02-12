@@ -1,4 +1,15 @@
 import React, { Component } from "react";
+import {
+	CarouselProvider,
+	Slider,
+	Slide,
+	ButtonBack,
+	ButtonNext
+} from "pure-react-carousel";
+import "pure-react-carousel/dist/react-carousel.es.css";
+import { ROUTES } from "./../../../constants/";
+import { NavLink } from "react-router-dom";
+
 import styles from "./../ConnectTeam.module.css";
 
 import TeamPallet from "./../../TeamPallet";
@@ -8,12 +19,14 @@ class Stap1 extends Component {
 		super(props);
 		this.state = { searchvalue: "" };
 	}
+
 	render() {
 		const {
 			teamId,
 			searching,
 			handleChange,
-			handleChangeOnSearch
+			handleChangeOnSearch,
+			button
 			// handleLoad
 		} = this.props;
 		if (this.props.currentStep !== 1) {
@@ -76,29 +89,47 @@ class Stap1 extends Component {
       </>
     ))} */}
 				{/* </select> */}
-				<div className={styles.resultaten}>
-					{searching.map(
-						(team, index) => (
-							<>
-								<TeamPallet
-									key={index}
-									name="teamId"
-									teamnaam={team.teamnaam}
-									teamquote={team.teamquote}
-									motivation={team.motivation}
-									bottle={team.bottle}
-									cap={team.cap}
-									teamId={team.id}
-									kind={team.kind}
-									handleClickPallet={handleChange}
-								/>
-							</>
-						)
-						// <p key={test.id} value={test.teamId}>
-						// 	{test.teamnaam ? test.teamnaam : test.name}
-						// </p>
-					)}
-				</div>
+
+				{/* <div className={styles.resultaten}> */}
+				<CarouselProvider
+					naturalSlideWidth={410}
+					naturalSlideHeight={125}
+					totalSlides={searching.length}
+					className={styles.resultaten}
+				>
+					<Slider>
+						{searching.map(
+							(team, index) => (
+								<Slide index={index}>
+									<TeamPallet
+										key={index}
+										name="teamId"
+										teamnaam={team.teamnaam}
+										teamquote={team.teamquote}
+										motivation={team.motivation}
+										bottle={team.bottle}
+										cap={team.cap}
+										teamId={team.id}
+										kind={team.kind}
+										handleClickPallet={handleChange}
+									/>
+								</Slide>
+							)
+							// <p key={test.id} value={test.teamId}>
+							// 	{test.teamnaam ? test.teamnaam : test.name}
+							// </p>
+						)}
+					</Slider>
+					<ButtonBack>Back</ButtonBack>
+					<ButtonNext>Next</ButtonNext>
+				</CarouselProvider>
+
+				{/* </Slider> */}
+				{/* </div> */}
+				{button}
+				<NavLink to={ROUTES.team} className="mainButton">
+					Terug
+				</NavLink>
 			</section>
 		);
 	}

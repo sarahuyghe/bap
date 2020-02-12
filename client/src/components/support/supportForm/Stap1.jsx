@@ -4,7 +4,7 @@ import styles from "./../MessageForm.module.css";
 
 class Stap1 extends Component {
 	render() {
-		const { teams, teamId, handleChange } = this.props;
+		const { teams, teamId, handleChange, button } = this.props;
 		if (this.props.currentStep !== 1) {
 			// Prop: The current step
 			return null;
@@ -26,6 +26,7 @@ class Stap1 extends Component {
 				{/* <a href="#sec2" className="secondaireButton">
 					Volgende
 				</a> */}
+				{button}
 			</section>
 		);
 	}

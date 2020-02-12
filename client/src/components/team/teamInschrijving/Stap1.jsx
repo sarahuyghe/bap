@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styles from "./../TeamForm.module.css";
+import { ROUTES } from "./../../../constants/";
+import { NavLink } from "react-router-dom";
 
 import bottleGrey from "./../../../images/bottle.png";
 import bottleRed from "./../../../images/bottle2.png";
@@ -81,7 +83,7 @@ class Stap1 extends Component {
 
 	render() {
 		const { currentImg, images, imagesCap, currentImgCap } = this.state;
-		const { bottle, cap, handleChange } = this.props;
+		const { bottle, cap, handleChange, button } = this.props;
 		if (this.props.currentStep !== 1) {
 			// Prop: The current step
 			return null;
@@ -153,6 +155,10 @@ class Stap1 extends Component {
 						</div>
 					</div>
 				</section>
+				{button}
+				<NavLink to={ROUTES.team} className="mainButton">
+					Terug
+				</NavLink>
 			</section>
 		);
 	}

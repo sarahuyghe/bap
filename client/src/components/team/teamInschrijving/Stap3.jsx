@@ -5,7 +5,13 @@ class Stap3 extends Component {
 		super(props);
 	}
 	render() {
-		const { quote, motivation, handleChange, handleSubmit } = this.props;
+		const {
+			quote,
+			motivation,
+			handleChange,
+			handleSubmit,
+			backButton
+		} = this.props;
 
 		if (this.props.currentStep !== 3) {
 			// Prop: The current step
@@ -59,6 +65,7 @@ class Stap3 extends Component {
 					className="secondaireButton"
 					onClick={handleSubmit}
 				/>
+				{backButton}
 			</section>
 		);
 	}
