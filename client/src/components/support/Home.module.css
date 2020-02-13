@@ -24,12 +24,24 @@
 
 .header div:nth-child(2) {
 	grid-column: 3;
+	/* justify-self: center; */
+}
+
+.header div:nth-child(3) {
+	/* justify-self: center; */
 }
 
 .animation {
 	background-color: #ffffff;
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
 	height: 245px;
+	width: 365px;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	text-align: left;
+	align-items: center;
+	padding: 1rem 2rem;
+	/* justify-self: center; */
 }
 
 .hide {

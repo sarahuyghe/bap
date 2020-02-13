@@ -23,59 +23,32 @@ class Info extends Component {
 			<>
 				{/* {team.map((t, index) => ( */}
 				<div key={team.id} className={styles.info}>
-					<input
-						type="text"
-						value={team.teamnaam}
-						name="teamnaam"
-						id="teamnaam"
-						onChange={e => team.setTeamnaam(e.currentTarget.value)}
-					/>
-					<input
-						type="text"
-						value={team.quote}
-						name="quote"
-						id="quote"
-						onChange={e => team.setQuote(e.currentTarget.value)}
-					/>
-					<input
-						type="text"
-						value={team.reason}
-						name="reason"
-						id="reason"
-						onChange={e => team.setReason(e.currentTarget.value)}
-					/>
-
-					<Bottle
-						teamnaam={team.teamnaam}
-						teamqoute={team.quote}
-						cap={team.cap}
-						bottle={team.bottle}
-					/>
-
 					<div>
-						<h4>Gesloten team?</h4>
-						<p className="uitlegTitle">
-							Bij een gesloten team moet u als teamcaptain een elke inschrijving
-							goedkeuren
-						</p>
-						<label>
-							<input
-								type="checkbox"
-								name="kindOfTeam"
-								className="checkbox"
-								defaultChecked={team.kind}
-								// value={kindOfTeam}
-								// onChange={handleChange}
-							/>
-							Ik wil een gesloten team
-						</label>
+						<input
+							type="text"
+							value={team.teamnaam}
+							name="teamnaam"
+							id="teamnaam"
+							onChange={e => team.setTeamnaam(e.currentTarget.value)}
+						/>
+						<input
+							type="text"
+							value={team.quote}
+							name="quote"
+							id="quote"
+							onChange={e => team.setQuote(e.currentTarget.value)}
+						/>
+						<input
+							type="text"
+							value={team.reason}
+							name="reason"
+							id="reason"
+							onChange={e => team.setReason(e.currentTarget.value)}
+						/>
 					</div>
 					<div>
 						<h4>Lopen of wandelen?</h4>
-						<p className="uitlegTitle">
-							Zo weten we hoeveel mensen we per route verwachten
-						</p>
-						<div>
+						<div className="customTesting">
 							<label className="customRadio">
 								<input
 									type="radio"
@@ -87,7 +60,7 @@ class Info extends Component {
 								Wij gaan 3km lopen
 							</label>
 						</div>
-						<div>
+						<div className="customTesting">
 							<label className="customRadio">
 								<input
 									type="radio"
@@ -99,91 +72,104 @@ class Info extends Component {
 								Wij gaan 6km wandelen
 							</label>
 						</div>
-					</div>
-					<button
-						onClick={() => {
-							onUpdate(team);
-							this.setEditMode(false);
-						}}
-					>
-						Save
-					</button>
-				</div>
-			</>
-		) : (
-			<>
-				<div key={team.id} className={styles.info}>
-					<h1>{team.teamnaam}</h1>
-					<p>{team.quote}</p>
-					<p>{team.reason}</p>
-
-					{/* <Bottle
-						teamnaam={team.teamnaam}
-						teamqoute={team.quote}
-						cap={team.cap}
-						bottle={team.bottle}
-					/> */}
-
-					<div>
-						<h4>Gesloten team?</h4>
-						<p className="uitlegTitle">
-							Bij een gesloten team moet u als teamcaptain een elke inschrijving
-							goedkeuren
-						</p>
-						<label>
-							<input
-								type="checkbox"
-								name="kindOfTeam"
-								className="checkbox"
-								defaultChecked={team.kind}
-								// value={kindOfTeam}
-								onChange={e => console.log(e)}
-							/>
-							Ik wil een gesloten team
-						</label>
-					</div>
-					<div>
-						<h4>Lopen of wandelen?</h4>
-						<p className="uitlegTitle">
-							Zo weten we hoeveel mensen we per route verwachten
-						</p>
 						<div>
-							<label className="customRadio">
+							<h4>Gesloten team?</h4>
+							<label className="customTesting">
 								<input
-									type="radio"
-									name="event"
-									value="lopen"
-									checked={team.typeOfEvent === "lopen"}
-									onChange={e => console.log(e)}
-								/>
-								Wij gaan 3km lopen
-							</label>
-						</div>
-						<div>
-							<label className="customRadio">
-								<input
-									type="radio"
-									name="event"
-									value="wandelen"
-									checked={team.typeOfEvent === "wandelen"}
+									type="checkbox"
+									name="kindOfTeam"
+									className="checkbox"
+									defaultChecked={team.kind}
+									// value={kindOfTeam}
 									// onChange={handleChange}
 								/>
-								Wij gaan 6km wandelen
+								Ik wil een gesloten team
 							</label>
 						</div>
+					</div>
+					<div className={styles.bottle}>
 						<Bottle
 							teamnaam={team.teamnaam}
 							teamqoute={team.quote}
 							cap={team.cap}
 							bottle={team.bottle}
-							className={styles.bottle}
+							custom={true}
 						/>
 					</div>
 				</div>
 				<button
-					onClick={() => this.setEditMode(true)}
-					className="secondaireButton"
+					onClick={() => {
+						onUpdate(team);
+						this.setEditMode(false);
+					}}
+					className="mainButton"
 				>
+					Save
+				</button>
+			</>
+		) : (
+			<>
+				<div key={team.id} className={styles.info}>
+					<div>
+						<h4>{team.teamnaam}</h4>
+						<p>{team.quote}</p>
+						<p>{team.reason}</p>
+					</div>
+
+					<div>
+						<h4>Lopen of wandelen?</h4>
+
+						<div className="customTesting">
+							<label>
+								<input
+									type="radio"
+									name="event"
+									value="lopen"
+									className={`checkbox ${styles.inputWidth}`}
+									checked={team.typeOfEvent === "lopen"}
+									disabled="disabled"
+								/>
+								Wij gaan 3km lopen
+							</label>
+						</div>
+						<div className="customTesting">
+							<label>
+								<input
+									type="radio"
+									name="event"
+									value="wandelen"
+									className={`checkbox ${styles.inputWidth}`}
+									checked={team.typeOfEvent === "wandelen"}
+									disabled="disabled"
+								/>
+								Wij gaan 6km wandelen
+							</label>
+						</div>
+
+						<div>
+							<h4>Gesloten team?</h4>
+							<label className="customTesting">
+								<input
+									type="checkbox"
+									name="kindOfTeam"
+									className={`checkbox ${styles.inputWidth}`}
+									defaultChecked={team.kind}
+									disabled="disabled"
+								/>
+								Ik wil een gesloten team
+							</label>
+						</div>
+					</div>
+					<div className={styles.bottle}>
+						<Bottle
+							teamnaam={team.teamnaam}
+							teamqoute={team.quote}
+							cap={team.cap}
+							bottle={team.bottle}
+						/>
+					</div>
+				</div>
+				<button onClick={() => this.setEditMode(true)} className="mainButton">
 					Edit
 				</button>
 			</>

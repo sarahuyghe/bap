@@ -4,6 +4,8 @@ import { ROUTES } from "./../../constants/";
 import Social from "./../social/Social";
 import arrow from "./../../images/arrow.svg";
 import arrowWhite from "./../../images/arrowWhite.svg";
+import messageBottle from "./../../images/messageBottle.png";
+import moneyBottle from "./../../images/moneyBottle.png";
 
 import MessageForm from "./MessageForm";
 import Sponsor from "./Sponsor";
@@ -45,8 +47,8 @@ class Home extends Component {
 								this.setState({ activeMessage: !activeMessage })
 							}
 						>
+							<img src={messageBottle} alt="message in a bottle" width="108" />
 							<h3>Message in a BOOBottle</h3>
-							<img src="" alt="" />
 						</div>
 						<div
 							className={`${styles.opportunities} ${
@@ -80,8 +82,8 @@ class Home extends Component {
 								this.setState({ activeDoneer: !activeDoneer })
 							}
 						>
+							<img src={moneyBottle} alt="donate bottle" width="108" />
 							<h3>Een team sponseren</h3>
-							<img src="" alt="" />
 						</div>
 						<div
 							className={`${styles.opportunities} ${

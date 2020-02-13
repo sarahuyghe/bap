@@ -23,7 +23,8 @@ class Home extends Component {
 			currentParticipants,
 			deleteParticipant,
 			acceptingParticipants,
-			updateParticipant
+			updateParticipant,
+			total
 		} = this.props.participantStore;
 		console.log(currentParticipants);
 		const { activeItem } = this.state;
@@ -103,7 +104,7 @@ class Home extends Component {
 								/>
 							))}
 							<p className={styles.total}>
-								<b>Totaal:</b> €X
+								<b>Totaal:</b> €{total}
 							</p>
 						</div>
 					</section>

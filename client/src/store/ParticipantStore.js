@@ -4,7 +4,8 @@ import {
 	configure,
 	action,
 	runInAction,
-	observe
+	observe,
+	computed
 } from "mobx";
 import Person from "../models/Person";
 
@@ -76,12 +77,22 @@ class ParticipantStore {
 		this.currentParticipants.remove(person);
 		this.api.delete(person);
 	};
+
+	get total() {
+		return Math.round(
+			this.currentParticipants.length * 12 +
+				this.currentParticipants.filter(check => check.buyBottle === true)
+					.length *
+					8
+		);
+	}
 }
 
 decorate(ParticipantStore, {
 	participants: observable,
 	currentParticipants: observable,
 	acceptingParticipants: observable,
+	total: observable,
 
 	addTeam: action,
 	search: action,
@@ -89,7 +100,9 @@ decorate(ParticipantStore, {
 	getAllInfoTeam: action,
 	deleteParticipant: action,
 	collectTeamParticipants: action,
-	updateParticipant: action
+	updateParticipant: action,
+
+	total: computed
 });
 
 export default ParticipantStore;

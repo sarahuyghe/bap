@@ -54,12 +54,14 @@ const Confirm = ({ teamStore }) => {
 						</p>
 						{team.map(t => (
 							<div className={styles.sharen}>
-								<Bottle
-									teamnaam={t.teamnaam}
-									teamqoute={t.quote}
-									cap={t.cap}
-									bottle={t.bottle}
-								/>
+								<div className={styles.imgBottle}>
+									<Bottle
+										teamnaam={t.teamnaam}
+										teamqoute={t.quote}
+										cap={t.cap}
+										bottle={t.bottle}
+									/>
+								</div>
 								<div>
 									<h5>{t.teamnaam}</h5>
 									<p>{t.quote}</p>

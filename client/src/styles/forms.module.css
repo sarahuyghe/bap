@@ -5,9 +5,14 @@
 	width: 24.8rem;
 }
 
+.customTesting {
+	padding: 2rem 0;
+}
+
 /* .customRadio; */
 .checkbox {
 	text-align: left;
+	padding: 1.5rem 0;
 }
 
 .bigField {

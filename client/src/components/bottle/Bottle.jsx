@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styles from "./../team/Confirm.module.css";
 
 import bottleGrey from "./../../images/bottle.png";
 
@@ -60,17 +59,57 @@ class Bottle extends Component {
 					color: "blue",
 					img: cap
 				}
-			]
+			],
+			currentImg: 0,
+			currentImgCap: 0
 		};
 	}
 
 	render() {
-		const { cap, bottle, teamnaam, teamqoute } = this.props;
-		const { images, imagesCap } = this.state;
+		const { cap, bottle, teamnaam, teamqoute, custom } = this.props;
+		const { images, imagesCap, currentImgCap, currentImg } = this.state;
 		return (
-			<div className={styles.imgBottle}>
-				{/* <p>{teamnaam}</p>
-				<p>{teamqoute}</p> */}
+			<>
+				{custom ? (
+					<>
+						{" "}
+						<div>
+							{imagesCap.map((img, index) => (
+								<img
+									key={index}
+									name="cap"
+									src={img.color}
+									alt="choose color cap"
+									id={index}
+									onClick={e => {
+										this.setState({ currentImgCap: e.currentTarget.id });
+										this.props.handleChange(e);
+										console.log(e.currentTarget.id);
+									}}
+								/>
+							))}
+						</div>
+						<div
+						// className={styles.bottleCustom}
+						>
+							<img
+								src={imagesCap[currentImgCap].img}
+								alt=""
+								width="240"
+								value={cap}
+								// onChange={handleChange}
+							/>
+							<img
+								src={images[currentImg].img}
+								alt=""
+								width="160"
+								id="bottle"
+								value={bottle}
+								// onChange={handleChange}
+							/>
+						</div>
+					</>
+				) : null}
 				<img src={imagesCap[cap].img} alt="" width="193" />
 				<img
 					src={images[bottle].img}
@@ -78,7 +117,7 @@ class Bottle extends Component {
 					width="130"
 					style={{ margin: "0 0 0 6.5rem" }}
 				/>
-			</div>
+			</>
 		);
 	}
 }
