@@ -21,6 +21,14 @@ const Login = ({ uiStore, history }) => {
 			pauseOnHover: true,
 			draggable: true
 		});
+		toast.error("🦄 Error!", {
+			position: "top-center",
+			autoClose: 4000,
+			hideProgressBar: true,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true
+		});
 	};
 	const handleSubmit = e => {
 		e.preventDefault();

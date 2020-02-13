@@ -8,8 +8,10 @@ class Accepting extends Component {
 	render() {
 		const { person, onDelete, onUpdate } = this.props;
 		return (
-			<div className={styles.test}>
-				<p>{person.name}</p>
+			<div className={styles.deelnemer}>
+				<p>
+					{person.firstname} {person.name}
+				</p>
 				{person.buyBottle ? <p>Ja</p> : <p>Nee</p>}
 				<p>
 					€12 inschrijvingsgeld {person.buyBottle ? `+ €8 BOOBottle` : null}

@@ -29,11 +29,11 @@ class Home extends Component {
 		const { activeItem } = this.state;
 		return (
 			<>
-				<div>
+				<div className={styles.head}>
 					<h2>Instellingen</h2>
 					<p className="subTitle">Selecteer een inschrijvings-methode</p>
 				</div>
-				<div>
+				<div className={styles.menu}>
 					<button
 						onClick={e => this.setState({ activeItem: e.currentTarget.value })}
 						value="Info"
@@ -79,20 +79,22 @@ class Home extends Component {
 						Praktische informatie
 					</button>
 				</div>
-
-				{activeItem === "Info"
-					? currentTeam.map((team, index) => (
+				{activeItem === "Info" ? (
+					<section className={styles.panelAccount}>
+						<h3>Team informatie</h3>
+						{currentTeam.map((team, index) => (
 							<Info team={team} onUpdate={updateTeam} key={index} />
-					  ))
-					: null}
+						))}
+					</section>
+				) : null}
 				{activeItem === "Deelnemers" ? (
 					<section className={styles.panelAccount}>
 						<h3>Deelnemerslijst</h3>
 						<p>Aantal deelnemers: {currentParticipants.length}</p>
 						<div className={styles.overzicht}>
-							<p>Namen</p>
-							<p>BOOBottle</p>
-							<p>Prijs/persoon</p>
+							<p className={styles.title}>Namen</p>
+							<p className={styles.title}>BOOBottle</p>
+							<p className={styles.title}>Prijs/persoon</p>
 							{currentParticipants.map((person, index) => (
 								<Deelnemer
 									key={index}
@@ -100,6 +102,9 @@ class Home extends Component {
 									onDelete={deleteParticipant}
 								/>
 							))}
+							<p className={styles.total}>
+								<b>Totaal:</b> €X
+							</p>
 						</div>
 					</section>
 				) : null}
@@ -107,21 +112,30 @@ class Home extends Component {
 					<section className={styles.panelAccount}>
 						<h3>Aanvraaglijst</h3>
 						<p>Dit zijn mensen die uw team willen aansluiten</p>
-						{acceptingParticipants.map((person, index) => (
-							<Accepting
-								index={index}
-								person={person}
-								onDelete={deleteParticipant}
-								onUpdate={updateParticipant}
-							/>
-						))}
+						<div className={styles.overzicht}>
+							<p className={styles.title}>Namen</p>
+							<p className={styles.title}>BOOBottle</p>
+							<p className={styles.title}>Prijs/persoon</p>
+							{acceptingParticipants.map((person, index) => (
+								<Accepting
+									index={index}
+									person={person}
+									onDelete={deleteParticipant}
+									onUpdate={updateParticipant}
+								/>
+							))}
+						</div>
 					</section>
 				) : null}
-
 				{activeItem === "Planning" ? (
 					<section className={styles.panelAccount}>
-						<h2>Planning</h2>
-						<img src={planning} alt="overzicht dagplanning" width="1131" />
+						<h3>Planning</h3>
+						<img
+							src={planning}
+							alt="overzicht dagplanning"
+							width="1131"
+							className={styles.planning}
+						/>
 					</section>
 				) : null}
 			</>
