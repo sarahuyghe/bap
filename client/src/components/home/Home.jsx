@@ -6,6 +6,9 @@ import { inject, observer } from "mobx-react";
 import styles from "./Home.module.css";
 import arrow from "./../../images/arrow.svg";
 
+import headerPoster from "./../../images/header.png";
+import headerVideo from "./../../images/banner.mp4";
+
 import Boobottle from "./Boobottle";
 import Race from "./Race";
 import Preventie from "./Preventie";
@@ -18,6 +21,17 @@ const Home = () => {
 	return (
 		<>
 			<header className={`panelHome ${styles.header}`}>
+				<div className={styles.fullscreenBg}>
+					<video
+						autoPlay
+						loop
+						id="header"
+						poster={headerPoster}
+						className={styles.bgVideo}
+					>
+						<source src={headerVideo} type="video/mp4" />
+					</video>
+				</div>
 				<div>
 					<h1>BOOBottle</h1>
 					<p>Herbruikbare fles voor onvervangbare weldoeners</p>

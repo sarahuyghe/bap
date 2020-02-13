@@ -5,6 +5,10 @@ import solo from "./../../images/solo.png";
 import arrow from "./../../images/arrow.svg";
 import arrowWhite from "./../../images/arrowWhite.svg";
 
+import teamVideo from "./../../images/createTeam.mp4";
+import joinIndividually from "./../../images/joinIndividually.mp4";
+import joinTeam from "./../../images/joinTeam.mp4";
+
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "./../../constants/";
 import "./../../styles/index.css";
@@ -55,11 +59,29 @@ class Home extends Component {
 									activeItem: e.currentTarget.id
 								});
 							}}
-							onMouseEnter={() => this.setState({ activeTeam: !activeTeam })}
+							onMouseEnter={e => {
+								this.setState({ activeTeam: !activeTeam });
+							}}
 							onMouseLeave={() => this.setState({ activeTeam: !activeTeam })}
 						>
 							<h3>Een team maken</h3>
-							<img src={group} alt="" />
+							<video
+								pause
+								muted
+								width="330"
+
+								// loop
+								// width="640"
+								// height="480"
+								// style={{
+								// 	position: "fixed",
+								// 	width: "100%",
+								// 	left: 0,
+								// 	top: 0
+								// }}
+							>
+								<source src={teamVideo} type="video/mp4" />
+							</video>
 						</div>
 						<div
 							className={`${styles.opportunities} ${
@@ -102,7 +124,22 @@ class Home extends Component {
 							}
 						>
 							<h3>Aansluiten aan een team</h3>
-							<img src={connectTeam} alt="" />
+							<video
+								autoPlay
+								muted
+								width="330"
+								// loop
+								// width="640"
+								// height="480"
+								// style={{
+								// 	position: "fixed",
+								// 	width: "100%",
+								// 	left: 0,
+								// 	top: 0
+								// }}
+							>
+								<source src={joinTeam} type="video/mp4" />
+							</video>
 						</div>
 						<div
 							className={`${styles.opportunities} ${
@@ -138,7 +175,23 @@ class Home extends Component {
 							}
 						>
 							<h3>Individueel inschrijven</h3>
-							<img src={solo} alt="" />
+							<video
+								autoPlay
+								muted
+								width="330"
+
+								// loop
+								// width="640"
+								// height="480"
+								// style={{
+								// 	position: "fixed",
+								// 	width: "100%",
+								// 	left: 0,
+								// 	top: 0
+								// }}
+							>
+								<source src={joinIndividually} type="video/mp4" />
+							</video>
 						</div>
 						<div
 							className={`${styles.opportunities} ${

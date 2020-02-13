@@ -1,13 +1,38 @@
 .header {
-	background-color: #ffb4b9;
+	/* background-color: #ffb4b9; */
 	color: white;
 	/* height: 100vh; */
-	background-image: url("./../../images/header.png");
+	/* background-image: url("./../../images/header.png"); */
 	background-repeat: no-repeat, repeat;
 	display: grid;
-	grid-template-columns: 5% 43px 35% 45% 10%;
+	grid-template-columns: 5% 43px 43% 39% 10%;
 	grid-template-rows: 20% 55% 20% 5%;
 }
+
+.fullscreenBg {
+	/* position: fixed; */
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: -100;
+}
+
+.bgVideo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* #container video {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+} */
 
 header div {
 	grid-column: 4;
@@ -100,4 +125,28 @@ header p {
 .callToAction:nth-last-child(1) {
 	grid-column: 4;
 	grid-row: 1 / span 2;
+}
+
+@media (min-aspect-ratio: 16/9) {
+	.bgVideo {
+		height: 300%;
+		top: -100%;
+	}
+}
+
+@media (max-aspect-ratio: 16/9) {
+	.bgVideo {
+		width: 300%;
+		left: -100%;
+	}
+}
+
+@media (max-width: 767px) {
+	/* .fullscreen-bg {
+		background: url("../img/videoframe.jpg") center center / cover no-repeat;
+	} */
+
+	.bgVideo {
+		display: none;
+	}
 }
