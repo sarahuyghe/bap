@@ -5,9 +5,9 @@ import bottleRed from "./../images/bottle2.png";
 import bottleblue from "./../images/bottle3.png";
 import bottlePink from "./../images/bottle4.png";
 
-import capPink from "./../images/cap1.png";
-import capBrown from "./../images/cap2.png";
-import cap from "./../images/cap3.png";
+import capPink from "./../images/capPink.png";
+import capBrown from "./../images/capBrown.png";
+import cap from "./../images/capWhite.png";
 
 import styles from "./TeamPallet.module.css";
 
@@ -60,14 +60,15 @@ class TeamPallet extends Component {
 					color: "blue",
 					img: cap
 				}
-			]
+			],
+			chosenGroup: 1
 		};
 	}
 
 	render() {
 		const {
 			teamnaam,
-			teamquote,
+			quote,
 			motivation,
 			bottle,
 			cap,
@@ -75,14 +76,21 @@ class TeamPallet extends Component {
 			kind,
 			handleClickPallet
 		} = this.props;
-		const { images, imagesCap } = this.state;
-
+		const { images, imagesCap, chosenGroup } = this.state;
+		console.log(quote);
 		return (
 			<div
-				className={styles.pallet}
+				className={
+					chosenGroup === teamId
+						? `${styles.pallet} ${styles.chosen}`
+						: styles.pallet
+				}
 				onClick={e => {
 					e.preventDefault();
+					console.log(teamId);
 					const test = { teamId: teamId, kind: kind };
+					this.setState({ chosenGroup: teamId });
+					console.log(chosenGroup);
 					console.log(test);
 					handleClickPallet(test);
 				}}
@@ -90,7 +98,16 @@ class TeamPallet extends Component {
 				<p>{teamnaam}</p>
 				<p>120 Deelnemers</p>
 				<div className={styles.imageBottle}>
-					<img src={imagesCap[cap].img} alt="" width="116" />
+					<div className={styles.textBottle}>
+						<p>{teamnaam}</p>
+						<p>{quote}</p>
+					</div>
+					<img
+						src={imagesCap[cap].img}
+						alt=""
+						width="75"
+						className={styles.cap}
+					/>
 					<img
 						src={images[bottle].img}
 						alt=""
@@ -100,7 +117,7 @@ class TeamPallet extends Component {
 				</div>
 				<div>
 					<h4>{teamnaam}</h4>
-					<p className={styles.quote}>{teamquote}</p>
+					<p className={styles.quote}>{quote}</p>
 					<p>{motivation}</p>
 				</div>
 			</div>

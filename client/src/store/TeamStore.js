@@ -58,7 +58,7 @@ class TeamStore {
 	// };
 
 	getTeamById = id => {
-		id = "5e432a8853432117471053d3";
+		// id = "5e432a8853432117471053d3";
 		console.log(id);
 		// this.team = [];
 		const currentTeam = this.teams.filter(check => check.id === id);

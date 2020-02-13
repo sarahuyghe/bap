@@ -5,6 +5,11 @@
 	display: grid;
 	grid-template-columns: 40% 60%;
 	grid-template-rows: 30px 1fr 30px;
+	padding: 1.5rem;
+}
+
+.chosen {
+	background-color: red;
 }
 
 .pallet h4 {
@@ -14,8 +19,21 @@
 
 .imageBottle {
 	transform: rotate(-15deg);
+	margin-left: 3.8rem;
 }
 
+.textBottle {
+	position: absolute;
+	transform: rotate(90deg);
+	color: white;
+	top: 12rem;
+	left: 4rem;
+}
+
+/* .cap {
+	margin-left: -3.9rem;
+} */
+
 .bottle {
-	margin-left: 3.8rem;
+	/* margin-left: 3.8rem; */
 }

@@ -45,8 +45,13 @@ html {
 	transform: rotate(90deg);
 	position: absolute;
 	color: white;
-	margin-left: 80px;
-	margin-top: 300px;
+	margin-left: 50px;
+	margin-top: 200px;
+	text-align: center;
+}
+
+.infoOfBottle :nth-child(1) {
+	font-weight: bold;
 }
 
 /* .visually-hidden {
