@@ -40,10 +40,7 @@ const Login = ({ uiStore, history }) => {
 
 	return (
 		<>
-			<p className={styles.back}>
-				<img src={arrowWhite} alt="arrow back" />
-				<NavLink to={ROUTES.home}>Terug</NavLink>
-			</p>
+			<div className={styles.back} />
 			<div className={styles.login}>
 				<h2>Aanmelden</h2>
 				<p>Zodat u aan de team instellingen kan zien</p>
@@ -68,8 +65,14 @@ const Login = ({ uiStore, history }) => {
 							ref={pwdInput}
 						/>
 					</label>
-					<a href="">Ik ben mijn paswoord vergeten</a>
-					<input type="submit" value="Aanmelden" className="mainButton" />
+					<a href="" className={styles.forget}>
+						Ik ben mijn paswoord vergeten
+					</a>
+					<input
+						type="submit"
+						value="Aanmelden"
+						className="mainButton aanmelden"
+					/>
 				</form>
 			</div>
 		</>

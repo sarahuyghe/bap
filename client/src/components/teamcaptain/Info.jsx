@@ -22,7 +22,7 @@ class Info extends Component {
 		return edit ? (
 			<>
 				{/* {team.map((t, index) => ( */}
-				<div key={team.id}>
+				<div key={team.id} className={styles.info}>
 					<input
 						type="text"
 						value={team.teamnaam}
@@ -109,12 +109,10 @@ class Info extends Component {
 						Save
 					</button>
 				</div>
-				))}
 			</>
 		) : (
 			<>
-				{/* {team.map((t, index) => ( */}
-				<div key={team.id}>
+				<div key={team.id} className={styles.info}>
 					<h1>{team.teamnaam}</h1>
 					<p>{team.quote}</p>
 					<p>{team.reason}</p>
@@ -173,6 +171,13 @@ class Info extends Component {
 								Wij gaan 6km wandelen
 							</label>
 						</div>
+						<Bottle
+							teamnaam={team.teamnaam}
+							teamqoute={team.quote}
+							cap={team.cap}
+							bottle={team.bottle}
+							className={styles.bottle}
+						/>
 					</div>
 				</div>
 				<button
