@@ -76,10 +76,10 @@ class TeamPallet extends Component {
 			handleClickPallet
 		} = this.props;
 		const { images, imagesCap } = this.state;
-		console.log(teamnaam);
-		console.log(teamId);
-		console.log(bottle);
-		console.log(images[bottle].name);
+		// console.log(teamnaam);
+		// console.log(teamId);
+		// console.log(bottle);
+		// console.log(images[bottle].name);
 		return (
 			<div
 				// name="teamId"

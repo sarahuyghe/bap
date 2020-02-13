@@ -3,9 +3,11 @@ import {
 	CarouselProvider,
 	Slider,
 	Slide,
+	Dot,
 	ButtonBack,
 	ButtonNext
 } from "pure-react-carousel";
+import Carousel from "nuka-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { ROUTES } from "./../../../constants/";
 import { NavLink } from "react-router-dom";
@@ -38,21 +40,24 @@ class Stap1 extends Component {
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
-					<h3>2. Selecteer een team</h3>
+					<h3>1. Selecteer een team</h3>
 					<p>Bij welk team wilt u zich aansluiten</p>
+					<div>
+						<input
+							type="search"
+							className="form_input"
+							onChange={e => {
+								this.setState({ searchValue: e.currentTarget.value });
+								handleChangeOnSearch(e);
+							}}
+						/>
+						<p>
+							{searching.length} resultaten voor {this.state.searchValue}
+						</p>
+					</div>
 				</div>
 				<div className="deeltitel">Aansluiten bij een team</div>
-				<input
-					type="search"
-					className="form_input"
-					onChange={e => {
-						this.setState({ searchValue: e.currentTarget.value });
-						handleChangeOnSearch(e);
-					}}
-				/>
-				<p>
-					{searching.length} resultaten voor {this.state.searchValue}
-				</p>
+
 				{/* {searching.map(
 						team => (
 							<option key={team.id} value={team.id}>
@@ -90,43 +95,53 @@ class Stap1 extends Component {
     ))} */}
 				{/* </select> */}
 
-				{/* <div className={styles.resultaten}> */}
 				{/* <CarouselProvider
 					naturalSlideWidth={410}
-					naturalSlideHeight={125}
+					naturalSlideHeight={60}
 					totalSlides={searching.length}
 					className={styles.resultaten}
-				>
-					<Slider> */}
-				{searching.map(
-					(team, index) => (
-						// <Slide index={index}>
-						// console.log(team)
-						<TeamPallet
-							key={index}
-							name="teamId"
-							teamnaam={team.teamnaam}
-							teamquote={team.teamquote}
-							motivation={team.motivation}
-							bottle={team.bottle}
-							cap={team.cap}
-							teamId={team.id}
-							kind={team.kind}
-							handleClickPallet={handleChange}
-						/>
-					)
-					// </Slide>
-					// <p key={test.id} value={test.teamId}>
-					// 	{test.teamnaam ? test.teamnaam : test.name}
-					// </p>
-				)}
-				{/* </Slider>
-					<ButtonBack>Back</ButtonBack>
-					<ButtonNext>Next</ButtonNext>
-				</CarouselProvider> */}
+				> */}
+				<div className={styles.resultaten}>
+					{/* <Slider> */}
+					<Carousel>
+						{searching.map((team, index) => (
+							// <Slide index={index}>
+							<TeamPallet
+								key={index}
+								name="teamId"
+								teamnaam={team.teamnaam}
+								teamquote={team.teamquote}
+								motivation={team.motivation}
+								bottle={team.bottle}
+								cap={team.cap}
+								teamId={team.id}
+								kind={team.kind}
+								handleClickPallet={handleChange}
+							/>
+							// </Slide>
+							// <p key={test.id} value={test.teamId}>
+							// 	{test.teamnaam ? test.teamnaam : test.name}
+							// </p>
+						))}
+					</Carousel>
+					{/* </Slider> */}
+				</div>
+
+				{/* <section className={styles.testing}>
+						{searching.map((team, index) => (
+							<Dot slide={index} key={index}>
+								<span aria-hidden="true">&middot;</span>
+								<span className="sr-only">Carousel Slide {index}</span>
+							</Dot>
+						))}
+					</section> */}
+
+				{/* <ButtonBack>Back</ButtonBack>
+						<ButtonNext>Next</ButtonNext> */}
+				{/* </CarouselProvider> */}
 
 				{/* </Slider> */}
-				{/* </div> */}
+
 				{button}
 				<NavLink to={ROUTES.team} className="mainButton backButton">
 					Terug

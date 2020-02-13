@@ -17,7 +17,8 @@ class MasterForm extends Component {
 			kind: false,
 			buyBottle: 0,
 			currentStep: 1,
-			searching: this.props.teamStore.teams
+			searching: []
+			// this.props.teamStore.teams
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this._next = this._next.bind(this);

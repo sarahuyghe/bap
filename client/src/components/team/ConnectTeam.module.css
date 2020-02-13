@@ -37,3 +37,11 @@
 	display: flex;
 	flex-direction: row;
 }
+
+.results {
+	grid-column: 2;
+}
+
+.testing {
+	grid-row: 3;
+}

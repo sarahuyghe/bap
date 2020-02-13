@@ -22,7 +22,7 @@ class Stap2 extends Component {
 		return (
 			<section id="sec1" className={styles.panel}>
 				<div className="extraInfo">
-					<h3>1. Info opgeven</h3>
+					<h3>2. Info opgeven</h3>
 					<p>
 						Uw data word niet doorgegeven aan externe bedrijven het is enkel
 						voor technische doeleinden
