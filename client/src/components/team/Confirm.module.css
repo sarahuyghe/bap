@@ -18,9 +18,8 @@
 	grid-template-rows: repeat(3, 1fr);
 	grid-gap: 1.5rem;
 	padding: 2rem 1rem;
-}
 
-.sharen {
+	grid-auto-flow: column;
 }
 
 .imgBottle {

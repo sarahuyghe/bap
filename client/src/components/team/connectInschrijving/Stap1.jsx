@@ -64,41 +64,6 @@ class Stap1 extends Component {
 					</div>
 				</div>
 				<div className="deeltitel">Aansluiten bij een team</div>
-				{/* {searching.map(
-						team => (
-							<option key={team.id} value={team.id}>
-								{team.teamnaam}
-							</option>
-						)
-						// team.map(test => (
-						// 	<>
-						// 		{test.teamnaam ? (
-						// 			<option key={test.id} value={test.id}>
-						// 				{test.teamnaam}
-						// 			</option>
-						// 		) : (
-						// 			<option key={test.id} value={test.teamId}>
-						// 				{test.name}
-						// 			</option>
-						// 		)}
-						// 	</>
-						// ))
-					)} */}
-				{/* {teams.map(team => */}
-				{/* {teams.map(test => (
-      <>
-        {test.teamnaam ? (
-          <option key={test.id} value={test.id}>
-            {test.teamnaam}
-          </option>
-        ) : (
-          <option key={test.id} value={test.teamId}>
-            {test.name}
-          </option>
-        )}
-      </>
-    ))} */}
-				{/* </select> */}
 				<div className={styles.resultaten}>
 					<Carousel
 						slidesToShow={2}

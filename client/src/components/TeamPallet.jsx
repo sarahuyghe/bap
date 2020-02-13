@@ -90,6 +90,10 @@ class TeamPallet extends Component {
 				<p>{teamnaam}</p>
 				<p>120 Deelnemers</p>
 				<div className={styles.imageBottle}>
+					<div className={styles.textBottle}>
+						<p>{teamnaam}</p>
+						<p>{teamquote}</p>
+					</div>
 					<img src={imagesCap[cap].img} alt="" width="116" />
 					<img
 						src={images[bottle].img}

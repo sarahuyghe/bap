@@ -15,12 +15,17 @@ import styles from "./Confirm.module.css";
 const Confirm = ({ teamStore }) => {
 	const { currentTeam } = teamStore;
 	const FB = window.FB;
+
+	// const copyText = e => {
+	// 	const link = e.currentTarget;
+	// 	link.select();
+	// 	document.execCommand("copy");
+	// };
 	const onClick = () => {
 		FB.ui(
 			{
 				method: "send",
-				link:
-					"http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html"
+				link: "https://boobottle.herokuapp.com/"
 			},
 			function(response) {
 				if (response && response.post_id) {
@@ -30,7 +35,7 @@ const Confirm = ({ teamStore }) => {
 				}
 			}
 		);
-		console.log("this is a first test");
+		// console.log("this is a first test");
 	};
 
 	currentTeam.map(t => {
@@ -57,7 +62,7 @@ const Confirm = ({ teamStore }) => {
 								<div className={styles.imgBottle}>
 									<Bottle
 										teamnaam={t.teamnaam}
-										teamqoute={t.quote}
+										quote={t.quote}
 										cap={t.cap}
 										bottle={t.bottle}
 									/>
@@ -72,12 +77,24 @@ const Confirm = ({ teamStore }) => {
 								</p>
 								<div>
 									<p> meer info: </p>
-									<a href=""></a>
+									<a href="https://boobottle.herokuapp.com/stap1_Connect">
+										www.boobottle.be/inschrijven
+									</a>
 								</div>
 								<div className={styles.shareButtons}>
+									{/* <button
+										onClick={e => copyText(e)}
+										value="https://boobottle.herokuapp.com/stap1_Connect"
+									>
+										<img
+											src={fbIcon}
+											alt="facebookIcon"
+											style={{ fill: "black" }}
+										/>
+									</button> */}
 									<FacebookShareButton
-										url="https://nygardk.github.io/react-share/"
-										quote="this is a test"
+										url="https://boobottle.herokuapp.com/"
+										quote="Kom meedoen in ons team op race for the cure"
 									>
 										<a>
 											<img
@@ -88,8 +105,8 @@ const Confirm = ({ teamStore }) => {
 										</a>
 									</FacebookShareButton>
 									<TwitterShareButton
-										url="https://nygardk.github.io/react-share/"
-										title="this is a test"
+										url="https://boobottle.herokuapp.com/"
+										title="Kom meedoen in ons team op race for the cure"
 									>
 										<a>
 											<img
@@ -100,8 +117,8 @@ const Confirm = ({ teamStore }) => {
 										</a>
 									</TwitterShareButton>
 									<FacebookShareButton
-										url="https://nygardk.github.io/react-share/"
-										quote="this is a test"
+										url="https://boobottle.herokuapp.com/"
+										quote="Kom meedoen in ons team op race for the cure"
 									>
 										<a>
 											<a>
@@ -127,7 +144,7 @@ const Confirm = ({ teamStore }) => {
 								<div className={styles.imgBottle}>
 									<Bottle
 										teamnaam={t.teamnaam}
-										teamqoute={t.quote}
+										quote={t.quote}
 										cap={t.cap}
 										bottle={t.bottle}
 									/>
@@ -137,30 +154,20 @@ const Confirm = ({ teamStore }) => {
 									<p>{t.quote}</p>
 								</div>
 								<p>
-									Kom jij ook mee lopen met ons in Antwerpen voor Race for the
-									Cure?
+									Wij nemen deel aan Race for the Cure en hier is waarom: <br />
+									{t.reason}
 								</p>
 								<div>
 									<p> meer info: </p>
-									<a href=""></a>
+									<a href="https://boobottle.herokuapp.com/stap1_Connect">
+										www.boobottle.be/inschrijven
+									</a>
 								</div>
 								<div className={styles.shareButtons}>
-									<button onClick={onClick}>testing</button>
-									<FacebookShareButton
-										url="https://nygardk.github.io/react-share/"
-										quote="this is a test"
-									>
-										<a>
-											<img
-												src={fbIcon}
-												alt="facebookIcon"
-												style={{ fill: "black" }}
-											/>
-										</a>
-									</FacebookShareButton>
+									<img src={fbIcon} alt="facebookIcon" onClick={onClick} />
 									<TwitterShareButton
-										url="https://nygardk.github.io/react-share/"
-										title="this is a test"
+										url="https://boobottle.herokuapp.com/"
+										title="Kom meedoen in ons team op race for the cure"
 									>
 										<a>
 											<img
@@ -171,8 +178,8 @@ const Confirm = ({ teamStore }) => {
 										</a>
 									</TwitterShareButton>
 									<FacebookShareButton
-										url="https://nygardk.github.io/react-share/"
-										quote="this is a test"
+										url="https://boobottle.herokuapp.com/"
+										title="Kom meedoen in ons team op race for the cure"
 									>
 										<a>
 											<a>

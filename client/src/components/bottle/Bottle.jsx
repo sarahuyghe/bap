@@ -66,7 +66,7 @@ class Bottle extends Component {
 	}
 
 	render() {
-		const { cap, bottle, teamnaam, teamquote, custom } = this.props;
+		const { cap, bottle, teamnaam, quote, custom } = this.props;
 		const { images, imagesCap, currentImgCap, currentImg } = this.state;
 		return (
 			<>
@@ -111,15 +111,15 @@ class Bottle extends Component {
 				) : null}
 				<div className="infoOfBottle">
 					<p>{teamnaam}</p>
-					<p>{teamquote}</p>
+					<p>{quote}</p>
 				</div>
 
-				<img src={imagesCap[cap].img} alt="" width="193" />
+				<img src={imagesCap[cap].img} alt="" width="120" />
 				<img
 					src={images[bottle].img}
 					alt=""
 					width="130"
-					style={{ margin: "0 0 0 6.5rem" }}
+					style={{ margin: "0 0 0 -0.5rem" }}
 				/>
 			</>
 		);

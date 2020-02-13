@@ -16,6 +16,14 @@
 	transform: rotate(-15deg);
 }
 
+.textBottle {
+	position: absolute;
+	transform: rotate(90deg);
+	color: white;
+	top: 4rem;
+	left: 4rem;
+}
+
 .bottle {
 	margin-left: 3.8rem;
 }
