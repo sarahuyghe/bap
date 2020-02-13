@@ -8,7 +8,7 @@ import { ROUTES } from "../../constants";
 class Register extends Component {
 	constructor() {
 		super();
-		this.state = { email: "", pwd: "", pwd2: "", name: "" };
+		this.state = { email: "", pwd: "", pwd2: "", name: "", firstname: "" };
 	}
 
 	handleChange = e => {

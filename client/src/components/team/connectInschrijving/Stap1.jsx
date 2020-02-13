@@ -14,7 +14,7 @@ class Stap1 extends Component {
 		super(props);
 		this.state = {
 			searchvalue: "",
-			searching: this.props.searching,
+			searching: {},
 			heightMode: "max"
 		};
 	}
@@ -99,8 +99,8 @@ class Stap1 extends Component {
 								<TeamPallet
 									name="teamId"
 									teamnaam={team.teamnaam}
-									teamquote={team.teamquote}
-									motivation={team.motivation}
+									quote={team.teamquote}
+									motivation={team.reason}
 									bottle={team.bottle}
 									cap={team.cap}
 									teamId={team.id}
