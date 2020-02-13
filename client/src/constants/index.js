@@ -22,5 +22,6 @@ export const ROUTES = {
 	teamform: "/teamform",
 	confirm: "/confirmation",
 
-	portal: "/portal"
+	portal: "/portal",
+	reset: "/reset"
 };

@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class Stap3 extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		const {
 			quote,

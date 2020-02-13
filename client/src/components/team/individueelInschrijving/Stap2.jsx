@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import styles from "./../Individueel.module.css";
 
 class Stap2 extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const {
 			typeOfEvent,

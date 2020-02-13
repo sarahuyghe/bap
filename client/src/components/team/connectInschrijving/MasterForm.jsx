@@ -146,7 +146,6 @@ class MasterForm extends Component {
 						handleChange={this.handleChange}
 						teamId={teamId}
 						searching={searching}
-						handleChange={this.handleChange}
 						handleChangeOnSearch={this.handleSearch}
 						handleLoad={this.handleLoad}
 						button={this.nextButton}

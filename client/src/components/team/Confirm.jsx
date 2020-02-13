@@ -13,7 +13,7 @@ import Bottle from "./../bottle/Bottle";
 import styles from "./Confirm.module.css";
 
 const Confirm = ({ teamStore }) => {
-	const { team } = teamStore;
+	const { currentTeam } = teamStore;
 	const FB = window.FB;
 	const onClick = () => {
 		FB.ui(
@@ -33,7 +33,7 @@ const Confirm = ({ teamStore }) => {
 		console.log("this is a first test");
 	};
 
-	team.map(t => {
+	currentTeam.map(t => {
 		console.log(t.teamnaam);
 	});
 	return (
@@ -52,7 +52,7 @@ const Confirm = ({ teamStore }) => {
 						<p className="uitlegTitle">
 							Want anders is een team hebben redelijk nutteloos
 						</p>
-						{team.map(t => (
+						{currentTeam.map(t => (
 							<div className={styles.sharen}>
 								<div className={styles.imgBottle}>
 									<Bottle
@@ -122,14 +122,16 @@ const Confirm = ({ teamStore }) => {
 						<p className="uitlegTitle">
 							Laat je vrienden en familie weten dat je deelneemt{" "}
 						</p>
-						{team.map(t => (
+						{currentTeam.map(t => (
 							<div className={styles.sharen}>
-								<Bottle
-									teamnaam={t.teamnaam}
-									teamqoute={t.quote}
-									cap={t.cap}
-									bottle={t.bottle}
-								/>
+								<div className={styles.imgBottle}>
+									<Bottle
+										teamnaam={t.teamnaam}
+										teamqoute={t.quote}
+										cap={t.cap}
+										bottle={t.bottle}
+									/>
+								</div>
 								<div>
 									<h5>{t.teamnaam}</h5>
 									<p>{t.quote}</p>

@@ -101,6 +101,7 @@ class Stap1 extends Component {
 				{searching.map(
 					(team, index) => (
 						// <Slide index={index}>
+						// console.log(team)
 						<TeamPallet
 							key={index}
 							name="teamId"
@@ -113,8 +114,8 @@ class Stap1 extends Component {
 							kind={team.kind}
 							handleClickPallet={handleChange}
 						/>
-						// </Slide>
 					)
+					// </Slide>
 					// <p key={test.id} value={test.teamId}>
 					// 	{test.teamnaam ? test.teamnaam : test.name}
 					// </p>

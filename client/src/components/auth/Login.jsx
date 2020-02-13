@@ -6,7 +6,6 @@ import { ROUTES } from "../../constants";
 import { toast } from "react-toastify";
 
 import styles from "./Login.module.css";
-import arrowWhite from "./../../images/arrowWhite.svg";
 
 const Login = ({ uiStore, history }) => {
 	const emailInput = React.createRef();
@@ -65,9 +64,9 @@ const Login = ({ uiStore, history }) => {
 							ref={pwdInput}
 						/>
 					</label>
-					<a href="" className={styles.forget}>
+					<NavLink to={ROUTES.reset} className={styles.forget}>
 						Ik ben mijn paswoord vergeten
-					</a>
+					</NavLink>
 					<input
 						type="submit"
 						value="Aanmelden"

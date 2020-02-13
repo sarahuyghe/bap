@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import withAuthentication from "../auth/WithAuthentication";
-import { inject, observer, renderReporter } from "mobx-react";
+import { inject, observer } from "mobx-react";
 
 import planning from "./../../images/planning.png";
 

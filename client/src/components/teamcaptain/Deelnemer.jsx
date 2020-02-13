@@ -4,10 +4,6 @@ import styles from "./Home.module.css";
 import trashIcon from "./../../images/trashIcon.svg";
 
 class Deelnemer extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		const { person, onDelete } = this.props;
 		console.log(person);

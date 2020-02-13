@@ -6,9 +6,9 @@ import bottleRed from "./../../images/bottle2.png";
 import bottleblue from "./../../images/bottle3.png";
 import bottlePink from "./../../images/bottle4.png";
 
-import capPink from "./../../images/cap1.png";
-import capBrown from "./../../images/cap2.png";
-import cap from "./../../images/cap3.png";
+import capPink from "./../../images/capPink.png";
+import capBrown from "./../../images/capBrown.png";
+import cap from "./../../images/capWhite.png";
 
 class Bottle extends Component {
 	constructor(props) {
@@ -66,13 +66,12 @@ class Bottle extends Component {
 	}
 
 	render() {
-		const { cap, bottle, teamnaam, teamqoute, custom } = this.props;
+		const { cap, bottle, teamnaam, teamquote, custom } = this.props;
 		const { images, imagesCap, currentImgCap, currentImg } = this.state;
 		return (
 			<>
 				{custom ? (
 					<>
-						{" "}
 						<div>
 							{imagesCap.map((img, index) => (
 								<img
@@ -110,6 +109,11 @@ class Bottle extends Component {
 						</div>
 					</>
 				) : null}
+				<div className="infoOfBottle">
+					<p>{teamnaam}</p>
+					<p>{teamquote}</p>
+				</div>
+
 				<img src={imagesCap[cap].img} alt="" width="193" />
 				<img
 					src={images[bottle].img}

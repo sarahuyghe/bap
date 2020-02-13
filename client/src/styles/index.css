@@ -41,6 +41,14 @@ html {
 	width: 100vw;
 }
 
+.infoOfBottle {
+	transform: rotate(90deg);
+	position: absolute;
+	color: white;
+	margin-left: 80px;
+	margin-top: 300px;
+}
+
 /* .visually-hidden {
   position: absolute;
   width: 1px;

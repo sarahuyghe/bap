@@ -39,6 +39,7 @@ import Portal from "./components/teamcaptain/Home";
 import Loader from "./components/Loader";
 
 import Footer from "./components/footer/Footer";
+import Password from "./components/auth/Password";
 
 // import "./styles.css";
 
@@ -75,6 +76,7 @@ function App() {
 				<Route path={ROUTES.confirm} component={Confirm} />
 
 				<Route path={ROUTES.portal} component={Portal} />
+				<Route path={ROUTES.reset} component={Password} />
 			</Switch>
 
 			<Footer />

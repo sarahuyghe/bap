@@ -92,7 +92,6 @@ decorate(ParticipantStore, {
 	participants: observable,
 	currentParticipants: observable,
 	acceptingParticipants: observable,
-	total: observable,
 
 	addTeam: action,
 	search: action,
