@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import styles from "./../ConnectTeam.module.css";
 
 class Stap2 extends Component {
-	constructor(props) {
-		super(props);
-	}
 	render() {
 		const {
 			name,

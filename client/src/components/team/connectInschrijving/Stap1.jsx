@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-	CarouselProvider,
-	Slider,
-	Slide,
-	Dot,
-	ButtonBack,
-	ButtonNext
-} from "pure-react-carousel";
+
 import Carousel from "nuka-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { ROUTES } from "./../../../constants/";
@@ -139,7 +132,6 @@ class Stap1 extends Component {
 								}}
 							>
 								<TeamPallet
-									// key={index}
 									name="teamId"
 									teamnaam={team.teamnaam}
 									teamquote={team.teamquote}
@@ -149,12 +141,9 @@ class Stap1 extends Component {
 									teamId={team.id}
 									kind={team.kind}
 									handleClickPallet={handleChange}
-									heightMode={heightMode}
 								/>
 							</div>
 						))}
-						{/* <button onClick={}>prev</button>
-						<button>next</button> */}
 					</Carousel>
 				</div>
 				{button}
