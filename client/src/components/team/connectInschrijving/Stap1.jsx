@@ -19,7 +19,11 @@ import TeamPallet from "./../../TeamPallet";
 class Stap1 extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { searchvalue: "", searching: this.props.searching };
+		this.state = {
+			searchvalue: "",
+			searching: this.props.searching,
+			heightMode: "max"
+		};
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -43,6 +47,7 @@ class Stap1 extends Component {
 			// Prop: The current step
 			return null;
 		}
+		const { heightMode } = this.state;
 		console.log(searching);
 		console.log(teamId);
 		return (
@@ -104,7 +109,8 @@ class Stap1 extends Component {
 				<div className={styles.resultaten}>
 					<Carousel
 						slidesToShow={2}
-						initialSlideHeight={400}
+						heightMode={heightMode}
+						cellSpacing={20}
 						defaultControlsConfig={{
 							prevButtonStyle: {
 								background: "transparent",
@@ -126,18 +132,26 @@ class Stap1 extends Component {
 						}}
 					>
 						{searching.map((team, index) => (
-							<TeamPallet
+							<div
 								key={index}
-								name="teamId"
-								teamnaam={team.teamnaam}
-								teamquote={team.teamquote}
-								motivation={team.motivation}
-								bottle={team.bottle}
-								cap={team.cap}
-								teamId={team.id}
-								kind={team.kind}
-								handleClickPallet={handleChange}
-							/>
+								style={{
+									height: this.state.heightMode === "current" ? 100 : 400
+								}}
+							>
+								<TeamPallet
+									// key={index}
+									name="teamId"
+									teamnaam={team.teamnaam}
+									teamquote={team.teamquote}
+									motivation={team.motivation}
+									bottle={team.bottle}
+									cap={team.cap}
+									teamId={team.id}
+									kind={team.kind}
+									handleClickPallet={handleChange}
+									heightMode={heightMode}
+								/>
+							</div>
 						))}
 						{/* <button onClick={}>prev</button>
 						<button>next</button> */}

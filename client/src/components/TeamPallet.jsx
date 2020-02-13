@@ -73,7 +73,8 @@ class TeamPallet extends Component {
 			cap,
 			teamId,
 			kind,
-			handleClickPallet
+			handleClickPallet,
+			heightMode
 		} = this.props;
 		const { images, imagesCap } = this.state;
 		// console.log(teamnaam);
@@ -81,11 +82,16 @@ class TeamPallet extends Component {
 		// console.log(bottle);
 		// console.log(images[bottle].name);
 		return (
+			// <div
+			// 	// name="teamId"
+			// 	style={{
+			// 		height: this.state.heightMode === "current" ? 100 : 400
+			// 	}}
+			// 	// value={teamId}
+			// 	// key={teamId}
+			// >
 			<div
-				// name="teamId"
 				className={styles.pallet}
-				// value={teamId}
-				// key={teamId}
 				onClick={e => {
 					e.preventDefault();
 					const test = { teamId: teamId, kind: kind };
@@ -110,6 +116,7 @@ class TeamPallet extends Component {
 					<p>{motivation}</p>
 				</div>
 			</div>
+			// </div>
 		);
 	}
 }
