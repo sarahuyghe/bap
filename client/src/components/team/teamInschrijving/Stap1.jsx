@@ -110,6 +110,7 @@ class Stap1 extends Component {
 									src={img.color}
 									alt="choose color cap"
 									id={index}
+									className={styles.chosen}
 									onClick={e => {
 										this.setState({ currentImgCap: e.currentTarget.id });
 										this.props.handleChange(e);

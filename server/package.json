@@ -18,6 +18,8 @@
 		"nodemailer": "^6.4.2"
 	},
 	"devDependencies": {
+		"brotli-webpack-plugin": "^1.1.0",
+		"compression-webpack-plugin": "^3.1.0",
 		"nodemon": "^1.18.10"
 	},
 	"scripts": {

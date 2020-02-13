@@ -4,7 +4,9 @@
 	grid-row: repeat(2, auto);
 	justify-content: center;
 }
-
+.chosen {
+	border: 2rem black;
+}
 .custom h3 {
 	grid-column: 2;
 }
