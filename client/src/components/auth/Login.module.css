@@ -5,8 +5,29 @@
 	width: 780px;
 	padding: 35px 200px;
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
+	height: 576px;
+	position: absolute;
+	left: auto;
+
+	top: 61px;
+	z-index: 1000;
+}
+
+.back {
+	text-align: left;
+	background: radial-gradient(
+		49.97% 179.31% at 49.97% -79.31%,
+		#feb1b7 0%,
+		#ff969b 100%
+	);
+	height: 90px;
+	padding: 4rem 2rem;
+	align-self: center;
+}
+
+.back img {
+	transform: rotate(270deg);
 }
 form {
 	display: flex;

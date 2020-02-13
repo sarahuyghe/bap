@@ -61,7 +61,7 @@ const Footer = ({ mailStore }) => {
 					Schrijf je in voor de nieuwsbrief om steeds op de hoogte te blijven
 					van onze evenementen
 				</p>
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} className={styles.mailForm}>
 					<label>
 						<input
 							type="text"

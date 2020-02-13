@@ -3,6 +3,9 @@ import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import { inject, observer } from "mobx-react";
 
+import aanmeldenIcon from "./../../images/aanmeldIcon.svg";
+
+import Social from "./../social/Social";
 import styles from "./Menu.module.css";
 
 import styled from "styled-components";
@@ -32,7 +35,14 @@ const Menu = ({ open, setOpen, uiStore }) => {
 		<StyledMenu open={open}>
 			<div className={`test ${open ? null : styles.hide}`}>
 				{uiStore.authUser ? (
-					<>
+					<div className={styles.login}>
+						<NavLink
+							to={ROUTES.portal}
+							className={styles.login}
+							onClick={() => setOpen(!open)}
+						>
+							Team Instellingen
+						</NavLink>
 						<button
 							onClick={() => {
 								setOpen(!open);
@@ -41,20 +51,14 @@ const Menu = ({ open, setOpen, uiStore }) => {
 						>
 							logout
 						</button>
-						<NavLink
-							to={ROUTES.overzicht}
-							className={styles.login}
-							onClick={() => setOpen(!open)}
-						>
-							Overzicht
-						</NavLink>
-					</>
+					</div>
 				) : (
 					<NavLink
 						to={ROUTES.login}
 						className={styles.login}
 						onClick={() => setOpen(!open)}
 					>
+						<img src={aanmeldenIcon} alt="aanmeld icon" />
 						Aanmelden
 					</NavLink>
 				)}

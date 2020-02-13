@@ -71,7 +71,7 @@ class Stap1 extends Component {
 					</div>
 				</section>
 				{button}
-				<NavLink to={ROUTES.team} className="mainButton">
+				<NavLink to={ROUTES.team} className="mainButton backButton">
 					Terug
 				</NavLink>
 			</section>

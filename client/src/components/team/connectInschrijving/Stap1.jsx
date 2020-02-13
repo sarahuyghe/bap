@@ -91,43 +91,43 @@ class Stap1 extends Component {
 				{/* </select> */}
 
 				{/* <div className={styles.resultaten}> */}
-				<CarouselProvider
+				{/* <CarouselProvider
 					naturalSlideWidth={410}
 					naturalSlideHeight={125}
 					totalSlides={searching.length}
 					className={styles.resultaten}
 				>
-					<Slider>
-						{searching.map(
-							(team, index) => (
-								<Slide index={index}>
-									<TeamPallet
-										key={index}
-										name="teamId"
-										teamnaam={team.teamnaam}
-										teamquote={team.teamquote}
-										motivation={team.motivation}
-										bottle={team.bottle}
-										cap={team.cap}
-										teamId={team.id}
-										kind={team.kind}
-										handleClickPallet={handleChange}
-									/>
-								</Slide>
-							)
-							// <p key={test.id} value={test.teamId}>
-							// 	{test.teamnaam ? test.teamnaam : test.name}
-							// </p>
-						)}
-					</Slider>
+					<Slider> */}
+				{searching.map(
+					(team, index) => (
+						// <Slide index={index}>
+						<TeamPallet
+							key={index}
+							name="teamId"
+							teamnaam={team.teamnaam}
+							teamquote={team.teamquote}
+							motivation={team.motivation}
+							bottle={team.bottle}
+							cap={team.cap}
+							teamId={team.id}
+							kind={team.kind}
+							handleClickPallet={handleChange}
+						/>
+						// </Slide>
+					)
+					// <p key={test.id} value={test.teamId}>
+					// 	{test.teamnaam ? test.teamnaam : test.name}
+					// </p>
+				)}
+				{/* </Slider>
 					<ButtonBack>Back</ButtonBack>
 					<ButtonNext>Next</ButtonNext>
-				</CarouselProvider>
+				</CarouselProvider> */}
 
 				{/* </Slider> */}
 				{/* </div> */}
 				{button}
-				<NavLink to={ROUTES.team} className="mainButton">
+				<NavLink to={ROUTES.team} className="mainButton backButton">
 					Terug
 				</NavLink>
 			</section>

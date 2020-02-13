@@ -21,7 +21,8 @@ class Home extends Component {
 			activeI: false,
 			activeTeam: false,
 			activeConnect: false,
-			activePerson: false
+			activePerson: false,
+			activeItem: "team"
 		};
 	}
 
@@ -32,7 +33,8 @@ class Home extends Component {
 			activeI,
 			activeTeam,
 			activeConnect,
-			activePerson
+			activePerson,
+			activeItem
 		} = this.state;
 		return (
 			<>
@@ -43,12 +45,14 @@ class Home extends Component {
 					</div>
 					<div>
 						<div
+							id="team"
 							className={styles.animation}
-							onClick={() => {
+							onClick={e => {
 								this.setState({
 									activeT: true,
 									activeCTT: false,
-									activeI: false
+									activeI: false,
+									activeItem: e.currentTarget.id
 								});
 							}}
 							onMouseEnter={() => this.setState({ activeTeam: !activeTeam })}
@@ -59,8 +63,8 @@ class Home extends Component {
 						</div>
 						<div
 							className={`${styles.opportunities} ${
-								activeTeam ? null : styles.hide
-							}`}
+								activeItem === "team" ? null : styles.hide
+							} `}
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<ul>
@@ -80,12 +84,14 @@ class Home extends Component {
 					</div>
 					<div>
 						<div
+							id="connect"
 							className={styles.animation}
-							onClick={() => {
+							onClick={e => {
 								this.setState({
 									activeT: false,
 									activeCTT: true,
-									activeI: false
+									activeI: false,
+									activeItem: e.currentTarget.id
 								});
 							}}
 							onMouseEnter={() =>
@@ -100,8 +106,11 @@ class Home extends Component {
 						</div>
 						<div
 							className={`${styles.opportunities} ${
-								activeConnect ? null : styles.hide
+								activeItem === "connect" ? null : styles.hide
 							}`}
+							// className={`${styles.opportunities} ${
+							// 	activeConnect ? null : styles.hide
+							// }`}
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<ul>
@@ -111,13 +120,14 @@ class Home extends Component {
 					</div>
 					<div>
 						<div
+							id="indi"
 							className={styles.animation}
-							onClick={() => {
+							onClick={e => {
 								this.setState({
 									activeT: false,
 									activeCTT: false,
 									activeI: true,
-									activePerson: true
+									activeItem: e.currentTarget.id
 								});
 							}}
 							onMouseEnter={() =>
@@ -132,8 +142,11 @@ class Home extends Component {
 						</div>
 						<div
 							className={`${styles.opportunities} ${
-								activePerson ? null : styles.hide
+								activeItem === "indi" ? null : styles.hide
 							}`}
+							// className={`${styles.opportunities} ${
+							// 	activePerson ? null : styles.hide
+							// }`}
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<ul>
@@ -142,7 +155,7 @@ class Home extends Component {
 						</div>
 					</div>
 					<Social />
-					{activeT ? (
+					{activeItem === "team" ? (
 						<NavLink
 							to={ROUTES.stap1Team}
 							className={`mainButton ${styles.nextButton}`}
@@ -150,7 +163,7 @@ class Home extends Component {
 							Volgende
 						</NavLink>
 					) : null}
-					{activeCTT ? (
+					{activeItem === "connect" ? (
 						<NavLink
 							to={ROUTES.stap1Connect}
 							className={`mainButton ${styles.nextButton}`}
@@ -158,7 +171,7 @@ class Home extends Component {
 							Volgende
 						</NavLink>
 					) : null}
-					{activeI ? (
+					{activeItem === "indi" ? (
 						<NavLink
 							to={ROUTES.stap1Indi}
 							className={`mainButton ${styles.nextButton}`}

@@ -16,3 +16,7 @@
 	background: none;
 	border: none;
 }
+
+.backButton {
+	grid-column: 2;
+}

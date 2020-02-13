@@ -49,7 +49,11 @@ class MasterForm extends Component {
 		// If the current step is not 1, then render the "previous" button
 		if (currentStep !== 1) {
 			return (
-				<button className="secondaireButton" type="button" onClick={this._prev}>
+				<button
+					className="secondaireButton backButton"
+					type="button"
+					onClick={this._prev}
+				>
 					Terug
 				</button>
 			);

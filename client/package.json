@@ -24,6 +24,7 @@
 		"react-slick": "^0.25.2",
 		"react-spinners": "^0.8.0",
 		"react-three-fiber": "^4.0.12",
+		"react-toastify": "^5.5.0",
 		"slick-carousel": "^1.8.1",
 		"styled-components": "^5.0.0",
 		"three": "^0.112.1",

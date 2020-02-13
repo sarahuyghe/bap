@@ -1,0 +1,36 @@
+.buttonsMenu {
+	background-color: white;
+	border: none;
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 2.6rem;
+	padding: 18px 0;
+	text-align: center;
+	width: 300pxs;
+}
+
+.active {
+	color: black;
+	border-left: solid 0.2rem #ffadb3;
+	border-right: solid 0.2rem #ffadb3;
+}
+
+.panelAccount {
+	box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+	margin: 0 70px;
+}
+
+.overzicht {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr) 2fr repeat(2, 20px);
+}
+
+.test {
+	/* grid-row: 2; */
+	grid-column: 1 / span 5;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr) 2fr repeat(2, 20px);
+}
+
+.delete {
+	grid-column: 5;
+}

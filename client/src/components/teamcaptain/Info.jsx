@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 
 import Bottle from "./../bottle/Bottle";
+import styles from "./Home.module.css";
 
 class Info extends Component {
 	constructor(props) {
@@ -19,8 +20,9 @@ class Info extends Component {
 		const { team, onUpdate } = this.props;
 		console.log(team);
 		return edit ? (
-			<section>
+			<section className={styles.panelAccount}>
 				{/* {team.map((t, index) => ( */}
+				<h2>Team informatie</h2>
 				<div key={team.id}>
 					<input
 						type="text"
@@ -111,7 +113,8 @@ class Info extends Component {
 				))}
 			</section>
 		) : (
-			<section>
+			<section className={styles.panelAccount}>
+				<h2>Team informatie</h2>
 				{/* {team.map((t, index) => ( */}
 				<div key={team.id}>
 					<h1>{team.teamnaam}</h1>

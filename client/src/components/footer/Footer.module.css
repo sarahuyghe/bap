@@ -5,10 +5,13 @@ footer {
 		#ff969b 100%
 	);
 	border-top: solid white 0.2rem;
+	/* position: fixed; */
+	left: 0px;
+	bottom: 0px;
 	/* position: relative; */
 }
-
-/* h5 {
+/* 
+h5 {
 	color: #ffffff;
 	font-size: 2.4rem;
 } */
@@ -24,8 +27,13 @@ footer {
 	/* align-content: space-between; */
 }
 
+h5 {
+	padding-bottom: 2rem;
+}
+
 .footerInfo div {
 	width: 480px;
+	/* align-self: center; */
 }
 
 address {
@@ -40,10 +48,18 @@ address {
 .menuItems {
 	text-decoration: none;
 	align-items: center;
+	align-self: center;
+}
+
+.menuItems li {
+	padding: 0.5rem 0;
 }
 
 .newsLetter {
 	text-align: center;
+	width: 480px;
+	margin: auto;
+	width: 50%;
 }
 
 .credits {
@@ -51,10 +67,20 @@ address {
 	text-align: center;
 }
 
+.mailForm {
+	text-align: center;
+	justify-content: center;
+}
+
 .mailinput {
 	width: 580px;
-	justify-self: center;
 }
 .submit {
-	border-color: white;
+	border: transparent;
+	border-bottom: solid white 0.2rem;
+	text-align: center;
+	font-size: 1.8rem;
+	align-self: flex-end;
+	width: 110px;
+	margin: 0 1.5rem 1.5rem;
 }
