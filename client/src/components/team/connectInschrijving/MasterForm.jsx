@@ -25,6 +25,12 @@ class MasterForm extends Component {
 		this._prev = this._prev.bind(this);
 	}
 
+	componentDidMount() {
+		this.props.teamStore.getAll();
+		this.setState({ searching: this.props.teamStore.teams });
+		console.log("it is mouted");
+	}
+
 	_next() {
 		let currentStep = this.state.currentStep;
 		// If the current step is 1 or 2, then add one on "next" button click
@@ -90,9 +96,10 @@ class MasterForm extends Component {
 	};
 
 	handleSearch = e => {
-		// console.log(e.target.value);
+		console.log(e.target.value);
 		this.props.teamStore.search(e.currentTarget.value);
 		const test = this.props.teamStore.searchField;
+		console.log(test);
 		this.setState({ searching: test });
 	};
 
@@ -151,6 +158,7 @@ class MasterForm extends Component {
 						handleLoad={this.handleLoad}
 						button={this.nextButton}
 					/>
+
 					<Stap2
 						currentStep={currentStep}
 						name={name}

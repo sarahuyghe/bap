@@ -19,7 +19,15 @@ import TeamPallet from "./../../TeamPallet";
 class Stap1 extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { searchvalue: "" };
+		this.state = { searchvalue: "", searching: this.props.searching };
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.searching !== this.props.searching) {
+			// this.setState({ searching: this.props.searching });
+			console.log("pokemons state has changed.");
+			this.forceUpdate();
+		}
 	}
 
 	render() {
@@ -46,6 +54,7 @@ class Stap1 extends Component {
 						<input
 							type="search"
 							className="form_input"
+							placeholder="teamnaam"
 							onChange={e => {
 								this.setState({ searchValue: e.currentTarget.value });
 								handleChangeOnSearch(e);
@@ -57,7 +66,6 @@ class Stap1 extends Component {
 					</div>
 				</div>
 				<div className="deeltitel">Aansluiten bij een team</div>
-
 				{/* {searching.map(
 						team => (
 							<option key={team.id} value={team.id}>
@@ -78,7 +86,6 @@ class Stap1 extends Component {
 						// 	</>
 						// ))
 					)} */}
-
 				{/* {teams.map(team => */}
 				{/* {teams.map(test => (
       <>
@@ -94,18 +101,31 @@ class Stap1 extends Component {
       </>
     ))} */}
 				{/* </select> */}
-
-				{/* <CarouselProvider
-					naturalSlideWidth={410}
-					naturalSlideHeight={60}
-					totalSlides={searching.length}
-					className={styles.resultaten}
-				> */}
 				<div className={styles.resultaten}>
-					{/* <Slider> */}
-					<Carousel>
+					<Carousel
+						slidesToShow={2}
+						initialSlideHeight={400}
+						defaultControlsConfig={{
+							prevButtonStyle: {
+								background: "transparent",
+								marginLeft: "-50px",
+								color: "black",
+								fontSize: "2.4rem"
+							},
+							nextButtonStyle: {
+								background: "transparent",
+								marginRight: "-50px",
+								color: "black",
+								fontSize: "2.4rem"
+							},
+							nextButtonText: ">",
+							prevButtonText: "<",
+							pagingDotsStyle: {
+								display: "none"
+							}
+						}}
+					>
 						{searching.map((team, index) => (
-							// <Slide index={index}>
 							<TeamPallet
 								key={index}
 								name="teamId"
@@ -118,30 +138,11 @@ class Stap1 extends Component {
 								kind={team.kind}
 								handleClickPallet={handleChange}
 							/>
-							// </Slide>
-							// <p key={test.id} value={test.teamId}>
-							// 	{test.teamnaam ? test.teamnaam : test.name}
-							// </p>
 						))}
+						{/* <button onClick={}>prev</button>
+						<button>next</button> */}
 					</Carousel>
-					{/* </Slider> */}
 				</div>
-
-				{/* <section className={styles.testing}>
-						{searching.map((team, index) => (
-							<Dot slide={index} key={index}>
-								<span aria-hidden="true">&middot;</span>
-								<span className="sr-only">Carousel Slide {index}</span>
-							</Dot>
-						))}
-					</section> */}
-
-				{/* <ButtonBack>Back</ButtonBack>
-						<ButtonNext>Next</ButtonNext> */}
-				{/* </CarouselProvider> */}
-
-				{/* </Slider> */}
-
 				{button}
 				<NavLink to={ROUTES.team} className="mainButton backButton">
 					Terug

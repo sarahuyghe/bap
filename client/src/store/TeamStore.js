@@ -25,12 +25,11 @@ class TeamStore {
 		this.rootStore = rootStore;
 		this.api = new Api("teams");
 		this.apiPerson = new Api("participants");
-		this.api.getAll().then(d => d.forEach(this._addTeam));
+		this.getAll();
 		this.apiPerson.getAll().then(d => d.forEach(this._addPerson));
 
 		if (this.rootStore.uiStore.authUser) {
 			console.log("er is een user ingelogd");
-
 			console.log(this.rootStore.uiStore.authUser);
 			this.getTeamById(this.rootStore.uiStore.authUser.teamId);
 		}
@@ -46,6 +45,10 @@ class TeamStore {
 			}
 		});
 	}
+
+	getAll = () => {
+		this.api.getAll().then(d => d.forEach(this._addTeam));
+	};
 
 	// getTeamById = id => {
 	// 	this.currentTeam = [];
@@ -94,6 +97,7 @@ class TeamStore {
 
 	search = data => {
 		this._search = data;
+		console.log(this._search);
 		// const searchTeam = this.teams.filter(check =>
 		// 	check.teamnaam.toLowerCase().includes(data)
 		// );
@@ -135,7 +139,7 @@ class TeamStore {
 
 	get searchField() {
 		return this._search
-			? this.searching.filter(check =>
+			? this.teams.filter(check =>
 					check.teamnaam.toLowerCase().includes(this._search)
 			  )
 			: this.teams;
@@ -151,6 +155,7 @@ decorate(TeamStore, {
 	test: observable,
 	_teams: observable,
 
+	getAll: action,
 	addTeam: action,
 	_addTeam: action,
 	search: action,
