@@ -43,7 +43,7 @@ textarea {
 }
 
 .panel {
-	height: 100vh;
+	height: 110vh;
 	display: grid;
 	padding-top: 5rem;
 	grid-template-columns: 10% 1fr 20%;

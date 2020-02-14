@@ -63,8 +63,8 @@ const Confirm = ({ teamStore }) => {
 									<Bottle
 										teamnaam={t.teamnaam}
 										quote={t.quote}
-										cap={t.cap}
-										bottle={t.bottle}
+										cap={2}
+										bottle={2}
 									/>
 								</div>
 								<div>

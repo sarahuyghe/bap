@@ -26,7 +26,7 @@ class Race extends Component {
 					</p>
 				</div>
 				<div className={styles.border} />
-				<video autoPlay width="657" className={styles.videoMap}>
+				<video autoPlay width="437" className={styles.videoMap}>
 					<source src={BelgieMap} type="video/mp4" />
 				</video>
 				<div className={styles.raceSteps}>
