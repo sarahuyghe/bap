@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { inject, observer } from "mobx-react";
 
 import Carousel from "nuka-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
@@ -8,8 +9,6 @@ import { NavLink } from "react-router-dom";
 import styles from "./../../team/ConnectTeam.module.css";
 
 import TeamPallet from "./../../TeamPallet";
-
-// import styles from "./../MessageForm.module.css";
 
 class Stap1 extends Component {
 	constructor(props) {
@@ -29,7 +28,6 @@ class Stap1 extends Component {
 	}
 	render() {
 		const {
-			teamId,
 			searching,
 			handleChange,
 			handleChangeOnSearch,
@@ -42,7 +40,7 @@ class Stap1 extends Component {
 			return null;
 		}
 		const { heightMode } = this.state;
-
+		console.log(searching);
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
@@ -101,8 +99,8 @@ class Stap1 extends Component {
 									teamnaam={team.teamnaam}
 									quote={team.teamquote}
 									motivation={team.reason}
-									bottle={team.bottle}
-									cap={team.cap}
+									bottle={2}
+									cap={2}
 									teamId={team.id}
 									kind={team.kind}
 									handleClickPallet={handleChange}
@@ -112,7 +110,7 @@ class Stap1 extends Component {
 					</Carousel>
 				</div>
 				{button}
-				<NavLink to={ROUTES.team} className="secondaireButton backButton">
+				<NavLink to={ROUTES.support} className="secondaireButton backButton">
 					Terug
 				</NavLink>
 			</section>
@@ -120,4 +118,4 @@ class Stap1 extends Component {
 	}
 }
 
-export default Stap1;
+export default inject("teamStore")(observer(Stap1));

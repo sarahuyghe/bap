@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-import { ROUTES } from "./../../../constants/";
+import { ROUTES } from "./../../constants/";
 import { NavLink } from "react-router-dom";
 
-import styles from "./../MessageForm.module.css";
+import styles from "./MessageForm.module.css";
 
-class Stap2 extends Component {
+class DonateForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -19,7 +19,7 @@ class Stap2 extends Component {
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
-					<h3>2. Selecteer een bedrag</h3>
+					<h3>3. Wilt u alsnog sponseren?</h3>
 					<p>
 						Met uw donatie kunnen we meer onderzoek rond borstkanker finacieren
 					</p>
@@ -80,4 +80,4 @@ class Stap2 extends Component {
 	}
 }
 
-export default Stap2;
+export default DonateForm;

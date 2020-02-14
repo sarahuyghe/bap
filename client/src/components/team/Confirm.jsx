@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { inject, observer, PropTypes } from "mobx-react";
+import { inject, observer } from "mobx-react";
 
 import { ROUTES } from "./../../constants/";
 import { FacebookShareButton, TwitterShareButton } from "react-share";

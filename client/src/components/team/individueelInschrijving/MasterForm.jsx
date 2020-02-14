@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { ROUTES } from "./../../../constants/";
 
-import styles from "./../Individueel.module.css";
-
 import Stap1 from "./Stap1";
 import Stap2 from "./Stap2";
 

@@ -175,6 +175,7 @@ class Info extends Component {
 									src={img.color}
 									alt="choose color cap"
 									id={index}
+									width="40"
 									className={
 										currentImgCap === index
 											? `${styles.active}`
@@ -197,6 +198,7 @@ class Info extends Component {
 									src={img.color}
 									alt="choose color cap"
 									id={index}
+									width="40"
 									className={
 										currentImg === index
 											? `${styles.active}`
@@ -305,10 +307,10 @@ class Info extends Component {
 							<p>{team.teamnaam}</p>
 							<p>{team.quote}</p>
 						</div>
-						<img src={imagesCap[2].img} alt="" width="240" />
+						<img src={imagesCap[team.cap].img} alt="cap personal" width="240" />
 						<img
 							src={images[team.bottle].img}
-							alt=""
+							alt="bottle personal"
 							width="180"
 							style={{ margin: "0 0 0 8rem" }}
 						/>

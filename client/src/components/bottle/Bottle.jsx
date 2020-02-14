@@ -74,8 +74,8 @@ class Bottle extends Component {
 	}
 
 	render() {
-		const { cap, bottle, teamnaam, quote, custom } = this.props;
-		const { images, imagesCap, currentImgCap, currentImg } = this.state;
+		const { cap, bottle, teamnaam, quote } = this.props;
+		const { images, imagesCap } = this.state;
 		console.log(cap);
 		return (
 			<>

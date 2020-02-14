@@ -6,7 +6,6 @@ import { inject, observer } from "mobx-react";
 import aanmeldenIcon from "./../../images/aanmeldIcon.svg";
 import instellingenIcon from "./../../images/instellingen.svg";
 
-import Social from "./../social/Social";
 import styles from "./Menu.module.css";
 
 import styled from "styled-components";

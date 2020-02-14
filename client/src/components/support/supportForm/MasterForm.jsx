@@ -4,6 +4,8 @@ import { inject, observer } from "mobx-react";
 import Stap1 from "./Stap1";
 import Stap2 from "./Stap2";
 
+import { ROUTES } from "./../../../constants/";
+
 import styles from "./../MessageForm.module.css";
 
 class MasterForm extends Component {
@@ -13,11 +15,18 @@ class MasterForm extends Component {
 			currentStep: 1,
 			message: "",
 			name: "",
-			teamId: ""
+			teamId: "",
+			searching: []
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this._next = this._next.bind(this);
 		this._prev = this._prev.bind(this);
+	}
+
+	componentDidMount() {
+		this.props.teamStore.getAll();
+		this.setState({ searching: this.props.teamStore.teams });
+		console.log("it is mouted");
 	}
 
 	_next() {
@@ -67,12 +76,16 @@ class MasterForm extends Component {
 	}
 
 	handleChange = e => {
-		console.log(e.target.name);
-		console.log(e.target.value);
-
-		const name = e.target.name;
-		const value =
-			e.target.type === "checkbox" ? e.target.checked : e.target.value;
+		let name;
+		let value;
+		if (e.teamId) {
+			name = "teamId";
+			value = e.teamId;
+			this.setState({ [name]: value, kind: e.kind });
+		} else {
+			name = e.target.name;
+			value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+		}
 		this.setState({ [name]: value });
 	};
 
@@ -85,12 +98,12 @@ class MasterForm extends Component {
 			name: name,
 			teamId: teamId
 		});
-		// history.push(ROUTES.register);
+		history.push(ROUTES.donation);
 	};
 
 	render() {
 		const { teams } = this.props.teamStore;
-		const { message, teamId, name, currentStep } = this.state;
+		const { message, teamId, name, currentStep, searching } = this.state;
 
 		return (
 			<form>
@@ -100,6 +113,7 @@ class MasterForm extends Component {
 					teams={teams}
 					teamId={teamId}
 					button={this.nextButton}
+					searching={searching}
 				/>
 				<Stap2
 					currentStep={currentStep}

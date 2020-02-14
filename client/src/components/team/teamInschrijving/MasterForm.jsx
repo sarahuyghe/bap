@@ -103,7 +103,14 @@ class MasterForm extends Component {
 		if (e.locatie) {
 			name = "locatie";
 			value = e.locatie;
+		} else if (e.cap) {
+			name = "cap";
+			value = e.cap;
+		} else if (e.bottle) {
+			name = "bottle";
+			value = e.bottle;
 		} else {
+			// console.log(e.target.value);
 			// console.log(e.target.value);
 			name = e.target.name;
 			value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -113,6 +120,7 @@ class MasterForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
+		console.log(e);
 		const {
 			locatie,
 			kindOfTeam,
@@ -123,6 +131,9 @@ class MasterForm extends Component {
 			cap,
 			bottle
 		} = this.state;
+		console.log(cap);
+		console.log(bottle);
+
 		const { teamStore, history } = this.props;
 		teamStore.addTeam({
 			teamnaam: teamnaam,

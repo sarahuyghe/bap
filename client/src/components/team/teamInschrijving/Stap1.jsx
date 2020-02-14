@@ -76,10 +76,10 @@ class Stap1 extends Component {
 		};
 	}
 
-	handleChange = e => {
-		this.setState({ currentImg: e.currentTarget.value });
-		this.props.handleChange(e);
-	};
+	// handleChange = e => {
+	// 	this.setState({ currentImg: e.currentTarget.value });
+	// 	this.props.handleChange(e);
+	// };
 
 	render() {
 		const { currentImg, images, imagesCap, currentImgCap } = this.state;
@@ -117,8 +117,10 @@ class Stap1 extends Component {
 											: ` ${styles.chosen}`
 									}
 									onClick={e => {
+										e.preventDefault();
 										this.setState({ currentImgCap: e.currentTarget.id });
-										this.props.handleChange(e);
+										const test = { cap: e.currentTarget.id };
+										handleChange(test);
 										console.log(e.currentTarget.id);
 									}}
 								/>
@@ -158,9 +160,11 @@ class Stap1 extends Component {
 											: ` ${styles.chosen}`
 									}
 									onClick={e => {
+										e.preventDefault();
 										this.setState({ currentImg: e.currentTarget.id });
-										this.props.handleChange(e);
-										console.log(e.currentTarget.id);
+										const test = { bottle: e.currentTarget.id };
+										handleChange(test);
+										console.log(test);
 									}}
 								/>
 							))}

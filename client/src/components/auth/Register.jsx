@@ -96,10 +96,10 @@ class Register extends Component {
 									/>
 								</label>
 							</div>
-							<div>
+							<div className="password">
 								<h4>Kies een paswoord</h4>
 								<p className="uitlegTitle">
-									Zodat enkel jij uw team kan aanpassen{" "}
+									Zodat enkel jij uw team kan aanpassen
 								</p>
 								<label htmlFor="password">
 									Paswoord

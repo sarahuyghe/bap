@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
+import { ROUTES } from "./../../../constants/";
 
 import Stap1 from "./Stap1";
 import Stap2 from "./Stap2";
@@ -13,11 +14,18 @@ class MasterForm extends Component {
 			currentStep: 1,
 			message: "",
 			name: "",
-			teamId: ""
+			teamId: "",
+			searching: []
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this._next = this._next.bind(this);
 		this._prev = this._prev.bind(this);
+	}
+
+	componentDidMount() {
+		this.props.teamStore.getAll();
+		this.setState({ searching: this.props.teamStore.teams });
+		console.log("it is mouted");
 	}
 
 	_next() {
@@ -85,12 +93,12 @@ class MasterForm extends Component {
 			name: name,
 			teamId: teamId
 		});
-		// history.push(ROUTES.register);
+		history.push(ROUTES.confirmDonate);
 	};
 
 	render() {
 		const { teams } = this.props.teamStore;
-		const { message, teamId, name, currentStep } = this.state;
+		const { teamId, currentStep, searching } = this.state;
 
 		return (
 			<form>
@@ -100,6 +108,7 @@ class MasterForm extends Component {
 					teams={teams}
 					teamId={teamId}
 					button={this.nextButton}
+					searching={searching}
 				/>
 				<Stap2
 					currentStep={currentStep}

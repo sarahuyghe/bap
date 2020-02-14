@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { inject, observer, PropTypes } from "mobx-react";
+import { inject, observer } from "mobx-react";
 
 import Carousel from "nuka-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";

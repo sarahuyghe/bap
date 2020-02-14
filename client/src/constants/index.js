@@ -23,6 +23,7 @@ export const ROUTES = {
 	confirmIndi: "/confirmation-individueel",
 
 	donate: "/donate",
+	donation: "/donation",
 	confirmDonate: "/confirmation-donation",
 
 	portal: "/portal",

@@ -2,9 +2,6 @@ import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import { Route, Switch } from "react-router-dom";
 import { ROUTES } from "./constants/";
 
@@ -13,13 +10,11 @@ import Overzicht from "./components/home/Overzicht";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
-import MessageForm from "./components/support/MessageForm";
 import Sponsor from "./components/support/Sponsor";
 import SupportHome from "./components/support/Home";
 
 import HomeTeam from "./components/team/Home";
-// import ConnectTeam from "./components/team/ConnectTeam";
-// import Individueel from "./components/team/Individueel";
+
 import Confirm from "./components/team/Confirm";
 import ConfirmIndiv from "./components/team/ConfirmIndiv";
 
@@ -35,15 +30,12 @@ import Menu from "./components/navigation/Menu";
 
 import Portal from "./components/teamcaptain/Home";
 import DonateForm from "./components/support/sponsorForm/MasterForm";
+import DonateFormAfter from "./components/support/DonateForm";
 
 import confirmDonate from "./components/support/confirmDonate";
 
-import Loader from "./components/Loader";
-
 import Footer from "./components/footer/Footer";
 import Password from "./components/auth/Password";
-
-// import "./styles.css";
 
 function App() {
 	const [open, setOpen] = React.useState(false);
@@ -70,30 +62,17 @@ function App() {
 				<Route path={ROUTES.stap1Connect} component={MasterFormConnect} />
 				<Route path={ROUTES.stap1Indi} component={MasterFormIndiv} />
 
-				{/* <Route path={ROUTES.connectTeam} component={ConnectTeam} />
-				<Route path={ROUTES.individueel} component={Individueel} /> */}
-				{/* <Route path={ROUTES.teamform} component={TeamForm} /> */}
 				<Route path={ROUTES.confirm} component={Confirm} />
 				<Route path={ROUTES.confirmIndi} component={ConfirmIndiv} />
 				<Route path={ROUTES.confirmDonate} component={confirmDonate} />
 				<Route path={ROUTES.donate} component={DonateForm} />
+				<Route path={ROUTES.donation} component={DonateFormAfter} />
 
 				<Route path={ROUTES.portal} component={Portal} />
 				<Route path={ROUTES.reset} component={Password} />
 			</Switch>
 
 			<Footer />
-			<ToastContainer
-				position="top-center"
-				autoClose={4000}
-				hideProgressBar
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnVisibilityChange={false}
-				draggable
-				pauseOnHover
-			/>
 		</>
 	);
 }

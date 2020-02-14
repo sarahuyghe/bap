@@ -3,8 +3,6 @@ import { inject } from "mobx-react";
 import { withRouter, NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants";
 
-import { toast } from "react-toastify";
-
 import styles from "./Login.module.css";
 
 const Login = ({ uiStore, history }) => {

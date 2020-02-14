@@ -134,23 +134,32 @@ class Race extends Component {
 						samen stil bij iedereen die er jammer genoeg niet meer is.
 					</p>
 					<p className={showWar ? styles.fadeIn : styles.hide}>
-						De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
-						borstkanker. Jaarlijks overwinnen er duizende vrouwen EN mannen de
-						strijd tegen borstkanker niet.
+						Beweging, bewustwording en steun. De 3 grote peilers van de Race for
+						the Cure. Beweging is een belangrijk element bij borstkanker, zowel
+						voor, tijdens als na de diagnose. Bewustmaking, mensen bewustmaken
+						van borstkanker. Wat kan men doen als preventie, wat zijn de
+						symptomen en 'oh nee, de diagnose is gesteld wat nu?' . Steun, de
+						race for the cure is een belangrijk evenement voor lotgenoten en hun
+						familie. Steun bieden doorheen de ziekte helpt lotgenoten om hen te
+						motiveren de hoop niet op te geven. Kom jij mee lopen of mee
+						wandelen om lotgenoten steunt te bieden? Of kan jij er niet bij zijn
+						door praktische of fysische beperking, maar wil jij wel heel graag
+						steun bieden? Dan kan u altijd een message in the bottle sturen.
 					</p>
 					<p className={showVoor ? styles.fadeIn : styles.hide}>
-						De Race for the Cure is wereldwijd het grootste evenement in de
-						strijd tegen borstkanker. Op het programma staat een wandeltocht (3
-						km) en een looptocht (6 km). Daarnaast wordt ook een groot dorp
-						opgetrokken. De hele dag is gevuld met animatie en intense emoties.
-						Op deze dag vieren lotgenoten in Antwerpen, Brussel en Namur het
-						leven, toont iedereen solidair steun aan lotgenoten en staan we
-						samen stil bij iedereen die er jammer genoeg niet meer is.
+						De race for the Cure is helemaal geen race, het is een evenement
+						waarbij men wil aanzetten tot beweging. Je hoeft helemaal geen
+						sportieveling of nog fris jong en fit te zijn om deel te nemen.
+						Deelnemen en andere steunen is belangrijk dan de eindmeet halen. Met
+						een kids run van 850m, een wandeltocht van 3km en een looptocht van
+						6km, is er voor iedereen wel wat wils. Ook honden zijn toegelaten,
+						breng dus gerust je volledige familie mee.
 					</p>
 					<p className={showWaar ? styles.fadeIn : styles.hide}>
-						De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
-						borstkanker. Jaarlijks overwinnen er duizende vrouwen EN mannen de
-						strijd tegen borstkanker niet.
+						De race vind plaats op 4 verschillende locaties over heel België. Op
+						27 september vind het evenement zowel plaats in Antwerpen ,
+						Charleroi als in Namen. In Brussel neemt de Race for the Cure op 4
+						oktober plaats.
 					</p>
 				</div>
 			</section>

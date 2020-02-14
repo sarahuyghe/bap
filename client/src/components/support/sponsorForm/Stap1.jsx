@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { inject, observer, PropTypes } from "mobx-react";
 
 import Carousel from "nuka-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
@@ -40,7 +41,7 @@ class Stap1 extends Component {
 			return null;
 		}
 		const { heightMode } = this.state;
-
+		console.log(searching);
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
@@ -99,8 +100,8 @@ class Stap1 extends Component {
 									teamnaam={team.teamnaam}
 									quote={team.teamquote}
 									motivation={team.reason}
-									bottle={team.bottle}
-									cap={team.cap}
+									bottle={2}
+									cap={2}
 									teamId={team.id}
 									kind={team.kind}
 									handleClickPallet={handleChange}
@@ -110,7 +111,7 @@ class Stap1 extends Component {
 					</Carousel>
 				</div>
 				{button}
-				<NavLink to={ROUTES.team} className="secondaireButton backButton">
+				<NavLink to={ROUTES.support} className="secondaireButton backButton">
 					Terug
 				</NavLink>
 			</section>
@@ -118,4 +119,4 @@ class Stap1 extends Component {
 	}
 }
 
-export default Stap1;
+export default inject("teamStore")(observer(Stap1));

@@ -143,7 +143,7 @@ class Stap2 extends Component {
 								value="Namen"
 								onClick={e => {
 									e.preventDefault();
-									const test = { locatie: e.target.value };
+									const test = { locatie: e.currentTarget.value };
 									handleChange(test);
 								}}
 							>

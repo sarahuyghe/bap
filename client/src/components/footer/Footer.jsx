@@ -4,7 +4,6 @@ import { ROUTES } from "../../constants";
 import { inject, observer } from "mobx-react";
 
 import styles from "./Footer.module.css";
-import stylesFooter from "../../styles/typo.module.css";
 
 const Footer = ({ mailStore }) => {
 	const mailInput = React.createRef();

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import group from "./../../images/group.png";
-import connectTeam from "./../../images/group2.png";
-import solo from "./../../images/solo.png";
+
 import arrow from "./../../images/arrow.svg";
 import arrowWhite from "./../../images/arrowWhite.svg";
 
@@ -20,9 +18,6 @@ class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			activeT: false,
-			activeCTT: false,
-			activeI: false,
 			activeTeam: false,
 			activeConnect: false,
 			activePerson: false,
@@ -31,15 +26,7 @@ class Home extends Component {
 	}
 
 	render() {
-		const {
-			activeT,
-			activeCTT,
-			activeI,
-			activeTeam,
-			activeConnect,
-			activePerson,
-			activeItem
-		} = this.state;
+		const { activeTeam, activeConnect, activePerson, activeItem } = this.state;
 		return (
 			<>
 				<section className={styles.header}>

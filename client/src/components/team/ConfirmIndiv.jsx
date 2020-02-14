@@ -9,25 +9,8 @@ import instaIcon from "./../../images/instaIcon.svg";
 import twitterIcon from "./../../images/twitterIcon.svg";
 
 import styles from "./Confirm.module.css";
+
 const ConfirmIndiv = () => {
-	const FB = window.FB;
-	const onClick = () => {
-		FB.ui(
-			{
-				method: "send",
-				link:
-					"http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html"
-			},
-			function(response) {
-				if (response && response.post_id) {
-					alert("success");
-				} else {
-					alert("error");
-				}
-			}
-		);
-		console.log("this is a first test");
-	};
 	return (
 		<>
 			<section className="panel">
