@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { inject, observer, PropTypes } from "mobx-react";
 
 import Carousel from "nuka-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { ROUTES } from "./../../../constants/";
 import { NavLink } from "react-router-dom";
 
-import styles from "./../ConnectTeam.module.css";
+import styles from "./../../team/ConnectTeam.module.css";
 
 import TeamPallet from "./../../TeamPallet";
 
@@ -19,7 +18,6 @@ class Stap1 extends Component {
 			heightMode: "max"
 		};
 	}
-
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.searching !== this.props.searching) {
 			// this.setState({ searching: this.props.searching });
@@ -27,7 +25,6 @@ class Stap1 extends Component {
 			this.forceUpdate();
 		}
 	}
-
 	render() {
 		const {
 			teamId,
@@ -37,13 +34,13 @@ class Stap1 extends Component {
 			button
 			// handleLoad
 		} = this.props;
+		// const { teams, teamId, handleChange, button } = this.props;
 		if (this.props.currentStep !== 1) {
 			// Prop: The current step
 			return null;
 		}
 		const { heightMode } = this.state;
-		console.log(searching);
-		console.log(teamId);
+
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
@@ -102,10 +99,8 @@ class Stap1 extends Component {
 									teamnaam={team.teamnaam}
 									quote={team.teamquote}
 									motivation={team.reason}
-									// bottle={team.bottle}
-									bottle={2}
-									// cap={team.cap}
-									cap={2}
+									bottle={team.bottle}
+									cap={team.cap}
 									teamId={team.id}
 									kind={team.kind}
 									handleClickPallet={handleChange}
@@ -122,4 +117,5 @@ class Stap1 extends Component {
 		);
 	}
 }
-export default inject("teamStore")(observer(Stap1));
+
+export default Stap1;

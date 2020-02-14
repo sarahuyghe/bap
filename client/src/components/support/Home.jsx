@@ -116,7 +116,7 @@ class Home extends Component {
 					) : null}
 					{activeD ? (
 						<NavLink
-							to={ROUTES.stap1Connect}
+							to={ROUTES.donate}
 							className={`mainButton ${styles.nextButton}`}
 						>
 							Volgende

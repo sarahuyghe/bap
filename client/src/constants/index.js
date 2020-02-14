@@ -22,6 +22,9 @@ export const ROUTES = {
 	confirm: "/confirmation",
 	confirmIndi: "/confirmation-individueel",
 
+	donate: "/donate",
+	confirmDonate: "/confirmation-donation",
+
 	portal: "/portal",
 	reset: "/reset"
 };

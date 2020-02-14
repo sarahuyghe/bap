@@ -34,6 +34,9 @@ import Burger from "./components/navigation/Burger";
 import Menu from "./components/navigation/Menu";
 
 import Portal from "./components/teamcaptain/Home";
+import DonateForm from "./components/support/sponsorForm/MasterForm";
+
+import confirmDonate from "./components/support/confirmDonate";
 
 import Loader from "./components/Loader";
 
@@ -72,6 +75,8 @@ function App() {
 				{/* <Route path={ROUTES.teamform} component={TeamForm} /> */}
 				<Route path={ROUTES.confirm} component={Confirm} />
 				<Route path={ROUTES.confirmIndi} component={ConfirmIndiv} />
+				<Route path={ROUTES.confirmDonate} component={confirmDonate} />
+				<Route path={ROUTES.donate} component={DonateForm} />
 
 				<Route path={ROUTES.portal} component={Portal} />
 				<Route path={ROUTES.reset} component={Password} />
