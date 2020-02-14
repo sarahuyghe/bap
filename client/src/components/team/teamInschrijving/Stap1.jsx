@@ -110,7 +110,12 @@ class Stap1 extends Component {
 									src={img.color}
 									alt="choose color cap"
 									id={index}
-									className={styles.chosen}
+									width="40"
+									className={
+										currentImgCap == index
+											? `${styles.active}`
+											: ` ${styles.chosen}`
+									}
 									onClick={e => {
 										this.setState({ currentImgCap: e.currentTarget.id });
 										this.props.handleChange(e);
@@ -146,6 +151,12 @@ class Stap1 extends Component {
 									src={img.color}
 									alt="choose color cap"
 									id={index}
+									width="40"
+									className={
+										currentImg == index
+											? `${styles.active}`
+											: ` ${styles.chosen}`
+									}
 									onClick={e => {
 										this.setState({ currentImg: e.currentTarget.id });
 										this.props.handleChange(e);
@@ -157,7 +168,7 @@ class Stap1 extends Component {
 					</div>
 				</section>
 				{button}
-				<NavLink to={ROUTES.team} className="mainButton backButton">
+				<NavLink to={ROUTES.team} className="secondaireButton backButton">
 					Terug
 				</NavLink>
 			</section>

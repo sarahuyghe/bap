@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styles from "./Race.module.css";
 import arrow from "./../../images/arrow.svg";
 
+import BelgieMap from "./../../images/belgie.mp4";
+
 class Race extends Component {
 	constructor(props) {
 		super(props);
@@ -16,7 +18,7 @@ class Race extends Component {
 		const { showWat, showWar, showVoor, showWaar } = this.state;
 
 		return (
-			<section className={`panelHome ${styles.race}`} id="#test">
+			<section className={`panelHome ${styles.race}`}>
 				<div className={styles.infoRace}>
 					<h2>Race for the Cure</h2>
 					<p className="titleMini">
@@ -24,6 +26,9 @@ class Race extends Component {
 					</p>
 				</div>
 				<div className={styles.border} />
+				<video autoPlay width="657" className={styles.videoMap}>
+					<source src={BelgieMap} type="video/mp4" />
+				</video>
 				<div className={styles.raceSteps}>
 					<div>
 						<img
@@ -119,7 +124,7 @@ class Race extends Component {
 					</div>
 				</div>
 				<div className={styles.raceStepsUitleg}>
-					<p className={showWat ? null : styles.hide}>
+					<p className={showWat ? styles.fadeIn : styles.hide}>
 						De Race for the Cure is wereldwijd het grootste evenement in de
 						strijd tegen borstkanker. Op het programma staat een wandeltocht (3
 						km) en een looptocht (6 km). Daarnaast wordt ook een groot dorp
@@ -128,12 +133,12 @@ class Race extends Component {
 						leven, toont iedereen solidair steun aan lotgenoten en staan we
 						samen stil bij iedereen die er jammer genoeg niet meer is.
 					</p>
-					<p className={showWar ? null : styles.hide}>
+					<p className={showWar ? styles.fadeIn : styles.hide}>
 						De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
 						borstkanker. Jaarlijks overwinnen er duizende vrouwen EN mannen de
 						strijd tegen borstkanker niet.
 					</p>
-					<p className={showVoor ? null : styles.hide}>
+					<p className={showVoor ? styles.fadeIn : styles.hide}>
 						De Race for the Cure is wereldwijd het grootste evenement in de
 						strijd tegen borstkanker. Op het programma staat een wandeltocht (3
 						km) en een looptocht (6 km). Daarnaast wordt ook een groot dorp
@@ -142,7 +147,7 @@ class Race extends Component {
 						leven, toont iedereen solidair steun aan lotgenoten en staan we
 						samen stil bij iedereen die er jammer genoeg niet meer is.
 					</p>
-					<p className={showWaar ? null : styles.hide}>
+					<p className={showWaar ? styles.fadeIn : styles.hide}>
 						De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
 						borstkanker. Jaarlijks overwinnen er duizende vrouwen EN mannen de
 						strijd tegen borstkanker niet.

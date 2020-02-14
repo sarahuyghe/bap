@@ -34,7 +34,9 @@ const Home = () => {
 				</div>
 				<div>
 					<h1>BOOBottle</h1>
-					<p>Herbruikbare fles voor onvervangbare weldoeners</p>
+					<p className="subTitle">
+						Herbruikbare fles voor onvervangbare weldoeners
+					</p>
 				</div>
 				<Social />
 				<div className={styles.scroll}>

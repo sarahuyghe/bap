@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import { inject, observer } from "mobx-react";
 
@@ -41,13 +41,13 @@ const Footer = ({ mailStore }) => {
 					<h5>Menu</h5>
 					<ul className={styles.menuItems}>
 						<li>
-							<NavLink to={ROUTES.home}>Inschrijven</NavLink>
+							<NavLink to={ROUTES.team}>Inschrijven</NavLink>
 						</li>
 						<li>
-							<NavLink to={ROUTES.why}>Supporteren</NavLink>
+							<NavLink to={ROUTES.support}>Supporteren</NavLink>
 						</li>
 						<li>
-							<NavLink to={ROUTES.symptonen}>Preventie</NavLink>
+							<Link to="/#preventie">Preventie</Link>
 						</li>
 					</ul>
 				</div>

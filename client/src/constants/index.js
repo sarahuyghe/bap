@@ -1,7 +1,6 @@
 export const ROUTES = {
 	home: "/",
-	why: "/bottle",
-	symptonen: "/symptonen",
+
 	login: "/signin",
 	register: "/register",
 	overzicht: "/overzicht",
@@ -21,6 +20,7 @@ export const ROUTES = {
 	individueel: "/individueel",
 	teamform: "/teamform",
 	confirm: "/confirmation",
+	confirmIndi: "/confirmation-individueel",
 
 	portal: "/portal",
 	reset: "/reset"

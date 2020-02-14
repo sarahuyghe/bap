@@ -120,14 +120,12 @@ const Confirm = ({ teamStore }) => {
 										url="https://boobottle.herokuapp.com/"
 										quote="Kom meedoen in ons team op race for the cure"
 									>
-										<a>
-											<a>
-												<img
-													src={instaIcon}
-													alt="instaIcon"
-													style={{ fill: "black" }}
-												/>
-											</a>
+										<a href="">
+											<img
+												src={instaIcon}
+												alt="instaIcon"
+												style={{ fill: "black" }}
+											/>
 										</a>
 									</FacebookShareButton>
 								</div>
@@ -181,14 +179,12 @@ const Confirm = ({ teamStore }) => {
 										url="https://boobottle.herokuapp.com/"
 										title="Kom meedoen in ons team op race for the cure"
 									>
-										<a>
-											<a>
-												<img
-													src={instaIcon}
-													alt="instaIcon"
-													style={{ fill: "black" }}
-												/>
-											</a>
+										<a href="/">
+											<img
+												src={instaIcon}
+												alt="instaIcon"
+												style={{ fill: "black" }}
+											/>
 										</a>
 									</FacebookShareButton>
 								</div>

@@ -4,17 +4,23 @@
 }
 
 h1 {
-	font-weight: bold;
+	font-family: "Fira Sans", sans-serif;
+	font-weight: 900;
+	color: white;
+	font-size: 8rem;
 }
 
 h2 {
+	font-family: "Fira Sans", sans-serif;
+	font-weight: 900;
 	font-size: 6.4rem;
 	font-weight: bold;
 }
 
 h3 {
-	font-size: 3.6rem;
+	font-family: "Fira Sans", sans-serif;
 	font-weight: bold;
+	font-size: 4.8rem;
 	padding: 1.2rem 0;
 }
 
@@ -24,36 +30,36 @@ h4 {
 }
 
 p {
+	font-family: "Fira Sans", sans-serif;
+	font-weight: normal;
 	font-size: 1.6rem;
 	line-height: 2.8rem;
 }
 
-.title {
-	font-family: "Roboto", serif;
-	font-size: 2.6rem;
-	font-weight: 700;
-	margin-bottom: 1.5rem;
-}
 .titleMini {
+	font-family: "Fira Sans", sans-serif;
 	font-size: 2.4rem;
-	padding: 1rem 0;
+	line-height: 29px;
 }
 
 .subTitle {
+	font-family: "Montserrat", sans-serif;
 	font-size: 2.6rem;
 	margin: 2rem;
+	text-align: center;
 }
 
 .deeltitel {
 	grid-column: 3;
 	grid-row: 1;
 	align-self: center;
-	right: 0;
+	padding-right: 33px;
 	color: #ffb4b9;
 	font-size: 6.4rem;
 	border-bottom: solid 0.2rem #000;
 	text-align: right;
-	font-weight: bold;
+	font-family: "Fira Sans", sans-serif;
+	font-weight: 900;
 }
 
 .uitlegTitle {
@@ -67,6 +73,10 @@ p {
 }
 .paragraphs p {
 	margin: 1.4rem 0;
+}
+
+.subInfo {
+	color: #ffb4b9;
 }
 
 h5 {

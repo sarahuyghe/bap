@@ -11,30 +11,11 @@ const Login = ({ uiStore, history }) => {
 	const emailInput = React.createRef();
 	const pwdInput = React.createRef();
 
-	const notify = () => {
-		toast.info("🦄 Wow so easy!", {
-			position: "top-center",
-			autoClose: 4000,
-			hideProgressBar: true,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true
-		});
-		toast.error("🦄 Error!", {
-			position: "top-center",
-			autoClose: 4000,
-			hideProgressBar: true,
-			closeOnClick: true,
-			pauseOnHover: true,
-			draggable: true
-		});
-	};
 	const handleSubmit = e => {
 		e.preventDefault();
 		uiStore.login(emailInput.current.value, pwdInput.current.value).then(() => {
 			history.push(ROUTES.portal);
 		});
-		notify();
 	};
 
 	return (
@@ -42,8 +23,8 @@ const Login = ({ uiStore, history }) => {
 			<div className={styles.back} />
 			<div className={styles.login}>
 				<h2>Aanmelden</h2>
-				<p>Zodat u aan de team instellingen kan zien</p>
-				<form onSubmit={handleSubmit}>
+				<p className="subTitle">Zodat u aan de team instellingen kan zien</p>
+				<form onSubmit={handleSubmit} className={styles.loginForm}>
 					<label htmlFor="email">
 						Mijn Email adres is: <br />
 						<input

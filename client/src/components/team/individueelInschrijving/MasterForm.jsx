@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
+import { ROUTES } from "./../../../constants/";
 
 import styles from "./../Individueel.module.css";
 
@@ -73,11 +74,18 @@ class MasterForm extends Component {
 	}
 
 	handleChange = e => {
-		console.log(e.target.value);
-		const name = e.target.name;
-		const value =
-			e.target.type === "checkbox" ? e.target.checked : e.target.value;
+		let value;
+		let name;
+		if (e.locatie) {
+			name = "locatie";
+			value = e.locatie;
+		} else {
+			// console.log(e.target.value);
+			name = e.target.name;
+			value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+		}
 		this.setState({ [name]: value });
+		console.log(this.state.locatie);
 	};
 
 	handleSubmit = e => {
@@ -91,7 +99,7 @@ class MasterForm extends Component {
 			typeOfEvent: event,
 			location: locatie
 		});
-		// history.push(ROUTES.register);
+		history.push(ROUTES.confirmIndi);
 	};
 
 	render() {

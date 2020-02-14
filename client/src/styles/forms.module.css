@@ -5,9 +5,26 @@
 	width: 24.8rem;
 }
 
+label {
+	font-size: 1.8rem;
+	line-height: 22px;
+}
+
 .customTesting {
 	padding: 2rem 0;
 }
+
+.typeEvent {
+	width: 50px;
+	margin: 1rem 0;
+}
+/* 
+textarea {
+	font-size: 1.8rem;
+	color: rgba(0, 0, 0, 0.59);
+	line-height: 1.2em;
+	padding: 0.5rem;
+} */
 
 /* .customRadio; */
 .checkbox {

@@ -28,7 +28,7 @@ class Home extends Component {
 			<>
 				<section className={styles.header}>
 					<div>
-						<h2>Supporteren</h2>
+						<h1>Supporteren</h1>
 						<p className="subTitle">Selecteer een supporters-methode</p>
 					</div>
 					<div>
@@ -92,12 +92,15 @@ class Home extends Component {
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<p>
-								Via message in a bottle kun je een team steunen naar keuze. Dit
-								doe je door een steunbericht te schrijven die het team dan kan
-								lezen op de dag zelf. Tijdens het inschrijven van een team maakt
-								de teamcaptain zijn/haar gepersonaiseerde drinkfles. In deze
-								drinkfles kunnen ze op het evenement jou steun bericht terug
-								vinden om hun succes te wens op de race.
+								België is wereldkampioen borstkanker. Toch is het voor
+								onderzoekers van bij ons die innovatieve wetenschappelijke
+								projecten opzetten rond borstkanker, vaak moeilijk om aan de
+								nodige financiële middelen te geraken. Op kleine en middelgrote
+								schaal wordt gezocht naar nieuwe methodes op het vlak van
+								screening, behandeling en nazorg. Met andere woorden uw
+								bijdrage, groot of klein, is steeds zeer welkom. Op deze manier
+								toon je ook aan het team dat je wilt steunen dat je er ook iet
+								voor over hebt.
 							</p>
 						</div>
 					</div>

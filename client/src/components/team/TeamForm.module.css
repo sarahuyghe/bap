@@ -1,11 +1,20 @@
 .custom {
 	display: grid;
+	padding-top: 5rem;
 	grid-template-columns: 10% 20% 40% 30%;
 	grid-row: repeat(2, auto);
 	justify-content: center;
 }
 .chosen {
-	border: 2rem black;
+	border: 0.3rem solid black;
+	border-radius: 50px;
+	margin: 0 1rem;
+}
+
+.active {
+	border: 0.3rem solid #ffb4b9;
+	border-radius: 50px;
+	margin: 0 1rem;
 }
 .custom h3 {
 	grid-column: 2;

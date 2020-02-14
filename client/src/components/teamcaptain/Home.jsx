@@ -31,7 +31,7 @@ class Home extends Component {
 		return (
 			<>
 				<div className={styles.head}>
-					<h2>Instellingen</h2>
+					<h1>Instellingen</h1>
 					<p className="subTitle">Selecteer een inschrijvings-methode</p>
 				</div>
 				<div className={styles.menu}>

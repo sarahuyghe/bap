@@ -8,6 +8,11 @@
 	grid-row: 2;
 }
 
+.videoMap {
+	grid-column: 2;
+	grid-row: 2;
+}
+
 .raceSteps {
 	grid-column: 2;
 	grid-row: 3;
@@ -17,10 +22,20 @@
 .raceStepsUitleg {
 	grid-column: 3;
 	grid-row: 3;
+	align-self: center;
+	/* transition: all 0.5s ease-in-out; */
 }
 
 .raceStepsUitleg p {
 	background-color: white;
+}
+
+.fadeIn {
+	animation: fadeIn ease 2s;
+	-webkit-animation: fadeIn ease 2s;
+	-moz-animation: fadeIn ease 2s;
+	-o-animation: fadeIn ease 2s;
+	-ms-animation: fadeIn ease 2s;
 }
 
 .hide {
@@ -30,6 +45,7 @@
 }
 
 .notSelected {
+	font-size: 2.4rem;
 	color: #c4c4c4;
 }
 
@@ -45,4 +61,49 @@
 	margin-bottom: -4.5rem;
 	/* width: 10px; */
 	padding: 5px;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-o-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

@@ -33,6 +33,7 @@ class Stap2 extends Component {
 									type="radio"
 									name="event"
 									value="lopen"
+									className="typeEvent"
 									checked={typeOfEvent === "lopen"}
 									onChange={handleChange}
 								/>
@@ -45,6 +46,7 @@ class Stap2 extends Component {
 									type="radio"
 									name="event"
 									value="wandelen"
+									className="typeEvent"
 									checked={typeOfEvent === "wandelen"}
 									onChange={handleChange}
 								/>
@@ -57,12 +59,61 @@ class Stap2 extends Component {
 						<p className="uitlegTitle">
 							Zo weten we waar en waneer we jullie mogen verwachten
 						</p>
-						<select name="locatie" onChange={handleChange}>
-							<option value="Antwerpen">Antwerpen</option>
-							<option value="Brussel">Brussel</option>
-							<option value="Charleroi">Charleroi</option>
-							<option value="Namen">Namen</option>
-						</select>
+						<div>
+							<button
+								className={
+									locatie === "Antwerpen" ? `locatie chosen` : `locatie`
+								}
+								value="Antwerpen"
+								onClick={e => {
+									e.preventDefault();
+									const test = { locatie: e.currentTarget.value };
+									handleChange(test);
+								}}
+							>
+								<p>Antwerpen</p>
+								<p className="subInfo">27 Sept 2020</p>
+							</button>
+							<button
+								className={locatie === "Brussel" ? `locatie chosen` : `locatie`}
+								value="Brussel"
+								onClick={e => {
+									e.preventDefault();
+									const test = { locatie: e.currentTarget.value };
+									handleChange(test);
+								}}
+							>
+								<p>Brussel</p>
+								<p className="subInfo">04 Okt 2020</p>
+							</button>
+							<button
+								className={
+									locatie === "Charleroi" ? `locatie chosen` : `locatie`
+								}
+								value="Charleroi"
+								onClick={e => {
+									e.preventDefault();
+									const test = { locatie: e.currentTarget.value };
+									handleChange(test);
+								}}
+							>
+								<p>Charleroi</p>
+								<p className="subInfo">27 Sept 2020</p>
+							</button>
+							<button
+								className={locatie === "Namen" ? `locatie chosen` : `locatie`}
+								value="Namen"
+								onClick={e => {
+									e.preventDefault();
+									const test = { locatie: e.currentTarget.value };
+									handleChange(test);
+								}}
+							>
+								<p>Namen</p>
+								<p className="subInfo">27 Sept 2020</p>
+							</button>
+						</div>
+
 						<br />
 					</div>
 				</section>

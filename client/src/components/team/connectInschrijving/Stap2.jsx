@@ -26,7 +26,7 @@ class Stap2 extends Component {
 					</p>
 				</div>
 				<div className="deeltitel">Aansluiten bij een team</div>
-				<section className={styles.formSection}>
+				<section className="formSection">
 					<div>
 						<h4>Wat is uw naam?</h4>
 						<p className="uitlegTitle">
@@ -83,20 +83,21 @@ class Stap2 extends Component {
 							<input
 								type="checkbox"
 								name="buyBottle"
-								className="checkbox"
+								className="typeEvent"
 								value={buyBottle}
 								onChange={handleChange}
 							/>
 							Ik wil een team-fles bestellen
 						</label>
 					</div>
-					<input
-						type="submit"
-						value="bevestigen"
-						className="secondaireButton"
-						onClick={handleSubmit}
-					/>
 				</section>
+				<input
+					type="submit"
+					value="bevestigen"
+					className="secondaireButton"
+					onClick={handleSubmit}
+				/>
+
 				{backButton}
 			</section>
 		);

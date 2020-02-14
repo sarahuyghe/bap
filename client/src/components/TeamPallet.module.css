@@ -9,12 +9,18 @@
 }
 
 .chosen {
-	background-color: red;
+	border: solid 0.3rem #ffb4b9;
 }
 
 .pallet h4 {
+	margin-top: 2rem;
 	font-size: 2.4rem;
 	color: #545454;
+}
+
+.quote {
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.4rem;
 }
 
 .imageBottle {

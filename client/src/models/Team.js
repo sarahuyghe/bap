@@ -12,7 +12,9 @@ class Team {
 	setKind = value => (this.kind = value);
 	setQuote = value => (this.quote = value);
 	setLocation = value => (this.location = value);
-	setCap = value => (this.cap = value);
+	setCap = value =>
+		console.log(value);
+		// this.cap = value
 	setBottle = value => (this.bottle = value);
 	setTypeOfEvent = value => (this.typeOfEvent = value);
 
@@ -30,6 +32,9 @@ class Team {
 	}
 
 	updateFromServer = values => {
+		console.log(values.cap);
+		console.log(values.bottle);
+
 		this.setId(values._id);
 		this.setTeamnaam(values.teamnaam);
 		this.setReason(values.reason);

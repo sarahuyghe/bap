@@ -112,7 +112,7 @@ class Stap1 extends Component {
 					</Carousel>
 				</div>
 				{button}
-				<NavLink to={ROUTES.team} className="mainButton backButton">
+				<NavLink to={ROUTES.team} className="secondaireButton backButton">
 					Terug
 				</NavLink>
 			</section>

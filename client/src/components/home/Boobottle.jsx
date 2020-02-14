@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styles from "./Boob.module.css";
 import arrow from "./../../images/arrow.svg";
 
+import BOOBottle from "./../../images/BOOBottle.png";
+
 class Boobottle extends Component {
 	constructor(props) {
 		super(props);
@@ -38,11 +40,11 @@ class Boobottle extends Component {
 							}
 							width="30"
 						/>
-						<h3>Hydratatie</h3>
+						<h3>Bewustmaking</h3>
 						<p>
-							De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
-							borstkanker. Jaarlijks overwinnen er duizende vrouwen EN mannen de
-							strijd tegen borstkanker niet.
+							Preventief uw borsten controleren is van uiterste belang, hoe
+							vroeger de diagnose kan gesteld worden, hoe meer kans de patiënt
+							heeft om van de ziekte te herstellen.
 						</p>
 					</div>
 					<div
@@ -57,11 +59,11 @@ class Boobottle extends Component {
 							className={showEv ? styles.arrowShow : `${styles.arrowShow} hide`}
 							width="30"
 						/>
-						<h3>Evenement</h3>
+						<h3>Beweging</h3>
 						<p>
-							De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
-							borstkanker. Jaarlijks overwinnen er duizende vrouwen EN mannen de
-							strijd tegen borstkanker niet.
+							Beweging is een zeer belangrijke factor en heeft een positieve
+							impact in elke fase van borstkanker. Dus zowel bij de preventie
+							tegen borstkanker, als tijdens de behandeling en bij herstel.
 						</p>
 					</div>
 					<div
@@ -82,15 +84,16 @@ class Boobottle extends Component {
 							}
 							width="30"
 						/>
-						<h3>Evenement</h3>
+						<h3>Steunen</h3>
 						<p>
-							De BOOBottle is niet gewoon een fles, het is fles die vecht tegen
-							borstkanker. Jaarlijks overwinnen er duizende vrouwen EN mannen de
-							strijd tegen borstkanker niet.
+							Lotgenoten kampen vaak met angststoornissen en depressie, door hen
+							steun te bieden kan u de lotgenoot helpen motiveren om positief te
+							blijven, de moed niet op te geven en hen aanzetten tot beweging.
 						</p>
 					</div>
 				</div>
 				<div className={styles.bg} />
+				<img src={BOOBottle} alt="boobottle" className={styles.boobottle} />
 			</section>
 		);
 	}

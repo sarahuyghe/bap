@@ -1,8 +1,8 @@
 .boob {
 	background-color: #fff;
 	display: grid;
-	grid-template-rows: 1fr 150px 260px 1fr;
-	grid-template-columns: 15% 50% 30% 5%;
+	grid-template-rows: 133px 250px 260px auto;
+	grid-template-columns: 15% 40% 40% 5%;
 }
 
 .infoBoob {
@@ -18,14 +18,23 @@
 	padding-left: 2rem;
 }
 
+.boobottle {
+	grid-column: 3;
+	grid-row: 1 / 4;
+}
+
 .bg {
-	background-color: #ffb4b9;
-	grid-row: 1 / span 3;
-	grid-column: 3 / span 4;
+	background: linear-gradient(180deg, #f5b4bf 0%, rgba(255, 180, 185, 0) 100%);
+	grid-row: 1;
+	grid-column: 1 / span 4;
+}
+
+.notSelected {
 }
 
 .notSelected h3 {
 	color: #c4c4c4;
+	font-size: 2.4rem;
 }
 
 .notSelected p {

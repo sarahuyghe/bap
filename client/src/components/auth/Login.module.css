@@ -2,7 +2,7 @@
 	box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
 	text-align: center;
 	width: 780px;
-	padding: 35px 200px;
+	padding: 35px 0;
 	display: block;
 	height: 576px;
 	margin: -3rem auto 90px auto;
@@ -22,11 +22,12 @@
 .back img {
 	transform: rotate(270deg);
 }
-form {
+.loginForm {
 	display: flex;
 	flex-direction: column;
 	text-align: left;
 	margin: 3rem 0;
+	padding: 0 200px;
 }
 label {
 	font-size: 2.4rem;

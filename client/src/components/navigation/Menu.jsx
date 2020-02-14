@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import { inject, observer } from "mobx-react";
 
@@ -102,13 +102,13 @@ const Menu = ({ open, setOpen, uiStore }) => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink
-								to={ROUTES.symptonen}
+							<Link
+								to="/#preventie"
 								className={styles.links}
 								onClick={() => setOpen(!open)}
 							>
 								Preventie
-							</NavLink>
+							</Link>
 						</li>
 					</ul>
 				</section>

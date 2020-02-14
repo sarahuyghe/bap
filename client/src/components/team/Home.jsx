@@ -44,7 +44,7 @@ class Home extends Component {
 			<>
 				<section className={styles.header}>
 					<div>
-						<h2>Inschrijven</h2>
+						<h1>Inschrijven</h1>
 						<p className="subTitle">Selecteer een inschrijvings-methode</p>
 					</div>
 					<div>
@@ -66,7 +66,7 @@ class Home extends Component {
 						>
 							<h3>Een team maken</h3>
 							<video
-								pause
+								autoPlay
 								muted
 								width="330"
 
@@ -151,7 +151,16 @@ class Home extends Component {
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<ul>
-								<li></li>
+								<li>
+									Uw inschrijvings geld verminderd van €15 naar €12 per persoon
+								</li>
+								<li>Je leert nieuwe mensen kennen</li>
+								<li>Je leert nieuwe mensen kennen</li>
+								<li>
+									Vanaf je als team met 50 of meer bent ingeschreven bent krijgt
+									u ook een party-tent om samen te verzamelen
+								</li>
+								<li>Het grootste team ook nog een prijs winnen</li>
 							</ul>
 						</div>
 					</div>
@@ -203,7 +212,9 @@ class Home extends Component {
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<ul>
-								<li></li>
+								<li>U betaalt €15 inschrijvingsgeld</li>
+								<li>Je leert nieuwe mensen kennen</li>
+								<li>Ongestoord en vrij</li>
 							</ul>
 						</div>
 					</div>

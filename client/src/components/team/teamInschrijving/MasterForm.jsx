@@ -76,7 +76,29 @@ class MasterForm extends Component {
 		return null;
 	}
 
+	// handleChange = e => {
+	// 	console.log(e.target.value);
+	// 	let value;
+	// 	let name;
+	// 	// if (e.locatie) {
+	// 	// 	name = "locatie";
+	// 	// 	value = e.locatie;
+	// 	// }
+	// 	// const name = e.target.name;
+	// 	// else
+	// 	if (e.target.type === "checkbox") {
+	// 		value = e.target.checked;
+	// 	} else if (e.target.id) {
+	// 		value = e.target.id;
+	// 	} else {
+	// 		value = e.target.value;
+	// 	}
+	// 	this.setState({ [name]: value });
+	// 	console.log();
+	// };
+
 	handleChange = e => {
+		console.log(e.target);
 		let value;
 		const name = e.target.name;
 		if (e.target.type === "checkbox") {

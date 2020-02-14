@@ -43,7 +43,6 @@
 
 .panelAccount h3 {
 	align-self: center;
-	font-size: 4.8rem;
 }
 
 .overzicht {
@@ -100,4 +99,13 @@
 
 .inputWidth {
 	width: auto;
+}
+
+.textInfo {
+	transform: rotate(90deg);
+	position: absolute;
+	color: white;
+	margin-left: 80px;
+	margin-top: 280px;
+	text-align: center;
 }

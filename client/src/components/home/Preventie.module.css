@@ -39,6 +39,7 @@
 	background-color: #ffb4b9;
 	grid-row: 2 / 4;
 	grid-column: 1 / span 5;
+	height: 400px;
 	/* display: flex;
 	align-items: center;
 	justify-content: center; */
@@ -58,6 +59,16 @@
 	grid-column: 3; /* padding-top: 10rem; */
 }
 
+.infoSpecifiek h3 {
+	font-size: 2.4;
+	margin-bottom: 1rem;
+}
+
+.infoSpecifiek p {
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.8rem;
+	line-height: 28px;
+}
 .imagePrev {
 	padding: 0 1rem;
 	margin-bottom: 0;

@@ -81,9 +81,9 @@ class TeamPallet extends Component {
 		return (
 			<div
 				className={
-					chosenGroup === teamId
-						? `${styles.pallet} ${styles.chosen}`
-						: styles.pallet
+					chosenGroup == teamId
+						? ` ${styles.chosen} ${styles.pallet}`
+						: `${styles.pallet}`
 				}
 				onClick={e => {
 					e.preventDefault();

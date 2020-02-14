@@ -9,9 +9,7 @@ import { Route, Switch } from "react-router-dom";
 import { ROUTES } from "./constants/";
 
 import Home from "./components/home/Home";
-import Why from "./components/home/Why";
 import Overzicht from "./components/home/Overzicht";
-import Symptonen from "./components/home/Symptonen";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
@@ -54,8 +52,6 @@ function App() {
 			</div>
 			<Switch>
 				<Route path={ROUTES.home} exact strict component={Home} />
-				<Route path={ROUTES.why} component={Why} />
-				<Route path={ROUTES.symptonen} component={Symptonen} />
 				<Route path={ROUTES.register} component={Register} />
 				<Route path={ROUTES.overzicht} component={Overzicht} />
 				<Route path={ROUTES.login} component={Login} />
