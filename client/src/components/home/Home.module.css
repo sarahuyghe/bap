@@ -20,7 +20,7 @@
 }
 
 .bgVideo {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -71,6 +71,7 @@ header div:nth-of-type(2) p {
 	}
 }
 .inschrijven {
+	background-color: white;
 	display: grid;
 	grid-template-columns: 15% 30% 10% 30% 15%;
 	grid-template-rows: 10% 350px 10%;

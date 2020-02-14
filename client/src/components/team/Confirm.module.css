@@ -22,6 +22,32 @@
 	grid-auto-flow: column;
 }
 
+.sharingIndi {
+	justify-content: left;
+	grid-column: 2;
+}
+
+.sharenIndi {
+	background: radial-gradient(
+		192.67% 143.38% at 50.13% 0%,
+		#ffb4b9 41.56%,
+		#ff969b 93.23%
+	);
+	display: grid;
+	width: 500px;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+	grid-template-columns: repeat(2, 1fr) 35px;
+	grid-auto-flow: row;
+	padding: 2rem 2rem;
+}
+
+.sharenIndi img {
+	justify-self: center;
+}
+
+.confirmIndiv {
+	width: 100%;
+}
 .imgBottle {
 	grid-row: 1 / span 3;
 }

@@ -2,6 +2,7 @@
 	display: grid;
 	grid-template-columns: 15% 40% 40% 5%;
 	grid-template-rows: 15% 350px 260px;
+	background-color: white;
 }
 .infoRace {
 	grid-column: 3;

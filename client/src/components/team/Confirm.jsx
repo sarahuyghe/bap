@@ -57,8 +57,8 @@ const Confirm = ({ teamStore }) => {
 						<p className="uitlegTitle">
 							Want anders is een team hebben redelijk nutteloos
 						</p>
-						{currentTeam.map(t => (
-							<div className={styles.sharen}>
+						{currentTeam.map((t, index) => (
+							<div key={index} className={styles.sharen}>
 								<div className={styles.imgBottle}>
 									<Bottle
 										teamnaam={t.teamnaam}

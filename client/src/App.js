@@ -21,6 +21,7 @@ import HomeTeam from "./components/team/Home";
 // import ConnectTeam from "./components/team/ConnectTeam";
 // import Individueel from "./components/team/Individueel";
 import Confirm from "./components/team/Confirm";
+import ConfirmIndiv from "./components/team/ConfirmIndiv";
 
 //team Inschrijven
 import MasterForm from "./components/team/teamInschrijving/MasterForm";
@@ -70,6 +71,7 @@ function App() {
 				<Route path={ROUTES.individueel} component={Individueel} /> */}
 				{/* <Route path={ROUTES.teamform} component={TeamForm} /> */}
 				<Route path={ROUTES.confirm} component={Confirm} />
+				<Route path={ROUTES.confirmIndi} component={ConfirmIndiv} />
 
 				<Route path={ROUTES.portal} component={Portal} />
 				<Route path={ROUTES.reset} component={Password} />

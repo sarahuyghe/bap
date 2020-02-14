@@ -28,7 +28,7 @@ class Preventie extends Component {
 					detailImg: knobbel,
 					title: "Knobbels op de borst huid",
 					uitleg:
-						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <b> kan aanvoelen als een knikker${</b>}, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje </b>, dat anders voelt dan de rest van de borst."
+						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <span> kan aanvoelen als een knikker </span>, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje </b>, dat anders voelt dan de rest van de borst."
 				},
 				{
 					id: 2,
@@ -36,7 +36,7 @@ class Preventie extends Component {
 					detailImg: kuiltje,
 					title: "Kuiltje in de borst",
 					uitleg:
-						"Een kuiltje in de borst kun je herkennen door het verzachten van de huid en een locale inzakking van de borsthuid. Er kunnen ook meerdere kuitjes opduiken. Vaak zijn deze van eerder kleiner en dichter bij elkaar."
+						"	Een kuiltje in de borst kun je herkennen door het verzachten van de huid en een locale inzakking van de borsthuid. Er kunnen ook meerdere kuitjes opduiken. Vaak zijn deze van eerder kleiner en dichter bij elkaar."
 				},
 				{
 					id: 3,
@@ -44,7 +44,7 @@ class Preventie extends Component {
 					detailImg: vocht,
 					title: "Vocht afscheiding via de tepel",
 					uitleg:
-						"Het vocht dat zich afscheiding uit de tepel is kan in verscheidene kleuren en viscositeiten voorkomen. , Zoals bruin, groen, waterig, melkachtig of bloederig vocht. Dit is  1 van de symptomen die het snelts opvalt. "
+						"Het vocht dat zich afscheiding uit de tepel is kan in verscheidene kleuren en viscositeiten voorkomen. , Zoals bruin, groen, waterig, melkachtig of bloederig vocht. Dit is 1 van de symptomen die het snelts opvalt."
 				},
 				{
 					id: 4,
@@ -60,7 +60,7 @@ class Preventie extends Component {
 					detailImg: ader,
 					title: "Ingetrokken tepel",
 					uitleg:
-						"Met een knobbeltje in de borst wordt een verdikking bedoeld die anders is dan de bobbeligheid die je normaal voelt in de borst. Een knobbeltje <b>kan aanvoelen als een knikker</b>, en voelt harder en stugger aan dan de rest van de borst. Een knobbel in de borst kan ook aanvoelen als een wat <b>harder of stugger plekje</b>, dat anders voelt dan de rest van de borst."
+						"Op gezwollen ader(s) die van en naar de tepel loopt kunnen ook een teken zijn van borstkanker"
 				}
 			],
 			currentSym: 0
@@ -126,7 +126,10 @@ class Preventie extends Component {
 					/>
 					<div className={styles.infoSpecifiek}>
 						<h4>{symptomen[currentSym].title}</h4>
-						<p>{symptomen[currentSym].uitleg}</p>
+						<p
+							contentEditable="true"
+							dangerouslySetInnerHTML={{ __html: symptomen[currentSym].uitleg }}
+						></p>
 					</div>
 				</section>
 			</>

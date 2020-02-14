@@ -1,8 +1,9 @@
 .preventie {
-	margin-top: 8rem;
+	padding-top: 8rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: white;
 }
 
 .infoPrev {
@@ -16,9 +17,15 @@
 }
 
 .symptomen {
+	background-color: white;
+
 	display: grid;
 	grid-template-rows: 1fr 40px 1fr;
 	grid-template-columns: 15% 30% 50% 5%;
+}
+
+span {
+	font-weight: bold;
 }
 
 .introSymptonen {
@@ -45,6 +52,15 @@
 	justify-content: center; */
 }
 
+.hide {
+	position: absolute !important;
+	top: -9999px !important;
+	left: -9999px !important;
+}
+
+b {
+	font-weight: 900;
+}
 .infoLine {
 	border-bottom: solid 0.2rem white;
 	grid-row: 2;
