@@ -22,7 +22,7 @@ mongoose
 
 const app = express();
 
-// app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.use(cors());
 app.use(cookieParser());
@@ -35,9 +35,9 @@ require("./app/routes/messages.routes.js")(app);
 require("./app/routes/auth.routes.js")(app);
 require("./app/routes/mails.routes.js")(app);
 
-// app.get("*", (req, res) => {
-// 	res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+	res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 
 app.get("/", (req, res) => {
 	res.json({ message: "up and first running" });

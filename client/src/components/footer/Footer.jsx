@@ -3,6 +3,8 @@ import { NavLink, Link } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import { inject, observer } from "mobx-react";
 
+import sponsors from "./../../images/sponsors.png";
+
 import styles from "./Footer.module.css";
 
 const Footer = ({ mailStore }) => {
@@ -52,6 +54,7 @@ const Footer = ({ mailStore }) => {
 				</div>
 				<div>
 					<h5>Onze sponsers</h5>
+					<img src={sponsors} alt="All the sponsors" />
 				</div>
 			</section>
 			<section className={styles.newsLetter}>
