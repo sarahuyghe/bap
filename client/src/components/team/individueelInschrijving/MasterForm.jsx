@@ -78,12 +78,10 @@ class MasterForm extends Component {
 			name = "locatie";
 			value = e.locatie;
 		} else {
-			// console.log(e.target.value);
 			name = e.target.name;
 			value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
 		}
 		this.setState({ [name]: value });
-		console.log(this.state.locatie);
 	};
 
 	handleSubmit = e => {
@@ -121,7 +119,6 @@ class MasterForm extends Component {
 						handleSubmit={this.handleSubmit}
 						backButton={this.previousButton}
 					/>
-					{/* {this.nextButton} */}
 				</form>
 			</>
 		);

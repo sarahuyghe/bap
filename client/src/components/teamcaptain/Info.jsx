@@ -79,26 +79,18 @@ class Info extends Component {
 	}
 
 	setEditMode = value => {
-		console.log("edit mode");
 		this.setState({ edit: value });
 	};
 
-	// handleChange = e => {
-	// 	this.setState({ currentImg: e.currentTarget.value });
-	// 	this.props.handleChange(e);
-	// };
 	handleChange = e => {
 		this.setState({ currentImg: e.currentTarget.value });
-		// this.props.handleChange(e);
 	};
 
 	render() {
 		const { edit, currentImg, currentImgCap, imagesCap, images } = this.state;
 		const { team, onUpdate } = this.props;
-		console.log(team.cap);
 		return edit ? (
 			<>
-				{/* {team.map((t, index) => ( */}
 				<div key={team.id} className={styles.info}>
 					<div>
 						<input
@@ -159,8 +151,6 @@ class Info extends Component {
 									name="kindOfTeam"
 									className="typeEvent"
 									defaultChecked={team.kind}
-									// value={kindOfTeam}
-									// onChange={handleChange}
 								/>
 								Ik wil een gesloten team
 							</label>
@@ -184,8 +174,6 @@ class Info extends Component {
 									onClick={e => {
 										team.setCap(e.currentTarget.id);
 										this.setState({ currentImgCap: e.currentTarget.id });
-										// this.props.handleChange(e);
-										console.log(e.currentTarget.id);
 									}}
 								/>
 							))}
@@ -207,8 +195,6 @@ class Info extends Component {
 									onClick={e => {
 										team.setCap(e.currentTarget.id);
 										this.setState({ currentImg: e.currentTarget.id });
-										// this.props.handleChange(e);
-										console.log(e.currentTarget.id);
 									}}
 								/>
 							))}
@@ -219,7 +205,6 @@ class Info extends Component {
 								alt=""
 								width="240"
 								value={team.cap}
-								// onChange={handleChange}
 							/>
 							<img
 								src={images[currentImg].img}
@@ -227,16 +212,8 @@ class Info extends Component {
 								width="180"
 								id="bottle"
 								value={team.bottle}
-								// onChange={handleChange}
 							/>
 						</div>
-						{/* <Bottle
-							teamnaam={team.teamnaam}
-							teamqoute={team.quote}
-							cap={team.cap}
-							bottle={team.bottle}
-							custom={true}
-						/> */}
 					</div>
 				</div>
 				<button

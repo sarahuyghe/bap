@@ -3,6 +3,4 @@ module.exports = app => {
 	app.post("/api/messages", controller.create);
 	app.get("/api/messages", controller.findAll);
 	app.get("/api/messages/:teamId", controller.findOne);
-	// app.put("/messages/:teamId", controller.update);
-	// app.delete("/messages/:teamId", controller.delete);
 };

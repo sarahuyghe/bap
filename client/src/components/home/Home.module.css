@@ -1,8 +1,6 @@
 .header {
-	/* background-color: #ffb4b9; */
 	color: white;
-	/* height: 100vh; */
-	/* background-image: url("./../../images/header.png"); */
+
 	background-repeat: no-repeat, repeat;
 	display: grid;
 	grid-template-columns: 5% 43px 43% 39% 10%;
@@ -10,7 +8,6 @@
 }
 
 .fullscreenBg {
-	/* position: fixed; */
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -75,7 +72,6 @@ header div:nth-of-type(2) p {
 	display: grid;
 	grid-template-columns: 15% 30% 10% 30% 15%;
 	grid-template-rows: 10% 350px 10%;
-	/* margin-bottom: 8rem; */
 }
 
 .bg_inschrijven {
@@ -132,10 +128,6 @@ header div:nth-of-type(2) p {
 }
 
 @media (max-width: 767px) {
-	/* .fullscreen-bg {
-		background: url("../img/videoframe.jpg") center center / cover no-repeat;
-	} */
-
 	.bgVideo {
 		display: none;
 	}

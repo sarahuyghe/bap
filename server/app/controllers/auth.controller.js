@@ -18,7 +18,6 @@ exports.login = async (req, res) => {
 	}
 	try {
 		const user = await User.findOne({ email });
-		// console.log(user.teamId.teamnaam);
 		if (!user) {
 			res.status(401).send({ error: "incorrect email or password" });
 		} else {

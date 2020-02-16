@@ -4,7 +4,6 @@ import { inject, observer } from "mobx-react";
 
 import planning from "./../../images/planning.png";
 
-// import Bottle from "./../bottle/Bottle";
 import Info from "./Info";
 import Deelnemer from "./Deelnemer";
 import Accepting from "./Accepting";
@@ -26,7 +25,6 @@ class Home extends Component {
 			updateParticipant,
 			total
 		} = this.props.participantStore;
-		console.log(currentParticipants);
 		const { activeItem } = this.state;
 		return (
 			<>

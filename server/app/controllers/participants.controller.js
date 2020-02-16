@@ -13,7 +13,6 @@ exports.create = (req, res) => {
 	if (!req.body.name) {
 		return res.status(500).send({ err: "name can not be empty" });
 	}
-	console.log(req.body);
 	const participant = new Participant({
 		name: req.body.name,
 		firstname: req.body.firstname,
@@ -31,25 +30,6 @@ exports.create = (req, res) => {
 		.catch(err => {
 			res.status(500).send({ error: err.participant || "Error" });
 		});
-
-	// const mailOptions = {
-	// 	from: "saradatbenik@gmail.com",
-	// 	to: participant.email,
-	// 	subject: "Sending Email using Node.js",
-	// 	text: "That was easy!"
-	// };
-
-	// if (participant) {
-	// 	transporter.sendMail(mailOptions, function(error, info) {
-	// 		if (error) {
-	// 			console.log(error);
-	// 		} else {
-	// 			console.log("Email sent: " + info.response);
-	// 		}
-	// 	});
-	// } else {
-	// 	console.log("error sendin mail");
-	// }
 };
 
 exports.findAll = async (req, res) => {
@@ -96,7 +76,6 @@ exports.findOne = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-	console.log(req.params);
 	if (!req.body.name) {
 		return res.status(400).send("name mag niet leeg zijn");
 	}
@@ -126,10 +105,8 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = async (req, res) => {
-	console.log(req.params);
 	try {
 		const participant = await Participant.findByIdAndRemove(req.params.userId);
-		console.log(participant);
 		if (!participant) {
 			return res.status(404).send("No book found");
 		}

@@ -47,11 +47,7 @@ const ConfirmIndiv = () => {
 									quote="this is a test"
 								>
 									<a>
-										<img
-											src={fbIcon}
-											alt="facebookIcon"
-											// style={{ background: black }}
-										/>
+										<img src={fbIcon} alt="facebookIcon" />
 									</a>
 								</FacebookShareButton>
 								<TwitterShareButton
@@ -59,11 +55,7 @@ const ConfirmIndiv = () => {
 									title="this is a test"
 								>
 									<a>
-										<img
-											src={twitterIcon}
-											alt="facebookIcon"
-											// style={{ background: black }}
-										/>
+										<img src={twitterIcon} alt="facebookIcon" />
 									</a>
 								</TwitterShareButton>
 								<FacebookShareButton
@@ -71,11 +63,7 @@ const ConfirmIndiv = () => {
 									quote="this is a test"
 								>
 									<a>
-										<img
-											src={instaIcon}
-											alt="facebookIcon"
-											// style={{ background: black }}
-										/>
+										<img src={instaIcon} alt="facebookIcon" />
 									</a>
 								</FacebookShareButton>
 							</div>

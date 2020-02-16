@@ -25,12 +25,10 @@ class MasterForm extends Component {
 	componentDidMount() {
 		this.props.teamStore.getAll();
 		this.setState({ searching: this.props.teamStore.teams });
-		console.log("it is mouted");
 	}
 
 	_next() {
 		let currentStep = this.state.currentStep;
-		// If the current step is 1 or 2, then add one on "next" button click
 		currentStep = currentStep >= 2 ? 3 : currentStep + 1;
 		this.setState({
 			currentStep: currentStep
@@ -39,7 +37,6 @@ class MasterForm extends Component {
 
 	_prev() {
 		let currentStep = this.state.currentStep;
-		// If the current step is 2 or 3, then subtract one on "previous" button click
 		currentStep = currentStep <= 1 ? 1 : currentStep - 1;
 		this.setState({
 			currentStep: currentStep
@@ -48,7 +45,6 @@ class MasterForm extends Component {
 
 	get previousButton() {
 		let currentStep = this.state.currentStep;
-		// If the current step is not 1, then render the "previous" button
 		if (currentStep !== 1) {
 			return (
 				<button className="secondaireButton" type="button" onClick={this._prev}>
@@ -56,13 +52,11 @@ class MasterForm extends Component {
 				</button>
 			);
 		}
-		// ...else return nothing
 		return null;
 	}
 
 	get nextButton() {
 		let currentStep = this.state.currentStep;
-		// If the current step is not 3, then render the "next" button
 		if (currentStep < 3) {
 			return (
 				<button className="secondaireButton" type="button" onClick={this._next}>
@@ -70,14 +64,10 @@ class MasterForm extends Component {
 				</button>
 			);
 		}
-		// ...else render nothing
 		return null;
 	}
 
 	handleChange = e => {
-		console.log(e.target.name);
-		console.log(e.target.value);
-
 		const name = e.target.name;
 		const value =
 			e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -110,14 +100,7 @@ class MasterForm extends Component {
 					button={this.nextButton}
 					searching={searching}
 				/>
-				<Stap2
-					currentStep={currentStep}
-					// handleChange={this.handleChange}
-					// handleSubmit={this.handleSubmit}
-					// message={message}
-					// name={name}
-				/>
-				{/* {this.nextButton} */}
+				<Stap2 currentStep={currentStep} />
 			</form>
 		);
 	}

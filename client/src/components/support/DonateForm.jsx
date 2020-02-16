@@ -15,7 +15,6 @@ class DonateForm extends Component {
 	}
 	render() {
 		const { donate, amount } = this.state;
-		console.log(amount);
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">
@@ -62,7 +61,6 @@ class DonateForm extends Component {
 								<input
 									type="number"
 									placeholder="20"
-									// value="20"
 									value={amount}
 									onChange={e =>
 										this.setState({ amount: e.currentTarget.value })

@@ -52,21 +52,7 @@ class Home extends Component {
 							onMouseLeave={() => this.setState({ activeTeam: !activeTeam })}
 						>
 							<h3>Een team maken</h3>
-							<video
-								autoPlay
-								muted
-								width="330"
-
-								// loop
-								// width="640"
-								// height="480"
-								// style={{
-								// 	position: "fixed",
-								// 	width: "100%",
-								// 	left: 0,
-								// 	top: 0
-								// }}
-							>
+							<video autoPlay muted width="330">
 								<source src={teamVideo} type="video/mp4" />
 							</video>
 						</div>
@@ -111,20 +97,7 @@ class Home extends Component {
 							}
 						>
 							<h3>Aansluiten aan een team</h3>
-							<video
-								autoPlay
-								muted
-								width="330"
-								// loop
-								// width="640"
-								// height="480"
-								// style={{
-								// 	position: "fixed",
-								// 	width: "100%",
-								// 	left: 0,
-								// 	top: 0
-								// }}
-							>
+							<video autoPlay muted width="330">
 								<source src={joinTeam} type="video/mp4" />
 							</video>
 						</div>
@@ -132,9 +105,6 @@ class Home extends Component {
 							className={`${styles.opportunities} ${
 								activeItem === "connect" ? null : styles.hide
 							}`}
-							// className={`${styles.opportunities} ${
-							// 	activeConnect ? null : styles.hide
-							// }`}
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<ul>
@@ -171,21 +141,7 @@ class Home extends Component {
 							}
 						>
 							<h3>Individueel inschrijven</h3>
-							<video
-								autoPlay
-								muted
-								width="330"
-
-								// loop
-								// width="640"
-								// height="480"
-								// style={{
-								// 	position: "fixed",
-								// 	width: "100%",
-								// 	left: 0,
-								// 	top: 0
-								// }}
-							>
+							<video autoPlay muted width="330">
 								<source src={joinIndividually} type="video/mp4" />
 							</video>
 						</div>
@@ -193,9 +149,6 @@ class Home extends Component {
 							className={`${styles.opportunities} ${
 								activeItem === "indi" ? null : styles.hide
 							}`}
-							// className={`${styles.opportunities} ${
-							// 	activePerson ? null : styles.hide
-							// }`}
 						>
 							<img src={arrowWhite} alt="arrow up" />
 							<ul>

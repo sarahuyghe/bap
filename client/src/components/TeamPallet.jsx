@@ -77,7 +77,6 @@ class TeamPallet extends Component {
 			handleClickPallet
 		} = this.props;
 		const { images, imagesCap, chosenGroup } = this.state;
-		console.log(quote);
 		return (
 			<div
 				className={
@@ -87,11 +86,9 @@ class TeamPallet extends Component {
 				}
 				onClick={e => {
 					e.preventDefault();
-					console.log(teamId);
 					const test = { teamId: teamId, kind: kind };
 					this.setState({ chosenGroup: teamId });
-					console.log(chosenGroup);
-					console.log(test);
+
 					handleClickPallet(test);
 				}}
 			>

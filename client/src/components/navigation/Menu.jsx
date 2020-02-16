@@ -30,7 +30,6 @@ const StyledMenu = styled.nav`
 `;
 
 const Menu = ({ open, setOpen, uiStore }) => {
-	console.log(open);
 	return (
 		<StyledMenu open={open}>
 			<div className={`test ${open ? null : styles.hide}`}>
@@ -47,11 +46,7 @@ const Menu = ({ open, setOpen, uiStore }) => {
 								{uiStore.authUser.name} | logout
 							</div>
 						</button>
-						<NavLink
-							to={ROUTES.portal}
-							// className={styles.login}
-							onClick={() => setOpen(!open)}
-						>
+						<NavLink to={ROUTES.portal} onClick={() => setOpen(!open)}>
 							<div>
 								<img src={instellingenIcon} alt="instellingen icon" />
 								Team Instellingen

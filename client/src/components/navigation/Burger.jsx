@@ -1,5 +1,4 @@
 import React from "react";
-// import { StyledBurger } from "./Burger.styled.jsx";
 
 import styled from "styled-components";
 

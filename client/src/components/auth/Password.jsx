@@ -19,9 +19,7 @@ const Password = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		// uiStore.login(emailInput.current.value, pwdInput.current.value).then(() => {
-		// 	history.push(ROUTES.portal);
-		// });
+
 		notify();
 	};
 	console.log("hello");

@@ -26,7 +26,6 @@ class MasterForm extends Component {
 	componentDidMount() {
 		this.props.teamStore.getAll();
 		this.setState({ searching: this.props.teamStore.teams });
-		console.log("it is mouted");
 	}
 
 	_next() {
@@ -122,7 +121,6 @@ class MasterForm extends Component {
 					message={message}
 					name={name}
 				/>
-				{/* {this.nextButton} */}
 			</form>
 		);
 	}

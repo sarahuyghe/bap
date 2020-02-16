@@ -5,16 +5,12 @@ exports.create = (req, res) => {
 		return res.status(500).send({ err: "title can not be empty" });
 	}
 
-	console.log(req.body.teamId);
 	const message = new Message({
 		message: req.body.message,
 		name: req.body.name,
 		teamId: req.body.teamId
-
-		// authorId: req.body.authorId //deze moet er nu pas staan
 	});
 
-	console.log(message);
 	message
 		.save()
 		.then(message => res.send(message))

@@ -16,11 +16,6 @@ const Confirm = ({ teamStore }) => {
 	const { currentTeam } = teamStore;
 	const FB = window.FB;
 
-	// const copyText = e => {
-	// 	const link = e.currentTarget;
-	// 	link.select();
-	// 	document.execCommand("copy");
-	// };
 	const onClick = () => {
 		FB.ui(
 			{
@@ -35,12 +30,8 @@ const Confirm = ({ teamStore }) => {
 				}
 			}
 		);
-		// console.log("this is a first test");
 	};
 
-	currentTeam.map(t => {
-		console.log(t.teamnaam);
-	});
 	return (
 		<>
 			<section className="panel">
@@ -82,16 +73,6 @@ const Confirm = ({ teamStore }) => {
 									</a>
 								</div>
 								<div className={styles.shareButtons}>
-									{/* <button
-										onClick={e => copyText(e)}
-										value="https://boobottle.herokuapp.com/stap1_Connect"
-									>
-										<img
-											src={fbIcon}
-											alt="facebookIcon"
-											style={{ fill: "black" }}
-										/>
-									</button> */}
 									<FacebookShareButton
 										url="https://boobottle.herokuapp.com/"
 										quote="Kom meedoen in ons team op race for the cure"

@@ -52,9 +52,7 @@ class Stap2 extends Component {
 						</label>
 					</div>
 				</section>
-				{/* <a href="#sec3" className="secondaireButton">
-					Volgende ? bevestigen
-				</a> */}
+
 				<input
 					type="submit"
 					value="Volgende"

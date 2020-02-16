@@ -112,11 +112,9 @@ class Preventie extends Component {
 									}
 									onClick={() => this.setState({ currentSym: index })}
 								/>
-								{/* <img src={arrow} alt="" className={styles.arrowSymp} /> */}
 							</>
 						))}
 					</div>
-					{/* </div> */}
 					<div className={styles.infoSpecifiekbg} />
 					<div className={styles.infoLine} />
 					<img

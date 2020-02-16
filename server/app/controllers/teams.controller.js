@@ -34,15 +34,8 @@ exports.findAll = async (req, res) => {
 };
 
 exports.findOne = async (req, res) => {
-	console.log(req.params.teamId);
-	// console.log(req.teamId);
-
 	try {
-		// const team = await Team.findOne({
-		// 	teamcaptainId: req.params.teamId
-		// });
 		const team = await Team.findById(req.params.teamId);
-		console.log(team);
 		if (team) {
 			res.send(team);
 		} else {
@@ -57,7 +50,6 @@ exports.findOne = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-	console.log(req.params);
 	if (!req.body.teamnaam) {
 		return res.status(400).send("title mag niet leeg zijn");
 	}

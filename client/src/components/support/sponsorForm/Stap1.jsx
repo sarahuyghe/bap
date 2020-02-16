@@ -21,8 +21,6 @@ class Stap1 extends Component {
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.searching !== this.props.searching) {
-			// this.setState({ searching: this.props.searching });
-			console.log("pokemons state has changed.");
 			this.forceUpdate();
 		}
 	}
@@ -33,15 +31,11 @@ class Stap1 extends Component {
 			handleChange,
 			handleChangeOnSearch,
 			button
-			// handleLoad
 		} = this.props;
-		// const { teams, teamId, handleChange, button } = this.props;
 		if (this.props.currentStep !== 1) {
-			// Prop: The current step
 			return null;
 		}
 		const { heightMode } = this.state;
-		console.log(searching);
 		return (
 			<section id="sec2" className={styles.panel}>
 				<div className="extraInfo">

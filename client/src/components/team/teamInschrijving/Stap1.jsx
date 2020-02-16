@@ -121,7 +121,6 @@ class Stap1 extends Component {
 										this.setState({ currentImgCap: e.currentTarget.id });
 										const test = { cap: e.currentTarget.id };
 										handleChange(test);
-										console.log(e.currentTarget.id);
 									}}
 								/>
 							))}
@@ -164,7 +163,6 @@ class Stap1 extends Component {
 										this.setState({ currentImg: e.currentTarget.id });
 										const test = { bottle: e.currentTarget.id };
 										handleChange(test);
-										console.log(test);
 									}}
 								/>
 							))}

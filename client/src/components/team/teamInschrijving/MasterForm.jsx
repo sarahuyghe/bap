@@ -76,27 +76,6 @@ class MasterForm extends Component {
 		return null;
 	}
 
-	// handleChange = e => {
-	// 	console.log(e.target.value);
-	// 	let value;
-	// 	let name;
-	// 	// if (e.locatie) {
-	// 	// 	name = "locatie";
-	// 	// 	value = e.locatie;
-	// 	// }
-	// 	// const name = e.target.name;
-	// 	// else
-	// 	if (e.target.type === "checkbox") {
-	// 		value = e.target.checked;
-	// 	} else if (e.target.id) {
-	// 		value = e.target.id;
-	// 	} else {
-	// 		value = e.target.value;
-	// 	}
-	// 	this.setState({ [name]: value });
-	// 	console.log();
-	// };
-
 	handleChange = e => {
 		let value;
 		let name;
@@ -110,8 +89,6 @@ class MasterForm extends Component {
 			name = "bottle";
 			value = e.bottle;
 		} else {
-			// console.log(e.target.value);
-			// console.log(e.target.value);
 			name = e.target.name;
 			value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
 		}
@@ -120,7 +97,6 @@ class MasterForm extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault();
-		console.log(e);
 		const {
 			locatie,
 			kindOfTeam,
@@ -131,8 +107,6 @@ class MasterForm extends Component {
 			cap,
 			bottle
 		} = this.state;
-		console.log(cap);
-		console.log(bottle);
 
 		const { teamStore, history } = this.props;
 		teamStore.addTeam({
@@ -194,10 +168,4 @@ class MasterForm extends Component {
 	}
 }
 
-export default inject(
-	"teamStore",
-	"uiStore"
-)(
-	// (withAuthentication
-	observer(MasterForm)
-);
+export default inject("teamStore", "uiStore")(observer(MasterForm));

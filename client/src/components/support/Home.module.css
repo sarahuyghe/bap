@@ -24,11 +24,6 @@
 
 .header div:nth-child(2) {
 	grid-column: 3;
-	/* justify-self: center; */
-}
-
-.header div:nth-child(3) {
-	/* justify-self: center; */
 }
 
 .animation {
@@ -41,7 +36,6 @@
 	text-align: left;
 	align-items: center;
 	padding: 1rem 2rem;
-	/* justify-self: center; */
 }
 
 .hide {

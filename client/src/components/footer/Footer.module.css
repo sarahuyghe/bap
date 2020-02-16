@@ -5,26 +5,17 @@ footer {
 		#ff969b 100%
 	);
 	border-top: solid white 0.2rem;
-	/* position: fixed; */
 	left: 0px;
 	bottom: 0px;
-	/* position: relative; */
 }
-/* 
-h5 {
-	color: #ffffff;
-	font-size: 2.4rem;
-} */
 
 .footerInfo {
-	/* margin: 2rem; */
 	padding: 2rem;
 	text-align: center;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	font-size: 1.8rem;
-	/* align-content: space-between; */
 }
 
 h5 {
@@ -33,7 +24,6 @@ h5 {
 
 .footerInfo div {
 	width: 480px;
-	/* align-self: center; */
 }
 
 address {

@@ -12,9 +12,6 @@ const MessageForm = ({ teamStore, messageStore }) => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log(teamInput.current.value);
-
-		console.log(parseInt(teamInput.current.value));
 
 		messageStore.addMessage({
 			message: messageInput.current.value,
@@ -26,10 +23,6 @@ const MessageForm = ({ teamStore, messageStore }) => {
 		naamInput.current.value = "";
 	};
 
-	const handleChange = () => {
-		console.log("it's changing");
-		// setCheckedItem(!checkedItem);
-	};
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
