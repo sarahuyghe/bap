@@ -15,7 +15,7 @@
 		"fs": "0.0.1-security",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.4.19",
-		"nodemailer": "^6.4.2"
+		"nodemailer": "^6.4.16"
 	},
 	"devDependencies": {
 		"brotli-webpack-plugin": "^1.1.0",
